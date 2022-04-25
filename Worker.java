@@ -1,6 +1,8 @@
-public class Worker extends Customer {
+public class Worker extends User {
+  private String job;
 
-  public Worker(String _name, int _age) {
-    super(_name, _age, "Worker");
+  public Worker(String _name, int _age, String _job) {
+    super(_name, _age);
+    job = _job;
   }
 }
