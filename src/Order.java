@@ -2,14 +2,14 @@ import java.util.LinkedList;
 
 class Order{
     private int orderID=0;
-    private Customer c;
+    private Customer c; // hangi customer sipariş verdi
     private double coefficient=1.0;
     private double account =0.0;
      
     private LinkedList<Food> foods_in_menu= new LinkedList<Food>();
     private LinkedList<Integer> foodID = new LinkedList<Integer>();
 
-    Order(LinkedList<Integer> food, int orderID, Customer customer, Menu menu){
+    Order(LinkedList<Integer> food, int orderID, Customer customer, Menu menu){ 
         this.orderID = orderID;
         int i=0;
         while(i<food.size()){
@@ -24,9 +24,9 @@ class Order{
     public Customer get_customer(){return c;}
     public int get_orderID(){return orderID;}
 
-    public void discount_calc(){
+    public void coef_calc(){ //rastgele katsayılar ekledim düzenleme yapılır.
         if(c.is_vip()){
-            coefficient =0.65;
+            coefficient =0.85;
         }
             
         if(c.getJob() == "Student"){
@@ -36,7 +36,7 @@ class Order{
     }
 
     public double get_account(){
-        discount_calc();
+        coef_calc();
         for(int i=0 ; i<foodID.size(); i++){
            for(int j=0; j<foods_in_menu.size(); j++){
                
