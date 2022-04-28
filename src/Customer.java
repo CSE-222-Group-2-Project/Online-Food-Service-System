@@ -55,4 +55,10 @@ public class Customer extends User {
     public void seeMenu() { // menu classını çağırıp printlettirme,restoran classında da oalbilir
         // restorana geçirmek de mantıklı olabilir
     }
+    public Boolean is_vip(){
+        if(num_of_orders > 5){
+            return true;
+        }
+        else return false;
+    }
 }
