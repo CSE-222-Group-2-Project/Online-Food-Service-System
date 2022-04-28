@@ -1,48 +1,48 @@
 public class User implements Comparable<User> {
     private String name;
     private int age;
-    private int ID;
+    private String username;
     private String password;
 
-    User(String _name, int _age,int _ID,String _password) {
+    User(String _name, int _age, String _username, String _password) {
         name = _name;
         age = _age;
-        ID = _ID;
+        username = _username;
         password = _password;
     }
 
     User() {
         name = "Mustafa";
         age = 24;
-        ID = 1234;
+        username = "1234";
         password = "1234";
     }
 
-    public int getAge(){
+    public int getAge() {
         return age;
     }
 
-    public String getName(){
+    public String getName() {
         return name;
     }
 
-    public void changeID(int _ID){
-        ID = _ID;
+    public void changeUsername(String _username) {
+        username = _username;
     }
 
-    public void changePassword(String _password){
+    public void changePassword(String _password) {
         password = _password;
     }
-    
-    public boolean login(){
+
+    public boolean login() {
         return false;
     }
 
-    public void logout(){ //??
+    public void logout() { // ??
 
     }
 
-    public int compareTo(User other){
+    public int compareTo(User other) {
         return -1;
     }
 

@@ -1,6 +1,6 @@
 public class Chef extends Worker {
 
-  public Chef(String _name, int _age, int _ID, String _password) {
-    super(_name, _age, _ID, _password, "Chef");
+  public Chef(String _name, int _age, String _username, String _password) {
+    super(_name, _age, _username, _password, "Chef");
   }
 }
