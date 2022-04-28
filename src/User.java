@@ -26,6 +26,10 @@ public class User implements Comparable<User> {
         return name;
     }
 
+    public String getUsername() {
+        return username;
+    }
+    
     public void changeUsername(String _username) {
         username = _username;
     }
@@ -43,7 +47,7 @@ public class User implements Comparable<User> {
     }
 
     public int compareTo(User other) {
-        return -1;
+        return getUsername().compareTo(other.getUsername());
     }
 
 }
