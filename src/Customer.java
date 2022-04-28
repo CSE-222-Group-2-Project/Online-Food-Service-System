@@ -56,7 +56,7 @@ public class Customer extends User {
         // restorana geçirmek de mantıklı olabilir
     }
     public Boolean is_vip(){
-        if(num_of_orders > 5){
+        if(orderNumber > 5){
             return true;
         }
         else return false;
