@@ -1,3 +1,6 @@
+import java.util.LinkedList;
+import java.util.Scanner;
+
 public class Customer extends User {
     private String job;
     private String phoneNumber;
@@ -48,17 +51,30 @@ public class Customer extends User {
         return 0; // 0-5 aralığı, int[] de return edilebilir 3 kişiye oy verileceğinden
     }
 
-    public void giveOrder() { // return type Order classı herhalde
-
+    public LinkedList<Order> giveOrder(LinkedList<Integer> orderedFoods,LinkedList<Order> orders,int orderID, Menu m) { // return type Order classı herhalde
+        Scanner myInput = new Scanner( System.in );
+        int o=myInput.nextInt();
+        while( o != -1){
+            orderedFoods.add(o);
+            o=myInput.nextInt();
+        }
+        Order temp = new Order(orderedFoods,orderID,this,m);
+        orders.add(temp);
+        orderedFoods.clear();
+        orderNumber++;
+        return orders;
     }
 
     public void seeMenu() { // menu classını çağırıp printlettirme,restoran classında da oalbilir
         // restorana geçirmek de mantıklı olabilir
     }
+    
     public Boolean is_vip(){
         if(orderNumber > 5){
             return true;
         }
         else return false;
     }
+    
+    
 }
