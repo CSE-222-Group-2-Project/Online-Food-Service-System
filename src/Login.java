@@ -2,6 +2,8 @@ package src;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
 import src.tree.BinarySearchTree;
 
@@ -16,13 +18,14 @@ public class Login {
     System.out.println("1. Log In");
     System.out.println("2. Sign Up");
     System.out.println("3. Exit");
+    signUp();
   }
 
   public static User logIn() {
     String username = "";
     String password = "";
     boolean isUserExistCheck = true;
-    boolean isPasswordValidCheck = true;
+    boolean isPasswordTrueCheck = true;
     Scanner scanObj = new Scanner(System.in);
 
     while (isUserExistCheck) {
@@ -34,18 +37,86 @@ public class Login {
       }
     }
 
-    while (isPasswordValidCheck) {
+    while (isPasswordTrueCheck) {
       System.out.println("Enter your password please");
       password = scanObj.next();
-      isPasswordValidCheck = isPasswordValid(username, password);
+      isPasswordTrueCheck = isPasswordTrue(username, password);
+      if (!isPasswordTrueCheck) {
+        System.out.println("Password is not correct! Could not login.");
+      }
+    }
+
+    return getUserFromUsername(username);
+  }
+
+  public static User signUp() {
+    String name = "";
+    int age = 0;
+    String username = "";
+    String password = "";
+    boolean isUsernameValidCheck = false;
+    boolean isPasswordValidCheck = false;
+    boolean isNameValidCheck = false;
+    boolean isAgeValidCheck = false;
+    Scanner scanObj = new Scanner(System.in);
+    User newUser = null;
+
+    while (!isUsernameValidCheck) {
+      System.out.println("Enter your username please: ");
+      username = scanObj.next();
+      isUsernameValidCheck = isUsernameValid(username);
+      if (!isUsernameValidCheck) {
+        System.out.println("User does not exist! Please sign up.");
+      }
+    }
+
+    while (!isPasswordValidCheck) {
+      System.out.println("Enter your password please");
+      password = scanObj.next();
+      isPasswordValidCheck = isPasswordValid(password);
       if (!isPasswordValidCheck) {
         System.out.println("Password is not correct! Could not login.");
       }
     }
-    return null;
+
+    while (!isNameValidCheck) {
+      System.out.println("Enter your name please: ");
+      name = scanObj.next();
+      isNameValidCheck = isNameValid(name);
+      if (!isNameValidCheck) {
+        System.out.println("Name is not valid! Please try again.");
+      }
+    }
+
+    while (!isAgeValidCheck) {
+      System.out.println("Enter your age please: ");
+      age = scanObj.nextInt();
+      isAgeValidCheck = isAgeValid(age);
+      if (!isAgeValidCheck) {
+        System.out.println("Age is not valid! Please try again.");
+      }
+    }
+
+    newUser = new User(name, age, username, password);
+    addUserToDatabase(newUser);
+    return newUser;
   }
 
-  public static void signUp() {}
+  private static boolean isUsernameValid(String username) {
+    return true;
+  }
+
+  private static boolean isPasswordValid(String password) {
+    return true;
+  }
+
+  private static boolean isNameValid(String name) {
+    return true;
+  }
+
+  private static boolean isAgeValid(int age) {
+    return true;
+  }
 
   private static boolean isUserExist(String username) {
     BinarySearchTree<User> allUsers = new BinarySearchTree<User>();
@@ -53,14 +124,15 @@ public class Login {
     return allUsers.contains(new User(username, 0, "", ""));
   }
 
-  private static boolean isPasswordValid(String username, String password) {
+  private static boolean isPasswordTrue(String username, String password) {
     String correctPassword = "";
     correctPassword = getUserPassword(username);
     return correctPassword.equals(password);
   }
 
   private static String getUserPassword(String username) {
-    return "deneme";
+    User user = getUserFromUsername(username);
+    return user.getPassword();
   }
 
   private static User getUserFromUsername(String username) {
@@ -69,7 +141,25 @@ public class Login {
     return allUsers.find(new User(username, 0, "", ""));
   }
 
-  private static void addUserToDatabase() {}
+  private static void addUserToDatabase(User newUser) {
+    try {
+      String filename = DATABASE_FILE_PATH;
+      FileWriter fw = new FileWriter(filename, true); //the true will append the new data
+      fw.write(
+        newUser.getName() +
+        " " +
+        newUser.getAge() +
+        " " +
+        newUser.getUsername() +
+        " " +
+        newUser.getPassword() +
+        "\n"
+      );
+      fw.close();
+    } catch (IOException ioe) {
+      System.err.println("IOException: " + ioe.getMessage());
+    }
+  }
 
   private static void deleteUserFromDatabase() {}
 

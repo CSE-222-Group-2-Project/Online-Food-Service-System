@@ -33,6 +33,10 @@ public class User implements Comparable<User> {
     return username;
   }
 
+  public String getPassword() {
+    return password;
+  }
+
   public void changeUsername(String _username) {
     username = _username;
   }
