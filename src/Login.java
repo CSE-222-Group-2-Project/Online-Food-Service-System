@@ -50,16 +50,22 @@ public class Login {
   }
 
   public static User signUp() {
-    String name = "";
-    int age = 0;
-    String username = "";
-    String password = "";
-    boolean isUsernameValidCheck = false;
-    boolean isPasswordValidCheck = false;
-    boolean isNameValidCheck = false;
-    boolean isAgeValidCheck = false;
-    Scanner scanObj = new Scanner(System.in);
     User newUser = null;
+
+    String username = getUsernameFromUser();
+    String password = getPasswordFromUser();
+    String name = getNameFromUser();
+    int age = getAgeFromUser();
+
+    newUser = new User(name, age, username, password);
+    addUserToDatabase(newUser);
+    return newUser;
+  }
+
+  private static String getUsernameFromUser() {
+    String username = "";
+    boolean isUsernameValidCheck = false;
+    Scanner scanObj = new Scanner(System.in);
 
     while (!isUsernameValidCheck) {
       System.out.println("Enter your username please: ");
@@ -70,6 +76,13 @@ public class Login {
       }
     }
 
+    return username;
+  }
+
+  private static String getPasswordFromUser() {
+    String password = "";
+    boolean isPasswordValidCheck = false;
+    Scanner scanObj = new Scanner(System.in);
     while (!isPasswordValidCheck) {
       System.out.println("Enter your password please");
       password = scanObj.next();
@@ -78,6 +91,13 @@ public class Login {
         System.out.println("Password is not correct! Could not login.");
       }
     }
+    return password;
+  }
+
+  private static String getNameFromUser() {
+    String name = "";
+    boolean isNameValidCheck = false;
+    Scanner scanObj = new Scanner(System.in);
 
     while (!isNameValidCheck) {
       System.out.println("Enter your name please: ");
@@ -87,6 +107,13 @@ public class Login {
         System.out.println("Name is not valid! Please try again.");
       }
     }
+    return name;
+  }
+
+  private static int getAgeFromUser() {
+    int age = 0;
+    boolean isAgeValidCheck = false;
+    Scanner scanObj = new Scanner(System.in);
 
     while (!isAgeValidCheck) {
       System.out.println("Enter your age please: ");
@@ -97,9 +124,7 @@ public class Login {
       }
     }
 
-    newUser = new User(name, age, username, password);
-    addUserToDatabase(newUser);
-    return newUser;
+    return age;
   }
 
   private static boolean isUsernameValid(String username) {
