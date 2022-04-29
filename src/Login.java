@@ -22,10 +22,28 @@ public class Login {
   }
 
   public static User logIn() {
+    String username = getUsernameFromUserForLogIn();
+    String password = getPasswordFromUserForLogIn(username);
+
+    return getUserFromUsername(username);
+  }
+
+  public static User signUp() {
+    User newUser = null;
+
+    String name = getNameFromUser();
+    int age = getAgeFromUser();
+    String username = getUsernameFromUserForSignUp();
+    String password = getPasswordFromUserForSignUp();
+
+    newUser = new User(name, age, username, password);
+    addUserToDatabase(newUser);
+    return newUser;
+  }
+
+  private static String getUsernameFromUserForLogIn() {
     String username = "";
-    String password = "";
     boolean isUserExistCheck = true;
-    boolean isPasswordTrueCheck = true;
     Scanner scanObj = new Scanner(System.in);
 
     while (isUserExistCheck) {
@@ -36,6 +54,13 @@ public class Login {
         System.out.println("User does not exist! Please sign up.");
       }
     }
+    return username;
+  }
+
+  private static String getPasswordFromUserForLogIn(String username) {
+    String password = "";
+    boolean isPasswordTrueCheck = true;
+    Scanner scanObj = new Scanner(System.in);
 
     while (isPasswordTrueCheck) {
       System.out.println("Enter your password please");
@@ -45,24 +70,10 @@ public class Login {
         System.out.println("Password is not correct! Could not login.");
       }
     }
-
-    return getUserFromUsername(username);
+    return password;
   }
 
-  public static User signUp() {
-    User newUser = null;
-
-    String username = getUsernameFromUser();
-    String password = getPasswordFromUser();
-    String name = getNameFromUser();
-    int age = getAgeFromUser();
-
-    newUser = new User(name, age, username, password);
-    addUserToDatabase(newUser);
-    return newUser;
-  }
-
-  private static String getUsernameFromUser() {
+  private static String getUsernameFromUserForSignUp() {
     String username = "";
     boolean isUsernameValidCheck = false;
     Scanner scanObj = new Scanner(System.in);
@@ -79,7 +90,7 @@ public class Login {
     return username;
   }
 
-  private static String getPasswordFromUser() {
+  private static String getPasswordFromUserForSignUp() {
     String password = "";
     boolean isPasswordValidCheck = false;
     Scanner scanObj = new Scanner(System.in);
@@ -161,7 +172,7 @@ public class Login {
   }
 
   private static User getUserFromUsername(String username) {
-    BinarySearchTree<User> allUsers = new BinarySearchTree<User>();
+    BinarySearchTree<User> allUsers = new BinarySearchTree<>();
     allUsers = getAllUsersFromDatabase();
     return allUsers.find(new User(username, 0, "", ""));
   }
@@ -169,7 +180,7 @@ public class Login {
   private static void addUserToDatabase(User newUser) {
     try {
       String filename = DATABASE_FILE_PATH;
-      FileWriter fw = new FileWriter(filename, true); //the true will append the new data
+      FileWriter fw = new FileWriter(filename, true);
       fw.write(
         newUser.getName() +
         " " +
