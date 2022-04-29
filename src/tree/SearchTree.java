@@ -1,4 +1,4 @@
-package tree;
+package src.tree;
 
 /**
  * Searchable tree interface

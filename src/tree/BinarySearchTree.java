@@ -1,4 +1,4 @@
-package tree;
+package src.tree;
 
 /**
  * Implementation of a Binary Search Tree

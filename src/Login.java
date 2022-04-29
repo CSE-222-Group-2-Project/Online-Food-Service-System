@@ -1,7 +1,14 @@
+package src;
+
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
-import tree.BinarySearchTree;
+import src.tree.BinarySearchTree;
 
 public class Login {
+
+  private static final String DATABASE_FILE_PATH =
+    "../src/user_database/users.txt";
 
   public static void showLoginMenu() {
     System.out.println("ONLINE FOOD SERVICE SYSTEM\n");
@@ -14,7 +21,6 @@ public class Login {
   public static User logIn() {
     String username = "";
     String password = "";
-    String correctPassword = "";
     boolean isUserExistCheck = true;
     boolean isPasswordValidCheck = true;
     Scanner scanObj = new Scanner(System.in);
@@ -28,13 +34,11 @@ public class Login {
       }
     }
 
-    correctPassword = getUserPassword(username);
-
     while (isPasswordValidCheck) {
       System.out.println("Enter your password please");
       password = scanObj.next();
-
-      if (!isPasswordValid(password)) {
+      isPasswordValidCheck = isPasswordValid(username, password);
+      if (!isPasswordValidCheck) {
         System.out.println("Password is not correct! Could not login.");
       }
     }
@@ -44,11 +48,15 @@ public class Login {
   public static void signUp() {}
 
   private static boolean isUserExist(String username) {
-    return false;
+    BinarySearchTree<User> allUsers = new BinarySearchTree<User>();
+    allUsers = getAllUsersFromDatabase();
+    return allUsers.contains(new User(username, 0, "", ""));
   }
 
-  private static boolean isPasswordValid(String password) {
-    return false;
+  private static boolean isPasswordValid(String username, String password) {
+    String correctPassword = "";
+    correctPassword = getUserPassword(username);
+    return correctPassword.equals(password);
   }
 
   private static String getUserPassword(String username) {
@@ -56,7 +64,9 @@ public class Login {
   }
 
   private static User getUserFromUsername(String username) {
-    return null;
+    BinarySearchTree<User> allUsers = new BinarySearchTree<User>();
+    allUsers = getAllUsersFromDatabase();
+    return allUsers.find(new User(username, 0, "", ""));
   }
 
   private static void addUserToDatabase() {}
@@ -65,5 +75,32 @@ public class Login {
 
   private static void updateUserInDatabase() {}
 
-  private static void getAllUsers() {}
+  private static BinarySearchTree<User> getAllUsersFromDatabase() {
+    try {
+      BinarySearchTree<User> allUsers = new BinarySearchTree<>();
+      File file = new File(DATABASE_FILE_PATH);
+      Scanner myReader = new Scanner(file);
+      while (myReader.hasNextLine()) {
+        String lineText = myReader.nextLine();
+        allUsers.add(parseLine(lineText));
+      }
+      myReader.close();
+      return allUsers;
+    } catch (FileNotFoundException e) {
+      System.out.println("An error occurred.");
+      e.printStackTrace();
+    }
+    return null;
+  }
+
+  private static User parseLine(String lineText) {
+    String[] tokens = lineText.split(" ");
+    User user = new User(
+      tokens[0],
+      Integer.parseInt(tokens[1]),
+      tokens[2],
+      tokens[3]
+    );
+    return user;
+  }
 }
