@@ -10,8 +10,8 @@ public class Restaurant {
     private float score;
     private int numberofScores;
     private Menu menu;
-    private ArrayList<Worker> workers;
-    private ArrayList<Customer> customers;
+    protected ArrayList<Worker> workers;
+    protected ArrayList<Customer> customers;
 
 
     public void Restaurant() {
@@ -42,8 +42,9 @@ public class Restaurant {
 
     }
 
-    public String menu() {
-        return "empty";
+    public ArrayList<Worker> getWorkers()
+    {
+        return workers;
     }
 
 }
