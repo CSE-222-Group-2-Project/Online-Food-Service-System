@@ -5,11 +5,13 @@ import java.util.ArrayList;
 public class Restaurant {
     private int income;
     private int outcome;
-    private ArrayList<Order> orders;
-    private ArrayList<Order> ordersPrepared;
+    private ArrayList<Order> orders; // Linkedlist şeklinde depolanacak
+    private ArrayList<Order> ordersPrepared; // Linkedlist şeklinde depolanacak
     private float score;
     private int numberofScores;
     private Menu menu;
+    private ArrayList<Worker> workers;
+    private ArrayList<Customer> customers;
 
 
     public void Restaurant() {
