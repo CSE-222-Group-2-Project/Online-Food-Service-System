@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.Scanner;
 import src.tree.BinarySearchTree;
 
-public class Login {
+public class Authentication {
 
   private static final String DATABASE_FILE_PATH =
     "../src/user_database/users.txt";
@@ -31,8 +31,8 @@ public class Login {
   public static User signUp() {
     User newUser = null;
 
-    String name = getNameFromUser();
-    int age = getAgeFromUser();
+    String name = getNameFromUserForSignUp();
+    int age = getAgeFromUserForSignUp();
     String username = getUsernameFromUserForSignUp();
     String password = getPasswordFromUserForSignUp();
 
@@ -105,7 +105,7 @@ public class Login {
     return password;
   }
 
-  private static String getNameFromUser() {
+  private static String getNameFromUserForSignUp() {
     String name = "";
     boolean isNameValidCheck = false;
     Scanner scanObj = new Scanner(System.in);
@@ -121,7 +121,7 @@ public class Login {
     return name;
   }
 
-  private static int getAgeFromUser() {
+  private static int getAgeFromUserForSignUp() {
     int age = 0;
     boolean isAgeValidCheck = false;
     Scanner scanObj = new Scanner(System.in);
