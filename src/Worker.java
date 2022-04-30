@@ -14,4 +14,8 @@ public class Worker extends User {
     super(_name, _age, _username, _password);
     job = _job;
   }
+  public String getJob(){
+    return job;
+  }
+
 }

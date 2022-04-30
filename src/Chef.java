@@ -34,6 +34,5 @@ public class Chef extends Worker {
   public int incrementCertificateNumber() {
     return this.certificateNumber++;
   }
-
   public void changeMenu() {}
 }
