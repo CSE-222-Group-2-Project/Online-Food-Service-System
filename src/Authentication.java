@@ -197,10 +197,6 @@ public class Authentication {
     }
   }
 
-  private static void deleteUserFromDatabase() {}
-
-  private static void updateUserInDatabase() {}
-
   private static BinarySearchTree<User> getAllUsersFromDatabase() {
     try {
       BinarySearchTree<User> allUsers = new BinarySearchTree<>();
@@ -229,5 +225,4 @@ public class Authentication {
     );
     return user;
   }
-
 }
