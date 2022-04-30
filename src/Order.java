@@ -21,6 +21,7 @@ class Order {
     }
     c = customer;
     foods_in_menu = menu.get_foods();
+    calculate_account();
   }
 
   public Customer get_customer() {
@@ -36,12 +37,12 @@ class Order {
       coefficient = 0.85;
     }
 
-    if (c.getJob() == "Student") {
+    if (c.is_student()) {
       coefficient = 0.75;
     }
   }
 
-  public double get_account() {
+  public double calculate_account() {
     coef_calc();
     for (int i = 0; i < foodID.size(); i++) {
       for (int j = 0; j < foods_in_menu.size(); j++) {
@@ -54,15 +55,16 @@ class Order {
     return account;
   }
 
-  public void order_print() {
-    int i = 0;
-    System.out.println("Order id " + orderID);
-    System.out.println("Ordered customer is: " + c.getJob());
-    System.out.println("Ordered foods:");
+  public String toString() {
+    StringBuilder stb = new StringBuilder();
+    
+    stb.append("\nOrder id: "+ orderID);
+    stb.append("\nOrder price: "+ account);
+    stb.append("\nOrdered foods:");
+    
+    for(int i:foodID)
+      stb.append("\n"+Integer.toString(i));
 
-    while (i < foodID.size()) {
-      System.out.println(foodID.get(i));
-      i++;
-    }
+    return stb.toString();
   }
 }

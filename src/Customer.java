@@ -8,8 +8,8 @@ public class Customer extends User {
   private String job;
   private String phoneNumber;
   private float balance;
-  private int orderNumber;
-  private int status; // 1 student(yaşa veya mesleğe göre) 2 vıp(ordernumberına göre)
+  private int orderNumber = 0;
+  private  LinkedList<Order> myOrders = new LinkedList<Order>();
 
   Customer(
     String _name,
@@ -24,17 +24,13 @@ public class Customer extends User {
     job = _job;
     phoneNumber = _phoneNumber;
     balance = _balance;
-    orderNumber = 0;
-    status = 0;
   }
 
   Customer() {
     super();
     job = "Teacher";
     phoneNumber = "0555555555";
-    balance = 0;
-    orderNumber = 0;
-    status = 0;
+    balance = 100;
   }
 
   public String getJob() {
@@ -54,7 +50,13 @@ public class Customer extends User {
   }
 
   public String myOrders() {
-    return "empty";
+    int order_sequence = 0;
+    StringBuilder stb = new StringBuilder();
+    for(Order order: myOrders){
+      order_sequence++;
+      stb.append("\n"+order_sequence+"th Order:\n"+order.toString());
+    }
+    return stb.toString();
   }
 
   public int giveVote() {
@@ -66,7 +68,7 @@ public class Customer extends User {
     LinkedList<Order> orders,
     int orderID,
     Menu m
-  ) { // return type Order classı herhalde
+  ) {
     Scanner myInput = new Scanner(System.in);
     int o = myInput.nextInt();
     while (o != -1) {
@@ -80,13 +82,17 @@ public class Customer extends User {
     return orders;
   }
 
-  public void seeMenu() { // menu classını çağırıp printlettirme,restoran classında da oalbilir
-    // restorana geçirmek de mantıklı olabilir
+  public boolean is_vip() {
+    if (getOrderNumber() > 5)
+      return true;
+
+    else return false;
   }
 
-  public Boolean is_vip() {
-    if (orderNumber > 5) {
+  public boolean is_student() {
+    if(getJob().equals("Student"))
       return true;
-    } else return false;
+    else
+      return false;
   }
 }

@@ -42,4 +42,8 @@ public class Restaurant {
 
     }
 
+    public String menu() {
+        return "empty";
+    }
+
 }
