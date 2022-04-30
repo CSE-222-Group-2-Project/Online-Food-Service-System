@@ -47,4 +47,8 @@ public class Restaurant {
         return workers;
     }
 
+    public String menu() {
+        return "empty";
+    }
+
 }
