@@ -2,6 +2,10 @@ package src;
 
 import java.util.ArrayList;
 
+/**
+ * Admin classı restauranttan extend edilmesse her methodta parametere olarak almak gerekiyor??
+ */
+
 public class Admin {
 
     String fullName;
@@ -49,6 +53,17 @@ public class Admin {
             System.out.println("---------------");;
         }
     }
+
+    public void income_outcome(Restaurant restaurant){
+
+        System.out.println("The total income is " + restaurant.income);
+        System.out.println("The total outcome is " + restaurant.outcome);
+        System.out.println("The profit is " + (restaurant.income - restaurant.outcome));
+    }
+
+    
+
+
 
 
 
