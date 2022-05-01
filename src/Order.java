@@ -10,8 +10,8 @@ class Order {
   orderDelivered
   }
   Status status = Status.orderTaken;
-  private String whoCooked; // Shows which chef cooked that order
-  private String whoDelivered; // Shows which couier delivered that order
+  private Chef whoCooked; // Shows which chef cooked that order
+  private Courier whoDelivered; // Shows which couier delivered that order
   private int orderID = 0;
   private Customer c; // hangi customer sipariş verdi
   private double coefficient = 1.0;
@@ -36,11 +36,11 @@ class Order {
     return c;
   }
 
-  public String getWhoCooked(){
+  public Chef getWhoCooked(){
     return whoCooked;
   }
 
-  public String getWhoDelivered(){
+  public Courier getWhoDelivered(){
     return whoDelivered;
   }
 
