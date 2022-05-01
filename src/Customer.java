@@ -11,7 +11,7 @@ public class Customer extends User {
   private int orderNumber = 0;
   private  LinkedList<Order> myOrders = new LinkedList<Order>();
 
-  Customer(
+  public Customer(
     String _name,
     int _age,
     String _job,
@@ -61,6 +61,8 @@ public class Customer extends User {
 
   public int giveVote() {
     return 0; // 0-5 aralığı, int[] de return edilebilir 3 kişiye oy verileceğinden
+    // This method will run after courier delivers the order to the customer.
+    // !!! getWhoCooked burada çağırılıp, ilgili chef'e oy verilmeli ama giveVote'un nerede çağırıldığına göre parametre, return type eklenmeli.
   }
 
   public LinkedList<Order> giveOrder(

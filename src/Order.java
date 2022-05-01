@@ -3,7 +3,15 @@ package src;
 import java.util.LinkedList;
 
 class Order {
-
+  // 3 yeni data field ekledim. Bunları chef'in vs constructor'ında doldur.
+  enum Status {
+  orderTaken, // Shows whether order is proper or not
+  orderPrepared,
+  orderDelivered
+  }
+  Status status = Status.orderTaken;
+  private String whoCooked; // Shows which chef cooked that order
+  private String whoDelivered; // Shows which couier delivered that order
   private int orderID = 0;
   private Customer c; // hangi customer sipariş verdi
   private double coefficient = 1.0;
@@ -28,8 +36,20 @@ class Order {
     return c;
   }
 
+  public String getWhoCooked(){
+    return whoCooked;
+  }
+
+  public String getWhoDelivered(){
+    return whoDelivered;
+  }
+
   public int get_orderID() {
     return orderID;
+  }
+
+  public void setStatus(Status stat){
+    status = stat;
   }
 
   public void coef_calc() { //rastgele katsayılar ekledim düzenleme yapılır.

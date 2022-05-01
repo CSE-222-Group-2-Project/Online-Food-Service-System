@@ -7,7 +7,7 @@ public class User implements Comparable<User> {
   private String username;
   private String password;
 
-  User(String _name, int _age, String _username, String _password) {
+  public User(String _name, int _age, String _username, String _password) {
     name = _name;
     age = _age;
     username = _username;
@@ -54,4 +54,8 @@ public class User implements Comparable<User> {
   public int compareTo(User other) {
     return getUsername().compareTo(other.getUsername());
   }
+
+  //public boolean add() {}
+
+  public void makeOrderReady() {}
 }

@@ -4,7 +4,7 @@ public class Worker extends User {
 
   private String job;
   private double salary;
-  private double score = 30; 
+  private double score = 30;  // 10'un altına düşerse o işçi kovulsun
   private int experienceYear;
 
   public Worker(
