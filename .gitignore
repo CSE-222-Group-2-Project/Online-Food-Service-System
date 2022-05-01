@@ -1,2 +1,4 @@
+# compiled class files
 *.class
+# this file contains compiled class files
 /bin
