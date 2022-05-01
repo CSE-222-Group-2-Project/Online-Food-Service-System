@@ -4,7 +4,7 @@ public class Worker extends User {
 
   private String job;
   private double salary;
-  private double score;
+  private double score = 30; 
   private int experienceYear;
 
   public Worker(
@@ -32,6 +32,10 @@ public class Worker extends User {
 
   public int getExperienceYear() {
     return experienceYear;
+  }
+
+  public void setSalary(double newSalary){
+    salary = newSalary;
   }
 
   private void calculateSalary() {}
