@@ -6,62 +6,87 @@ import java.util.ArrayList;
  * Admin classı restauranttan extend edilmesse her methodta parametere olarak almak gerekiyor??
  */
 
-public class Admin {
+public class Admin extends User{
 
-    String fullName;
-    String password;
+    private Restaurant restaurant;
 
-
-    public Admin(String fullName, String password){
-        this.fullName = fullName;
-        this.password = password;
+    public Admin(Restaurant restaurant, String name, int age, String username, String password){
+        super(name,age,username,password);
+        this.restaurant = restaurant;
     }
 
     public Admin(){
-        this.fullName = "Administrator" ;
-        this.password = "admin";
+        super();
     }    
 
-
     //Username ve password bastırmadım 
-    public void showWorkersInfo(Restaurant restaurant){
+    public void showWorkersInfo(){
     
-        ArrayList<Worker> workers = restaurant.workers;
-        for (int i = 0; i < workers.size(); i++) {
+        for (Worker worker : restaurant.workers) {
 
-            System.out.println("Job: " + workers.get(i).getJob());
-            System.out.println("Name: " + workers.get(i).getName());
-            System.out.println("Age: " + workers.get(i).getAge());
+            System.out.println("Job: " + worker.getJob());
+            System.out.println("Name: " + worker.getName());
+            System.out.println("Age: " + worker.getAge());
 
-            if(workers.get(i) instanceof Chef)
-                System.out.println("Certification Number: "+ ((Chef)workers.get(i)).getCertificateNumber());
+            if(worker instanceof Chef)
+                System.out.println("Certification Number: "+ ((Chef)worker).getCertificateNumber());
             System.out.println("---------------");
         }
     }
 
-    public void showCustomersInfo(Restaurant restaurant){
+    public void showCustomersInfo(){
     
-        ArrayList<Customer> customers = restaurant.customers;
-        for (int i = 0; i < customers.size(); i++) {
+        for (Customer customer : restaurant.customers)
+        {
 
-            System.out.println("Name: " + customers.get(i).getName());
-            System.out.println("Job: " + customers.get(i).getJob());
-            System.out.println("Age: " + customers.get(i).getAge());
-            System.out.println("Balance: " + customers.get(i).getBalance());
-            System.out.println("Last Order number: " + customers.get(i).getOrderNumber());
-            System.out.println("Phone Number: " + customers.get(i).getPhone());
+            System.out.println("Name: " + customer.getName());
+            System.out.println("Job: " + customer.getJob());
+            System.out.println("Age: " + customer.getAge());
+            System.out.println("Balance: " + customer.getBalance());
+            System.out.println("Last Order number: " + customer.getOrderNumber());
+            System.out.println("Phone Number: " + customer.getPhone());
             System.out.println("---------------");;
         }
     }
 
-    public void income_outcome(Restaurant restaurant){
+    public void income_outcome(){
 
         System.out.println("The total income is " + restaurant.income);
         System.out.println("The total outcome is " + restaurant.outcome);
         System.out.println("The profit is " + (restaurant.income - restaurant.outcome));
     }
 
+    public boolean fireWorker(Worker firedWorker)
+    {
+        if(firedWorker.getScore() < 10)
+        {
+            System.out.println(firedWorker.getName() + " has been fired with " + firedWorker.getScore() + " score.");
+            restaurant.workers.remove(firedWorker);
+            return true;
+        }
+        else 
+            return false;
+    }
+
+    //Update all salaries 
     
+    public void EditSalary()
+    {
+        
+        for (Worker worker : restaurant.workers) {
+            
+            if(worker.getScore() > 50) // Çalışanın scoru 50 üzerine çıkarsa -> score%10 * 100 * ExperienceYear, salaryiye eklenir  
+                                       //ve scoru ilk haline getitir sürekli zam yapmamış olmak için
+
+            {   
+                 worker.setSalary(worker.getSalary() +  worker.getExperienceYear() * 100 * (worker.getScore() % 10)) ;    
+                 worker.setScore(30);
+            }
+            else;
+        }
+
+    }
+
 
 
 
