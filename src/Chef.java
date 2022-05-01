@@ -23,8 +23,9 @@ public class Chef extends Worker {
     newOrders.add(order);
   }
 
-  public void cookFood() {
+  public void cookFood(Courier courier) {
     Order order = newOrders.poll();
+    courier.addOrder(order);
   }
 
   public int getCertificateNumber() {
@@ -34,5 +35,6 @@ public class Chef extends Worker {
   public int incrementCertificateNumber() {
     return this.certificateNumber++;
   }
+
   public void changeMenu() {}
 }

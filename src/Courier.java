@@ -10,8 +10,11 @@ public class Courier extends Worker {
     super(_name, _age, _username, _password, "Courier");
   }
 
-  public void deliverFood() {
-    Order order = orderQueue.poll();
+  public void addOrder(Order order) {
+    orderQueue.add(order);
+  }
+
+  public void deliverOrderToCustomer(Order order) {
     Customer orderOwner = order.get_customer();
   }
 }
