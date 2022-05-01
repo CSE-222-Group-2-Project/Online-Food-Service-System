@@ -4,7 +4,7 @@ import java.util.LinkedList;
 
 class Order {
   // 3 yeni data field ekledim. Bunları chef'in vs constructor'ında doldur.
-  enum Status {
+  public enum Status {
   orderTaken, // Shows whether order is proper or not
   orderPrepared,
   orderDelivered
