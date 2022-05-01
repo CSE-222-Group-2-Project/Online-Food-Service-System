@@ -12,23 +12,22 @@ class Order {
   Status status = Status.orderTaken;
   private Chef whoCooked; // Shows which chef cooked that order
   private Courier whoDelivered; // Shows which couier delivered that order
-  private int orderID = 0;
+  private int orderID;
   private Customer c; // hangi customer sipariş verdi
   private double coefficient = 1.0;
   private double account = 0.0;
 
-  private LinkedList<Food> foods_in_menu = new LinkedList<Food>();
-  private LinkedList<Integer> foodID = new LinkedList<Integer>();
+  //private LinkedList<Food> foods_in_menu = new LinkedList<Food>();
+  //private LinkedList<Integer> foodID = new LinkedList<Integer>();
+  private LinkedList<Food> foods = new LinkedList<Food>();
 
-  Order(LinkedList<Integer> food, int orderID, Customer customer, Menu menu) {
+  Order(int orderID, Customer customer,LinkedList<Food> _foods,Chef _whoCooked,Courier _whoDelivered) {
     this.orderID = orderID;
-    int i = 0;
-    while (i < food.size()) {
-      foodID.add(food.get(i));
-      i++;
-    }
     c = customer;
-    foods_in_menu = menu.get_foods();
+    whoCooked = _whoCooked;
+    whoDelivered = _whoDelivered;
+    foods = _foods;
+
     calculate_account();
   }
 
@@ -64,13 +63,9 @@ class Order {
 
   public double calculate_account() {
     coef_calc();
-    for (int i = 0; i < foodID.size(); i++) {
-      for (int j = 0; j < foods_in_menu.size(); j++) {
-        if (foodID.get(i) == foods_in_menu.get(j).get_foodID()) {
-          account += foods_in_menu.get(j).get_food_price();
-        }
-      }
-    }
+    for(Food afood: foods)
+      account+= afood.get_food_price();
+    
     account *= coefficient;
     return account;
   }
@@ -82,9 +77,10 @@ class Order {
     stb.append("\nOrder price: "+ account);
     stb.append("\nOrdered foods:");
     
-    for(int i:foodID)
-      stb.append("\n"+Integer.toString(i));
+    for(Food afood:foods)
+      stb.append("\n"+afood.toString());
 
     return stb.toString();
   }
 }
+

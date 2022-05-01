@@ -27,4 +27,13 @@ public class Food {
   double get_food_price() {
     return food_price;
   }
+
+
+  public String toString() {
+    StringBuilder stb = new StringBuilder();
+
+    stb.append(Integer.toString(foodID)+" "+food_name+" "+Double.toString(get_food_price()));
+
+    return stb.toString();
+  }
 }

@@ -84,6 +84,11 @@ public class Customer extends User {
     return orders;
   }
 
+  public LinkedList<Order> giveOrder(LinkedList<Order> restaurantOrders , Order wantedOrder) {
+    restaurantOrders.add(wantedOrder); // bura düzenlencek !!!
+
+  }
+
   public boolean is_vip() {
     if (getOrderNumber() > 5)
       return true;
