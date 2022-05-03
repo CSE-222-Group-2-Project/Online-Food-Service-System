@@ -1,10 +1,10 @@
-Arda ardasan 20ardarr +905055555555 3
-Cem cemyilmaz cemhaha12 +905055555553 6
-Eren erenjeager mikasa123 +905055555523 1 
-Kerem keremgonlum kerbas3 +905055555532 7 
-Baran barant taraban123 +905055555512 8
-Evren evrengoz gsevren32 +905055555552 2 
-Mecnun mecnunle leylam123 +905055555562 3 
-Erdem erdemsener senerde12 +905055555576 5 
-Taylan taylanta tay10lan +905055555513 5 
-Mert mertgunok fb12mert +905055555539 4
+Arda 26 ardasan 20ardarr +905055555555 3
+Cem 29 cemyilmaz cemhaha12 +905055555553 6
+Eren 24 erenjeager mikasa123 +905055555523 1 
+Kerem 30 keremgonlum kerbas3 +905055555532 7 
+Baran 32 barant taraban123 +905055555512 8
+Evren 26 evrengoz gsevren32 +905055555552 2 
+Mecnun 27 mecnunle leylam123 +905055555562 3 
+Erdem 29 erdemsener senerde12 +905055555576 5 
+Taylan 28 taylanta tay10lan +905055555513 5 
+Mert 28 mertgunok fb12mert +905055555539 4
