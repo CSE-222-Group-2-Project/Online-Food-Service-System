@@ -3,33 +3,34 @@ package src;
 import java.util.PriorityQueue;
 import java.util.Queue;
 
-public class Chef extends Worker { // !!! ne eklenebilir düşün
-  workerStatus chefStat; 
+public class Chef extends Worker {
+
+  workerStatus chefStat;
   private int certificateNumber;
-  private Queue<Order> newOrders = new PriorityQueue<Order>(); // All incoming orders will be kept in this field.
+  private Queue<Order> newOrders = new PriorityQueue<Order>();
 
   public Chef(
     String _name,
     int _age,
     String _username,
     String _password,
-    int _certificateNumber
+    int _certificateNumber,
+    int experienceYear
   ) {
-    super(_name, _age, _username, _password, "Chef");
-    this.certificateNumber = _certificateNumber;  // !!! certificateNumber maaş hesabında vs kullanılack
-    // calculateStatus() cagir.
+    super(_name, _age, _username, _password, "Chef", experienceYear);
+    this.certificateNumber = _certificateNumber; // !!! certificateNumber maaş hesabında vs kullanılack
+    calculateStatus();
   }
 
   public void addOrder(Order order) {
-    newOrders.add(order); // Until reaching some amount, orders will be added to queue.
+    // Until reaching some amount, orders will be added to queue.
+    newOrders.add(order);
   }
 
-// order'ı queue'dan çek, statüsünü değiştir.
-  public void orderPrepared(Courier courier) {
-    Order order = newOrders.poll(); // Oldest order in newOrders queue will be cooked in here.
-    order.setStatus(orderPrepared);
-    courier.addOrder(order);  // Polled order will be send to courier.
-        // !!! kuryeye burda haber gönder.
+  public void prepareOrder(Courier courier) {
+    Order order = newOrders.poll();
+    order.setStatus(Order.Status.orderPrepared);
+    courier.addOrder(order);
   }
 
   public int getCertificateNumber() {
@@ -40,10 +41,17 @@ public class Chef extends Worker { // !!! ne eklenebilir düşün
     return this.certificateNumber++;
   }
 
-  public void calculateStatus(){
-    //switch(experienceyerar) 'a göre set chefStat.
+  public void calculateStatus() {
+    if (getExperienceYear() < 4) {
+      chefStat = workerStatus.beginner;
+    } else if (getExperienceYear() < 6) {
+      chefStat = workerStatus.junior;
+    } else if (getExperienceYear() < 8) {
+      chefStat = workerStatus.midLevel;
+    } else {
+      chefStat = workerStatus.senior;
+    }
   }
 
   public void changeMenu() {} // !!! üzerine düşün
-
 }
