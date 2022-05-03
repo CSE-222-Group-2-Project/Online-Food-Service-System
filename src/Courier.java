@@ -2,12 +2,22 @@ package src;
 
 import java.util.PriorityQueue;
 
-public class Courier extends Worker { // !!! ne eklenebilir düşün
+/**
+ * Courier class is a subclass of Worker class which represents the Courier of the restaurant.
+ * @since  03-03-2022
+ *
+ */
+
+/**
+ * Courier class is a subclass of Worker class which represents the Courier of the restaurant.
+ */
+public class Courier extends Worker {
 
   workerStatus courierStat;
-  private String phoneNumber; // constructorlara ekle
+  private String phoneNumber;
   private PriorityQueue<Order> orderQueue = new PriorityQueue<>(); // To determine which order is more "important", priority queue is used.
 
+  /* Default Constructer of Courier Class */
   public Courier(
     String _name,
     int _age,
@@ -20,16 +30,30 @@ public class Courier extends Worker { // !!! ne eklenebilir düşün
     this.phoneNumber = _phoneNumber;
   }
 
+  /**
+   * Add the order to the order queue.
+   *
+   * @param order The order to be added to the queue.
+   */
   public void addOrder(Order order) {
-    orderQueue.add(order); // add func bu halde valid, bizim bir add func yazmamıza gerek yok.
+    orderQueue.add(order);
   }
 
-  public void deliverOrderToCustomer(Order order) { // !!! fill
+  /**
+   * Deliver the order to the customer.
+   *
+   * @param order The order that is to be delivered to the customer.
+   */
+  public void deliverOrderToCustomer(Order order) {
     Customer orderOwner = order.get_customer(); // orderOwner'ın foodTaken tarzı bir methodu olsun. atacana bildir :D
     order.setStatus(Order.Status.orderDelivered);
-    // orderOwner.takeOrder(order);
+    orderOwner.takeOrder(order);
   }
 
+  /**
+   * Calculate the status of the courier according to the experience year.
+   *
+   */
   public void calculateStatus() {
     if (getExperienceYear() < 4) {
       courierStat = workerStatus.beginner;
