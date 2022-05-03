@@ -56,31 +56,33 @@ public class Admin extends User{
         System.out.println("The profit is " + (restaurant.income - restaurant.outcome));
     }
 
-    public boolean fireWorker(Worker firedWorker)
-    {
-        if(firedWorker.getScore() < 10)
-        {
-            System.out.println(firedWorker.getName() + " has been fired with " + firedWorker.getScore() + " score.");
-            restaurant.workers.remove(firedWorker);
-            return true;
-        }
-        else 
-            return false;
-    }
-
-    //Update all salaries 
-    
-    public void EditSalary()
+    public void fireWorker()
     {
         
         for (Worker worker : restaurant.workers) {
-            
-            if(worker.getScore() > 50) // Çalışanın scoru 50 üzerine çıkarsa -> score%10 * 100 * ExperienceYear, salaryiye eklenir  
-                                       //ve scoru ilk haline getitir sürekli zam yapmamış olmak için
-
+    
+            if( worker.getVoteAmount() > 10 && worker.getScore() / worker.getVoteAmount() < 4 ) // sipariş sayısı 10 dan fazlaysa ve puanı 4 den düşükse kov
             {   
-                 worker.setSalary(worker.getSalary() +  worker.getExperienceYear() * 100 * (worker.getScore() % 10)) ;    
-                 worker.setScore(30);
+                System.out.println(worker.getName() + " has been fired with " + worker.getScore()/worker.getVoteAmount() + " score.");
+                restaurant.workers.remove(worker);
+            }
+            else;
+        }
+    
+
+    }
+
+    //Update all salaries 
+    public void EditSalary()
+    {
+        //değişecek
+        for (Worker worker : restaurant.workers) {
+            
+            if(worker.getScore()/worker.getVoteAmount() > 8) // Çalışanın scoru 8 üzerine çıkarsa -> score * 100 * ExperienceYear, salaryiye eklenir ??  
+                                       
+            {   
+                 worker.setSalary(worker.getSalary() +  worker.getExperienceYear() * 100 * (worker.getScore()/worker.getVoteAmount())) ;    
+                 worker.setScore(4); // scoru sıfırlamak gerekebilir??
             }
             else;
         }
