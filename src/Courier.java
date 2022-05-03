@@ -52,7 +52,6 @@ public class Courier extends Worker {
 
   /**
    * Calculate the status of the courier according to the experience year.
-   *
    */
   public void calculateStatus() {
     if (getExperienceYear() < 4) {

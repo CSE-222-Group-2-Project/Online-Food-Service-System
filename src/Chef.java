@@ -3,12 +3,22 @@ package src;
 import java.util.PriorityQueue;
 import java.util.Queue;
 
+/**
+ * Chef class is a subclass of Worker class which represents the Chefs of the restaurant.
+ * @since  03-03-2022
+ *
+ */
+
+/**
+ * Chef class is a subclass of Worker class which represents the Chefs of the restaurant.
+ */
 public class Chef extends Worker {
 
   workerStatus chefStat;
   private int certificateNumber;
   private Queue<Order> newOrders = new PriorityQueue<Order>();
 
+  /* Default Constructer of Chef Class */
   public Chef(
     String _name,
     int _age,
@@ -22,31 +32,57 @@ public class Chef extends Worker {
     calculateStatus();
   }
 
+  /**
+   * Add the order to the order queue.
+   *
+   * @param order The order to be added to the queue.
+   */
   public void addOrder(Order order) {
-    // Until reaching some amount, orders will be added to queue.
     newOrders.add(order);
   }
 
+  /**
+   * Prepare the order in the order queue.
+   *
+   * @param courier the courier who is going to deliver the order
+   */
   public void prepareOrder(Courier courier) {
     Order order = newOrders.poll();
     order.setStatus(Order.Status.orderPrepared);
     courier.addOrder(order);
   }
 
+  /**
+   * This function returns the certificate number of the Chef.
+   *
+   * @return The certificate number.
+   */
   public int getCertificateNumber() {
     return this.certificateNumber;
   }
 
+  /**
+   * This function increments the certificate number by one.
+   *
+   * @return Certificate Number of the Chef
+   */
   public int incrementCertificateNumber() {
     return this.certificateNumber++;
   }
 
+  /**
+   * Calculate the status of the chef according to the experience year and certificate number.
+   * successWeight = (certificateNumber * 0.3) + (experienceYear * 0.7)
+   */
   public void calculateStatus() {
-    if (getExperienceYear() < 4) {
+    double successWeight =
+      (certificateNumber * 0.3) + (getExperienceYear() * 0.7);
+
+    if (successWeight < 3) {
       chefStat = workerStatus.beginner;
-    } else if (getExperienceYear() < 6) {
+    } else if (successWeight < 5) {
       chefStat = workerStatus.junior;
-    } else if (getExperienceYear() < 8) {
+    } else if (successWeight < 7) {
       chefStat = workerStatus.midLevel;
     } else {
       chefStat = workerStatus.senior;
