@@ -14,7 +14,7 @@ import java.util.Queue;
  */
 public class Chef extends Worker {
 
-  WorkerStatus chefStat;
+  private WorkerStatus chefStat;
   private int certificateNumber;
   private Queue<Order> newOrders = new PriorityQueue<Order>();
 

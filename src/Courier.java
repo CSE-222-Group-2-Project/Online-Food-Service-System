@@ -13,7 +13,7 @@ import java.util.PriorityQueue;
  */
 public class Courier extends Worker {
 
-  WorkerStatus courierStat;
+  private WorkerStatus courierStat;
   private String phoneNumber;
   private PriorityQueue<Order> orderQueue = new PriorityQueue<>(); // To determine which order is more "important", priority queue is used.
 
