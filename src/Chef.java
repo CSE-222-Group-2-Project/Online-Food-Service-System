@@ -14,7 +14,7 @@ import java.util.Queue;
  */
 public class Chef extends Worker {
 
-  workerStatus chefStat;
+  WorkerStatus chefStat;
   private int certificateNumber;
   private Queue<Order> newOrders = new PriorityQueue<Order>();
 
@@ -79,13 +79,13 @@ public class Chef extends Worker {
       (certificateNumber * 0.3) + (getExperienceYear() * 0.7);
 
     if (successWeight < 3) {
-      chefStat = workerStatus.beginner;
+      chefStat = WorkerStatus.BEGINNER;
     } else if (successWeight < 5) {
-      chefStat = workerStatus.junior;
+      chefStat = WorkerStatus.JUNIOR;
     } else if (successWeight < 7) {
-      chefStat = workerStatus.midLevel;
+      chefStat = WorkerStatus.MID_LEVEL;
     } else {
-      chefStat = workerStatus.senior;
+      chefStat = WorkerStatus.SENIOR;
     }
   }
 

@@ -2,11 +2,11 @@ package src;
 
 public class Worker extends User {
 
-  public enum workerStatus { // experience year/score'a göre chef statüsü değişsin.
-    beginner, // -4
-    junior, // 4-6
-    midLevel, // 6-8
-    senior, // +8
+  public enum WorkerStatus { // experience year/score'a göre chef statüsü değişsin.
+    BEGINNER, // -4
+    JUNIOR, // 4-6
+    MID_LEVEL, // 6-8
+    SENIOR, // +8
   }
 
   private String job;

@@ -13,7 +13,7 @@ import java.util.PriorityQueue;
  */
 public class Courier extends Worker {
 
-  workerStatus courierStat;
+  WorkerStatus courierStat;
   private String phoneNumber;
   private PriorityQueue<Order> orderQueue = new PriorityQueue<>(); // To determine which order is more "important", priority queue is used.
 
@@ -55,13 +55,13 @@ public class Courier extends Worker {
    */
   public void calculateStatus() {
     if (getExperienceYear() < 4) {
-      courierStat = workerStatus.beginner;
+      courierStat = WorkerStatus.BEGINNER;
     } else if (getExperienceYear() < 6) {
-      courierStat = workerStatus.junior;
+      courierStat = WorkerStatus.JUNIOR;
     } else if (getExperienceYear() < 8) {
-      courierStat = workerStatus.midLevel;
+      courierStat = WorkerStatus.MID_LEVEL;
     } else {
-      courierStat = workerStatus.senior;
+      courierStat = WorkerStatus.SENIOR;
     }
   }
 }
