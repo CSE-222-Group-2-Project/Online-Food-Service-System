@@ -122,20 +122,20 @@ public class Authentication {
     } else if (userType.equals("chef")) {
       return new Chef(
         tokens[1],
-        Integer.parseInt(tokens[1]),
-        tokens[2],
+        Integer.parseInt(tokens[2]),
         tokens[3],
-        Integer.parseInt(tokens[4]),
-        Integer.parseInt(tokens[5])
+        tokens[4],
+        Integer.parseInt(tokens[5]),
+        Integer.parseInt(tokens[6])
       );
     } else if (userType.equals("courier")) {
       return new Courier(
         tokens[1],
-        Integer.parseInt(tokens[1]),
-        tokens[2],
+        Integer.parseInt(tokens[2]),
         tokens[3],
         tokens[4],
-        Integer.parseInt(tokens[5])
+        tokens[5],
+        Integer.parseInt(tokens[6])
       );
     } else {
       return null;
