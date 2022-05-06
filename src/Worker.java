@@ -22,7 +22,7 @@ public class Worker extends User
   private double salary;
   private double score = 4.0; 
   private int experienceYear;
-  private int voteAmount = 0; // Vote kısmı atacanla konusulacak, burayi customer güncelleyecek cunku
+  private int voteAmount = 1; // Vote kısmı atacanla konusulacak, burayi customer güncelleyecek cunku
   protected WorkerStatus workerStat;
 
   public Worker(
@@ -85,8 +85,8 @@ public class Worker extends User
   }
 
   public double calculateAverageScore(int _score) {
-    double temp = score*(voteAmount-1); // Total score before adding new incoming score
-    score = (temp+_score)/(voteAmount); // New incoming score is adding to total score and average is calculating again, according to updated vote amount.
+    double temp = score*(voteAmount); // Total score before adding new incoming score
+    score = (temp+_score)/(++voteAmount); // New incoming score is adding to total score and average is calculating again, according to updated vote amount.
     return score;
   }
 
