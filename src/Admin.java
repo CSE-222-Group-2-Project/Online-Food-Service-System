@@ -113,17 +113,15 @@ public class Admin extends User{
     }
 
     public  void addFoodToMenu(Food food){
-        restaurant.addFoodToMenu(food);
+        restaurant.addFoodtoMenu(food);
     }
 
    public  boolean deleteFoodFromMenu(int id){
-        return this.restaurant.deleteFood(id);
+        return this.restaurant.deleteFoodFromMenu(id);
    }
 
    public boolean deleteFoodFromMenu(Food food){
-        return this.restaurant.deleteFood(food);
+        return this.restaurant.deleteFoodfromMenu(food);
    }
-
-
 
 }
