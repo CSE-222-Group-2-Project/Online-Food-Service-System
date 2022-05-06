@@ -32,11 +32,13 @@ public class Restaurant {
     }
 
     public void sendChef( Order order) {
-
+        // Azizcan bu comment önemli silme :D
+        // chefleri arraylistte tutuyoruz ya mesela 3 tane chefden hangisini seçeceğimizi random yaparsın
     }
 
     public void sendCourier() {
-
+        // Azizcan bu comment önemli silme :D
+        // kuryeleri arraylistte tutuyoruz ya mesela 3 tane kuryeden hangisini seçeceğimizi random yaparsın
     }
 
     public void directingInterface() {

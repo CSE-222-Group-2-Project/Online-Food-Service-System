@@ -49,9 +49,4 @@ public class User implements Comparable<User> {
     return getUsername().compareTo(other.getUsername());
   }
 
-  //public boolean add() {}
-
-  //public void makeOrderReady() {}
-
-
 }
