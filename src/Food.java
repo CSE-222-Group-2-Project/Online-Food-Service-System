@@ -9,10 +9,10 @@ public class Food {
   private String food_type;
 
   /*
-  private static String MainCOURSE =" mainCourse";
-  private static String DESSERT =" dessert";
-  private static String SOUP =" soup";
-  private static String BEVERAGE =" beverage";
+  private  String MainCOURSE =" mainCourse";
+  private String DESSERT =" dessert";
+  private  String SOUP =" soup";
+  private  String BEVERAGE =" beverage";
 
   private  String footType;*/
 
@@ -23,6 +23,7 @@ public class Food {
     food_price = price;
     food_type = type;
   }
+
 
   void setID(int id) {
     foodID = id;

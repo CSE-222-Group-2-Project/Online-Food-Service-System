@@ -124,4 +124,8 @@ public class Admin extends User{
         return this.restaurant.deleteFoodfromMenu(food);
    }
 
+   public void createMenu(Menu menu){
+        this.restaurant.createMenu(menu);
+   }
+
 }

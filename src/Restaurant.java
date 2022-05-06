@@ -77,4 +77,8 @@ public class Restaurant {
         this.menu.get_foods().add(food);
     }
 
+    public void createMenu(Menu menu){
+        this.menu = menu;
+    }
+
 }
