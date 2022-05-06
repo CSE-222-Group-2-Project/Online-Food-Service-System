@@ -13,9 +13,9 @@ import java.util.PriorityQueue;
  */
 public class Courier extends Worker {
 
-  private WorkerStatus courierStat;
   private String phoneNumber;
   private PriorityQueue<Order> orderQueue = new PriorityQueue<>(); // To determine which order is more "important", priority queue is used.
+  private final double initialSalary = 3000.0;
 
   /* Default Constructer of Courier Class */
   public Courier(
@@ -28,6 +28,8 @@ public class Courier extends Worker {
   ) {
     super(_name, _age, _username, _password, "Courier", experienceYear);
     this.phoneNumber = _phoneNumber;
+    calculateStatus();
+    calculateSalary(initialSalary);
   }
 
   /**
@@ -55,13 +57,13 @@ public class Courier extends Worker {
    */
   public void calculateStatus() {
     if (getExperienceYear() < 4) {
-      courierStat = WorkerStatus.BEGINNER;
+      workerStat = WorkerStatus.BEGINNER;
     } else if (getExperienceYear() < 6) {
-      courierStat = WorkerStatus.JUNIOR;
+      workerStat = WorkerStatus.JUNIOR;
     } else if (getExperienceYear() < 8) {
-      courierStat = WorkerStatus.MID_LEVEL;
+      workerStat = WorkerStatus.MID_LEVEL;
     } else {
-      courierStat = WorkerStatus.SENIOR;
+      workerStat = WorkerStatus.SENIOR;
     }
   }
 }

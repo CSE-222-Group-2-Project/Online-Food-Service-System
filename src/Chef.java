@@ -14,9 +14,9 @@ import java.util.Queue;
  */
 public class Chef extends Worker {
 
-  private WorkerStatus chefStat;
   private int certificateNumber;
   private Queue<Order> newOrders = new PriorityQueue<Order>();
+  private final double initialSalary = 4000.0;
 
   /* Default Constructer of Chef Class */
   public Chef(
@@ -30,6 +30,8 @@ public class Chef extends Worker {
     super(_name, _age, _username, _password, "Chef", experienceYear);
     this.certificateNumber = _certificateNumber; // !!! certificateNumber maaş hesabında vs kullanılack
     calculateStatus();
+    calculateSalary(initialSalary);
+
   }
 
   /**
@@ -79,17 +81,19 @@ public class Chef extends Worker {
       (certificateNumber * 0.3) + (getExperienceYear() * 0.7);
 
     if (successWeight < 3) {
-      chefStat = WorkerStatus.BEGINNER;
+      workerStat = WorkerStatus.BEGINNER;
     } else if (successWeight < 5) {
-      chefStat = WorkerStatus.JUNIOR;
+      workerStat = WorkerStatus.JUNIOR;
     } else if (successWeight < 7) {
-      chefStat = WorkerStatus.MID_LEVEL;
+      workerStat = WorkerStatus.MID_LEVEL;
     } else {
-      chefStat = WorkerStatus.SENIOR;
+      workerStat = WorkerStatus.SENIOR;
     }
   }
 
+  /*
   public void changeMenu() {
     // Insertion, Deletion
-  } // !!! üzerine düşün
+  } // Gunler arasinda swap yapabiliriz.
+  */
 }
