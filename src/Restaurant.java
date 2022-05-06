@@ -47,12 +47,12 @@ public class Restaurant {
     {
         return workers;
     }
-
-    public String menu() { // see menu ?
-        //return  menu.toString();
-        return "empty";
+/*
+    public static String menu() { // see menu ?
+        return  Menu.seeMenu();
+        //return "empty";
     } // see menu
-
+*/
     public void addFoodToMenu(Food food){
         this.menu.addFood(food);
     }

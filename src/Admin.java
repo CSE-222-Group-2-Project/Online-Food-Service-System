@@ -92,7 +92,7 @@ public class Admin extends User{
     }
     // see the menu
     public  void seeMenu(){
-        System.out.print(restaurant.menu());
+        System.out.print(Menu.seeMenu());
     }
 
 
