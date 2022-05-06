@@ -5,14 +5,18 @@ import java.util.LinkedList;
 public class Menu {
 
   LinkedList<Food> f = new LinkedList<Food>();
-  int id;
+   int id; // static olabilir
 
+  public Menu(){ // Default Menu
+    // create default menu
+  }
   LinkedList<Food> get_foods() {
     return f;
-  }
+  } // linked list array ? Her yemek çeşiti için ayrı link list ?
 
-  void insert_food(String name, double price) {
-    Food temp = new Food(id, name, price);
+
+  void insert_food(String name, double price,String type) {
+    Food temp = new Food(id, name, price,type);
     f.add(temp);
     id++;
   }
@@ -23,5 +27,21 @@ public class Menu {
       f.get(i).setID(i - 1);
     }
     id--;
+  }
+
+  @Override
+  public String toString(){
+    StringBuilder stringBuilder = new StringBuilder();
+    /*for (LinkedList<Food> foodByType:
+         f) {
+      stringBuilder.append(foodByType.get(0).getFood_type());
+      for (Food food:
+           foodByType) {
+        stringBuilder.append(food+"\n");
+      }
+      stringBuilder.append("\n*****************************"+"\n");
+    }*/
+    return stringBuilder.toString();
+
   }
 }

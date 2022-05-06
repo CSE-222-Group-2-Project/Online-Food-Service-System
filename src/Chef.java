@@ -89,5 +89,7 @@ public class Chef extends Worker {
     }
   }
 
-  public void changeMenu() {} // !!! üzerine düşün
+  public void changeMenu() {
+    // Insertion, Deletion
+  } // !!! üzerine düşün
 }
