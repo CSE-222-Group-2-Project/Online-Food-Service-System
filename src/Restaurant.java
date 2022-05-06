@@ -47,26 +47,34 @@ public class Restaurant {
     {
         return workers;
     }
-
-    public String menu() { // see menu ?
-        //return  menu.toString();
-        return "empty";
+/*
+    public static String menu() { // see menu ?
+        return  Menu.seeMenu();
+        //return "empty";
     } // see menu
+*/
 
-    public void addFoodToMenu(Food food){
-        this.menu.addFood(food);
+
+
+    public boolean deleteFoodFromMenu(int id){
+        LinkedList<Food> temp = this.menu.get_foods();
+        for (Food food:
+                temp) {
+            if(food.get_foodID() == id){
+                temp.remove(food);
+                return  true;
+            }
+        }
+        return false;
     }
 
-    public boolean deleteFood(int id){
-       // return this.menu.delete_food(id);
+    public boolean deleteFoodfromMenu(Food food){
 
-    return false;
+        return this.menu.get_foods().remove(food);
+
     }
-    public  boolean deleteFood(Food food){
-        //return this.menu.delete_food(food);
-    return true;
+    public void addFoodtoMenu(Food food){
+        this.menu.get_foods().add(food);
     }
-
-
 
 }

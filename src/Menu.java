@@ -2,7 +2,7 @@ package src;
 
 import java.util.LinkedList;
 
-public class Menu {
+public  class Menu {
 
   LinkedList<Food> f = new LinkedList<Food>();
    int id; // static olabilir
@@ -26,9 +26,7 @@ public class Menu {
     id++;
   }
 
-  void addFood(Food food){
-     f.add(food);
-  }
+
 
   void delete_food(int id) {
     f.remove(id);
@@ -39,27 +37,7 @@ public class Menu {
   }
 
 
-  public boolean deleteFood(int id){
-
-    for (Food food:
-            f) {
-      if(food.get_foodID() == id){
-        f.remove(food);
-        return  true;
-      }
-    }
-    return false;
-  }
-
-public boolean deleteFood(Food food){
-
-  return f.remove(food);
-
-}
-
-
-  @Override
-  public String toString(){
+  public  static String seeMenu(){
     StringBuilder stringBuilder = new StringBuilder();
     /*for (LinkedList<Food> foodByType:
          f) {
