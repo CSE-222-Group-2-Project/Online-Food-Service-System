@@ -2,27 +2,16 @@ package src;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
 import src.tree.BinarySearchTree;
 
 public class Authentication {
 
-  private static final String ADMIN_DATABASE_PATH =
+  private static final String USER_DATABASE_PATH =
     "../src/database/admin_database/admins.txt";
-
-  private static final String CHEF_DATABASE_PATH =
-    "../src/database/chefs_database/chefs.txt";
-
-  private static final String COURIER_DATABASE_PATH =
-    "../src/database/couriers_database/couriers.txt";
-
-  private static final String CUSTOMER_DATABASE_PATH =
-    "../src/database/customers_database/customers.txt";
-
   private static final String MENU_DATABASE_PATH =
-    "../src/database/menu_database/menu.txt";
+    "../src/database/restaurant_database/menu.txt";
 
   public static void showLoginMenu() {
     System.out.println("ONLINE FOOD SERVICE SYSTEM\n");
@@ -30,145 +19,57 @@ public class Authentication {
     System.out.println("1. Log In");
     System.out.println("2. Sign Up");
     System.out.println("3. Exit");
-    signUp();
   }
 
   public static User logIn() {
     String username = getUsernameFromUserForLogIn();
+
+    if (username.equals("login-failed")) {
+      return null;
+    }
+
     String password = getPasswordFromUserForLogIn(username);
+
+    if (password.equals("login-failed")) {
+      return null;
+    }
 
     return getUserFromUsername(username);
   }
 
   private static String getUsernameFromUserForLogIn() {
     String username = "";
-    boolean isUserExistCheck = true;
     Scanner scanObj = new Scanner(System.in);
 
-    while (isUserExistCheck) {
-      System.out.println("Enter your username please: ");
-      username = scanObj.next();
-      isUserExistCheck = isUserExist(username);
-      if (!isUserExistCheck) {
-        System.out.println("User does not exist! Please sign up.");
-      }
+    System.out.println("Enter your username please: ");
+    username = scanObj.next();
+    if (isUserExist(username)) {
+      System.err.println("User does not exist! Please sign up.");
+      scanObj.close();
+      return "login-failed";
     }
+    scanObj.close();
     return username;
   }
 
   private static String getPasswordFromUserForLogIn(String username) {
     String password = "";
-    boolean isPasswordTrueCheck = true;
     Scanner scanObj = new Scanner(System.in);
 
-    while (isPasswordTrueCheck) {
-      System.out.println("Enter your password please");
-      password = scanObj.next();
-      isPasswordTrueCheck = isPasswordTrue(username, password);
-      if (!isPasswordTrueCheck) {
-        System.out.println("Password is not correct! Could not login.");
-      }
+    System.out.println("Enter your password please");
+    password = scanObj.next();
+
+    if (isPasswordTrue(username, password)) {
+      System.out.println("Password is not correct! Could not login.");
+      scanObj.close();
+      return "login-failed";
     }
+    scanObj.close();
     return password;
-  }
-
-  public static User signUp() {
-    User newUser = null;
-
-    String name = getNameFromUserForSignUp();
-    int age = getAgeFromUserForSignUp();
-    String username = getUsernameFromUserForSignUp();
-    String password = getPasswordFromUserForSignUp();
-
-    newUser = new User(name, age, username, password);
-    addUserToDatabase(newUser);
-    return newUser;
-  }
-
-  private static String getUsernameFromUserForSignUp() {
-    String username = "";
-    boolean isUsernameValidCheck = false;
-    Scanner scanObj = new Scanner(System.in);
-
-    while (!isUsernameValidCheck) {
-      System.out.println("Enter your username please: ");
-      username = scanObj.next();
-      isUsernameValidCheck = isUsernameValid(username);
-      if (!isUsernameValidCheck) {
-        System.out.println("User does not exist! Please sign up.");
-      }
-    }
-
-    return username;
-  }
-
-  private static String getPasswordFromUserForSignUp() {
-    String password = "";
-    boolean isPasswordValidCheck = false;
-    Scanner scanObj = new Scanner(System.in);
-    while (!isPasswordValidCheck) {
-      System.out.println("Enter your password please");
-      password = scanObj.next();
-      isPasswordValidCheck = isPasswordValid(password);
-      if (!isPasswordValidCheck) {
-        System.out.println("Password is not correct! Could not login.");
-      }
-    }
-    return password;
-  }
-
-  private static String getNameFromUserForSignUp() {
-    String name = "";
-    boolean isNameValidCheck = false;
-    Scanner scanObj = new Scanner(System.in);
-
-    while (!isNameValidCheck) {
-      System.out.println("Enter your name please: ");
-      name = scanObj.next();
-      isNameValidCheck = isNameValid(name);
-      if (!isNameValidCheck) {
-        System.out.println("Name is not valid! Please try again.");
-      }
-    }
-    return name;
-  }
-
-  private static int getAgeFromUserForSignUp() {
-    int age = 0;
-    boolean isAgeValidCheck = false;
-    Scanner scanObj = new Scanner(System.in);
-
-    while (!isAgeValidCheck) {
-      System.out.println("Enter your age please: ");
-      age = scanObj.nextInt();
-      isAgeValidCheck = isAgeValid(age);
-      if (!isAgeValidCheck) {
-        System.out.println("Age is not valid! Please try again.");
-      }
-    }
-
-    return age;
-  }
-
-  private static boolean isUsernameValid(String username) {
-    return true;
-  }
-
-  private static boolean isPasswordValid(String password) {
-    return true;
-  }
-
-  private static boolean isNameValid(String name) {
-    return true;
-  }
-
-  private static boolean isAgeValid(int age) {
-    return true;
   }
 
   private static boolean isUserExist(String username) {
-    BinarySearchTree<User> allUsers = new BinarySearchTree<User>();
-    allUsers = getAllUsersFromDatabase();
+    BinarySearchTree<User> allUsers = getAllUsersFromDatabase();
     return allUsers.contains(new User(username, 0, "", ""));
   }
 
@@ -184,35 +85,14 @@ public class Authentication {
   }
 
   private static User getUserFromUsername(String username) {
-    BinarySearchTree<User> allUsers = new BinarySearchTree<>();
-    allUsers = getAllUsersFromDatabase();
+    BinarySearchTree<User> allUsers = getAllUsersFromDatabase();
     return allUsers.find(new User(username, 0, "", ""));
-  }
-
-  private static void addUserToDatabase(User newUser) {
-    try {
-      String filename = DATABASE_FILE_PATH;
-      FileWriter fw = new FileWriter(filename, true);
-      fw.write(
-        newUser.getName() +
-        " " +
-        newUser.getAge() +
-        " " +
-        newUser.getUsername() +
-        " " +
-        newUser.getPassword() +
-        "\n"
-      );
-      fw.close();
-    } catch (IOException ioe) {
-      System.err.println("IOException: " + ioe.getMessage());
-    }
   }
 
   private static BinarySearchTree<User> getAllUsersFromDatabase() {
     try {
       BinarySearchTree<User> allUsers = new BinarySearchTree<>();
-      File file = new File(DATABASE_FILE_PATH);
+      File file = new File(USER_DATABASE_PATH);
       Scanner myReader = new Scanner(file);
       while (myReader.hasNextLine()) {
         String lineText = myReader.nextLine();
@@ -229,12 +109,36 @@ public class Authentication {
 
   private static User parseLine(String lineText) {
     String[] tokens = lineText.split(" ");
-    User user = new User(
-      tokens[0],
-      Integer.parseInt(tokens[1]),
-      tokens[2],
-      tokens[3]
-    );
-    return user;
+    String userType = tokens[0];
+
+    if (userType.equals("admin")) {
+      return new Admin(
+        null,
+        tokens[1],
+        Integer.parseInt(tokens[2]),
+        tokens[3],
+        tokens[4]
+      );
+    } else if (userType.equals("chef")) {
+      return new Chef(
+        tokens[1],
+        Integer.parseInt(tokens[1]),
+        tokens[2],
+        tokens[3],
+        Integer.parseInt(tokens[4]),
+        Integer.parseInt(tokens[5])
+      );
+    } else if (userType.equals("courier")) {
+      return new Courier(
+        tokens[1],
+        Integer.parseInt(tokens[1]),
+        tokens[2],
+        tokens[3],
+        tokens[4],
+        Integer.parseInt(tokens[5])
+      );
+    } else {
+      return null;
+    }
   }
 }

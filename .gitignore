@@ -2,3 +2,5 @@
 *.class
 # this file contains compiled class files
 /bin
+# vscode config file
+.vscode
