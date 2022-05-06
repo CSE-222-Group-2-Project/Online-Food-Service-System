@@ -9,6 +9,11 @@ public class Worker extends User {
     SENIOR, // +8
   }
 
+  public enum AvailabilityStatus {
+    AVAILABLE,
+    BUSY,
+  }
+
   private String job;
   private double salary;
   private double score = 4.0; // Kovulma şartı: vote min 10 olsun. 4 altına düşünce kovulsun.
@@ -57,9 +62,9 @@ public class Worker extends User {
   private void calculateSalary() {}
 
   public double calculateAverageScore(int _score) {
-    double temp = score*voteAmount;
+    double temp = score * voteAmount;
 
-    score = (temp+_score)/(++voteAmount);
+    score = (temp + _score) / (++voteAmount);
 
     return score;
   }
