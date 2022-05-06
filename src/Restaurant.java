@@ -1,6 +1,7 @@
 package src;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 public class Restaurant {
     protected int income;
@@ -46,10 +47,34 @@ public class Restaurant {
     {
         return workers;
     }
-
-    public String menu() { // see menu ?
-        //return  menu.toString();
-        return "empty";
+/*
+    public static String menu() { // see menu ?
+        return  Menu.seeMenu();
+        //return "empty";
     } // see menu
+*/
+
+
+
+    public boolean deleteFoodFromMenu(int id){
+        LinkedList<Food> temp = this.menu.get_foods();
+        for (Food food:
+                temp) {
+            if(food.get_foodID() == id){
+                temp.remove(food);
+                return  true;
+            }
+        }
+        return false;
+    }
+
+    public boolean deleteFoodfromMenu(Food food){
+
+        return this.menu.get_foods().remove(food);
+
+    }
+    public void addFoodtoMenu(Food food){
+        this.menu.get_foods().add(food);
+    }
 
 }

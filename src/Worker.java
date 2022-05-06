@@ -13,6 +13,11 @@ public class Worker extends User
     SENIOR, 
   }
 
+  public enum AvailabilityStatus {
+    AVAILABLE,
+    BUSY,
+  }
+
   private String job;
   private double salary;
   private double score = 4.0; 

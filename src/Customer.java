@@ -105,4 +105,7 @@ public class Customer extends User {
     else
       return false;
   }
+  public void seeMenu(){
+    System.out.print(Menu.seeMenu());
+  }
 }

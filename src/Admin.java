@@ -1,13 +1,15 @@
 package src;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Scanner;
 
 /**
  * Admin classı restauranttan extend edilmesse her methodta parametere olarak almak gerekiyor??
  */
 
 public class Admin extends User{
-
+    Scanner scanner = new Scanner(System.in);
     private Restaurant restaurant;
 
     public Admin(Restaurant restaurant, String name, int age, String username, String password){
@@ -88,10 +90,38 @@ public class Admin extends User{
         }
 
     }
+    // see the menu
+    public  void seeMenu(){
+        System.out.print(Menu.seeMenu());
+    }
 
 
+    public Food createFood(){
+        String foodName,foodType;
+        double foodPrice;
+        int foodId;
+        System.out.println("Enter food name :");
+        foodName = scanner.nextLine();
+        System.out.println("Enter food type :");
+        foodType = scanner.nextLine();
+        System.out.println("Enter food price :");
+        foodPrice = Double.parseDouble(scanner.nextLine());
+        System.out.println("Enter food ID  :");
+        foodId = Integer.parseInt(scanner.nextLine());
+        return new Food(foodId,foodName,foodPrice,foodType);
 
+    }
 
+    public  void addFoodToMenu(Food food){
+        restaurant.addFoodtoMenu(food);
+    }
 
+   public  boolean deleteFoodFromMenu(int id){
+        return this.restaurant.deleteFoodFromMenu(id);
+   }
+
+   public boolean deleteFoodFromMenu(Food food){
+        return this.restaurant.deleteFoodfromMenu(food);
+   }
 
 }

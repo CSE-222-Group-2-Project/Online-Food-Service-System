@@ -2,7 +2,7 @@ package src;
 
 import java.util.LinkedList;
 
-public class Menu {
+public  class Menu {
 
   LinkedList<Food> f = new LinkedList<Food>();
    int id; // static olabilir
@@ -10,16 +10,23 @@ public class Menu {
   public Menu(){ // Default Menu
     // create default menu
   }
+
+  /*public Menu(LinkedList<Food>[] menu){
+    this.f = menu;
+  }*/
   LinkedList<Food> get_foods() {
     return f;
   } // linked list array ? Her yemek çeşiti için ayrı link list ?
 
 
+  /* parametre food olabilir mi?*/
   void insert_food(String name, double price,String type) {
     Food temp = new Food(id, name, price,type);
     f.add(temp);
     id++;
   }
+
+
 
   void delete_food(int id) {
     f.remove(id);
@@ -29,12 +36,12 @@ public class Menu {
     id--;
   }
 
-  @Override
-  public String toString(){
+
+  public  static String seeMenu(){
     StringBuilder stringBuilder = new StringBuilder();
     /*for (LinkedList<Food> foodByType:
          f) {
-      stringBuilder.append(foodByType.get(0).getFood_type());
+      stringBuilder.append(foodByType.get(0).getFood_type()+"\n);
       for (Food food:
            foodByType) {
         stringBuilder.append(food+"\n");
@@ -44,4 +51,5 @@ public class Menu {
     return stringBuilder.toString();
 
   }
+
 }

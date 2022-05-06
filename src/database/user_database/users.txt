@@ -1,6 +1,6 @@
 admin Fatih 40 fatihsevilgen fatih123
 admin Burak 32 mehmetburak mehmetbur123
-chef Mehmet 35 mehmetchef meh12cef 15 17
+chef Mehmet 35 mehmetchef mehmetchef123 15 17
 chef Esra 27 esrachef esrachef123 5 5
 chef Fatih 25 fatihchef fatihchef123 6 4
 chef Canan 32 cananchef cananchef123 9 12
@@ -10,41 +10,41 @@ chef Cemre 24 cemrechef cemrechef123 3 2
 chef Serhat 28 serhatchef serhatchef123 8 12
 chef Melek 23 melekchef melekchef123 3 5
 chef Yusuf 26 yusufchef yusufchef123 4 6
-courier Arda 26 ardasan 20ardarr +905055555555 3
-courier Cem 29 cemyilmaz cemhaha12 +905055555553 6
-courier Eren 24 erenjeager mikasa123 +905055555523 1 
-courier Kerem 30 keremgonlum kerbas3 +905055555532 7 
-courier Baran 32 barant taraban123 +905055555512 8
-courier Evren 26 evrengoz gsevren32 +905055555552 2 
-courier Mecnun 27 mecnunle leylam123 +905055555562 3 
-courier Erdem 29 erdemsener senerde12 +905055555576 5 
-courier Taylan 28 taylanta tay10lan +905055555513 5 
-courier Mert 28 mertgunok fb12mert +905055555539 4
-customer Cem 
-customer Cemal 
-customer Mustafa 
-customer Şule
-customer Alperen 
-customer Omar 
-customer Can 
-customer Faruk 
-customer Baran
-customer Kağan
-customer Selin
-customer Ceyda
-customer Beyza 
-customer Enes
-customer Jwan
-customer Oguzhan
-customer Zenne 
-customer Emre
-customer Yunus
-customer Halil
-customer Ruveyda
-customer Yusuf
-customer Atahan
-customer Selim
-customer Buse
-customer Emir
-customer Alpcan
-customer Eda
+courier Arda 26 ardacour arda123 +905055555555 3
+courier Cem 29 cemcour cem123 +905055555553 6
+courier Eren 24 erencour mikasa123 +905055555523 1 
+courier Kerem 30 keremcour kerem123 +905055555532 7 
+courier Baran 32 barancour baran123 +905055555512 8
+courier Evren 26 evrencour evren123 +905055555552 2 
+courier Mecnun 27 mecnuncour mecnun123 +905055555562 3 
+courier Erdem 29 erdemcour erdem123 +905055555576 5 
+courier Taylan 28 taylancour taylan123 +905055555513 5 
+courier Mert 28 mertcour mert123 +905055555539 4
+customer Cem 20 Student cemcem cem123 +905055355576 100
+customer Cemal Student cemalca cem123 +905055355576 100
+customer Mustafa Student mustafacust cem123 +905055355576 100
+customer Şule Student cemcem cem123 +905055355576 100
+customer Alperen Student cemcem cem123 +905055355576 100
+customer Omar Student cemcem cem123 +905055355576 100
+customer Can Student cemcem cem123 +905055355576 100
+customer Faruk Student cemcem cem123 +905055355576 100
+customer Baran Student cemcem cem123 +905055355576 100
+customer Kağan Student cemcem cem123 +905055355576 100
+customer Selin Student cemcem cem123 +905055355576 100
+customer Ceyda Student cemcem cem123 +905055355576 100
+customer Beyza Student cemcem cem123 +905055355576 100
+customer Enes Student cemcem cem123 +905055355576 100
+customer Jwan Student cemcem cem123 +905055355576 100
+customer Oguzhan Student cemcem cem123 +905055355576 100
+customer Zenne Student cemcem cem123 +905055355576 100
+customer Emre Student cemcem cem123 +905055355576 100
+customer Yunus Student cemcem cem123 +905055355576 100
+customer Halil Student cemcem cem123 +905055355576 100
+customer Ruveyda Student cemcem cem123 +905055355576 100
+customer Yusuf Student cemcem cem123 +905055355576 100
+customer Atahan Student cemcem cem123 +905055355576 100
+customer Selim Student cemcem cem123 +905055355576 100
+customer Buse Student cemcem cem123 +905055355576 100
+customer Emir Student cemcem cem123 +905055355576 100
+customer Alpcan Student cemcem cem123 +905055355576 100
+customer Eda Student cemcem cem123 +905055355576 100
