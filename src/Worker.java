@@ -11,9 +11,9 @@ public class Worker extends User {
 
   private String job;
   private double salary;
-  private double score = 4; // Kovulma şartı: vote min 10 olsun. 4 altına düşünce kovulsun.
+  private double score = 4.0; // Kovulma şartı: vote min 10 olsun. 4 altına düşünce kovulsun.
   private int experienceYear;
-  private int voteAmount = 0; // Vote kısmı atacanla konusulacak, burayi customer güncelleyecek cunku
+  private int voteAmount = 1; // Vote kısmı atacanla konusulacak, burayi customer güncelleyecek cunku
 
   // totalScore degiskeni olusturmak yerine score*voteAmounttan bul. (aritmetik ort soruları gibi)
 
@@ -56,5 +56,11 @@ public class Worker extends User {
 
   private void calculateSalary() {}
 
-  private void calculateScore() {} // oyların toplamı/oy sayisi
+  public double calculateAverageScore(int _score) {
+    double temp = score*voteAmount;
+
+    score = (temp+_score)/(++voteAmount);
+
+    return score;
+  }
 }

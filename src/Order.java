@@ -75,6 +75,8 @@ class Order {
     
     stb.append("\nOrder id: "+ orderID);
     stb.append("\nOrder price: "+ account);
+    stb.append("\nOrder maker: "+getWhoCooked().getName());
+    stb.append("\nCourier: "+getWhoDelivered().getName());
     stb.append("\nOrdered foods:");
     
     for(Food afood:foods)

@@ -52,6 +52,7 @@ public class Customer extends User {
   public String myOrders() {
     int order_sequence = 0;
     StringBuilder stb = new StringBuilder();
+    stb.append("\n---Latest to oldest---");
     for(Order order: myOrders){
       order_sequence++;
       stb.append("\n"+order_sequence+"th Order:\n"+order.toString());
@@ -59,34 +60,35 @@ public class Customer extends User {
     return stb.toString();
   }
 
-  public int giveVote() {
-    return 0; // 0-5 aralığı, int[] de return edilebilir 3 kişiye oy verileceğinden
+  public void giveVote(Order anOrder) {
     // This method will run after courier delivers the order to the customer.
-    // !!! getWhoCooked burada çağırılıp, ilgili chef'e oy verilmeli ama giveVote'un nerede çağırıldığına göre parametre, return type eklenmeli.
-  }
-
-  public LinkedList<Order> giveOrder(
-    LinkedList<Integer> orderedFoods,
-    LinkedList<Order> orders,
-    int orderID,
-    Menu m
-  ) {
     Scanner myInput = new Scanner(System.in);
-    int o = myInput.nextInt();
-    while (o != -1) {
-      orderedFoods.add(o);
-      o = myInput.nextInt();
-    }
-    Order temp = new Order(orderedFoods, orderID, this, m);
-    orders.add(temp);
-    orderedFoods.clear();
-    orderNumber++;
-    return orders;
+    System.out.println("Enter vote for chef: ");
+    int voteChef = myInput.nextInt();
+
+    System.out.println("Enter vote for courier: ");
+    int voteCourier = myInput.nextInt();
+
+    anOrder.getWhoCooked().calculateAverageScore(voteChef);
+    anOrder.getWhoDelivered().calculateAverageScore(voteCourier);
+
   }
 
   public LinkedList<Order> giveOrder(LinkedList<Order> restaurantOrders , Order wantedOrder) {
-    restaurantOrders.add(wantedOrder); // bura düzenlencek !!!
+    if(getBalance() >= wantedOrder.calculate_account()){
+      balance-= wantedOrder.calculate_account();
+      restaurantOrders.add(wantedOrder);
+      orderNumber++;
+    }
+    else
+      System.out.println("\nNot enough money,order can not be applied");
 
+    return restaurantOrders;
+  }
+
+  public void takeOrder(Order anOrder) {
+    myOrders.addFirst(anOrder);
+    giveVote(anOrder);
   }
 
   public boolean is_vip() {
