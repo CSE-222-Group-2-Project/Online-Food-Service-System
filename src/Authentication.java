@@ -9,8 +9,20 @@ import src.tree.BinarySearchTree;
 
 public class Authentication {
 
-  private static final String DATABASE_FILE_PATH =
-    "../src/user_database/users.txt";
+  private static final String ADMIN_DATABASE_PATH =
+    "../src/database/admin_database/admins.txt";
+
+  private static final String CHEF_DATABASE_PATH =
+    "../src/database/chefs_database/chefs.txt";
+
+  private static final String COURIER_DATABASE_PATH =
+    "../src/database/couriers_database/couriers.txt";
+
+  private static final String CUSTOMER_DATABASE_PATH =
+    "../src/database/customers_database/customers.txt";
+
+  private static final String MENU_DATABASE_PATH =
+    "../src/database/menu_database/menu.txt";
 
   public static void showLoginMenu() {
     System.out.println("ONLINE FOOD SERVICE SYSTEM\n");
@@ -26,19 +38,6 @@ public class Authentication {
     String password = getPasswordFromUserForLogIn(username);
 
     return getUserFromUsername(username);
-  }
-
-  public static User signUp() {
-    User newUser = null;
-
-    String name = getNameFromUserForSignUp();
-    int age = getAgeFromUserForSignUp();
-    String username = getUsernameFromUserForSignUp();
-    String password = getPasswordFromUserForSignUp();
-
-    newUser = new User(name, age, username, password);
-    addUserToDatabase(newUser);
-    return newUser;
   }
 
   private static String getUsernameFromUserForLogIn() {
@@ -71,6 +70,19 @@ public class Authentication {
       }
     }
     return password;
+  }
+
+  public static User signUp() {
+    User newUser = null;
+
+    String name = getNameFromUserForSignUp();
+    int age = getAgeFromUserForSignUp();
+    String username = getUsernameFromUserForSignUp();
+    String password = getPasswordFromUserForSignUp();
+
+    newUser = new User(name, age, username, password);
+    addUserToDatabase(newUser);
+    return newUser;
   }
 
   private static String getUsernameFromUserForSignUp() {
