@@ -1,13 +1,15 @@
-chef mehmet 35 mehmetchef meh12cef 15 17
-chef esra 27 esrachef esrachef123 5 5
-chef fatih 25 fatihchef fatihchef123 6 4
-chef canan 32 cananchef cananchef123 9 12
-chef beyza 28 beyzachef beyzachef123 4 7
-chef danilo 33 danilochef danilochef123 13 15
-chef cemre 24 cemrechef cemrechef123 3 2
-chef serhat 28 serhatchef serhatchef123 8 12
-chef melek 23 melekchef melekchef123 3 5
-chef yusuf 26 yusufchef yusufchef123 4 6
+admin Fatih 40 fatihsevilgen fatih123
+admin Burak 32 mehmetburak mehmetbur123
+chef Mehmet 35 mehmetchef meh12cef 15 17
+chef Esra 27 esrachef esrachef123 5 5
+chef Fatih 25 fatihchef fatihchef123 6 4
+chef Canan 32 cananchef cananchef123 9 12
+chef Beyza 28 beyzachef beyzachef123 4 7
+chef Danilo 33 danilochef danilochef123 13 15
+chef Cemre 24 cemrechef cemrechef123 3 2
+chef Serhat 28 serhatchef serhatchef123 8 12
+chef Melek 23 melekchef melekchef123 3 5
+chef Yusuf 26 yusufchef yusufchef123 4 6
 courier Arda 26 ardasan 20ardarr +905055555555 3
 courier Cem 29 cemyilmaz cemhaha12 +905055555553 6
 courier Eren 24 erenjeager mikasa123 +905055555523 1 
@@ -18,3 +20,31 @@ courier Mecnun 27 mecnunle leylam123 +905055555562 3
 courier Erdem 29 erdemsener senerde12 +905055555576 5 
 courier Taylan 28 taylanta tay10lan +905055555513 5 
 courier Mert 28 mertgunok fb12mert +905055555539 4
+customer Cem 
+customer Cemal 
+customer Mustafa 
+customer Şule
+customer Alperen 
+customer Omar 
+customer Can 
+customer Faruk 
+customer Baran
+customer Kağan
+customer Selin
+customer Ceyda
+customer Beyza 
+customer Enes
+customer Jwan
+customer Oguzhan
+customer Zenne 
+customer Emre
+customer Yunus
+customer Halil
+customer Ruveyda
+customer Yusuf
+customer Atahan
+customer Selim
+customer Buse
+customer Emir
+customer Alpcan
+customer Eda
