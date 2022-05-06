@@ -87,6 +87,7 @@ public class Customer extends User {
   }
 
   public void takeOrder(Order anOrder) {
+    System.out.println("Order received by "+getName());
     myOrders.addFirst(anOrder);
     giveVote(anOrder);
   }

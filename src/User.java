@@ -45,17 +45,11 @@ public class User implements Comparable<User> {
     password = _password;
   }
 
-  public boolean login() {
-    return false;
-  }
-
-  public void logout() {} // ??
-
   public int compareTo(User other) {
     return getUsername().compareTo(other.getUsername());
   }
 
   //public boolean add() {}
 
-  public void makeOrderReady() {}
+  //public void makeOrderReady() {}
 }
