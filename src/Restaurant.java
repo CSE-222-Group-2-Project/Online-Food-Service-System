@@ -28,21 +28,55 @@ public class Restaurant {
     orders.add(obj);
   }
 
+
   public void sendChef(Order order) {
     // Azizcan bu comment önemli silme :D
     // chefleri arraylistte tutuyoruz ya mesela 3 tane chefden hangisini seçeceğimizi random yaparsın
+    int workerId, minOrder = 0;
+
+
+
+    for(int i = 0; i < workers.size(); i++ )
+    {
+      if( workers.get(i) instanceof Courier )
+      {
+        if( minOrder >= ((Chef)workers.get(i)).getSizeOfOrders() )
+        {
+          minOrder = ((Chef)workers.get(i)).getSizeOfOrders();
+          workerId = i;
+        }
+      }
+    }
+
+    ((Chef)workers.get(i)).addOrder((order));
+
   }
 
   public void sendCourier(Order order) {
     // Azizcan bu comment önemli silme :D
     // kuryeleri arraylistte tutuyoruz ya mesela 3 tane kuryeden hangisini seçeceğimizi random yaparsın
+
+    for(int i = 0; i < workers.size(); i++ )
+    {
+      if( workers.get(i) instanceof Courier )
+      {
+        if( ((Courier)workers.get(i)).isOrdersEmpty() )
+        {
+          ((Courier)workers.get(i)).addOrder(order);
+        }
+      }
+    }
   }
 
   public ArrayList<Worker> getWorkers() {
     return workers;
   }
 
-  public void showWorkers() {}
+  public void showWorkers() {
+    for(int i = 0; i < workers.size(); i++ ){
+      System.out.println(workers.toString());
+    }
+  }
 
   public static String menu() {
     return menu.toString();

@@ -111,4 +111,13 @@ public class Chef extends Worker {
     chefInfo.append("\n");
     return chefInfo.toString();
   }
+
+  /**
+   * Returns the orders in process
+   * 
+   * @return the size of newOrders object
+   */
+  public int getSizeOfOrders(){
+    return newOrders.size(); 
+  }
 }
