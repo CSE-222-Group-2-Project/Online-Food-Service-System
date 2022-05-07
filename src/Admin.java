@@ -2,10 +2,14 @@ package src;
 
 import java.util.Scanner;
 
+/**
+ * Admin class is a subclass of User class and it has some methods to control the restaurant
+ */
 public class Admin extends User {
 
   private Restaurant restaurant;
 
+  /* Constructor Of Admin Class*/
   public Admin(
     Restaurant restaurant,
     String name,
@@ -15,10 +19,6 @@ public class Admin extends User {
   ) {
     super(name, age, username, password);
     this.restaurant = restaurant;
-  }
-
-  public Admin() {
-    super();
   }
 
   /**
@@ -55,7 +55,7 @@ public class Admin extends User {
   /**
    * Shows the incomes and outcomes and the total profit
    */
-  public void income_outcome() {
+  public void printIncomeAndOutcome() {
     System.out.println("The total income is " + restaurant.income);
     System.out.println("The total outcome is " + restaurant.outcome);
     System.out.println(
@@ -80,15 +80,14 @@ public class Admin extends User {
           " score."
         );
         restaurant.workers.remove(worker); //Remove workers from array list
-      } else;
+      }
     }
   }
 
   /**
    * Updates all salaries by controling number of orders and scores
    */
-  public void EditSalary() {
-    //değişecek
+  public void editSalary() {
     for (Worker worker : restaurant.workers) {
       if (worker.getScore() / worker.getVoteAmount() > 8) { // If score is more than 8
         worker.setSalary(
@@ -98,7 +97,7 @@ public class Admin extends User {
           (worker.getScore() / worker.getVoteAmount())
         );
         worker.setScore(4); //Reset the score
-      } else;
+      }
     }
   }
 
@@ -122,26 +121,56 @@ public class Admin extends User {
     return new Food(foodId, foodName, foodPrice, foodType);
   }
 
+  /**
+   * This function adds a food to the menu of the restaurant.
+   *
+   * @param food The food object that you want to add to the menu.
+   */
   public void addFoodToMenu(Food food) {
     restaurant.addFoodtoMenu(food);
   }
 
+  /**
+   * This function deletes a food from the menu of the restaurant.
+   *
+   * @param id the id of the food to be deleted
+   * @return A boolean value.
+   */
   public boolean deleteFoodFromMenu(int id) {
     return this.restaurant.deleteFoodFromMenu(id);
   }
 
+  /**
+   * This function deletes a food from the menu of the restaurant.
+   *
+   * @param food The food to be deleted from the menu.
+   * @return A boolean value to return if it is deleted
+   */
   public boolean deleteFoodFromMenu(Food food) {
     return this.restaurant.deleteFoodFromMenu(food);
   }
 
+  /**
+   * Create a new menu for the restaurant.
+   *
+   * @param menu The menu to be created.
+   */
   public void createMenu(Menu menu) {
     this.restaurant.createNewMenu(menu);
   }
 
+  /**
+   * This function prints the menu to the screen.
+   */
   public void seeMenu() {
     Menu.seeMenu();
   }
 
+  /**
+   * The toString() method returns a string representation of the Admin object
+   *
+   * @return String representation of the Admin object is being returned.
+   */
   @Override
   public String toString() {
     StringBuilder adminInfo = new StringBuilder();
