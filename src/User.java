@@ -1,5 +1,11 @@
 package src;
 
+/**
+ * The user class includes all users in the system.
+ * 
+ * @since 03-03-2022
+ *
+ */
 public class User implements Comparable<User> {
 
   private String name;
@@ -45,6 +51,12 @@ public class User implements Comparable<User> {
     password = _password;
   }
 
+  /**
+   * Compares users by String usernames for binary search in Authentication class.
+   * 
+   * @param other Other user to compare
+   * @return Returns 1 -1 0 based on the status of the comparison
+   */
   public int compareTo(User other) {
     return getUsername().compareTo(other.getUsername());
   }
