@@ -17,6 +17,7 @@ public class Restaurant {
     workers = Authentication.getWorkersFromDatabase();
     customers = Authentication.getCustomersFromDatabase();
     menu = new Menu(Authentication.getMenuFromDatabase());
+    orders = new LinkedList<>();
     score = calculateScore();
     income = 0;
     outcome = 10000;
@@ -31,7 +32,7 @@ public class Restaurant {
   }
 
   public void addOrder(Order order) {
-    orders.add(order);
+    orders.addLast(order);
     sendChef(order);
     sendCourier(order);
   }
