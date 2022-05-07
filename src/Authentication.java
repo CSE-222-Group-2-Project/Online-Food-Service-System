@@ -78,14 +78,14 @@ public class Authentication {
 
   public static ArrayList<Customer> getCustomersFromDatabase() {
     try {
-      ArrayList<Worker> allCustomers = new ArrayList<>();
+      ArrayList<Customer> allCustomers = new ArrayList<>();
       File file = new File(USER_DATABASE_PATH);
       Scanner myReader = new Scanner(file);
       while (myReader.hasNextLine()) {
         String lineText = myReader.nextLine();
         User user = parseUserLine(lineText);
-        if (user instanceof Worker) {
-          allCustomers.add((Worker) user);
+        if (user instanceof Customer) {
+          allCustomers.add((Customer) user);
         }
       }
       myReader.close();
