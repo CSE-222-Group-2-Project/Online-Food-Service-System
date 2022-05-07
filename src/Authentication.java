@@ -37,6 +37,42 @@ public class Authentication {
     return getUserFromUsername(username);
   }
 
+  public static LinkedList<Food> getMenuFromDatabase() {
+    try {
+      LinkedList<Food> menu = new LinkedList<>();
+      File file = new File(MENU_DATABASE_PATH);
+      Scanner myReader = new Scanner(file);
+      while (myReader.hasNextLine()) {
+        String lineText = myReader.nextLine();
+        menu.addLast(parseFoodLine(lineText));
+      }
+      myReader.close();
+      return menu;
+    } catch (FileNotFoundException e) {
+      System.out.println("An error occurred.");
+      e.printStackTrace();
+    }
+    return null;
+  }
+
+  public static BinarySearchTree<User> getAllUsersFromDatabase() {
+    try {
+      BinarySearchTree<User> allUsers = new BinarySearchTree<>();
+      File file = new File(USER_DATABASE_PATH);
+      Scanner myReader = new Scanner(file);
+      while (myReader.hasNextLine()) {
+        String lineText = myReader.nextLine();
+        allUsers.add(parseUserLine(lineText));
+      }
+      myReader.close();
+      return allUsers;
+    } catch (FileNotFoundException e) {
+      System.out.println("An error occurred.");
+      e.printStackTrace();
+    }
+    return null;
+  }
+
   private static String getUsernameFromUserForLogIn() {
     String username = "";
     Scanner scanObj = new Scanner(System.in);
@@ -89,24 +125,6 @@ public class Authentication {
     return allUsers.find(new User(username, 0, "", ""));
   }
 
-  private static LinkedList<Food> getMenuFromDatabase() {
-    try {
-      LinkedList<Food> menu = new LinkedList<>();
-      File file = new File(MENU_DATABASE_PATH);
-      Scanner myReader = new Scanner(file);
-      while (myReader.hasNextLine()) {
-        String lineText = myReader.nextLine();
-        menu.addLast(parseFoodLine(lineText));
-      }
-      myReader.close();
-      return menu;
-    } catch (FileNotFoundException e) {
-      System.out.println("An error occurred.");
-      e.printStackTrace();
-    }
-    return null;
-  }
-
   private static Food parseFoodLine(String lineText) {
     String[] tokens = lineText.split(" ");
     StringBuilder foodName = new StringBuilder();
@@ -122,24 +140,6 @@ public class Authentication {
     food.setFoodType(tokens[tokens.length - 1]);
 
     return food;
-  }
-
-  private static BinarySearchTree<User> getAllUsersFromDatabase() {
-    try {
-      BinarySearchTree<User> allUsers = new BinarySearchTree<>();
-      File file = new File(USER_DATABASE_PATH);
-      Scanner myReader = new Scanner(file);
-      while (myReader.hasNextLine()) {
-        String lineText = myReader.nextLine();
-        allUsers.add(parseUserLine(lineText));
-      }
-      myReader.close();
-      return allUsers;
-    } catch (FileNotFoundException e) {
-      System.out.println("An error occurred.");
-      e.printStackTrace();
-    }
-    return null;
   }
 
   private static User parseUserLine(String lineText) {

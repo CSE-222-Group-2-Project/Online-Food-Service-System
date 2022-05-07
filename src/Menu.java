@@ -2,23 +2,25 @@ package src;
 
 import java.util.LinkedList;
 
-public  class Menu {
+public class Menu {
 
-  static LinkedList<Food> f = new LinkedList<Food>();
-   int id;
-  public Menu(){ // Default Menu
+  static LinkedList<Food> menu = new LinkedList<Food>();
+  int id;
 
+  public Menu() { // Default Menu
+    menu = Authentication.getMenuFromDatabase();
   }
 
-  public Menu(LinkedList<Food> menu){
+  public Menu(LinkedList<Food> menu) {
     this.f = menu;
   }
-  LinkedList<Food>  get_foods() {
+
+  LinkedList<Food> get_foods() {
     return f;
   } // linked list array ? Her yemek çeşiti için ayrı link list ?
 
   // parametre food olabilir mi?*/
-/*  void insert_food(String name, double price,String type) {
+  /*  void insert_food(String name, double price,String type) {
     Food temp = new Food(id, name, price,type);
     f.add(temp);
     id++;
@@ -34,10 +36,9 @@ public  class Menu {
     id--;
   }
 */
-  public  static void seeMenu() {
+  public static void seeMenu() {
     StringBuilder stringBuilder = new StringBuilder();
-    for (Food food :
-            f) {
+    for (Food food : f) {
       stringBuilder.append(food + "\n");
     }
     System.out.print(stringBuilder);
