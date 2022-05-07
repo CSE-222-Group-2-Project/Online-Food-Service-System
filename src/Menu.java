@@ -4,7 +4,7 @@ import java.util.LinkedList;
 
 public class Menu {
 
-  private LinkedList<Food> menu = new LinkedList<Food>();
+  private static LinkedList<Food> menu = new LinkedList<Food>();
   int id;
 
   public Menu() {
@@ -36,7 +36,7 @@ public class Menu {
     id--;
   }
 */
-  public void seeMenu() {
+  public static void seeMenu() {
     StringBuilder stringBuilder = new StringBuilder();
     for (Food food : menu) {
       stringBuilder.append(food + "\n");
