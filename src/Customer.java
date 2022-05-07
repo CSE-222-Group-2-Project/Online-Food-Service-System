@@ -149,17 +149,21 @@ public class Customer extends User {
     Menu.seeMenu();
   }
 
+  /**
+   * The toString() function returns a string representation of the Customer object
+   *
+   * @return A string representation of the Customer object.
+   */
   @Override
   public String toString() {
     StringBuilder customerInfo = new StringBuilder();
-    customerInfo.append("Customer: ");
+    customerInfo.append("Customer: " + "\n");
     customerInfo.append(super.toString());
-    customerInfo.append("\nJob: " + getJob());
-    customerInfo.append("\nPhone number: " + getPhone());
-    customerInfo.append("\nBalance: " + getBalance());
-    customerInfo.append("\nOrder number: " + getOrderNumber());
-    customerInfo.append("Given Orders: " + myOrders());
-    customerInfo.append("\n");
+    customerInfo.append("Job: " + getJob() + "\n");
+    customerInfo.append("Phone number: " + getPhone() + "\n");
+    customerInfo.append("Balance: " + getBalance() + "\n");
+    customerInfo.append("Order number: " + getOrderNumber() + "\n");
+    customerInfo.append("Given Orders: " + myOrders() + "\n");
     return customerInfo.toString();
   }
 }
