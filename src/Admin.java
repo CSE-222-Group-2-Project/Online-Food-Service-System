@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 public class Admin extends User {
 
-  Scanner scanner = new Scanner(System.in);
   private Restaurant restaurant;
 
   public Admin(
@@ -108,6 +107,7 @@ public class Admin extends User {
    * @return Returns the new Food object
    */
   public Food createFood() {
+    Scanner scanner = new Scanner(System.in);
     String foodName, foodType;
     double foodPrice;
     int foodId;

@@ -10,7 +10,7 @@ import src.tree.BinarySearchTree;
 public class Authentication {
 
   private static final String USER_DATABASE_PATH =
-    "../src/database/admin_database/admins.txt";
+    "../src/database/admin_database/users.txt";
   private static final String MENU_DATABASE_PATH =
     "../src/database/restaurant_database/menu.txt";
 
