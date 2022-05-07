@@ -7,8 +7,7 @@ public class Restaurant {
 
   protected int income;
   protected int outcome;
-  //private LinkedList<Order> orders; // Linkedlist şeklinde depolanacak
-  //private LinkedList<Order> ordersPrepared; // Linkedlist şeklinde depolanacak
+  private LinkedList<Order> orders;
   private double score;
   private static Menu menu;
   protected ArrayList<Worker> workers;
@@ -26,49 +25,37 @@ public class Restaurant {
   public double calculateScore() {
     double score = 0;
 
-    for(Worker anworker : workers)
-      score += anworker.getScore();
+    for (Worker anworker : workers) score += anworker.getScore();
 
     return score / workers.size();
   }
 
-  /*
-  public void getOrder(Order obj) {
-    orders.add(obj);
-  }*/
+  public void addOrder(Order order) {
+    orders.add(order);
+    sendChef(order);
+    sendCourier(order);
+  }
 
   public void sendChef(Order order) {
-    // Azizcan bu comment önemli silme :D
-    // chefleri arraylistte tutuyoruz ya mesela 3 tane chefden hangisini seçeceğimizi random yaparsın
     int workerId = 0, minOrder = 0;
 
-    for(int i = 0; i < workers.size(); i++ )
-    {
-      if( workers.get(i) instanceof Courier )
-      {
-        if( minOrder >= ((Chef)workers.get(i)).getSizeOfOrders() )
-        {
-          minOrder = ((Chef)workers.get(i)).getSizeOfOrders();
+    for (int i = 0; i < workers.size(); i++) {
+      if (workers.get(i) instanceof Courier) {
+        if (minOrder >= ((Chef) workers.get(i)).getSizeOfOrders()) {
+          minOrder = ((Chef) workers.get(i)).getSizeOfOrders();
           workerId = i;
         }
       }
     }
 
-    ((Chef)workers.get(workerId)).addOrder((order));
-
+    ((Chef) workers.get(workerId)).addOrder((order));
   }
 
   public void sendCourier(Order order) {
-    // Azizcan bu comment önemli silme :D
-    // kuryeleri arraylistte tutuyoruz ya mesela 3 tane kuryeden hangisini seçeceğimizi random yaparsın
-
-    for(int i = 0; i < workers.size(); i++ )
-    {
-      if( workers.get(i) instanceof Courier )
-      {
-        if( ((Courier)workers.get(i)).isOrdersEmpty() )
-        {
-          ((Courier)workers.get(i)).addOrder(order);
+    for (int i = 0; i < workers.size(); i++) {
+      if (workers.get(i) instanceof Courier) {
+        if (((Courier) workers.get(i)).isOrdersEmpty()) {
+          ((Courier) workers.get(i)).addOrder(order);
         }
       }
     }
@@ -79,7 +66,7 @@ public class Restaurant {
   }
 
   public void showWorkers() {
-    for(int i = 0; i < workers.size(); i++ ){
+    for (int i = 0; i < workers.size(); i++) {
       System.out.println(workers.toString());
     }
   }
@@ -118,7 +105,6 @@ public class Restaurant {
     restaurantInfo.append("Income: " + this.income + "\n");
     restaurantInfo.append("Outcome: " + this.outcome + "\n");
     restaurantInfo.append("Score: " + this.score + "\n");
-    restaurantInfo.append("Number of Scores: " + this.numberofScores + "\n");
     restaurantInfo.append("Menu: " + this.menu.toString() + "\n");
     restaurantInfo.append("Workers: " + this.workers.toString() + "\n");
     restaurantInfo.append("Customers: " + this.customers.toString() + "\n");

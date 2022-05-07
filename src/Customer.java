@@ -98,17 +98,14 @@ public class Customer extends User {
    * @param wantedOrder      Order requested by the customer
    * @return Restaurant's order list containing the order requested by the customer
    */
-  public LinkedList<Order> giveOrder(
-    LinkedList<Order> restaurantOrders,
-    Order wantedOrder
-  ) {
+  public void giveOrder(Restaurant restaurant, Order wantedOrder) {
     if (getBalance() >= wantedOrder.calculate_account()) {
       balance -= wantedOrder.calculate_account();
-      restaurantOrders.add(wantedOrder);
+      restaurant.addOrder(wantedOrder);
       orderNumber++;
-    } else System.out.println("\nNot enough money,order can not be applied");
-
-    return restaurantOrders;
+    } else {
+      System.out.println("\nNot enough money,order can not be applied");
+    }
   }
 
   /**
