@@ -71,6 +71,25 @@ class Order {
     return account;
   }
 
+
+  /* Orderlerin önceliği için Comparator class*/
+  public static class ComparatorbyOrderNumber implements Comparator<Order>{
+
+    @Override
+    public int compare(Order o1, Order o2) {
+      int retVal;
+      if(o1.get_customer().getOrderNumber() >o2.get_customer().getOrderNumber() ){
+        retVal = 1;
+      }
+      else if(o1.get_customer().getOrderNumber() < o2.get_customer().getOrderNumber() ){
+        retVal = -1;
+      }
+      else  retVal = 0;
+      return retVal;
+    }
+  }
+
+
   public String toString() {
     StringBuilder stb = new StringBuilder();
     
@@ -85,5 +104,6 @@ class Order {
 
     return stb.toString();
   }
+
 }
 
