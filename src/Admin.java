@@ -4,9 +4,6 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Scanner;
 
-/**
- * Admin classı restauranttan extend edilmesse her methodta parametere olarak almak gerekiyor??
- */
 
 public class Admin extends User {
 
@@ -28,7 +25,9 @@ public class Admin extends User {
     super();
   }
 
-  //Username ve password bastırmadım
+  /**
+   * Shows the informations which are about workers are Job, Name, Age and Certificate number if it exists 
+   */
   public void showWorkersInfo() {
     for (Worker worker : restaurant.workers) {
       System.out.println("Job: " + worker.getJob());
@@ -42,6 +41,9 @@ public class Admin extends User {
     }
   }
 
+  /**
+   * Shows the informations which are about customers are Job, Name, Age, Balance, Order number and Phone number  
+   */
   public void showCustomersInfo() {
     for (Customer customer : restaurant.customers) {
       System.out.println("Name: " + customer.getName());
@@ -54,6 +56,9 @@ public class Admin extends User {
     }
   }
 
+  /**
+   * Shows the incomes and outcomes and the total profit
+   */
   public void income_outcome() {
     System.out.println("The total income is " + restaurant.income);
     System.out.println("The total outcome is " + restaurant.outcome);
@@ -62,12 +67,15 @@ public class Admin extends User {
     );
   }
 
+  /**
+   * Removes workers which have score that is less than 4.0 from ArrayList
+    */
   public void fireWorker() {
     for (Worker worker : restaurant.workers) {
       if (
         worker.getVoteAmount() > 10 &&
-        worker.getScore() / worker.getVoteAmount() < 4
-      ) { // sipariş sayısı 10 dan fazlaysa ve puanı 4 den düşükse kov
+        worker.getScore() / worker.getVoteAmount() < 4 //workers with more than 10 number of orders
+        ) {                                            //and workers with less than 4.0 score
         System.out.println(
           worker.getName() +
           " has been fired with " +
@@ -75,27 +83,34 @@ public class Admin extends User {
           worker.getVoteAmount() +
           " score."
         );
-        restaurant.workers.remove(worker);
+        restaurant.workers.remove(worker); //Remove workers from array list
       } else;
     }
   }
 
-  //Update all salaries
+  /**
+   * Updates all salaries by controling number of orders and scores
+   */
   public void EditSalary() {
     //değişecek
     for (Worker worker : restaurant.workers) {
-      if (worker.getScore() / worker.getVoteAmount() > 8) { // Çalışanın scoru 8 üzerine çıkarsa -> score * 100 * ExperienceYear, salaryiye eklenir ??
-        worker.setSalary(
+      if (worker.getScore() / worker.getVoteAmount() > 8) { // If score is more than 8 
+          worker.setSalary(
           worker.getSalary() +
           worker.getExperienceYear() *
           100 *
           (worker.getScore() / worker.getVoteAmount())
         );
-        worker.setScore(4); // scoru sıfırlamak gerekebilir??
-      } else;
+        worker.setScore(4); //Reset the score
+      } 
+      else;
     }
   }
 
+  /**
+   * Creates a new food by taking information from cheif
+   * @return Returns the new Food object 
+   */
   public Food createFood() {
     String foodName, foodType;
     double foodPrice;

@@ -51,6 +51,9 @@ public class Worker extends User {
   public void setSalary(double newSalary) {
     salary = newSalary;
   }
+  public void setScore(double score) {
+      this.score = score;
+  }
 
   public int getVoteAmount() {
     return voteAmount;
