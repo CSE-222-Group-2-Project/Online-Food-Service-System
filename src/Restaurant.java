@@ -9,8 +9,7 @@ public class Restaurant {
   protected int outcome;
   //private LinkedList<Order> orders; // Linkedlist şeklinde depolanacak
   //private LinkedList<Order> ordersPrepared; // Linkedlist şeklinde depolanacak
-  private float score;
-  private int numberofScores;
+  private double score;
   private static Menu menu;
   protected ArrayList<Worker> workers;
   protected ArrayList<Customer> customers;
@@ -19,13 +18,18 @@ public class Restaurant {
     workers = Authentication.getWorkersFromDatabase();
     customers = Authentication.getCustomersFromDatabase();
     menu = new Menu(Authentication.getMenuFromDatabase());
+    score = calculateScore();
+    income = 0;
+    outcome = 10000;
   }
 
-  public void inputScore(int score) {
-    if (score > 5 || score < 0) return;
+  public double calculateScore() {
+    double score = 0;
 
-    float temp = this.score * numberofScores;
-    this.score = (temp + score) / (++numberofScores);
+    for(Worker anworker : workers)
+      score += anworker.getScore();
+
+    return score / workers.size();
   }
 
   /*
