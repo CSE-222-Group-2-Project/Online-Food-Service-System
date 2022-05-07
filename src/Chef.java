@@ -49,7 +49,7 @@ public class Chef extends Worker {
    */
   public void prepareOrder(Courier courier) {
     Order order = newOrders.poll();
-    order.setStatus(Order.Status.orderPrepared);
+    order.setStatus(Order.OrderStatus.ORDER_PREPARED);
     courier.addOrder(order);
   }
 

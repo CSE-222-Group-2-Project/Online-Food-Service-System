@@ -15,7 +15,9 @@ import java.util.PriorityQueue;
 public class Courier extends Worker {
 
   private String phoneNumber;
-  private PriorityQueue<Order> orderQueue = new PriorityQueue<>(new Order.ComparatorbyOrderNumber()); // To determine which order is more "important", priority queue is used.
+  private PriorityQueue<Order> orderQueue = new PriorityQueue<>(
+    new Order.ComparatorbyOrderNumber()
+  ); // To determine which order is more "important", priority queue is used.
   private final double initialSalary = 3000.0;
 
   /* Default Constructer of Courier Class */
@@ -49,7 +51,7 @@ public class Courier extends Worker {
    */
   public void deliverOrderToCustomer(Order order) {
     Customer orderOwner = order.get_customer(); // orderOwner'ın foodTaken tarzı bir methodu olsun. atacana bildir :D
-    order.setStatus(Order.Status.orderDelivered);
+    order.setStatus(Order.OrderStatus.ORDER_DELIVERED);
     orderOwner.takeOrder(order);
   }
 
@@ -67,5 +69,4 @@ public class Courier extends Worker {
       workerStat = WorkerStatus.SENIOR;
     }
   }
-
 }

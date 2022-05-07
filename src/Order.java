@@ -6,13 +6,13 @@ import java.util.LinkedList;
 class Order {
 
   // 3 yeni data field ekledim. Bunları chef'in vs constructor'ında doldur.
-  public enum Status {
-    orderTaken, // Shows whether order is proper or not
-    orderPrepared,
-    orderDelivered,
+  public enum OrderStatus {
+    ORDER_TAKEN, // Shows whether order is proper or not
+    ORDER_PREPARED,
+    ORDER_DELIVERED,
   }
 
-  Status status = Status.orderTaken;
+  OrderStatus status = OrderStatus.ORDER_TAKEN;
   private Chef whoCooked; // Shows which chef cooked that order
   private Courier whoDelivered; // Shows which couier delivered that order
   private int orderID;
@@ -56,7 +56,7 @@ class Order {
     return orderID;
   }
 
-  public void setStatus(Status stat) {
+  public void setStatus(OrderStatus stat) {
     status = stat;
   }
 
