@@ -2,6 +2,7 @@ package src;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.Random;
 
 public class Restaurant {
 
@@ -21,6 +22,16 @@ public class Restaurant {
     score = calculateScore();
     income = 0;
     outcome = 10000;
+
+    System.out.println(customers.size());
+    for(Customer ancustomer : customers)
+      System.out.println(ancustomer.getName());
+  }
+
+  public Customer getRandomCustomer() {
+    Random rand = new Random();
+    System.out.println(customers.size());
+    return customers.get(rand.nextInt(customers.size()));
   }
 
   public double calculateScore() {
