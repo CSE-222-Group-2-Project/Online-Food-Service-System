@@ -33,13 +33,6 @@ public class Customer extends User {
     balance = _balance;
   }
 
-  Customer() {
-    super();
-    job = "Teacher";
-    phoneNumber = "0555555555";
-    balance = 100;
-  }
-
   public String getJob() {
     return job;
   }
