@@ -6,13 +6,13 @@ In order to install the project, enter the command in your terminal:
 `git clone https://github.com/CSE-222-Group-2-Project/Online-Food-Service-System`
 
 **COMPILATION**  
-In order to compile the project, enter the command:  
+In order to compile the project, enter the command in your terminal:    
 `make`  
 *or*  
 `javac Driver.java`
 
-**RUNNING**
-In order to run the project, enter the command:  
+**RUNNING**  
+In order to run the project, enter the command in your terminal:    
 `make run`  
 *or*  
 `java Driver`  
