@@ -43,4 +43,13 @@ public class Menu {
     }
     System.out.print(stringBuilder);
   }
+
+  @Override
+  public String toString() {
+    StringBuilder menuInfo = new StringBuilder();
+    for (Food food : menu) {
+      menuInfo.append(food + "\n");
+    }
+    return menuInfo.toString();
+  }
 }

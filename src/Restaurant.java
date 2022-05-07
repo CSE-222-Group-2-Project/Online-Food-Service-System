@@ -73,4 +73,18 @@ public class Restaurant {
   public void createNewMenu(Menu menu) {
     this.menu = menu;
   }
+
+  @Override
+  public String toString() {
+    StringBuilder restaurantInfo = new StringBuilder();
+    restaurantInfo.append("Restaurant Info:\n");
+    restaurantInfo.append("Income: " + this.income + "\n");
+    restaurantInfo.append("Outcome: " + this.outcome + "\n");
+    restaurantInfo.append("Score: " + this.score + "\n");
+    restaurantInfo.append("Number of Scores: " + this.numberofScores + "\n");
+    restaurantInfo.append("Menu: " + this.menu.toString() + "\n");
+    restaurantInfo.append("Workers: " + this.workers.toString() + "\n");
+    restaurantInfo.append("Customers: " + this.customers.toString() + "\n");
+    return restaurantInfo.toString();
+  }
 }

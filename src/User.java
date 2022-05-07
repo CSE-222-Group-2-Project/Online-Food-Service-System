@@ -2,7 +2,7 @@ package src;
 
 /**
  * The user class includes all users in the system.
- * 
+ *
  * @since 03-03-2022
  *
  */
@@ -53,7 +53,7 @@ public class User implements Comparable<User> {
 
   /**
    * Compares users by String usernames for binary search in Authentication class.
-   * 
+   *
    * @param other Other user to compare
    * @return Returns 1 -1 0 based on the status of the comparison
    */
@@ -61,4 +61,13 @@ public class User implements Comparable<User> {
     return getUsername().compareTo(other.getUsername());
   }
 
+  @Override
+  public String toString() {
+    StringBuilder userInfo = new StringBuilder();
+    userInfo.append("Name: " + name + "\n");
+    userInfo.append("Age: " + age + "\n");
+    userInfo.append("Username: " + username + "\n");
+    userInfo.append("Password: " + password + "\n");
+    return userInfo.toString();
+  }
 }

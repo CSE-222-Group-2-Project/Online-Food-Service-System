@@ -97,17 +97,18 @@ class Order {
     }
   }
 
+  @Override
   public String toString() {
-    StringBuilder stb = new StringBuilder();
+    StringBuilder orderInfo = new StringBuilder();
+    orderInfo.append("Order Info: \n");
+    orderInfo.append("Order ID: " + orderID + "\n");
+    orderInfo.append("Order Price: " + account + "\n");
+    orderInfo.append("Order Chef: " + getWhoCooked().getName() + "\n");
+    orderInfo.append("Order Courier: " + getWhoDelivered().getName() + "\n");
+    orderInfo.append("Order Status: " + status + "\n");
+    orderInfo.append("Order Foods: \n");
+    for (Food afood : foods) orderInfo.append("\n" + afood.toString());
 
-    stb.append("\nOrder id: " + orderID);
-    stb.append("\nOrder price: " + account);
-    stb.append("\nOrder maker: " + getWhoCooked().getName());
-    stb.append("\nCourier: " + getWhoDelivered().getName());
-    stb.append("\nOrdered foods:");
-
-    for (Food afood : foods) stb.append("\n" + afood.toString());
-
-    return stb.toString();
+    return orderInfo.toString();
   }
 }

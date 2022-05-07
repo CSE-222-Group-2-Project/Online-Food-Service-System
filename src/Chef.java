@@ -94,4 +94,16 @@ public class Chef extends Worker {
       workerStat = WorkerStatus.SENIOR;
     }
   }
+
+  @Override
+  public String toString() {
+    StringBuilder chefInfo = new StringBuilder();
+    chefInfo.append("Chef: ");
+    chefInfo.append(super.toString());
+    chefInfo.append("\nCertificate Number: ");
+    chefInfo.append(this.certificateNumber);
+    chefInfo.append("Chef Order Queue: " + newOrders);
+    chefInfo.append("\n");
+    return chefInfo.toString();
+  }
 }

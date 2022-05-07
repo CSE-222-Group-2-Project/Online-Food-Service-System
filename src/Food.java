@@ -52,12 +52,14 @@ public class Food {
     return foodType;
   }
 
+  @Override
   public String toString() {
-    StringBuilder stb = new StringBuilder();
-
-    stb.append(
-      (foodID) + " " + foodName + " " + (getFoodPrice()) + " " + foodType + "\n"
-    );
-    return stb.toString();
+    StringBuilder foodInfo = new StringBuilder();
+    foodInfo.append("Food : ");
+    foodInfo.append("\nFood ID : " + foodID + "\n");
+    foodInfo.append("Food Name : " + foodName + "\n");
+    foodInfo.append("Food Price : " + foodPrice + "\n");
+    foodInfo.append("Food Type : " + foodType + "\n");
+    return foodInfo.toString();
   }
 }

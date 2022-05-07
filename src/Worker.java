@@ -94,4 +94,17 @@ public class Worker extends User {
       if (this.getScore() < 4) return true; else return false;
     }
   }
+
+  @Override
+  public String toString() {
+    StringBuilder workerInfo = new StringBuilder();
+    workerInfo.append(super.toString() + "\n");
+    workerInfo.append("Job: " + this.getJob() + "\n");
+    workerInfo.append("Salary: " + this.getSalary() + "\n");
+    workerInfo.append("Score: " + this.getScore() + "\n");
+    workerInfo.append("Experience Year: " + this.getExperienceYear() + "\n");
+    workerInfo.append("Vote Amount: " + this.getVoteAmount() + "\n");
+    workerInfo.append("Worker Status: " + this.workerStat + "\n");
+    return workerInfo.toString();
+  }
 }

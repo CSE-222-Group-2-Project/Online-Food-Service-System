@@ -91,4 +91,16 @@ public class Courier extends Worker {
       workerStat = WorkerStatus.SENIOR;
     }
   }
+
+  @Override
+  public String toString() {
+    StringBuilder courierInfo = new StringBuilder();
+    courierInfo.append("Courier: ");
+    courierInfo.append(super.toString());
+    courierInfo.append("\nPhone Number: ");
+    courierInfo.append(phoneNumber);
+    courierInfo.append("Courier Order Queue: " + orderQueue);
+    courierInfo.append("\n");
+    return courierInfo.toString();
+  }
 }
