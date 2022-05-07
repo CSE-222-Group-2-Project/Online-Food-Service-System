@@ -92,6 +92,11 @@ public class Courier extends Worker {
     }
   }
 
+  /**
+   * The toString() function returns a string representation of the Courier object
+   *
+   * @return A string representation of the courier object.
+   */
   @Override
   public String toString() {
     StringBuilder courierInfo = new StringBuilder();

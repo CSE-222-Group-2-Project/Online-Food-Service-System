@@ -95,6 +95,11 @@ public class Chef extends Worker {
     }
   }
 
+  /**
+   * The toString() function returns a string representation of the Chef object
+   *
+   * @return A string representation of the chef object.
+   */
   @Override
   public String toString() {
     StringBuilder chefInfo = new StringBuilder();
