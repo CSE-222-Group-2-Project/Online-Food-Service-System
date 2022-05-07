@@ -11,12 +11,12 @@ public class Menu {
     menu = Authentication.getMenuFromDatabase();
   }
 
-  public Menu(LinkedList<Food> menu) {
-    this.f = menu;
+  public Menu(LinkedList<Food> otherMenu) {
+    this.menu = otherMenu;
   }
 
   LinkedList<Food> get_foods() {
-    return f;
+    return menu;
   } // linked list array ? Her yemek çeşiti için ayrı link list ?
 
   // parametre food olabilir mi?*/
@@ -38,7 +38,7 @@ public class Menu {
 */
   public static void seeMenu() {
     StringBuilder stringBuilder = new StringBuilder();
-    for (Food food : f) {
+    for (Food food : menu) {
       stringBuilder.append(food + "\n");
     }
     System.out.print(stringBuilder);
