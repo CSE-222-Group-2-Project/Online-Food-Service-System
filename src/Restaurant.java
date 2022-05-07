@@ -18,6 +18,7 @@ public class Restaurant {
   public void Restaurant() {
     workers = Authentication.getWorkersFromDatabase();
     customers = Authentication.getCustomersFromDatabase();
+    menu = new Menu(Authentication.getMenuFromDatabase());
   }
 
   public void inputScore(int score) {

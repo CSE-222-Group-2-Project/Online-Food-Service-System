@@ -4,10 +4,10 @@ import java.util.LinkedList;
 
 public class Menu {
 
-  static LinkedList<Food> menu = new LinkedList<Food>();
+  private LinkedList<Food> menu = new LinkedList<Food>();
   int id;
 
-  public Menu() { // Default Menu
+  public Menu() {
     menu = Authentication.getMenuFromDatabase();
   }
 
@@ -36,7 +36,7 @@ public class Menu {
     id--;
   }
 */
-  public static void seeMenu() {
+  public void seeMenu() {
     StringBuilder stringBuilder = new StringBuilder();
     for (Food food : menu) {
       stringBuilder.append(food + "\n");
