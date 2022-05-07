@@ -7,15 +7,15 @@ public class Restaurant {
 
   protected int income;
   protected int outcome;
-  private LinkedList<Order> orders; // Linkedlist şeklinde depolanacak
-  private LinkedList<Order> ordersPrepared; // Linkedlist şeklinde depolanacak
+  //private LinkedList<Order> orders; // Linkedlist şeklinde depolanacak
+  //private LinkedList<Order> ordersPrepared; // Linkedlist şeklinde depolanacak
   private float score;
   private int numberofScores;
   private static Menu menu;
   protected ArrayList<Worker> workers;
   protected ArrayList<Customer> customers;
 
-  public void Restaurant() {
+  public Restaurant() {
     workers = Authentication.getWorkersFromDatabase();
     customers = Authentication.getCustomersFromDatabase();
     menu = new Menu(Authentication.getMenuFromDatabase());
@@ -28,16 +28,15 @@ public class Restaurant {
     this.score = (temp + score) / (++numberofScores);
   }
 
+  /*
   public void getOrder(Order obj) {
     orders.add(obj);
-  }
+  }*/
 
   public void sendChef(Order order) {
-
-  public void sendChef() {
     // Azizcan bu comment önemli silme :D
     // chefleri arraylistte tutuyoruz ya mesela 3 tane chefden hangisini seçeceğimizi random yaparsın
-    int workerId, minOrder = 0;
+    int workerId = 0, minOrder = 0;
 
     for(int i = 0; i < workers.size(); i++ )
     {
@@ -51,11 +50,11 @@ public class Restaurant {
       }
     }
 
-    ((Chef)workers.get(i)).addOrder((order));
+    ((Chef)workers.get(workerId)).addOrder((order));
 
   }
 
-  public void sendCourier() {
+  public void sendCourier(Order order) {
     // Azizcan bu comment önemli silme :D
     // kuryeleri arraylistte tutuyoruz ya mesela 3 tane kuryeden hangisini seçeceğimizi random yaparsın
 
