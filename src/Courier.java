@@ -58,6 +58,15 @@ public class Courier extends Worker {
   }
 
   /**
+   * Checks if the orders queue is empty
+   *
+   * @return returns the status of PriorityQueue
+   */
+  public boolean isOrdersEmpty() {
+    return orderQueue.isEmpty();
+  }
+
+  /**
    * Add the order to the order queue.
    *
    * @param order The order to be added to the queue.
@@ -105,14 +114,5 @@ public class Courier extends Worker {
     courierInfo.append("Phone Number: " + phoneNumber + "\n");
     courierInfo.append("Courier Order Queue: " + orderQueue + "\n");
     return courierInfo.toString();
-  }
-
-  /**
-   * Checks if the orders queue is empty
-   * 
-   * @return returns the status of PriorityQueue
-   */
-  public boolean isOrdersEmpty(){
-    return orderQueue.isEmpty();
   }
 }
