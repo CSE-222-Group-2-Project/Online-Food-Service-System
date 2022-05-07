@@ -1,9 +1,6 @@
 package src;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.Scanner;
-
 
 public class Admin extends User {
 
@@ -26,7 +23,7 @@ public class Admin extends User {
   }
 
   /**
-   * Shows the informations which are about workers are Job, Name, Age and Certificate number if it exists 
+   * Shows the informations which are about workers are Job, Name, Age and Certificate number if it exists
    */
   public void showWorkersInfo() {
     for (Worker worker : restaurant.workers) {
@@ -42,7 +39,7 @@ public class Admin extends User {
   }
 
   /**
-   * Shows the informations which are about customers are Job, Name, Age, Balance, Order number and Phone number  
+   * Shows the informations which are about customers are Job, Name, Age, Balance, Order number and Phone number
    */
   public void showCustomersInfo() {
     for (Customer customer : restaurant.customers) {
@@ -69,13 +66,13 @@ public class Admin extends User {
 
   /**
    * Removes workers which have score that is less than 4.0 from ArrayList
-    */
+   */
   public void fireWorker() {
     for (Worker worker : restaurant.workers) {
       if (
         worker.getVoteAmount() > 10 &&
         worker.getScore() / worker.getVoteAmount() < 4 //workers with more than 10 number of orders
-        ) {                                            //and workers with less than 4.0 score
+      ) { //and workers with less than 4.0 score
         System.out.println(
           worker.getName() +
           " has been fired with " +
@@ -94,22 +91,21 @@ public class Admin extends User {
   public void EditSalary() {
     //değişecek
     for (Worker worker : restaurant.workers) {
-      if (worker.getScore() / worker.getVoteAmount() > 8) { // If score is more than 8 
-          worker.setSalary(
+      if (worker.getScore() / worker.getVoteAmount() > 8) { // If score is more than 8
+        worker.setSalary(
           worker.getSalary() +
           worker.getExperienceYear() *
           100 *
           (worker.getScore() / worker.getVoteAmount())
         );
         worker.setScore(4); //Reset the score
-      } 
-      else;
+      } else;
     }
   }
 
   /**
    * Creates a new food by taking information from cheif
-   * @return Returns the new Food object 
+   * @return Returns the new Food object
    */
   public Food createFood() {
     String foodName, foodType;

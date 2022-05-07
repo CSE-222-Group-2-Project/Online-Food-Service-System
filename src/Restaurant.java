@@ -15,7 +15,10 @@ public class Restaurant {
   protected ArrayList<Worker> workers;
   protected ArrayList<Customer> customers;
 
-  public void Restaurant() {}
+  public void Restaurant() {
+    workers = Authentication.getWorkersFromDatabase();
+    customers = Authentication.getCustomersFromDatabase();
+  }
 
   public void inputScore(int score) {
     if (score > 5 || score < 0) return;
