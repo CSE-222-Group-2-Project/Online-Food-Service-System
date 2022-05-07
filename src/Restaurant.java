@@ -32,17 +32,12 @@ public class Restaurant {
     orders.add(obj);
   }
 
-<<<<<<< HEAD
-
   public void sendChef(Order order) {
-=======
+
   public void sendChef() {
->>>>>>> c061f1fa366bcd983201d10f6c6d3e56723ce8e1
     // Azizcan bu comment önemli silme :D
     // chefleri arraylistte tutuyoruz ya mesela 3 tane chefden hangisini seçeceğimizi random yaparsın
     int workerId, minOrder = 0;
-
-
 
     for(int i = 0; i < workers.size(); i++ )
     {
