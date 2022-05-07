@@ -1,3 +1,5 @@
+import java.util.LinkedList;
+
 import src.*;
 
 public class Driver {
@@ -12,8 +14,11 @@ public class Driver {
         "1234");
     
     
-    kebelekCafe.getRandomCustomer().seeMenu();
-    //Food food1 = new Food(10, food_name, food_price, food_type);
+    Customer aCustomer = kebelekCafe.getRandomCustomer();
+    aCustomer.seeMenu();
+    LinkedList<Food> testFoods = kebelekCafe.createRandomFoods();
+    Order anOrder = new Order(7,aCustomer,testFoods);
+    aCustomer.giveOrder(kebelekCafe,anOrder);
   }
 
 }

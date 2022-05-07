@@ -29,6 +29,19 @@ public class Restaurant {
     return customers.get(rand.nextInt(customers.size()));
   }
 
+  public LinkedList<Food> createRandomFoods() {
+    Random rand = new Random();
+    LinkedList<Food> foods = menu.get_foods();
+    LinkedList<Food> orderFoods = new LinkedList<>();
+
+    for(int i=0 ; i<4 ; i++) {
+      int randomNumber = rand.nextInt(foods.size());
+      orderFoods.add(foods.get(randomNumber));
+    }
+
+    return orderFoods;
+  }
+
   public double calculateScore() {
     double score = 0;
 

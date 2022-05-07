@@ -15,7 +15,7 @@ public class Menu {
     this.menu = otherMenu;
   }
 
-  LinkedList<Food> get_foods() {
+  public LinkedList<Food> get_foods() {
     return menu;
   } // linked list array ? Her yemek çeşiti için ayrı link list ?
 

@@ -3,7 +3,7 @@ package src;
 import java.util.Comparator;
 import java.util.LinkedList;
 
-class Order {
+public class Order {
 
   // 3 yeni data field ekledim. Bunları chef'in vs constructor'ında doldur.
   public enum OrderStatus {
@@ -24,7 +24,7 @@ class Order {
   //private LinkedList<Integer> foodID = new LinkedList<Integer>();
   private LinkedList<Food> foods = new LinkedList<Food>();
 
-  Order(
+  public Order(
     int orderID,
     Customer customer,
     LinkedList<Food> _foods
