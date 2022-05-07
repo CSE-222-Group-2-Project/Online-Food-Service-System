@@ -64,6 +64,14 @@ public class Admin extends User {
   }
 
   /**
+   * Prints all restaurant's order
+   */
+  public void printAllOrders() {
+    for(Order anOrder : restaurant.orders)
+      System.out.println(anOrder.toString());
+  }
+
+  /**
    * Removes workers which have score that is less than 4.0 from ArrayList
    */
   public void fireWorker() {

@@ -19,6 +19,10 @@ public class Driver {
     LinkedList<Food> testFoods = kebelekCafe.createRandomFoods();
     Order anOrder = new Order(7,aCustomer,testFoods);
     aCustomer.giveOrder(kebelekCafe,anOrder);
+    // 20 tane sipariş falan oluşturmak lazım
+    cHEF kebelekCafe.sendChef(anOrder);
+    kuryeyi seç
+    kuryeteslim
   }
 
 }

@@ -58,12 +58,12 @@ public class Courier extends Worker {
   }
 
   /**
-   * Checks if the orders queue is empty
+   * Returns the size of orders queue
    *
-   * @return returns the status of PriorityQueue
+   * @return returns the size of PriorityQueue
    */
-  public boolean isOrdersEmpty() {
-    return orderQueue.isEmpty();
+  public int getSizeOfOrders() {
+    return orderQueue.size();
   }
 
   /**

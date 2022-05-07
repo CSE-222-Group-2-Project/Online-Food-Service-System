@@ -60,6 +60,10 @@ public class Order {
     return orderID;
   }
 
+  public double get_account() {
+    return account;
+  }
+
   public void setStatus(OrderStatus stat) {
     status = stat;
   }

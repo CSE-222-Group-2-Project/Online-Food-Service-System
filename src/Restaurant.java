@@ -8,7 +8,7 @@ public class Restaurant {
 
   protected int income;
   protected int outcome;
-  private LinkedList<Order> orders;
+  protected LinkedList<Order> orders;
   private double score;
   private static Menu menu;
   protected ArrayList<Worker> workers;
@@ -52,15 +52,14 @@ public class Restaurant {
 
   public void addOrder(Order order) {
     orders.addLast(order);
-    sendChef(order);
-    sendCourier(order);
+    income += order.get_account();
   }
 
-  public void sendChef(Order order) {
+  public Chef chooseChef(Order order) {
     int workerId = 0, minOrder = 0;
 
     for (int i = 0; i < workers.size(); i++) {
-      if (workers.get(i) instanceof Courier) {
+      if (workers.get(i) instanceof Chef) {
         if (minOrder >= ((Chef) workers.get(i)).getSizeOfOrders()) {
           minOrder = ((Chef) workers.get(i)).getSizeOfOrders();
           workerId = i;
@@ -69,16 +68,24 @@ public class Restaurant {
     }
 
     ((Chef) workers.get(workerId)).addOrder((order));
+
+    return (Chef) workers.get(workerId);
   }
 
-  public void sendCourier(Order order) {
+  public Courier chooseCourier(Order order) {
+    int workerId = 0,minOrder = 0;
+
     for (int i = 0; i < workers.size(); i++) {
       if (workers.get(i) instanceof Courier) {
-        if (((Courier) workers.get(i)).isOrdersEmpty()) {
-          ((Courier) workers.get(i)).addOrder(order);
+        if (minOrder >= ((Courier) workers.get(i)).getSizeOfOrders()) {
+          minOrder = ((Courier) workers.get(i)).getSizeOfOrders();
+          workerId = i;
         }
       }
     }
+    ((Courier) workers.get(workerId)).addOrder(order);
+    
+    return (Courier) workers.get(workerId);
   }
 
   public ArrayList<Worker> getWorkers() {
