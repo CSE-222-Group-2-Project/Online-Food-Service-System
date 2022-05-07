@@ -115,10 +115,10 @@ public class Chef extends Worker {
 
   /**
    * Returns the orders in process
-   * 
+   *
    * @return the size of newOrders object
    */
-  public int getSizeOfOrders(){
-    return newOrders.size(); 
+  public int getSizeOfOrders() {
+    return newOrders.size();
   }
 }
