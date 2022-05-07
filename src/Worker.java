@@ -1,5 +1,8 @@
 package src;
 
+/**
+ * Worker class is a subclass of User class which represents the Workers of the restaurant.
+ */
 public class Worker extends User {
 
   /**
@@ -16,9 +19,10 @@ public class Worker extends User {
   private double salary;
   private double score = 4.0;
   private int experienceYear;
-  private int voteAmount = 1; // Vote kısmı atacanla konusulacak, burayi customer güncelleyecek cunku
+  private int voteAmount = 1;
   protected WorkerStatus workerStat;
 
+  /* Constructer of the Worker class */
   public Worker(
     String _name,
     int _age,
@@ -32,29 +36,65 @@ public class Worker extends User {
     experienceYear = _experienceYear;
   }
 
+  /**
+   * This function returns the job of the worker.
+   *
+   * @return The job of the worker is being returned.
+   */
   public String getJob() {
     return job;
   }
 
+  /**
+   * This function returns the salary of the worker.
+   *
+   * @return The salary of the worker.
+   */
   public double getSalary() {
     return salary;
   }
 
+  /**
+   * This function returns the score of the worker
+   *
+   * @return The score of the worker.
+   */
   public double getScore() {
     return score;
   }
 
+  /**
+   * This function returns the experienceYear of the worker.
+   *
+   * @return The experienceYear of the worker.
+   */
   public int getExperienceYear() {
     return experienceYear;
   }
 
+  /**
+   * This function sets the salary of the worker to the value of the parameter newSalary.
+   *
+   * @param newSalary The new salary for the worker.
+   */
   public void setSalary(double newSalary) {
     salary = newSalary;
   }
+
+  /**
+   * This function sets the score of the worker to the value of the parameter score.
+   *
+   * @param score The score of the worker.
+   */
   public void setScore(double score) {
-      this.score = score;
+    this.score = score;
   }
 
+  /**
+   * This function returns the vote amount.
+   *
+   * @return The voteAmount of the worker
+   */
   public int getVoteAmount() {
     return voteAmount;
   }
@@ -80,9 +120,18 @@ public class Worker extends User {
     }
   }
 
+  /**
+   * The function calculates the average score of the worker by adding the new incoming score to the total
+   * score and dividing it by the updated vote amount.
+   *
+   * @param _score The score that is coming from the user.
+   * @return The average score of the worker.
+   */
   public double calculateAverageScore(int _score) {
-    double temp = score * (voteAmount); // Total score before adding new incoming score
-    score = (temp + _score) / (++voteAmount); // New incoming score is adding to total score and average is calculating again, according to updated vote amount.
+    // Total score before adding new incoming score
+    double temp = score * (voteAmount);
+    // New incoming score is adding to total score and average is calculating again, according to updated vote amount.
+    score = (temp + _score) / (++voteAmount);
     return score;
   }
 
@@ -98,6 +147,11 @@ public class Worker extends User {
     }
   }
 
+  /**
+   * The function returns a string that contains the information of the worker
+   *
+   * @return The toString method is being returned.
+   */
   @Override
   public String toString() {
     StringBuilder workerInfo = new StringBuilder();
