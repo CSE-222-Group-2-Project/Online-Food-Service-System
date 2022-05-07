@@ -22,7 +22,7 @@ public class Courier extends Worker {
   );
 
   // initial salary of the Couriers
-  private final double initialSalary = 3000.0;
+  private final double INITIAL_SALARY = 3000.0;
 
   /* Default Constructer of Courier Class */
   public Courier(
@@ -36,7 +36,7 @@ public class Courier extends Worker {
     super(_name, _age, _username, _password, "Courier", experienceYear);
     this.phoneNumber = _phoneNumber;
     calculateStatus();
-    calculateSalary(initialSalary);
+    calculateSalary(INITIAL_SALARY);
   }
 
   /**
@@ -97,10 +97,8 @@ public class Courier extends Worker {
     StringBuilder courierInfo = new StringBuilder();
     courierInfo.append("Courier: ");
     courierInfo.append(super.toString());
-    courierInfo.append("\nPhone Number: ");
-    courierInfo.append(phoneNumber);
-    courierInfo.append("Courier Order Queue: " + orderQueue);
-    courierInfo.append("\n");
+    courierInfo.append("Phone Number: " + phoneNumber + "\n");
+    courierInfo.append("Courier Order Queue: " + orderQueue + "\n");
     return courierInfo.toString();
   }
 }

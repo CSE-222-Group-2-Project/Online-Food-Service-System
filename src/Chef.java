@@ -18,10 +18,10 @@ public class Chef extends Worker {
   private int certificateNumber;
 
   // All orders that chef is going to prepare
-  private Queue<Order> newOrders = new PriorityQueue<Order>();
+  private Queue<Order> newOrders = new PriorityQueue<>();
 
   // initial salary of the Chefs
-  private final double initialSalary = 4000.0;
+  private final double INITIAL_SALARY = 4000.0;
 
   /* Default Constructer of Chef Class */
   public Chef(
@@ -35,7 +35,7 @@ public class Chef extends Worker {
     super(_name, _age, _username, _password, "Chef", experienceYear);
     this.certificateNumber = _certificateNumber;
     calculateStatus();
-    calculateSalary(initialSalary);
+    calculateSalary(INITIAL_SALARY);
   }
 
   /**
