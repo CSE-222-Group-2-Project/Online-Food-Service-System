@@ -50,8 +50,7 @@ public class Food {
   public String toString() {
     StringBuilder stb = new StringBuilder();
 
-    stb.append(Integer.toString(foodID)+" "+food_name+" "+Double.toString(get_food_price()));
-
+    stb.append((foodID)+" "+food_name+" "+(get_food_price())+" " + food_type+"\n");
     return stb.toString();
   }
 }
