@@ -13,6 +13,7 @@ public class User implements Comparable<User> {
   private String username;
   private String password;
 
+  /*  Constructer of the User class */
   public User(String _name, int _age, String _username, String _password) {
     name = _name;
     age = _age;
@@ -20,33 +21,56 @@ public class User implements Comparable<User> {
     password = _password;
   }
 
-  User() {
-    name = "Mustafa";
-    age = 24;
-    username = "1234";
-    password = "1234";
-  }
-
+  /**
+   * This function returns the age of the User
+   *
+   * @return The age of the User.
+   */
   public int getAge() {
     return age;
   }
 
+  /**
+   * It returns the name of the User.
+   *
+   * @return The name of the User.
+   */
   public String getName() {
     return name;
   }
 
+  /**
+   * It returns the username of the User.
+   *
+   * @return The username of the User.
+   */
   public String getUsername() {
     return username;
   }
 
+  /**
+   * It returns the password of the User.
+   *
+   * @return The password of the User.
+   */
   public String getPassword() {
     return password;
   }
 
+  /**
+   * This function changes the username of the user.
+   *
+   * @param _username The new username
+   */
   public void changeUsername(String _username) {
     username = _username;
   }
 
+  /**
+   * This function changes the password of the user.
+   *
+   * @param _password The new password for the user.
+   */
   public void changePassword(String _password) {
     password = _password;
   }
@@ -61,6 +85,11 @@ public class User implements Comparable<User> {
     return getUsername().compareTo(other.getUsername());
   }
 
+  /**
+   * The toString() method returns a string representation of the User
+   *
+   * @return The String representation of the User is being returned.
+   */
   @Override
   public String toString() {
     StringBuilder userInfo = new StringBuilder();
