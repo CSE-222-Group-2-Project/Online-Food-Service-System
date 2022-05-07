@@ -25,10 +25,10 @@
 24 Izmir Bomba 14 dessert
 25 Limonata 4 beverage
 26 Elma Suyu 5 beverage
-27 HavuC Suyu 6 beverage
+27 Havuc Suyu 6 beverage
 28 Deteoks 10 beverage
-29 Turk Kahfesi 10 beverage
+29 Turk Kahvesi 10 beverage
 30 Sicak Cikolata 6 beverage
-31 Soguk Kahfe 7 beverage
+31 Soguk Kahve 7 beverage
 32 Coca Cola 5 beverage
 33 Su 2 beverage

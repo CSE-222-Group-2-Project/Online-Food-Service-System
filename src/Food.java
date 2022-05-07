@@ -3,10 +3,9 @@ package src;
 public class Food {
 
   private int foodID;
-  private String food_name;
-  private double food_price;
-
-  private String food_type;
+  private String foodName;
+  private double foodPrice;
+  private String foodType;
 
   /*
   private  String MainCOURSE =" mainCourse";
@@ -16,41 +15,49 @@ public class Food {
 
   private  String footType;*/
 
+  Food(int food_id, String food_name, double food_price, String food_type) { // type is added for extra
+    foodID = food_id;
+    foodName = food_name;
+    foodPrice = food_price;
+    foodType = food_type;
+  }
 
-  Food(int id, String name, double price,String type) { // type is added for extra
+  public Food() {}
+
+  void setFoodID(int id) {
     foodID = id;
-    food_name = name;
-    food_price = price;
-    food_type = type;
   }
 
-
-  void setID(int id) {
-    foodID = id;
+  void setFoodName(String food_name) {
+    foodName = food_name;
   }
 
-  void set_food_price(double price) {
-    food_price = price;
+  void setFoodPrice(double price) {
+    foodPrice = price;
   }
 
-  int get_foodID() {
+  public void setFoodType(String type) {
+    foodType = type;
+  }
+
+  int getFoodID() {
     return foodID;
   }
 
-  double get_food_price() {
-    return food_price;
+  double getFoodPrice() {
+    return foodPrice;
   }
 
-  public String getFood_type(){
-    return food_type;
+  public String getFoodType() {
+    return foodType;
   }
-  public  void setFood_type(String type){
-    this.food_type = type;
-  }
+
   public String toString() {
     StringBuilder stb = new StringBuilder();
 
-    stb.append((foodID)+" "+food_name+" "+(get_food_price())+" " + food_type+"\n");
+    stb.append(
+      (foodID) + " " + foodName + " " + (getFoodPrice()) + " " + foodType + "\n"
+    );
     return stb.toString();
   }
 }
