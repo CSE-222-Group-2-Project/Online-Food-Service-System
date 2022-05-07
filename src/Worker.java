@@ -1,26 +1,20 @@
 package src;
 
-public class Worker extends User 
-{
+public class Worker extends User {
+
   /**
    Status of the worker will be change according to it's experience year, certificate number etc. 
   */
-  public enum WorkerStatus 
-  { 
-    BEGINNER, 
-    JUNIOR, 
-    MID_LEVEL, 
-    SENIOR, 
-  }
-
-  public enum AvailabilityStatus {
-    AVAILABLE,
-    BUSY,
+  public enum WorkerStatus {
+    BEGINNER,
+    JUNIOR,
+    MID_LEVEL,
+    SENIOR,
   }
 
   private String job;
   private double salary;
-  private double score = 4.0; 
+  private double score = 4.0;
   private int experienceYear;
   private int voteAmount = 1; // Vote kısmı atacanla konusulacak, burayi customer güncelleyecek cunku
   protected WorkerStatus workerStat;
@@ -64,29 +58,28 @@ public class Worker extends User
 
   /**
    * Salary of the worker will be calculated according to that worker's WorkerStatus.
-   * An initial amount will be assigned to beginner status, and it will increase with increment of status. 
-  */
+   * An initial amount will be assigned to beginner status, and it will increase with increment of status.
+   */
   protected void calculateSalary(double initialSalary) {
-    switch(workerStat)
-    {
-      case BEGINNER: 
-        this.setSalary(initialSalary+(50*getExperienceYear()));
+    switch (workerStat) {
+      case BEGINNER:
+        this.setSalary(initialSalary + (50 * getExperienceYear()));
         break;
       case JUNIOR:
-        this.setSalary(initialSalary+1000+(100*getExperienceYear()));
-        break; 
-      case MID_LEVEL: 
-        this.setSalary(initialSalary+3000+(150*getExperienceYear()));
+        this.setSalary(initialSalary + 1000 + (100 * getExperienceYear()));
+        break;
+      case MID_LEVEL:
+        this.setSalary(initialSalary + 3000 + (150 * getExperienceYear()));
         break;
       case SENIOR:
-        this.setSalary(initialSalary+5000+(200*getExperienceYear()));
+        this.setSalary(initialSalary + 5000 + (200 * getExperienceYear()));
         break;
     }
   }
 
   public double calculateAverageScore(int _score) {
-    double temp = score*(voteAmount); // Total score before adding new incoming score
-    score = (temp+_score)/(++voteAmount); // New incoming score is adding to total score and average is calculating again, according to updated vote amount.
+    double temp = score * (voteAmount); // Total score before adding new incoming score
+    score = (temp + _score) / (++voteAmount); // New incoming score is adding to total score and average is calculating again, according to updated vote amount.
     return score;
   }
 
@@ -96,14 +89,9 @@ public class Worker extends User
      * If vote amount is reasonable, workers that has less score value than 4 should be fired.
      * @return boolean value is false for "don't fire", and true for "fire"
   */
-  public boolean dismissalControl(){
-    if(this.getVoteAmount() < 10)
-      return false;
-    else{
-      if(this.getScore() < 4)
-        return true;
-      else 
-        return false;
+  public boolean dismissalControl() {
+    if (this.getVoteAmount() < 10) return false; else {
+      if (this.getScore() < 4) return true; else return false;
     }
   }
 }

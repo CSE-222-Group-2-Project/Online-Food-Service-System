@@ -1,26 +1,11 @@
 admin Fatih 40 fatihsevilgen fatih123
-admin Burak 32 mehmetburak mehmetbur123
 chef Mehmet 35 mehmetchef mehmetchef123 15 17
 chef Esra 27 esrachef esrachef123 5 5
-chef Fatih 25 fatihchef fatihchef123 6 4
-chef Canan 32 cananchef cananchef123 9 12
-chef Beyza 28 beyzachef beyzachef123 4 7
-chef Danilo 33 danilochef danilochef123 13 15
-chef Cemre 24 cemrechef cemrechef123 3 2
-chef Serhat 28 serhatchef serhatchef123 8 12
-chef Melek 23 melekchef melekchef123 3 5
-chef Yusuf 26 yusufchef yusufchef123 4 6
 courier Arda 26 ardacour arda123 +905055555555 3
 courier Cem 29 cemcour cem123 +905055555553 6
 courier Eren 24 erencour mikasa123 +905055555523 1 
 courier Kerem 30 keremcour kerem123 +905055555532 7 
 courier Baran 32 barancour baran123 +905055555512 8
-courier Evren 26 evrencour evren123 +905055555552 2 
-courier Mecnun 27 mecnuncour mecnun123 +905055555562 3 
-courier Erdem 29 erdemcour erdem123 +905055555576 5 
-courier Taylan 28 taylancour taylan123 +905055555513 5 
-courier Mert 28 mertcour mert123 +905055555539 4
-customer Cem 20 Student cemcem cem123 +905055355576 100
 customer Cemal Student cemalca cem123 +905055355576 100
 customer Mustafa Student mustafacust cem123 +905055355576 100
 customer Şule Student cemcem cem123 +905055355576 100

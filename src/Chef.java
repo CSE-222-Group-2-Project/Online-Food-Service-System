@@ -28,10 +28,9 @@ public class Chef extends Worker {
     int experienceYear
   ) {
     super(_name, _age, _username, _password, "Chef", experienceYear);
-    this.certificateNumber = _certificateNumber; // !!! certificateNumber maaş hesabında vs kullanılack
+    this.certificateNumber = _certificateNumber;
     calculateStatus();
     calculateSalary(initialSalary);
-
   }
 
   /**
@@ -90,7 +89,6 @@ public class Chef extends Worker {
       workerStat = WorkerStatus.SENIOR;
     }
   }
-
   /*
   public void changeMenu() {
     // Insertion, Deletion
