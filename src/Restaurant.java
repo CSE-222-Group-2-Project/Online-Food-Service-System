@@ -91,10 +91,21 @@ public class Restaurant {
     }
   }
 
+  /**
+   * `menu()` returns a string representation of the menu
+   *
+   * @return The menu is being returned.
+   */
   public static String menu() {
     return menu.toString();
   }
 
+  /**
+   * > This function deletes a food from the menu by iterating through the menu and removing the food with the given id
+   *
+   * @param id the id of the food to be deleted
+   * @return A boolean value.
+   */
   public boolean deleteFoodFromMenu(int id) {
     LinkedList<Food> temp = this.menu.get_foods();
     for (Food food : temp) {
@@ -106,18 +117,39 @@ public class Restaurant {
     return false;
   }
 
+  /**
+   * This function removes a food from the menu
+   *
+   * @param food The food to be deleted from the menu.
+   * @return A boolean value.
+   */
   public boolean deleteFoodFromMenu(Food food) {
     return this.menu.get_foods().remove(food);
   }
 
+  /**
+   * This function adds a food to the menu
+   *
+   * @param food The food object to be added to the menu
+   */
   public void addFoodtoMenu(Food food) {
     this.menu.get_foods().add(food);
   }
 
+  /**
+   * This function creates a new menu.
+   *
+   * @param menu The menu object that you want to create.
+   */
   public void createNewMenu(Menu menu) {
     this.menu = menu;
   }
 
+  /**
+   * The function returns a string that contains the restaurant's income, outcome, score, menu, workers, and customers
+   *
+   * @return The restaurant's information.
+   */
   @Override
   public String toString() {
     StringBuilder restaurantInfo = new StringBuilder();
