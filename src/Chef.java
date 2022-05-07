@@ -53,10 +53,9 @@ public class Chef extends Worker {
    *
    * @param courier the courier who is going to deliver the order
    */
-  public void prepareOrder(Courier courier) {
+  public void prepareOrder() {
     Order order = newOrders.poll();
     order.setStatus(Order.OrderStatus.ORDER_PREPARED);
-    courier.addOrder(order);
   }
 
   /**
