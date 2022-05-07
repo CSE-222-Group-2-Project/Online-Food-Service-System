@@ -3,7 +3,7 @@ package src;
 import java.util.Comparator;
 import java.util.LinkedList;
 
-public class Order {
+public class Order implements Comparable<Order> {
 
   // 3 yeni data field ekledim. Bunları chef'in vs constructor'ında doldur.
   public enum OrderStatus {
@@ -91,6 +91,7 @@ public class Order {
 
     @Override
     public int compare(Order o1, Order o2) {
+      System.out.println("\n\n\nqwğpdlqwğdplqwdpğlqwdpğqwldğplqwdğpqwldqwpğwqdpqğwqwdqwldqwpğdlqwpğdlwqpğd");
       int retVal;
       if (
         o1.get_customer().getOrderNumber() > o2.get_customer().getOrderNumber()
@@ -118,5 +119,11 @@ public class Order {
     for (Food afood : foods) orderInfo.append("\n" + afood.toString());
 
     return orderInfo.toString();
+  }
+
+  @Override
+  public int compareTo(Order o) {
+    // TODO Auto-generated method stub
+    return 0;
   }
 }

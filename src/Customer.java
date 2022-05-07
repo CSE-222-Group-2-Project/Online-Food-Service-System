@@ -74,10 +74,10 @@ public class Customer extends User {
   public void giveVote(Order anOrder) {
     Scanner myInput = new Scanner(System.in);
     System.out.println("Enter vote for chef: ");
-    int pointofChef = myInput.nextInt();
+    int pointofChef = 5;//myInput.nextInt();
 
     System.out.println("Enter vote for courier: ");
-    int pointofCourier = myInput.nextInt();
+    int pointofCourier = 5;//myInput.nextInt();
 
     anOrder.getWhoCooked().calculateAverageScore(pointofChef);
     anOrder.getWhoDelivered().calculateAverageScore(pointofCourier);
@@ -110,7 +110,6 @@ public class Customer extends User {
   public void takeOrder(Order anOrder) {
     System.out.println("Order received by " + getName());
     myOrders.addFirst(anOrder);
-    giveVote(anOrder);
   }
 
   /**
