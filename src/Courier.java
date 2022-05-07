@@ -1,6 +1,5 @@
 package src;
 
-import java.util.Comparator;
 import java.util.PriorityQueue;
 
 /**
@@ -14,10 +13,15 @@ import java.util.PriorityQueue;
  */
 public class Courier extends Worker {
 
+  // phone number of the couriers
   private String phoneNumber;
+
+  // To determine which order is more "important", priority queue is used.
   private PriorityQueue<Order> orderQueue = new PriorityQueue<>(
     new Order.ComparatorbyOrderNumber()
-  ); // To determine which order is more "important", priority queue is used.
+  );
+
+  // initial salary of the Couriers
   private final double initialSalary = 3000.0;
 
   /* Default Constructer of Courier Class */
@@ -33,6 +37,24 @@ public class Courier extends Worker {
     this.phoneNumber = _phoneNumber;
     calculateStatus();
     calculateSalary(initialSalary);
+  }
+
+  /**
+   * This function sets the phone number of the courier to the new phone number.
+   *
+   * @param newPhoneNumber The new phone number to set.
+   */
+  public void setPhoneNumber(String newPhoneNumber) {
+    phoneNumber = newPhoneNumber;
+  }
+
+  /**
+   * This function returns the phone number of the courier.
+   *
+   * @return The phone number of the courier.
+   */
+  public String getPhoneNumber() {
+    return phoneNumber;
   }
 
   /**
