@@ -22,15 +22,10 @@ public class Restaurant {
     score = calculateScore();
     income = 0;
     outcome = 10000;
-
-    System.out.println(customers.size());
-    for(Customer ancustomer : customers)
-      System.out.println(ancustomer.getName());
   }
 
   public Customer getRandomCustomer() {
     Random rand = new Random();
-    System.out.println(customers.size());
     return customers.get(rand.nextInt(customers.size()));
   }
 

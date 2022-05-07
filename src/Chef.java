@@ -45,6 +45,7 @@ public class Chef extends Worker {
    */
   public void addOrder(Order order) {
     newOrders.add(order);
+    order.setWhoCooked(this);
   }
 
   /**

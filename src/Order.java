@@ -27,17 +27,21 @@ class Order {
   Order(
     int orderID,
     Customer customer,
-    LinkedList<Food> _foods,
-    Chef _whoCooked,
-    Courier _whoDelivered
+    LinkedList<Food> _foods
   ) {
     this.orderID = orderID;
     c = customer;
-    whoCooked = _whoCooked;
-    whoDelivered = _whoDelivered;
     foods = _foods;
 
     calculate_account();
+  }
+
+  public void setWhoCooked(Chef _whoCooked) {
+    whoCooked = _whoCooked;
+  }
+
+  public void setWhoDelivered(Courier _whoDelivered) {
+    whoDelivered = _whoDelivered;
   }
 
   public Customer get_customer() {

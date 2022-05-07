@@ -15,7 +15,7 @@ public class Food {
 
   private  String footType;*/
 
-  Food(int food_id, String food_name, double food_price, String food_type) { // type is added for extra
+  public Food(int food_id, String food_name, double food_price, String food_type) { // type is added for extra
     foodID = food_id;
     foodName = food_name;
     foodPrice = food_price;
