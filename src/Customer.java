@@ -14,7 +14,7 @@ public class Customer extends User {
 
   private String job;
   private String phoneNumber;
-  private float balance; // Money of customer
+  private double balance; // Money of customer
   private int orderNumber = 0;
   private LinkedList<Order> myOrders = new LinkedList<Order>();
 
@@ -25,7 +25,7 @@ public class Customer extends User {
     String _username,
     String _password,
     String _phoneNumber,
-    float _balance
+    double _balance
   ) {
     super(_name, _age, _username, _password);
     job = _job;

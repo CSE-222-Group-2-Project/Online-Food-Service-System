@@ -21,6 +21,12 @@ public class Authentication {
     System.out.println("3. Exit");
   }
 
+  /**
+   * If the user enters a valid username and password, return the User object associated with that
+   * username and password, otherwise return null.
+   *
+   * @return A User object.
+   */
   public static User logIn() {
     String username = getUsernameFromUserForLogIn();
 
@@ -37,6 +43,11 @@ public class Authentication {
     return getUserFromUsername(username);
   }
 
+  /**
+   * It reads the menu database file and returns a linked list of food objects
+   *
+   * @return A LinkedList of Food objects.
+   */
   public static LinkedList<Food> getMenuFromDatabase() {
     try {
       LinkedList<Food> menu = new LinkedList<>();
@@ -213,6 +224,16 @@ public class Authentication {
         tokens[4],
         tokens[5],
         Integer.parseInt(tokens[6])
+      );
+    } else if (userType.equals("customer")) {
+      return new Customer(
+        tokens[1],
+        Integer.parseInt(tokens[2]),
+        tokens[3],
+        tokens[4],
+        tokens[5],
+        tokens[6],
+        Double.parseDouble(tokens[7])
       );
     } else {
       return null;
