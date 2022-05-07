@@ -2,6 +2,7 @@ package src;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Scanner;
 import src.tree.BinarySearchTree;
@@ -47,6 +48,48 @@ public class Authentication {
       }
       myReader.close();
       return menu;
+    } catch (FileNotFoundException e) {
+      System.out.println("An error occurred.");
+      e.printStackTrace();
+    }
+    return null;
+  }
+
+  public static ArrayList<Worker> getWorkersFromDatabase() {
+    try {
+      ArrayList<Worker> allWorkers = new ArrayList<>();
+      File file = new File(USER_DATABASE_PATH);
+      Scanner myReader = new Scanner(file);
+      while (myReader.hasNextLine()) {
+        String lineText = myReader.nextLine();
+        User user = parseUserLine(lineText);
+        if (user instanceof Worker) {
+          allWorkers.add((Worker) user);
+        }
+      }
+      myReader.close();
+      return allWorkers;
+    } catch (FileNotFoundException e) {
+      System.out.println("An error occurred.");
+      e.printStackTrace();
+    }
+    return null;
+  }
+
+  public static ArrayList<Customer> getCustomersFromDatabase() {
+    try {
+      ArrayList<Customer> allCustomers = new ArrayList<>();
+      File file = new File(USER_DATABASE_PATH);
+      Scanner myReader = new Scanner(file);
+      while (myReader.hasNextLine()) {
+        String lineText = myReader.nextLine();
+        User user = parseUserLine(lineText);
+        if (user instanceof Customer) {
+          allCustomers.add((Customer) user);
+        }
+      }
+      myReader.close();
+      return allCustomers;
     } catch (FileNotFoundException e) {
       System.out.println("An error occurred.");
       e.printStackTrace();

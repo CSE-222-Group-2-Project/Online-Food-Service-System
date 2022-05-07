@@ -4,10 +4,10 @@ import java.util.LinkedList;
 
 public class Menu {
 
-  static LinkedList<Food> menu = new LinkedList<Food>();
+  private static LinkedList<Food> menu = new LinkedList<Food>();
   int id;
 
-  public Menu() { // Default Menu
+  public Menu() {
     menu = Authentication.getMenuFromDatabase();
   }
 
