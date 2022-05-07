@@ -90,10 +90,6 @@ public class Admin extends User{
         }
 
     }
-    // see the menu
-    public  void seeMenu(){
-        System.out.print(Menu.seeMenu());
-    }
 
 
     public Food createFood(){
@@ -121,11 +117,14 @@ public class Admin extends User{
    }
 
    public boolean deleteFoodFromMenu(Food food){
-        return this.restaurant.deleteFoodfromMenu(food);
+        return this.restaurant.deleteFoodFromMenu(food);
    }
 
    public void createMenu(Menu menu){
-        this.restaurant.createMenu(menu);
-   }
 
+        this.restaurant.createNewMenu(menu);
+   }
+    public void seeMenu(){
+       Menu.seeMenu();
+    }
 }

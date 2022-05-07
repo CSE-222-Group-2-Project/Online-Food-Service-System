@@ -150,6 +150,6 @@ public class Customer extends User {
    * Allows the customer to see the menu in the restaurant
    */
   public void seeMenu() {
-    System.out.print(Menu.seeMenu());
+   Menu.seeMenu();
   }
 }

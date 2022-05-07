@@ -10,13 +10,13 @@ public class Restaurant {
     private ArrayList<Order> ordersPrepared; // Linkedlist şeklinde depolanacak
     private float score;
     private int numberofScores;
-    private Menu menu;
+    private static Menu menu;
     protected ArrayList<Worker> workers;
     protected ArrayList<Customer> customers;
 
 
     public void Restaurant() {
-        
+
     }
 
     public void inputScore(int score) {
@@ -70,7 +70,7 @@ public class Restaurant {
         return false;
     }
 
-    public boolean deleteFoodfromMenu(Food food){
+    public boolean deleteFoodFromMenu(Food food){
 
         return this.menu.get_foods().remove(food);
 
@@ -79,8 +79,11 @@ public class Restaurant {
         this.menu.get_foods().add(food);
     }
 
-    public void createMenu(Menu menu){
+    public void createNewMenu(Menu menu){
         this.menu = menu;
     }
+
+
+
 
 }
