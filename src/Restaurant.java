@@ -33,23 +33,20 @@ public class Restaurant {
     // chefleri arraylistte tutuyoruz ya mesela 3 tane chefden hangisini seçeceğimizi random yaparsın
   }
 
-  public void sendCourier() {
+  public void sendCourier(Order order) {
     // Azizcan bu comment önemli silme :D
     // kuryeleri arraylistte tutuyoruz ya mesela 3 tane kuryeden hangisini seçeceğimizi random yaparsın
   }
-
-  public void directingInterface() {}
 
   public ArrayList<Worker> getWorkers() {
     return workers;
   }
 
-  /*
-    public static String menu() { // see menu ?
-        return  Menu.seeMenu();
-        //return "empty";
-    } // see menu
-*/
+  public void showWorkers() {}
+
+  public static String menu() {
+    return menu.toString();
+  }
 
   public boolean deleteFoodFromMenu(int id) {
     LinkedList<Food> temp = this.menu.get_foods();

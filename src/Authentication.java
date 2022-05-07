@@ -17,7 +17,6 @@ public class Authentication {
     System.out.println("ONLINE FOOD SERVICE SYSTEM\n");
     System.out.println("\tLOGIN MENU");
     System.out.println("1. Log In");
-    System.out.println("2. Sign Up");
     System.out.println("3. Exit");
   }
 
