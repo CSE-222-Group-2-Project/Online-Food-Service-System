@@ -1,0 +1,34 @@
+0 Ezogelin Corbasi 8 soup
+1 Domates Corbasi 8 soup
+2 Yayla Corbasi 8 soup
+3 Tavuk Corbasi 10 soup
+4 Sehriye Corbasi 8 soup
+5 Mercimek Corbasi 7 soup
+6 Misket Kofte Corbasi 10 soup
+7 Tekirdag Koftesi 18 mainCourse
+8 Yalanci Beyti 20 mainCourse
+9 Citir Tavuk 15 mainCourse
+10 Tavuk Sis 20 mainCourse
+11 Sultan Kebabi 22 mainCourse
+12 Ratatuy 22 mainCourse
+13 Hatay Usulu Doner 18 mainCourse
+14 Mantar Sote 15 mainCourse
+15 Yeni Dunya Kebabi 25 mainCourse
+16 Adana Kebabi 25 mainCourse
+17 Sebzeli Lazanya 18 mainCourse
+18 Magnolya 15 dessert
+19 Karamelli Triliçe 12 dessert
+20 Waffle 17 dessert
+21 Revani 10 dessert
+22 Kibris Tatlisi 12 dessert
+23 Sufle 12 dessert
+24 Izmir Bomba 14 dessert
+25 Limonata 4 beverage
+26 Elma Suyu 5 beverage
+27 HavuC Suyu 6 beverage
+28 Deteoks 10 beverage
+29 Turk Kahfesi 10 beverage
+30 Sicak Cikolata 6 beverage
+31 Soguk Kahfe 7 beverage
+32 Coca Cola 5 beverage
+33 Su 2 beverage
