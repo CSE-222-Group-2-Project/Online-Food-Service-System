@@ -48,7 +48,7 @@ public class Customer extends User {
     return phoneNumber;
   }
 
-  public float getBalance() {
+  public double getBalance() {
     return balance;
   }
 
