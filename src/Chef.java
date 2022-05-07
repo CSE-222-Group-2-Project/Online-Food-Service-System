@@ -14,8 +14,13 @@ import java.util.Queue;
  */
 public class Chef extends Worker {
 
+  // certificate number of the chef
   private int certificateNumber;
+
+  // All orders that chef is going to prepare
   private Queue<Order> newOrders = new PriorityQueue<Order>();
+
+  // initial salary of the Chefs
   private final double initialSalary = 4000.0;
 
   /* Default Constructer of Chef Class */
@@ -89,9 +94,4 @@ public class Chef extends Worker {
       workerStat = WorkerStatus.SENIOR;
     }
   }
-  /*
-  public void changeMenu() {
-    // Insertion, Deletion
-  } // Gunler arasinda swap yapabiliriz.
-  */
 }
