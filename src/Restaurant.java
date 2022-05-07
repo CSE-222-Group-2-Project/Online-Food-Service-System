@@ -7,8 +7,8 @@ public class Restaurant {
 
   protected int income;
   protected int outcome;
-  private LinkedList<Order> orders; // Linkedlist şeklinde depolanacak
-  private LinkedList<Order> ordersPrepared; // Linkedlist şeklinde depolanacak
+  //private LinkedList<Order> orders; // Linkedlist şeklinde depolanacak
+  //private LinkedList<Order> ordersPrepared; // Linkedlist şeklinde depolanacak
   private float score;
   private int numberofScores;
   private static Menu menu;
@@ -32,12 +32,10 @@ public class Restaurant {
     orders.add(obj);
   }
 
-<<<<<<< HEAD
 
   public void sendChef(Order order) {
-=======
-  public void sendChef() {
->>>>>>> c061f1fa366bcd983201d10f6c6d3e56723ce8e1
+
+
     // Azizcan bu comment önemli silme :D
     // chefleri arraylistte tutuyoruz ya mesela 3 tane chefden hangisini seçeceğimizi random yaparsın
     int workerId, minOrder = 0;
@@ -60,7 +58,7 @@ public class Restaurant {
 
   }
 
-  public void sendCourier() {
+  public void sendCourier(Order order) {
     // Azizcan bu comment önemli silme :D
     // kuryeleri arraylistte tutuyoruz ya mesela 3 tane kuryeden hangisini seçeceğimizi random yaparsın
 
