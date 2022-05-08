@@ -58,9 +58,15 @@ public class Driver {
       "Chef addOrder() Method For 10 Inputs Time: " + totalTime
     );
 
+    startTime = System.nanoTime();
     for (int i = 0; i < 10; i++) {
       chef.prepareOrder();
     }
+    endTime = System.nanoTime();
+    totalTime = (endTime - startTime) / 100;
+    System.out.println(
+      "Chef prepareOrder() Method For 10 Inputs Time: " + totalTime
+    );
 
     startTime = System.nanoTime();
     for (int i = 0; i < 10; i++) {
@@ -130,9 +136,15 @@ public class Driver {
       "Chef addOrder() Method For 100 Inputs Time: " + totalTime
     );
 
+    startTime = System.nanoTime();
     for (int i = 0; i < 100; i++) {
       chef.prepareOrder();
     }
+    endTime = System.nanoTime();
+    totalTime = (endTime - startTime) / 100;
+    System.out.println(
+      "Chef prepareOrder() Method For 100 Inputs Time: " + totalTime
+    );
 
     startTime = System.nanoTime();
     for (int i = 0; i < 100; i++) {
@@ -203,9 +215,15 @@ public class Driver {
       "Chef addOrder() Method For 1000 Inputs Time: " + totalTime
     );
 
+    startTime = System.nanoTime();
     for (int i = 0; i < 1000; i++) {
       chef.prepareOrder();
     }
+    endTime = System.nanoTime();
+    totalTime = (endTime - startTime) / 100;
+    System.out.println(
+      "Chef prepareOrder() Method For 1000 Inputs Time: " + totalTime
+    );
 
     startTime = System.nanoTime();
     for (int i = 0; i < 1000; i++) {
