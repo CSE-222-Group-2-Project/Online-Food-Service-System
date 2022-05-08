@@ -2,6 +2,16 @@ package src;
 
 import java.util.LinkedList;
 
+/**
+ *The Menu class is a class that contains  Food objects.
+ * @author Group 2
+ * @version 1.0.0
+ * @since 08.04.2022
+ */
+
+/**
+ * The Menu class is a class that contains Food objects.
+ */
 public class Menu {
 
   // Creating a new LinkedList of Food objects.

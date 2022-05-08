@@ -231,7 +231,6 @@ public class Admin extends User {
     StringBuilder adminInfo = new StringBuilder();
     adminInfo.append("Admin Info: " + "\n");
     adminInfo.append(super.toString() + "\n");
-    adminInfo.append("Restaurant Info " + restaurant.toString());
     return adminInfo.toString();
   }
 }

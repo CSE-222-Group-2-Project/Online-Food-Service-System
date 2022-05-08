@@ -12,16 +12,8 @@ public class Driver {
 
   public static void testProgram() {
     Restaurant kebelekCafe = new Restaurant();
-    Admin administrator = new Admin(
-      kebelekCafe,
-      "Fatih Erdogan",
-      40,
-      "gtu1234",
-      "1234"
-    );
 
     Customer customer = kebelekCafe.getRandomCustomer(1);
-    Customer customer1 = kebelekCafe.getRandomCustomer(2);
     Chef chef = kebelekCafe.getRandomChef();
     Courier courier = kebelekCafe.getRandomCourier();
     ArrayList<Order> orders = new ArrayList<Order>();
@@ -41,7 +33,6 @@ public class Driver {
 
     for (int i = 0; i < 2; i++) {
       if (areOrdersSuccessfull.get(i)) {
-        orders.get(i).setWhoCooked(chef);
         chef.addOrder(orders.get(i));
       }
     }
@@ -52,7 +43,6 @@ public class Driver {
 
     for (int i = 0; i < 2; i++) {
       if (areOrdersSuccessfull.get(i)) {
-        orders.get(i).setWhoDelivered(courier);
         courier.addOrder(orders.get(i));
       }
     }
@@ -131,7 +121,12 @@ public class Driver {
   public static void testAuthentication() {
     System.out.println("TESTING AUTHENTICATION CLASS...");
     System.out.println("TESTING LOGIN METHOD OF AUTHENTICATION CLASS...");
-    User loginedUser = Authentication.logIn("erencour", "mikasa123", "courier");
+    User loginedUser = Authentication.logIn(
+      "Eren",
+      24,
+      "erencour",
+      "mikasa123"
+    );
     System.out.println(loginedUser);
   }
 }

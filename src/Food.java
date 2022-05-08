@@ -1,5 +1,15 @@
 package src;
 
+/**
+ * It's a class that represents a food item
+ * @author Group 2
+ * @version 1.0.0
+ * @since 08.04.2022
+ */
+
+/**
+ * It's a class that represents a food item
+ */
 public class Food {
 
   private int foodID;

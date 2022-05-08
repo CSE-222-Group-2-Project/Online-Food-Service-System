@@ -96,7 +96,7 @@ public class User implements Comparable<User> {
     userInfo.append("Name: " + name + "\n");
     userInfo.append("Age: " + age + "\n");
     userInfo.append("Username: " + username + "\n");
-    userInfo.append("Password: " + password + "\n");
+    userInfo.append("Password: " + password + "\n\n");
     return userInfo.toString();
   }
 }

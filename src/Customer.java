@@ -1,7 +1,6 @@
 package src;
 
 import java.util.LinkedList;
-import java.util.Scanner;
 
 /**
  * Customer class is a user type that expresses the target audience of the
@@ -98,7 +97,7 @@ public class Customer extends User {
    * @param _scoreCourier Points to be given to the chef by the courier 
    * @param anOrder Order delivered to the user and which needs to be voted on
    */
-  public void giveVote(int _scoreChef,int _scoreCourier,Order anOrder) {
+  public void giveVote(int _scoreChef, int _scoreCourier, Order anOrder) {
     anOrder.getWhoCooked().calculateAverageScore(_scoreChef);
     anOrder.getWhoDelivered().calculateAverageScore(_scoreCourier);
   }

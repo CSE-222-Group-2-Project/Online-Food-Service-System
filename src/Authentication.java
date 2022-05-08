@@ -28,25 +28,33 @@ public class Authentication {
    * @return A User object.
    */
   public static User logIn() {
-    String userType = "";
+    String name = "";
+    int age = 12;
+    String username = "";
+    String password = "";
 
-    String username = getUsernameFromUserForLogIn();
+    username = getUsernameFromUserForLogIn(name, age, username, password);
 
     if (username.equals("login-failed")) {
       return null;
     }
 
-    String password = getPasswordFromUserForLogIn(username);
+    password = getPasswordFromUserForLogIn(name, age, username, password);
 
     if (password.equals("login-failed")) {
       return null;
     }
 
-    return getUserFromUsername(username, userType);
+    return getUserFromUsername(name, age, username, password);
   }
 
-  public static User logIn(String username, String password, String userType) {
-    return getUserFromUsername(username, userType);
+  public static User logIn(
+    String name,
+    int age,
+    String username,
+    String password
+  ) {
+    return getUserFromUsername(name, age, username, password);
   }
 
   /**
@@ -79,7 +87,7 @@ public class Authentication {
       Scanner myReader = new Scanner(file);
       while (myReader.hasNextLine()) {
         String lineText = myReader.nextLine();
-        User user = parseUserLine(lineText);
+        User user = parseAndConvertUserLine(lineText);
         if (user instanceof Worker) {
           allWorkers.add((Worker) user);
         }
@@ -100,7 +108,7 @@ public class Authentication {
       Scanner myReader = new Scanner(file);
       while (myReader.hasNextLine()) {
         String lineText = myReader.nextLine();
-        User user = parseUserLine(lineText);
+        User user = parseAndConvertUserLine(lineText);
         if (user instanceof Customer) {
           allCustomers.add((Customer) user);
         }
@@ -132,13 +140,17 @@ public class Authentication {
     return null;
   }
 
-  private static String getUsernameFromUserForLogIn() {
-    String username = "";
+  private static String getUsernameFromUserForLogIn(
+    String name,
+    int age,
+    String username,
+    String password
+  ) {
     Scanner scanObj = new Scanner(System.in);
 
     System.out.println("Enter your username please: ");
     username = scanObj.next();
-    if (isUserExist(username)) {
+    if (isUserExist(name, age, username, password)) {
       System.err.println("User does not exist! Please sign up.");
       scanObj.close();
       return "login-failed";
@@ -147,14 +159,18 @@ public class Authentication {
     return username;
   }
 
-  private static String getPasswordFromUserForLogIn(String username) {
-    String password = "";
+  private static String getPasswordFromUserForLogIn(
+    String name,
+    int age,
+    String username,
+    String password
+  ) {
     Scanner scanObj = new Scanner(System.in);
 
     System.out.println("Enter your password please");
     password = scanObj.next();
 
-    if (isPasswordTrue(username, password)) {
+    if (isPasswordTrue(name, age, username, password)) {
       System.out.println("Password is not correct! Could not login.");
       scanObj.close();
       return "login-failed";
@@ -163,26 +179,45 @@ public class Authentication {
     return password;
   }
 
-  private static boolean isUserExist(String username) {
+  private static boolean isUserExist(
+    String name,
+    int age,
+    String username,
+    String password
+  ) {
     BinarySearchTree<User> allUsers = getAllUsersFromDatabase();
-    return allUsers.contains(new User(username, 0, "", ""));
+    return allUsers.contains(new User(name, age, username, password));
   }
 
-  private static boolean isPasswordTrue(String username, String password) {
+  private static boolean isPasswordTrue(
+    String name,
+    int age,
+    String username,
+    String password
+  ) {
     String correctPassword = "";
-    correctPassword = getUserPassword(username);
+    correctPassword = getUserPassword(name, age, username, password);
     return correctPassword.equals(password);
   }
 
-  private static String getUserPassword(String username) {
-    User user = getUserFromUsername(username);
+  private static String getUserPassword(
+    String name,
+    int age,
+    String username,
+    String password
+  ) {
+    User user = getUserFromUsername(name, age, username, password);
     return user.getPassword();
   }
 
-  private static User getUserFromUsername(String username, String userType) {
+  private static User getUserFromUsername(
+    String name,
+    int age,
+    String username,
+    String password
+  ) {
     BinarySearchTree<User> allUsers = getAllUsersFromDatabase();
-    return allUsers.find(new User(username, 0, "", ""));
-    if (userType.equals("courier")) {} else if (userType.equals("worker")) {}
+    return allUsers.find(new User(name, age, username, password));
   }
 
   private static Food parseFoodLine(String lineText) {
@@ -203,6 +238,43 @@ public class Authentication {
   }
 
   private static User parseUserLine(String lineText) {
+    String[] tokens = lineText.split(" ");
+    String userType = tokens[0];
+
+    if (userType.equals("admin")) {
+      return new User(
+        tokens[1],
+        Integer.parseInt(tokens[2]),
+        tokens[3],
+        tokens[4]
+      );
+    } else if (userType.equals("chef")) {
+      return new User(
+        tokens[1],
+        Integer.parseInt(tokens[2]),
+        tokens[3],
+        tokens[4]
+      );
+    } else if (userType.equals("courier")) {
+      return new User(
+        tokens[1],
+        Integer.parseInt(tokens[2]),
+        tokens[3],
+        tokens[4]
+      );
+    } else if (userType.equals("customer")) {
+      return new User(
+        tokens[1],
+        Integer.parseInt(tokens[2]),
+        tokens[4],
+        tokens[5]
+      );
+    } else {
+      return null;
+    }
+  }
+
+  private static User parseAndConvertUserLine(String lineText) {
     String[] tokens = lineText.split(" ");
     String userType = tokens[0];
 
