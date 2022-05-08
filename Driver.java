@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.LinkedList;
 import src.*;
 
@@ -22,35 +23,25 @@ public class Driver {
     Customer customer1 = kebelekCafe.getRandomCustomer(2);
     Chef chef = kebelekCafe.getRandomChef();
     Courier courier = kebelekCafe.getRandomCourier();
+    ArrayList<Order> orders = new ArrayList<Order>();
 
     for (int i = 0; i < 2; i++) {
       LinkedList<Food> foods = kebelekCafe.createRandomFoods();
       Order order = new Order(i, customer, foods);
-      boolean isOrderSuccessfull = customer.giveOrder(kebelekCafe, order);
+      orders.add(order);
+    }
+
+    for(int i = 0; i < 2 ; i++){
+      boolean isOrderSuccessfull = customer.giveOrder(kebelekCafe, orders.get(i));
       if (isOrderSuccessfull) {
-        order.setWhoCooked(chef);
-        chef.addOrder(order);
-        order.setWhoDelivered(courier);
-        courier.addOrder(order);
-        System.out.println(i + "th.order" + order.toString());
+        orders.get(i).setWhoCooked(chef);
+        chef.addOrder(orders.get(i));
+        orders.get(i).setWhoDelivered(courier);
+        courier.addOrder(orders.get(i));
+        System.out.println(i + "th.order" + orders.get(i).toString());
       }
     }
 
-    for (int i = 0; i < 4; i++) {
-      LinkedList<Food> foods = kebelekCafe.createRandomFoods();
-      Order order = new Order(i, customer1, foods);
-      boolean isOrderSuccessfull = customer1.giveOrder(kebelekCafe, order);
-      if (isOrderSuccessfull) {
-        order.setWhoCooked(chef);
-        chef.addOrder(order);
-        order.setWhoDelivered(courier);
-        courier.addOrder(order);
-        System.out.println(i + "th.order" + order.toString());
-      }
-    }
-    System.out.println(courier);
-    courier.deliverOrderToCustomer();
-    System.out.println(courier);
   }
 
   public static void testAdmin() {
