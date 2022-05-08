@@ -6,6 +6,7 @@ import src.tree.BinarySearchTree;
 public class Driver {
 
   public static void main(String[] args) {
+    testAdminMethods();
     testFor10Inputs();
     testFor100Inputs();
     testFor1000Inputs();
@@ -286,17 +287,5 @@ public class Driver {
     System.out.println("\n\n");
     System.out.println("TESTING TO STRING METHOD OF ADMIN CLASS...");
     System.out.println(admin.toString());
-  }
-
-  public static void testAuthenticationMethods() {
-    System.out.println("TESTING AUTHENTICATION CLASS...");
-    System.out.println("TESTING LOGIN METHOD OF AUTHENTICATION CLASS...");
-    User loginedUser = Authentication.logIn(
-      "Eren",
-      24,
-      "erencour",
-      "mikasa123"
-    );
-    System.out.println(loginedUser);
   }
 }
