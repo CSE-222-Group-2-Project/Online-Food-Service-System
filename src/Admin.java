@@ -4,11 +4,20 @@ import java.util.Scanner;
 
 /**
  * Admin class is a subclass of User class and it has some methods to control the restaurant
+ * @author Group 2
+ * @version 1.0.0
+ * @since 08.04.2022
+ */
+
+/**
+ * Admin class is a subclass of User class and it has some methods to control the restaurant
  */
 public class Admin extends User {
 
+  // Data Fields
   private Restaurant restaurant;
 
+  // Constructors
   /* Constructor Of Admin Class*/
   public Admin(
     Restaurant restaurant,
@@ -21,6 +30,7 @@ public class Admin extends User {
     this.restaurant = restaurant;
   }
 
+  // Methods
   /**
    * Shows the informations which are about workers are Job, Name, Age and Certificate number if it exists
    */
@@ -67,8 +77,9 @@ public class Admin extends User {
    * Prints all restaurant's order
    */
   public void printAllOrders() {
-    for(Order anOrder : restaurant.orders)
-      System.out.println(anOrder.toString());
+    for (Order anOrder : restaurant.orders) System.out.println(
+      anOrder.toString()
+    );
   }
 
   /**
@@ -182,9 +193,8 @@ public class Admin extends User {
   @Override
   public String toString() {
     StringBuilder adminInfo = new StringBuilder();
-    adminInfo.append("Admin: ");
-    adminInfo.append(super.toString());
-    adminInfo.append("\n");
+    adminInfo.append("Admin Info: " + "\n");
+    adminInfo.append(super.toString() + "\n");
     adminInfo.append("Restaurant Info " + restaurant.toString());
     return adminInfo.toString();
   }

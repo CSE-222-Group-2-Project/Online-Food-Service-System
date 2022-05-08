@@ -8,12 +8,12 @@ public class Menu {
   private static LinkedList<Food> menu = new LinkedList<Food>();
   int id;
 
-  // Getting the menu from the database.
+  /* Getting the menu from the database. */
   public Menu() {
     menu = Authentication.getMenuFromDatabase();
   }
 
-  // A constructor that takes a LinkedList of Food objects as a parameter.
+  /* A constructor that takes a LinkedList of Food objects as a parameter. */
   public Menu(LinkedList<Food> otherMenu) {
     this.menu = otherMenu;
   }
@@ -26,7 +26,6 @@ public class Menu {
   public LinkedList<Food> get_foods() {
     return menu;
   }
-
 
   /**
    * We're going to create a new StringBuilder object, then we're going to loop through the menu array, and for each food
