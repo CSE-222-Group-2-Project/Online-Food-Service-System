@@ -104,6 +104,14 @@ public class Admin extends User {
   }
 
   /**
+   * Adds new worker to array list
+   * @param newWorker Accepts new worker 
+   */
+  public void hiringWorker(Worker newWorker){
+    restaurant.workers.add(newWorker);
+  }
+
+  /**
    * Updates all salaries by controling number of orders and scores
    */
   public void editSalary() {
