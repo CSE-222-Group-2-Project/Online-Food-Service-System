@@ -5,8 +5,9 @@ import java.util.Queue;
 
 /**
  * Chef class is a subclass of Worker class which represents the Chefs of the restaurant.
- * @since  03-03-2022
- *
+ * @author Group 2
+ * @version 1.0.0
+ * @since 08.04.2022
  */
 
 /**
@@ -14,6 +15,7 @@ import java.util.Queue;
  */
 public class Chef extends Worker {
 
+  // Data Fields
   // certificate number of the chef
   private int certificateNumber;
 
@@ -23,6 +25,7 @@ public class Chef extends Worker {
   // initial salary of the Chefs
   private final double INITIAL_SALARY = 4000.0;
 
+  // Constructors
   /* Default Constructer of Chef Class */
   public Chef(
     String _name,
@@ -38,6 +41,7 @@ public class Chef extends Worker {
     calculateSalary(INITIAL_SALARY);
   }
 
+  // Methods
   /**
    * Add the order to the order queue.
    *
@@ -54,7 +58,7 @@ public class Chef extends Worker {
    * @param courier the courier who is going to deliver the order
    */
   public void prepareOrder() {
-    if(newOrders.peek() != null){
+    if (newOrders.peek() != null) {
       Order order = newOrders.poll();
       order.setStatus(Order.OrderStatus.ORDER_PREPARED);
     }
@@ -98,6 +102,15 @@ public class Chef extends Worker {
   }
 
   /**
+   * Returns the orders in process
+   *
+   * @return the size of newOrders object
+   */
+  public int getSizeOfOrders() {
+    return newOrders.size();
+  }
+
+  /**
    * The toString() function returns a string representation of the Chef object
    *
    * @return A string representation of the chef object.
@@ -112,14 +125,5 @@ public class Chef extends Worker {
     //chefInfo.append("Chef Order Queue: " + newOrders);
     chefInfo.append("\n");
     return chefInfo.toString();
-  }
-
-  /**
-   * Returns the orders in process
-   *
-   * @return the size of newOrders object
-   */
-  public int getSizeOfOrders() {
-    return newOrders.size();
   }
 }
