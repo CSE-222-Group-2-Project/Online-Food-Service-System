@@ -161,11 +161,6 @@ public class Authentication {
     return password;
   }
 
-  private static User getUserFromUsername(String username) {
-    BinarySearchTree<User> allUsers = getAllUsersFromDatabase();
-    return allUsers.find(new User(username, 0, "", ""));
-  }
-
   private static boolean isUserExist(String username) {
     BinarySearchTree<User> allUsers = getAllUsersFromDatabase();
     return allUsers.contains(new User(username, 0, "", ""));
@@ -180,6 +175,11 @@ public class Authentication {
   private static String getUserPassword(String username) {
     User user = getUserFromUsername(username);
     return user.getPassword();
+  }
+
+  private static User getUserFromUsername(String username) {
+    BinarySearchTree<User> allUsers = getAllUsersFromDatabase();
+    return allUsers.find(new User(username, 0, "", ""));
   }
 
   private static Food parseFoodLine(String lineText) {
@@ -204,32 +204,40 @@ public class Authentication {
     String userType = tokens[0];
 
     if (userType.equals("admin")) {
-      return new User(
+      return new Admin(
+        null,
         tokens[1],
         Integer.parseInt(tokens[2]),
         tokens[3],
         tokens[4]
       );
     } else if (userType.equals("chef")) {
-      return new User(
+      return new Chef(
         tokens[1],
         Integer.parseInt(tokens[2]),
         tokens[3],
-        tokens[4]
+        tokens[4],
+        Integer.parseInt(tokens[5]),
+        Integer.parseInt(tokens[6])
       );
     } else if (userType.equals("courier")) {
-      return new User(
+      return new Courier(
         tokens[1],
         Integer.parseInt(tokens[2]),
         tokens[3],
-        tokens[4]
+        tokens[4],
+        tokens[5],
+        Integer.parseInt(tokens[6])
       );
     } else if (userType.equals("customer")) {
-      return new User(
+      return new Customer(
         tokens[1],
         Integer.parseInt(tokens[2]),
+        tokens[3],
         tokens[4],
-        tokens[5]
+        tokens[5],
+        tokens[6],
+        Double.parseDouble(tokens[7])
       );
     } else {
       return null;

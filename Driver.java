@@ -131,7 +131,7 @@ public class Driver {
   public static void testAuthentication() {
     System.out.println("TESTING AUTHENTICATION CLASS...");
     System.out.println("TESTING LOGIN METHOD OF AUTHENTICATION CLASS...");
-    //  User loginedUser = Authentication.logIn("erencour", "mikasa123");
-    // System.out.println(loginedUser);
+    User loginedUser = Authentication.logIn("erencour", "mikasa123");
+    System.out.println(loginedUser);
   }
 }
