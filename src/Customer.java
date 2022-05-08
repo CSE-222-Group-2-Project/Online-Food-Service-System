@@ -120,8 +120,8 @@ public class Customer extends User {
   public Boolean giveOrder(Restaurant restaurant, Order wantedOrder) {
     if (getBudget() >= wantedOrder.calculateAccount()) {
       budget -= wantedOrder.calculateAccount();
-      restaurant.addOrder(wantedOrder);
       orderNumber++;
+      restaurant.addOrder(wantedOrder);
       return true;
     } else {
       System.out.println("\nNot enough money,order can not be applied");

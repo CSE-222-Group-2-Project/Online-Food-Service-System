@@ -85,7 +85,8 @@ public class Courier extends Worker {
    *
    * @param order The order that is to be delivered to the customer.
    */
-  public void deliverOrderToCustomer(Order order) {
+  public void deliverOrderToCustomer() {
+    Order order = orderQueue.poll();
     Customer orderOwner = order.getCustomer();
     order.setStatus(Order.OrderStatus.ORDER_DELIVERED);
     orderOwner.takeOrder(order);
@@ -117,7 +118,7 @@ public class Courier extends Worker {
     courierInfo.append("Courier: ");
     courierInfo.append(super.toString());
     courierInfo.append("Phone Number: " + phoneNumber + "\n");
-    courierInfo.append("Courier Order Queue: " + orderQueue + "\n");
+    courierInfo.append("Courier Order Queue: " + orderQueue.peek() + "\n");
     return courierInfo.toString();
   }
 }

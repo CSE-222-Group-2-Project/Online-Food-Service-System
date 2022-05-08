@@ -89,20 +89,13 @@ public class Order implements Comparable<Order> {
 
     @Override
     public int compare(Order o1, Order o2) {
-      System.out.println(
-        "\n\n\nqwğpdlqwğdplqwdpğlqwdpğqwldğplqwdğpqwldqwpğwqdpqğwqwdqwldqwpğdlqwpğdlwqpğd"
-      );
-      int retVal;
-      if (
-        o1.getCustomer().getOrderNumber() > o2.getCustomer().getOrderNumber()
-      ) {
-        retVal = 1;
-      } else if (
-        o1.getCustomer().getOrderNumber() < o2.getCustomer().getOrderNumber()
-      ) {
-        retVal = -1;
-      } else retVal = 0;
-      return retVal;
+      if (o1.getAccount() < o2.getAccount()) {
+        return 1;
+      } else if (o1.getAccount() > o2.getAccount()) {
+        return -1;
+      } else {
+        return 0;
+      }
     }
   }
 
@@ -123,8 +116,12 @@ public class Order implements Comparable<Order> {
 
   @Override
   public int compareTo(Order o) {
-    // TODO Auto-generated method stub
-    System.out.println("\n\n\nserhatserhatserhatserhat");
-    return 0;
+    if (this.getAccount() > o.getAccount()) {
+      return 1;
+    } else if (this.getAccount() < o.getAccount()) {
+      return -1;
+    } else {
+      return 0;
+    }
   }
 }

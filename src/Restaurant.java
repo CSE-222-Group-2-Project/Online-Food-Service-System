@@ -24,9 +24,8 @@ public class Restaurant {
     outcome = 10000;
   }
 
-  public Customer getRandomCustomer() {
-    Random rand = new Random();
-    return customers.get(rand.nextInt(customers.size()));
+  public Customer getRandomCustomer(int ind) {
+    return customers.get(ind);
   }
 
   public Chef getRandomChef() {

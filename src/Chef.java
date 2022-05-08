@@ -1,6 +1,6 @@
 package src;
 
-import java.util.PriorityQueue;
+import java.util.LinkedList;
 import java.util.Queue;
 
 /**
@@ -20,7 +20,7 @@ public class Chef extends Worker {
   private int certificateNumber;
 
   // All orders that chef is going to prepare
-  private Queue<Order> newOrders = new PriorityQueue<>();
+  private Queue<Order> newOrders = new LinkedList<>();
 
   // initial salary of the Chefs
   private final double INITIAL_SALARY = 4000.0;
@@ -122,7 +122,7 @@ public class Chef extends Worker {
     chefInfo.append(super.toString());
     chefInfo.append("\nCertificate Number: ");
     chefInfo.append(this.certificateNumber);
-    //chefInfo.append("Chef Order Queue: " + newOrders);
+    chefInfo.append("Chef Order Queue: " + newOrders);
     chefInfo.append("\n");
     return chefInfo.toString();
   }
