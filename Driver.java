@@ -31,8 +31,11 @@ public class Driver {
       orders.add(order);
     }
 
-    for(int i = 0; i < 2 ; i++){
-      boolean isOrderSuccessfull = customer.giveOrder(kebelekCafe, orders.get(i));
+    for (int i = 0; i < 2; i++) {
+      boolean isOrderSuccessfull = customer.giveOrder(
+        kebelekCafe,
+        orders.get(i)
+      );
       if (isOrderSuccessfull) {
         orders.get(i).setWhoCooked(chef);
         chef.addOrder(orders.get(i));
@@ -41,7 +44,6 @@ public class Driver {
         System.out.println(i + "th.order" + orders.get(i).toString());
       }
     }
-
   }
 
   public static void testAdmin() {
@@ -55,28 +57,52 @@ public class Driver {
     );
     System.out.println("TESTING ADMIN METHODS...");
     System.out.println("\n\n");
-    System.out.println("TESTING SHOW WORKERS INFO METHOD...");
+    System.out.println("TESTING SHOW WORKERS INFO METHOD OF ADMIN CLASS...");
     admin.showWorkersInfo();
     System.out.println("\n\n");
-    System.out.println("TESTING SHOW CUSTOMERS INFO METHOD...");
+    System.out.println("TESTING SHOW CUSTOMERS INFO METHOD OF ADMIN CLASS...");
     admin.showCustomersInfo();
     System.out.println("\n\n");
-    System.out.println("TESTING PRINT INCOME AND OUTCOME METHOD...");
+    System.out.println(
+      "TESTING PRINT INCOME AND OUTCOME METHOD OF ADMIN CLASS..."
+    );
     admin.printIncomeAndOutcome();
     System.out.println("\n\n");
-    System.out.println("TESTING PRINT ALL ORDERS METHOD...");
+    System.out.println("TESTING PRINT ALL ORDERS METHOD OF ADMIN CLASS...");
     admin.printAllOrders();
     System.out.println("\n\n");
-    System.out.println("TESTING FIRE WORKER METHOD");
+    System.out.println("TESTING FIRE WORKER METHOD OF ADMIN CLASS");
     admin.fireWorker();
     System.out.println("\n\n");
-    System.out.println("TESTING HIRING WORKER METHOD...");
-    admin.hiringWorker(new Worker("Test", 20, "test12", "testpass"_, "student", 2));
+    System.out.println("TESTING HIRING WORKER METHOD OF ADMIN CLASS...");
+    admin.hiringWorker(
+      new Worker("Ahmet", 30, "ahmet", "gtu1234", "student", 3)
+    );
     System.out.println("\n\n");
     System.out.println("TESTING EDIT SALARY METHOD...");
     admin.editSalary();
     System.out.println("\n\n");
-    System.out.println("TESTING CREATE FOOD METHOD...");
-
+    System.out.println("TESTING CREATE FOOD METHOD OF ADMIN CLASS...");
+    admin.createFood(3, "cacık", 15, "corba");
+    System.out.println("\n\n");
+    System.out.println("TESTING ADD FOOD TO MENU METHOD OF ADMIN CLASS...");
+    admin.addFoodToMenu(new Food(3, "cacık", 15, "corba"));
+    System.out.println("\n\n");
+    System.out.println(
+      "TESTING DELETE FOOD FROM MENU BY FOOD OBJECT METHOD OF ADMIN CLASS..."
+    );
+    admin.deleteFoodFromMenu(new Food(3, "cacık", 15, "corba"));
+    System.out.println("\n\n");
+    System.out.println("TESTING DELETE FOOD FROM MENU BY FOOD ID METHOD...");
+    admin.deleteFoodFromMenu(3);
+    System.out.println("\n\n");
+    System.out.println("TESTING CREATE MENU METHOD OF ADMIN CLASS...");
+    admin.createMenu(new Menu());
+    System.out.println("\n\n");
+    System.out.println("TESTING SEE MENU METHOD OF ADMIN CLASS...");
+    admin.seeMenu();
+    System.out.println("\n\n");
+    System.out.println("TESTING TO STRING METHOD OF ADMIN CLASS...");
+    System.out.println(admin.toString());
   }
 }

@@ -80,6 +80,7 @@ public class Admin extends User {
     for (Order anOrder : restaurant.orders) System.out.println(
       anOrder.toString()
     );
+    System.out.println("Orders have been printed.");
   }
 
   /**
@@ -101,6 +102,7 @@ public class Admin extends User {
         restaurant.workers.remove(worker); //Remove workers from array list
       }
     }
+    System.out.println("Worker has been fired.");
   }
 
   /**
@@ -151,11 +153,31 @@ public class Admin extends User {
   }
 
   /**
+   * This function creates a new Food object and returns it.
+   *
+   * @param foodId The id of the food.
+   * @param foodName The name of the food.
+   * @param foodPrice The price of the food.
+   * @param foodType The type of food.
+   * @return A new instance of the Food class.
+   */
+  public Food createFood(
+    int foodId,
+    String foodName,
+    double foodPrice,
+    String foodType
+  ) {
+    System.out.println("Food has been created.");
+    return new Food(foodId, foodName, foodPrice, foodType);
+  }
+
+  /**
    * This function adds a food to the menu of the restaurant.
    *
    * @param food The food object that you want to add to the menu.
    */
   public void addFoodToMenu(Food food) {
+    System.out.println("Food added to Menu.");
     restaurant.addFoodtoMenu(food);
   }
 
@@ -166,6 +188,7 @@ public class Admin extends User {
    * @return A boolean value.
    */
   public boolean deleteFoodFromMenu(int id) {
+    System.out.println("Food deleted from Menu.");
     return this.restaurant.deleteFoodFromMenu(id);
   }
 
@@ -176,6 +199,7 @@ public class Admin extends User {
    * @return A boolean value to return if it is deleted
    */
   public boolean deleteFoodFromMenu(Food food) {
+    System.out.println("Food deleted from Menu.");
     return this.restaurant.deleteFoodFromMenu(food);
   }
 
@@ -186,6 +210,7 @@ public class Admin extends User {
    */
   public void createMenu(Menu menu) {
     this.restaurant.createNewMenu(menu);
+    System.out.println("New menu has been created.");
   }
 
   /**
@@ -193,6 +218,7 @@ public class Admin extends User {
    */
   public void seeMenu() {
     Menu.seeMenu();
+    System.out.println("Menu has been shown");
   }
 
   /**
