@@ -29,6 +29,14 @@ public class Restaurant {
     return customers.get(rand.nextInt(customers.size()));
   }
 
+  public Chef getRandomChef() {
+    return (Chef) workers.get(0);
+  }
+
+  public Courier getRandomCourier() {
+    return (Courier) workers.get(2);
+  }
+
   public LinkedList<Food> createRandomFoods() {
     Random rand = new Random();
     LinkedList<Food> foods = menu.get_foods();

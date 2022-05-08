@@ -117,15 +117,15 @@ public class Customer extends User {
    * @param wantedOrder      Order requested by the customer
    * @return Order requested by the customer if customer has enough money
    */
-  public Order giveOrder(Restaurant restaurant, Order wantedOrder) {
+  public Boolean giveOrder(Restaurant restaurant, Order wantedOrder) {
     if (getBudget() >= wantedOrder.calculateAccount()) {
       budget -= wantedOrder.calculateAccount();
       restaurant.addOrder(wantedOrder);
       orderNumber++;
-      return wantedOrder;
+      return true;
     } else {
       System.out.println("\nNot enough money,order can not be applied");
-      return null;
+      return false;
     }
   }
 
