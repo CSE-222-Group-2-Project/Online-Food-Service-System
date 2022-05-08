@@ -23,6 +23,7 @@ public class Authentication {
     "../src/database/user_database/users.txt";
   private static final String MENU_DATABASE_PATH =
     "../src/database/restaurant_database/menu.txt";
+  private BinarySearchTree<User> allUsers = new BinarySearchTree<>();
 
   /**
    * If the user enters a valid username and password, return the User object associated with that
@@ -67,6 +68,15 @@ public class Authentication {
     String password
   ) {
     return getUserFromUsername(name, age, username, password);
+  }
+
+  /**
+   * This function adds a new user to the list of all users.
+   *
+   * @param newUser The user object that is being created.
+   */
+  public void createUser(User newUser) {
+    allUsers.add(newUser);
   }
 
   /**

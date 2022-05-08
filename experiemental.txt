@@ -1,0 +1,22 @@
+cd bin ; java Driver
+
+TESTING MAIN DATA STRUCTURE METHODS FOR 10 INPUTS
+BST createUser() Method For 10 Inputs Time: 78804
+Customer giveOrder() Method For 10 Inputs Time: 737
+Chef addOrder() Method For 10 Inputs Time: 140
+Courier addOrder() Method For 10 Inputs Time: 249
+Courier deliverOrderToCustomer() Method For 10 Inputs Time: 227
+
+TESTING MAIN DATA STRUCTURE METHODS FOR 100 INPUTS
+BST createUser() Method For 100 Inputs Time: 9558
+Customer giveOrder() Method For 100 Inputs Time: 3824
+Chef addOrder() Method For 100 Inputs Time: 415
+Courier addOrder() Method For 100 Inputs Time: 942
+Courier deliverOrderToCustomer() Method For 100 Inputs Time: 1717
+
+TESTING MAIN DATA STRUCTURE METHODS FOR 1000 INPUTS
+BST createUser() Method For 1000 Inputs Time: 22048
+Customer giveOrder() Method For 1000 Inputs Time: 5935
+Chef addOrder() Method For 1000 Inputs Time: 1755
+Courier addOrder() Method For 1000 Inputs Time: 4752
+Courier deliverOrderToCustomer() Method For 1000 Inputs Time: 11553

@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.LinkedList;
 import src.*;
+import src.tree.BinarySearchTree;
 
 public class Driver {
 
@@ -16,6 +17,7 @@ public class Driver {
     Customer customer = kebelekCafe.getRandomCustomer(1);
     Chef chef = kebelekCafe.getRandomChef();
     Courier courier = kebelekCafe.getRandomCourier();
+    Authentication auth = new Authentication();
     ArrayList<Order> orders = new ArrayList<Order>();
     long startTime, endTime, totalTime;
     for (int i = 0; i < 10; i++) {
@@ -23,9 +25,28 @@ public class Driver {
       Order order = new Order(i, customer, foods);
       orders.add(order);
     }
+    System.out.println("\nTESTING MAIN DATA STRUCTURE METHODS FOR 10 INPUTS");
+
+    startTime = System.nanoTime();
+    for (int i = 0; i < 10; i++) {
+      auth.createUser(new User("test", 10, "a" + i + ".th", "pass"));
+    }
+    endTime = System.nanoTime();
+    totalTime = (endTime - startTime) / 100;
     System.out.println(
-      "\nTESTING MAIN DATA STRUCTURE METHODS FOR 10 INPUTS \n\n"
+      "BST createUser() Method For 10 Inputs Time: " + totalTime
     );
+
+    startTime = System.nanoTime();
+    for (int i = 0; i < 10; i++) {
+      customer.giveOrder(kebelekCafe, orders.get(i));
+    }
+    endTime = System.nanoTime();
+    totalTime = (endTime - startTime) / 100;
+    System.out.println(
+      "Customer giveOrder() Method For 10 Inputs Time: " + totalTime
+    );
+
     startTime = System.nanoTime();
     for (int i = 0; i < 10; i++) {
       chef.addOrder(orders.get(i));
@@ -36,15 +57,9 @@ public class Driver {
       "Chef addOrder() Method For 10 Inputs Time: " + totalTime
     );
 
-    startTime = System.nanoTime();
     for (int i = 0; i < 10; i++) {
       chef.prepareOrder();
     }
-    endTime = System.nanoTime();
-    totalTime = (endTime - startTime) / 100;
-    System.out.println(
-      "Chef prepareOrder() Method For 10 Inputs Time: " + totalTime
-    );
 
     startTime = System.nanoTime();
     for (int i = 0; i < 10; i++) {
@@ -63,7 +78,7 @@ public class Driver {
     endTime = System.nanoTime();
     totalTime = (endTime - startTime) / 100;
     System.out.println(
-      "Chef deliverOrderToCustomer() Method For 10 Inputs Time: " + totalTime
+      "Courier deliverOrderToCustomer() Method For 10 Inputs Time: " + totalTime
     );
   }
 
@@ -73,6 +88,7 @@ public class Driver {
     Customer customer = kebelekCafe.getRandomCustomer(1);
     Chef chef = kebelekCafe.getRandomChef();
     Courier courier = kebelekCafe.getRandomCourier();
+    Authentication auth = new Authentication();
     ArrayList<Order> orders = new ArrayList<Order>();
     long startTime, endTime, totalTime;
     for (int i = 0; i < 100; i++) {
@@ -81,8 +97,26 @@ public class Driver {
       orders.add(order);
     }
 
+    System.out.println("\nTESTING MAIN DATA STRUCTURE METHODS FOR 100 INPUTS");
+
+    startTime = System.nanoTime();
+    for (int i = 0; i < 100; i++) {
+      auth.createUser(new User("test", 10, "b" + i + ".th", "pass"));
+    }
+    endTime = System.nanoTime();
+    totalTime = (endTime - startTime) / 100;
     System.out.println(
-      "\nTESTING MAIN DATA STRUCTURE METHODS FOR 100 INPUTS \n\n"
+      "BST createUser() Method For 100 Inputs Time: " + totalTime
+    );
+
+    startTime = System.nanoTime();
+    for (int i = 0; i < 100; i++) {
+      customer.giveOrder(kebelekCafe, orders.get(i));
+    }
+    endTime = System.nanoTime();
+    totalTime = (endTime - startTime) / 100;
+    System.out.println(
+      "Customer giveOrder() Method For 100 Inputs Time: " + totalTime
     );
 
     startTime = System.nanoTime();
@@ -95,15 +129,9 @@ public class Driver {
       "Chef addOrder() Method For 100 Inputs Time: " + totalTime
     );
 
-    startTime = System.nanoTime();
     for (int i = 0; i < 100; i++) {
       chef.prepareOrder();
     }
-    endTime = System.nanoTime();
-    totalTime = (endTime - startTime) / 100;
-    System.out.println(
-      "Chef prepareOrder() Method For 100 Inputs Time: " + totalTime
-    );
 
     startTime = System.nanoTime();
     for (int i = 0; i < 100; i++) {
@@ -122,7 +150,8 @@ public class Driver {
     endTime = System.nanoTime();
     totalTime = (endTime - startTime) / 100;
     System.out.println(
-      "Chef deliverOrderToCustomer() Method For 100 Inputs Time: " + totalTime
+      "Courier deliverOrderToCustomer() Method For 100 Inputs Time: " +
+      totalTime
     );
   }
 
@@ -132,6 +161,7 @@ public class Driver {
     Customer customer = kebelekCafe.getRandomCustomer(1);
     Chef chef = kebelekCafe.getRandomChef();
     Courier courier = kebelekCafe.getRandomCourier();
+    Authentication auth = new Authentication();
     ArrayList<Order> orders = new ArrayList<Order>();
     long startTime, endTime, totalTime;
     for (int i = 0; i < 1000; i++) {
@@ -140,8 +170,26 @@ public class Driver {
       orders.add(order);
     }
 
+    System.out.println("\nTESTING MAIN DATA STRUCTURE METHODS FOR 1000 INPUTS");
+
+    startTime = System.nanoTime();
+    for (int i = 0; i < 1000; i++) {
+      auth.createUser(new User("test", 10, "c" + i + ".th", "pass"));
+    }
+    endTime = System.nanoTime();
+    totalTime = (endTime - startTime) / 100;
     System.out.println(
-      "\nTESTING MAIN DATA STRUCTURE METHODS FOR 1000 INPUTS \n\n"
+      "BST createUser() Method For 1000 Inputs Time: " + totalTime
+    );
+
+    startTime = System.nanoTime();
+    for (int i = 0; i < 1000; i++) {
+      customer.giveOrder(kebelekCafe, orders.get(i));
+    }
+    endTime = System.nanoTime();
+    totalTime = (endTime - startTime) / 100;
+    System.out.println(
+      "Customer giveOrder() Method For 1000 Inputs Time: " + totalTime
     );
 
     startTime = System.nanoTime();
@@ -154,15 +202,9 @@ public class Driver {
       "Chef addOrder() Method For 1000 Inputs Time: " + totalTime
     );
 
-    startTime = System.nanoTime();
     for (int i = 0; i < 1000; i++) {
       chef.prepareOrder();
     }
-    endTime = System.nanoTime();
-    totalTime = (endTime - startTime) / 100;
-    System.out.println(
-      "Chef prepareOrder() Method For 1000 Inputs Time: " + totalTime
-    );
 
     startTime = System.nanoTime();
     for (int i = 0; i < 1000; i++) {
@@ -181,11 +223,12 @@ public class Driver {
     endTime = System.nanoTime();
     totalTime = (endTime - startTime) / 100;
     System.out.println(
-      "Chef deliverOrderToCustomer() Method For 1000 Inputs Time: " + totalTime
+      "Courier deliverOrderToCustomer() Method For 1000 Inputs Time: " +
+      totalTime
     );
   }
 
-  public static void testAdmin() {
+  public static void testAdminMethods() {
     Restaurant kebelekCafe = new Restaurant();
     Admin admin = new Admin(
       kebelekCafe,
@@ -245,7 +288,7 @@ public class Driver {
     System.out.println(admin.toString());
   }
 
-  public static void testAuthentication() {
+  public static void testAuthenticationMethods() {
     System.out.println("TESTING AUTHENTICATION CLASS...");
     System.out.println("TESTING LOGIN METHOD OF AUTHENTICATION CLASS...");
     User loginedUser = Authentication.logIn(
