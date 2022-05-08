@@ -4,3 +4,9 @@
 /bin
 # vscode config file
 .vscode
+# intellij config file
+.idea
+# uml diagram files
+*.uml
+# iml files
+*.iml

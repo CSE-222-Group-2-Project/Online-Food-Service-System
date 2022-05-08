@@ -138,7 +138,6 @@ public class Customer extends User {
    * @param anOrder Order brought to the customer by the courier
    */
   public void takeOrder(Order anOrder) {
-    System.out.println("Order received by " + getName());
     myOrders.addFirst(anOrder);
   }
 

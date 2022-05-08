@@ -5,57 +5,184 @@ import src.*;
 public class Driver {
 
   public static void main(String[] args) {
-    testProgram();
-    //  testAdmin();
-    testAuthentication();
+    testFor10Inputs();
+    testFor100Inputs();
+    testFor1000Inputs();
   }
 
-  public static void testProgram() {
+  public static void testFor10Inputs() {
     Restaurant kebelekCafe = new Restaurant();
 
     Customer customer = kebelekCafe.getRandomCustomer(1);
     Chef chef = kebelekCafe.getRandomChef();
     Courier courier = kebelekCafe.getRandomCourier();
     ArrayList<Order> orders = new ArrayList<Order>();
-    ArrayList<Boolean> areOrdersSuccessfull = new ArrayList<Boolean>();
+    long startTime, endTime, totalTime;
+    for (int i = 0; i < 10; i++) {
+      LinkedList<Food> foods = kebelekCafe.createRandomFoods();
+      Order order = new Order(i, customer, foods);
+      orders.add(order);
+    }
+    System.out.println(
+      "\nTESTING MAIN DATA STRUCTURE METHODS FOR 10 INPUTS \n\n"
+    );
+    startTime = System.nanoTime();
+    for (int i = 0; i < 10; i++) {
+      chef.addOrder(orders.get(i));
+    }
+    endTime = System.nanoTime();
+    totalTime = (endTime - startTime) / 100;
+    System.out.println(
+      "Chef addOrder() Method For 10 Inputs Time: " + totalTime
+    );
 
-    customer.seeMenu();
+    startTime = System.nanoTime();
+    for (int i = 0; i < 10; i++) {
+      chef.prepareOrder();
+    }
+    endTime = System.nanoTime();
+    totalTime = (endTime - startTime) / 100;
+    System.out.println(
+      "Chef prepareOrder() Method For 10 Inputs Time: " + totalTime
+    );
 
-    for (int i = 0; i < 2; i++) {
+    startTime = System.nanoTime();
+    for (int i = 0; i < 10; i++) {
+      courier.addOrder(orders.get(i));
+    }
+    endTime = System.nanoTime();
+    totalTime = (endTime - startTime) / 100;
+    System.out.println(
+      "Courier addOrder() Method For 10 Inputs Time: " + totalTime
+    );
+
+    startTime = System.nanoTime();
+    for (int i = 0; i < 10; i++) {
+      courier.deliverOrderToCustomer();
+    }
+    endTime = System.nanoTime();
+    totalTime = (endTime - startTime) / 100;
+    System.out.println(
+      "Chef deliverOrderToCustomer() Method For 10 Inputs Time: " + totalTime
+    );
+  }
+
+  public static void testFor100Inputs() {
+    Restaurant kebelekCafe = new Restaurant();
+
+    Customer customer = kebelekCafe.getRandomCustomer(1);
+    Chef chef = kebelekCafe.getRandomChef();
+    Courier courier = kebelekCafe.getRandomCourier();
+    ArrayList<Order> orders = new ArrayList<Order>();
+    long startTime, endTime, totalTime;
+    for (int i = 0; i < 100; i++) {
       LinkedList<Food> foods = kebelekCafe.createRandomFoods();
       Order order = new Order(i, customer, foods);
       orders.add(order);
     }
 
-    for (int i = 0; i < 2; i++) areOrdersSuccessfull.add(
-      customer.giveOrder(kebelekCafe, orders.get(i))
+    System.out.println(
+      "\nTESTING MAIN DATA STRUCTURE METHODS FOR 100 INPUTS \n\n"
     );
 
-    for (int i = 0; i < 2; i++) {
-      if (areOrdersSuccessfull.get(i)) {
-        chef.addOrder(orders.get(i));
-      }
+    startTime = System.nanoTime();
+    for (int i = 0; i < 100; i++) {
+      chef.addOrder(orders.get(i));
     }
+    endTime = System.nanoTime();
+    totalTime = (endTime - startTime) / 100;
+    System.out.println(
+      "Chef addOrder() Method For 100 Inputs Time: " + totalTime
+    );
 
-    for (int i = 0; i < areOrdersSuccessfull.size(); i++) {
+    startTime = System.nanoTime();
+    for (int i = 0; i < 100; i++) {
       chef.prepareOrder();
     }
+    endTime = System.nanoTime();
+    totalTime = (endTime - startTime) / 100;
+    System.out.println(
+      "Chef prepareOrder() Method For 100 Inputs Time: " + totalTime
+    );
 
-    for (int i = 0; i < 2; i++) {
-      if (areOrdersSuccessfull.get(i)) {
-        courier.addOrder(orders.get(i));
-      }
+    startTime = System.nanoTime();
+    for (int i = 0; i < 100; i++) {
+      courier.addOrder(orders.get(i));
     }
+    endTime = System.nanoTime();
+    totalTime = (endTime - startTime) / 100;
+    System.out.println(
+      "Courier addOrder() Method For 100 Inputs Time: " + totalTime
+    );
 
-    for (int i = 0; i < areOrdersSuccessfull.size(); i++) {
+    startTime = System.nanoTime();
+    for (int i = 0; i < 100; i++) {
       courier.deliverOrderToCustomer();
     }
+    endTime = System.nanoTime();
+    totalTime = (endTime - startTime) / 100;
+    System.out.println(
+      "Chef deliverOrderToCustomer() Method For 100 Inputs Time: " + totalTime
+    );
+  }
 
-    for (int i = 0; i < customer.getOrderNumber(); i++) {
-      customer.giveVote(7, 7, orders.get(i));
+  public static void testFor1000Inputs() {
+    Restaurant kebelekCafe = new Restaurant();
+
+    Customer customer = kebelekCafe.getRandomCustomer(1);
+    Chef chef = kebelekCafe.getRandomChef();
+    Courier courier = kebelekCafe.getRandomCourier();
+    ArrayList<Order> orders = new ArrayList<Order>();
+    long startTime, endTime, totalTime;
+    for (int i = 0; i < 1000; i++) {
+      LinkedList<Food> foods = kebelekCafe.createRandomFoods();
+      Order order = new Order(i, customer, foods);
+      orders.add(order);
     }
 
-    customer.myOrders();
+    System.out.println(
+      "\nTESTING MAIN DATA STRUCTURE METHODS FOR 1000 INPUTS \n\n"
+    );
+
+    startTime = System.nanoTime();
+    for (int i = 0; i < 1000; i++) {
+      chef.addOrder(orders.get(i));
+    }
+    endTime = System.nanoTime();
+    totalTime = (endTime - startTime) / 100;
+    System.out.println(
+      "Chef addOrder() Method For 1000 Inputs Time: " + totalTime
+    );
+
+    startTime = System.nanoTime();
+    for (int i = 0; i < 1000; i++) {
+      chef.prepareOrder();
+    }
+    endTime = System.nanoTime();
+    totalTime = (endTime - startTime) / 100;
+    System.out.println(
+      "Chef prepareOrder() Method For 1000 Inputs Time: " + totalTime
+    );
+
+    startTime = System.nanoTime();
+    for (int i = 0; i < 1000; i++) {
+      courier.addOrder(orders.get(i));
+    }
+    endTime = System.nanoTime();
+    totalTime = (endTime - startTime) / 100;
+    System.out.println(
+      "Courier addOrder() Method For 1000 Inputs Time: " + totalTime
+    );
+
+    startTime = System.nanoTime();
+    for (int i = 0; i < 1000; i++) {
+      courier.deliverOrderToCustomer();
+    }
+    endTime = System.nanoTime();
+    totalTime = (endTime - startTime) / 100;
+    System.out.println(
+      "Chef deliverOrderToCustomer() Method For 1000 Inputs Time: " + totalTime
+    );
   }
 
   public static void testAdmin() {
