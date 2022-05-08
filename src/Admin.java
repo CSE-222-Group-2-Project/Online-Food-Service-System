@@ -55,7 +55,7 @@ public class Admin extends User {
       System.out.println("Name: " + customer.getName());
       System.out.println("Job: " + customer.getJob());
       System.out.println("Age: " + customer.getAge());
-      System.out.println("Balance: " + customer.getBalance());
+      System.out.println("Balance: " + customer.getBudget());
       System.out.println("Last Order number: " + customer.getOrderNumber());
       System.out.println("Phone Number: " + customer.getPhone());
       System.out.println("---------------");

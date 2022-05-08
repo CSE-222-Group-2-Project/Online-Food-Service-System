@@ -6,18 +6,24 @@ import java.util.Scanner;
 /**
  * Customer class is a user type that expresses the target audience of the
  * restaurant derived from the user class.
- *
- * @since 03-03-2022
- *
+ * @author Group 2
+ * @version 1.0.0
+ * @since 08.04.2022
  */
+
+/* Customer class is a user type that expresses the target audience of the
+ restaurant derived from the user class.*/
 public class Customer extends User {
 
+  // Data Fields
   private String job;
   private String phoneNumber;
-  private double balance; // Money of customer
+  private double budget;
   private int orderNumber = 0;
-  private LinkedList<Order> myOrders = new LinkedList<Order>();
+  private LinkedList<Order> myOrders = new LinkedList<>();
 
+  // Constructors
+  /*Constructer of Customer Class */
   public Customer(
     String _name,
     int _age,
@@ -25,26 +31,46 @@ public class Customer extends User {
     String _username,
     String _password,
     String _phoneNumber,
-    double _balance
+    double _budget
   ) {
     super(_name, _age, _username, _password);
     job = _job;
     phoneNumber = _phoneNumber;
-    balance = _balance;
+    budget = _budget;
   }
 
+  /**
+   * This function returns the job of the customer
+   *
+   * @return The job of the customer is being returned.
+   */
   public String getJob() {
     return job;
   }
 
+  /**
+   * This function returns the phone number of the customer
+   *
+   * @return The phone number of the customer.
+   */
   public String getPhone() {
     return phoneNumber;
   }
 
-  public double getBalance() {
-    return balance;
+  /**
+   * This function returns the budget of the customer
+   *
+   * @return The budget of the customer.
+   */
+  public double getBudget() {
+    return budget;
   }
 
+  /**
+   * It returns the number of order of the customer.
+   *
+   * @return The number of order of the customer.
+   */
   public int getOrderNumber() {
     return orderNumber;
   }
@@ -74,10 +100,10 @@ public class Customer extends User {
   public void giveVote(Order anOrder) {
     Scanner myInput = new Scanner(System.in);
     System.out.println("Enter vote for chef: ");
-    int pointofChef = 5;//myInput.nextInt();
+    int pointofChef = 5; //myInput.nextInt();
 
     System.out.println("Enter vote for courier: ");
-    int pointofCourier = 5;//myInput.nextInt();
+    int pointofCourier = 5; //myInput.nextInt();
 
     anOrder.getWhoCooked().calculateAverageScore(pointofChef);
     anOrder.getWhoDelivered().calculateAverageScore(pointofCourier);
@@ -92,8 +118,8 @@ public class Customer extends User {
    * @return Order requested by the customer if customer has enough money
    */
   public Order giveOrder(Restaurant restaurant, Order wantedOrder) {
-    if (getBalance() >= wantedOrder.calculate_account()) {
-      balance -= wantedOrder.calculate_account();
+    if (getBudget() >= wantedOrder.calculate_account()) {
+      budget -= wantedOrder.calculate_account();
       restaurant.addOrder(wantedOrder);
       orderNumber++;
       return wantedOrder;
@@ -120,7 +146,7 @@ public class Customer extends User {
    *
    * @return Returns true if customer VIP,otherwise return false
    */
-  public boolean is_vip() {
+  public boolean isVIP() {
     if (getOrderNumber() > 5) return true; else return false;
   }
 
@@ -129,7 +155,7 @@ public class Customer extends User {
    *
    * @return Returns true if customer Student,otherwise return false
    */
-  public boolean is_student() {
+  public boolean isStudent() {
     if (getJob().equals("Student")) return true; else return false;
   }
 
@@ -152,7 +178,7 @@ public class Customer extends User {
     customerInfo.append(super.toString());
     customerInfo.append("Job: " + getJob() + "\n");
     customerInfo.append("Phone number: " + getPhone() + "\n");
-    customerInfo.append("Balance: " + getBalance() + "\n");
+    customerInfo.append("Budget: " + getBudget() + "\n");
     customerInfo.append("Order number: " + getOrderNumber() + "\n");
     customerInfo.append("Given Orders: " + myOrders() + "\n");
     return customerInfo.toString();
