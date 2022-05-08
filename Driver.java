@@ -1,7 +1,6 @@
 import java.util.ArrayList;
 import java.util.LinkedList;
 import src.*;
-import src.tree.BinarySearchTree;
 
 public class Driver {
 
