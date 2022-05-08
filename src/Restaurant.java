@@ -149,12 +149,11 @@ public class Restaurant {
 
     for (int i = 0; i < workers.size(); i++) {
       if (workers.get(i) instanceof Courier) {
-        //if (minOrder >= ((Courier) workers.get(i)).getSizeOfOrders()) {
-        // minOrder = ((Courier) workers.get(i)).getSizeOfOrders();
-        // workerId = i;
-        // }
-        workerId = i;
-        break;
+        if (minOrder >= ((Courier) workers.get(i)).getSizeOfOrders()) {
+         minOrder = ((Courier) workers.get(i)).getSizeOfOrders();
+         workerId = i;
+         }
+
       }
     }
     ((Courier) workers.get(workerId)).addOrder(order);
