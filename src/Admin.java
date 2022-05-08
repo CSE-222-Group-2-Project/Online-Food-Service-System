@@ -109,6 +109,7 @@ public class Admin extends User {
    */
   public void hiringWorker(Worker newWorker) {
     restaurant.workers.add(newWorker);
+    System.out.println("New worker has been hired.");
   }
 
   /**
@@ -126,6 +127,7 @@ public class Admin extends User {
         worker.setScore(4); //Reset the score
       }
     }
+    System.out.println("Salaries have been updated.");
   }
 
   /**

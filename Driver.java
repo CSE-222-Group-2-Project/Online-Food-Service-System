@@ -5,6 +5,7 @@ public class Driver {
 
   public static void main(String[] args) {
     testCustomer();
+    testAdmin();
   }
 
   public static void testCustomer() {
@@ -68,5 +69,23 @@ public class Driver {
     System.out.println("\n\n");
     System.out.println("TESTING SHOW CUSTOMERS INFO METHOD...");
     admin.showCustomersInfo();
+    System.out.println("\n\n");
+    System.out.println("TESTING PRINT INCOME AND OUTCOME METHOD...");
+    admin.printIncomeAndOutcome();
+    System.out.println("\n\n");
+    System.out.println("TESTING PRINT ALL ORDERS METHOD...");
+    admin.printAllOrders();
+    System.out.println("\n\n");
+    System.out.println("TESTING FIRE WORKER METHOD");
+    admin.fireWorker();
+    System.out.println("\n\n");
+    System.out.println("TESTING HIRING WORKER METHOD...");
+    admin.hiringWorker(new Worker("Test", 20, "test12", "testpass"_, "student", 2));
+    System.out.println("\n\n");
+    System.out.println("TESTING EDIT SALARY METHOD...");
+    admin.editSalary();
+    System.out.println("\n\n");
+    System.out.println("TESTING CREATE FOOD METHOD...");
+
   }
 }
