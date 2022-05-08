@@ -86,7 +86,7 @@ public class Courier extends Worker {
    * @param order The order that is to be delivered to the customer.
    */
   public void deliverOrderToCustomer(Order order) {
-    Customer orderOwner = order.get_customer();
+    Customer orderOwner = order.getCustomer();
     order.setStatus(Order.OrderStatus.ORDER_DELIVERED);
     orderOwner.takeOrder(order);
   }

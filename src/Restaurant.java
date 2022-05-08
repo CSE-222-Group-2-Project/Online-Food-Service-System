@@ -34,7 +34,7 @@ public class Restaurant {
     LinkedList<Food> foods = menu.get_foods();
     LinkedList<Food> orderFoods = new LinkedList<>();
 
-    for(int i=0 ; i<4 ; i++) {
+    for (int i = 0; i < 4; i++) {
       int randomNumber = rand.nextInt(foods.size());
       orderFoods.add(foods.get(randomNumber));
     }
@@ -52,13 +52,12 @@ public class Restaurant {
 
   public void addOrder(Order order) {
     orders.addLast(order);
-    income += order.get_account();
+    income += order.getAccount();
   }
 
   public Chef chooseChef(Order order) {
-    if(order == null) 
-      return null;
-    
+    if (order == null) return null;
+
     int workerId = 0, minOrder = 0;
 
     for (int i = 0; i < workers.size(); i++) {
@@ -76,19 +75,18 @@ public class Restaurant {
   }
 
   public Courier chooseCourier(Order order) {
-    if(order == null)
-      return null;
+    if (order == null) return null;
 
-    int workerId = 0,minOrder = 0;
+    int workerId = 0, minOrder = 0;
 
     for (int i = 0; i < workers.size(); i++) {
       if (workers.get(i) instanceof Courier) {
         //if (minOrder >= ((Courier) workers.get(i)).getSizeOfOrders()) {
-         // minOrder = ((Courier) workers.get(i)).getSizeOfOrders();
-         // workerId = i;
-       // }
-          workerId = i;
-          break;
+        // minOrder = ((Courier) workers.get(i)).getSizeOfOrders();
+        // workerId = i;
+        // }
+        workerId = i;
+        break;
       }
     }
     ((Courier) workers.get(workerId)).addOrder(order);

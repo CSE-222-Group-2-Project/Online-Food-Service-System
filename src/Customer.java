@@ -118,8 +118,8 @@ public class Customer extends User {
    * @return Order requested by the customer if customer has enough money
    */
   public Order giveOrder(Restaurant restaurant, Order wantedOrder) {
-    if (getBudget() >= wantedOrder.calculate_account()) {
-      budget -= wantedOrder.calculate_account();
+    if (getBudget() >= wantedOrder.calculateAccount()) {
+      budget -= wantedOrder.calculateAccount();
       restaurant.addOrder(wantedOrder);
       orderNumber++;
       return wantedOrder;

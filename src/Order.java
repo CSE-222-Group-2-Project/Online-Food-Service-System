@@ -13,8 +13,8 @@ public class Order implements Comparable<Order> {
   }
 
   OrderStatus status = OrderStatus.ORDER_TAKEN;
-  private Chef whoCooked; // Shows which chef cooked that order
-  private Courier whoDelivered; // Shows which couier delivered that order
+  private Chef orderChef; // Shows which chef cooked that order
+  private Courier ordeCourier; // Shows which couier delivered that order
   private int orderID;
   private Customer c; // hangi customer sipariş verdi
   private double coefficient = 1.0;
@@ -24,43 +24,39 @@ public class Order implements Comparable<Order> {
   //private LinkedList<Integer> foodID = new LinkedList<Integer>();
   private LinkedList<Food> foods = new LinkedList<Food>();
 
-  public Order(
-    int orderID,
-    Customer customer,
-    LinkedList<Food> _foods
-  ) {
+  public Order(int orderID, Customer customer, LinkedList<Food> _foods) {
     this.orderID = orderID;
     c = customer;
     foods = _foods;
 
-    calculate_account();
+    calculateAccount();
   }
 
   public void setWhoCooked(Chef _whoCooked) {
-    whoCooked = _whoCooked;
+    orderChef = _whoCooked;
   }
 
   public void setWhoDelivered(Courier _whoDelivered) {
-    whoDelivered = _whoDelivered;
+    ordeCourier = _whoDelivered;
   }
 
-  public Customer get_customer() {
+  public Customer getCustomer() {
     return c;
   }
 
   public Chef getWhoCooked() {
-    return whoCooked;
+    return orderChef;
   }
 
   public Courier getWhoDelivered() {
-    return whoDelivered;
+    return ordeCourier;
   }
 
-  public int get_orderID() {
+  public int getOrderID() {
     return orderID;
   }
 
-  public double get_account() {
+  public double getAccount() {
     return account;
   }
 
@@ -68,18 +64,18 @@ public class Order implements Comparable<Order> {
     status = stat;
   }
 
-  public void coef_calc() { //rastgele katsayılar ekledim düzenleme yapılır.
-    if (c.is_vip()) {
+  public void coefCalc() { //rastgele katsayılar ekledim düzenleme yapılır.
+    if (c.isVIP()) {
       coefficient = 0.85;
     }
 
-    if (c.is_student()) {
+    if (c.isStudent()) {
       coefficient = 0.75;
     }
   }
 
-  public double calculate_account() {
-    coef_calc();
+  public double calculateAccount() {
+    coefCalc();
     for (Food afood : foods) account += afood.getFoodPrice();
 
     account *= coefficient;
@@ -91,14 +87,16 @@ public class Order implements Comparable<Order> {
 
     @Override
     public int compare(Order o1, Order o2) {
-      System.out.println("\n\n\nqwğpdlqwğdplqwdpğlqwdpğqwldğplqwdğpqwldqwpğwqdpqğwqwdqwldqwpğdlqwpğdlwqpğd");
+      System.out.println(
+        "\n\n\nqwğpdlqwğdplqwdpğlqwdpğqwldğplqwdğpqwldqwpğwqdpqğwqwdqwldqwpğdlqwpğdlwqpğd"
+      );
       int retVal;
       if (
-        o1.get_customer().getOrderNumber() > o2.get_customer().getOrderNumber()
+        o1.getCustomer().getOrderNumber() > o2.getCustomer().getOrderNumber()
       ) {
         retVal = 1;
       } else if (
-        o1.get_customer().getOrderNumber() < o2.get_customer().getOrderNumber()
+        o1.getCustomer().getOrderNumber() < o2.getCustomer().getOrderNumber()
       ) {
         retVal = -1;
       } else retVal = 0;
