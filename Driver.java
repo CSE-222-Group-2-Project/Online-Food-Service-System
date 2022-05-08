@@ -7,8 +7,9 @@ public class Driver {
   public static void main(String[] args) {
     testProgram();
     testAdmin();
+    testAuthentication();
   }
-  
+
   public static void testProgram() {
     Restaurant kebelekCafe = new Restaurant();
     Admin administrator = new Admin(
@@ -25,7 +26,7 @@ public class Driver {
     Courier courier = kebelekCafe.getRandomCourier();
     ArrayList<Order> orders = new ArrayList<Order>();
     ArrayList<Boolean> areOrdersSuccessfull = new ArrayList<Boolean>();
-    
+
     customer.seeMenu();
 
     for (int i = 0; i < 2; i++) {
@@ -34,39 +35,37 @@ public class Driver {
       orders.add(order);
     }
 
-    for(int i=0; i < 2; i++) 
-      areOrdersSuccessfull.add(customer.giveOrder(kebelekCafe,orders.get(i)));
-    
+    for (int i = 0; i < 2; i++) areOrdersSuccessfull.add(
+      customer.giveOrder(kebelekCafe, orders.get(i))
+    );
 
-
-    for(int i = 0; i < 2 ; i++){
+    for (int i = 0; i < 2; i++) {
       if (areOrdersSuccessfull.get(i)) {
         orders.get(i).setWhoCooked(chef);
         chef.addOrder(orders.get(i));
       }
     }
 
-    for(int i= 0;i < areOrdersSuccessfull.size() ; i++){
+    for (int i = 0; i < areOrdersSuccessfull.size(); i++) {
       chef.prepareOrder();
     }
 
-    for(int i=0;i < 2 ; i++){
-      if(areOrdersSuccessfull.get(i)) {
+    for (int i = 0; i < 2; i++) {
+      if (areOrdersSuccessfull.get(i)) {
         orders.get(i).setWhoDelivered(courier);
         courier.addOrder(orders.get(i));
       }
     }
 
-    for(int i=0;i < areOrdersSuccessfull.size() ; i++){
+    for (int i = 0; i < areOrdersSuccessfull.size(); i++) {
       courier.deliverOrderToCustomer();
     }
 
-    for(int i=0 ; i < customer.getOrderNumber() ; i++){
-      customer.giveVote(7, 7,orders.get(i));
+    for (int i = 0; i < customer.getOrderNumber(); i++) {
+      customer.giveVote(7, 7, orders.get(i));
     }
 
     customer.myOrders();
-
   }
 
   public static void testAdmin() {
@@ -127,5 +126,12 @@ public class Driver {
     System.out.println("\n\n");
     System.out.println("TESTING TO STRING METHOD OF ADMIN CLASS...");
     System.out.println(admin.toString());
+  }
+
+  public static void testAuthentication() {
+    System.out.println("TESTING AUTHENTICATION CLASS...");
+    System.out.println("TESTING LOGIN METHOD OF AUTHENTICATION CLASS...");
+    //  User loginedUser = Authentication.logIn("erencour", "mikasa123");
+    // System.out.println(loginedUser);
   }
 }
