@@ -1,0 +1,386 @@
+cd bin ; java Driver
+TESTING ADMIN METHODS...
+
+
+
+TESTING SHOW WORKERS INFO METHOD OF ADMIN CLASS...
+Job: Chef
+Name: Mehmet
+Age: 35
+Certification Number: 15
+---------------
+Job: Chef
+Name: Esra
+Age: 27
+Certification Number: 5
+---------------
+Job: Courier
+Name: Arda
+Age: 26
+---------------
+Job: Courier
+Name: Cem
+Age: 29
+---------------
+Job: Courier
+Name: Eren
+Age: 24
+---------------
+Job: Courier
+Name: Kerem
+Age: 30
+---------------
+Job: Courier
+Name: Baran
+Age: 32
+---------------
+
+
+
+TESTING SHOW CUSTOMERS INFO METHOD OF ADMIN CLASS...
+Name: Cemal
+Job: Student
+Age: 15
+Balance: 500000.0
+Last Order number: 0
+Phone Number: +905055355576
+---------------
+Name: Mustafa
+Job: Teacher
+Age: 30
+Balance: 500000.0
+Last Order number: 0
+Phone Number: +905051234566
+---------------
+Name: Şule
+Job: Lawyer
+Age: 23
+Balance: 500000.0
+Last Order number: 0
+Phone Number: +905315355576
+---------------
+Name: Alperen
+Job: Engineer
+Age: 20
+Balance: 500000.0
+Last Order number: 0
+Phone Number: +905055332576
+---------------
+Name: Omar
+Job: Student
+Age: 19
+Balance: 500000.0
+Last Order number: 0
+Phone Number: +905149355576
+---------------
+Name: Can
+Job: Police
+Age: 40
+Balance: 1000000.0
+Last Order number: 0
+Phone Number: +905937155576
+---------------
+Name: Faruk
+Job: Driver
+Age: 27
+Balance: 600000.0
+Last Order number: 0
+Phone Number: +905055743176
+---------------
+
+
+
+TESTING PRINT INCOME AND OUTCOME METHOD OF ADMIN CLASS...
+The total income is 0
+The total outcome is 10000
+The profit is -10000
+
+
+
+TESTING PRINT ALL ORDERS METHOD OF ADMIN CLASS...
+Orders have been printed.
+
+
+
+TESTING FIRE WORKER METHOD OF ADMIN CLASS
+Worker has been fired.
+
+
+
+TESTING HIRING WORKER METHOD OF ADMIN CLASS...
+New worker has been hired.
+
+
+
+TESTING EDIT SALARY METHOD...
+Salaries have been updated.
+
+
+
+TESTING CREATE FOOD METHOD OF ADMIN CLASS...
+Food has been created.
+
+
+
+TESTING ADD FOOD TO MENU METHOD OF ADMIN CLASS...
+Food added to Menu.
+
+
+
+TESTING DELETE FOOD FROM MENU BY FOOD OBJECT METHOD OF ADMIN CLASS...
+Food deleted from Menu.
+
+
+
+TESTING DELETE FOOD FROM MENU BY FOOD ID METHOD...
+Food deleted from Menu.
+
+
+
+TESTING CREATE MENU METHOD OF ADMIN CLASS...
+New menu has been created.
+
+
+
+TESTING SEE MENU METHOD OF ADMIN CLASS...
+Food Informations: 
+Food ID : 0
+Food Name : Ezogelin Corbasi 
+Food Price : 8.0
+Food Type : soup
+
+Food Informations: 
+Food ID : 1
+Food Name : Domates Corbasi 
+Food Price : 8.0
+Food Type : soup
+
+Food Informations: 
+Food ID : 2
+Food Name : Yayla Corbasi 
+Food Price : 8.0
+Food Type : soup
+
+Food Informations: 
+Food ID : 3
+Food Name : Tavuk Corbasi 
+Food Price : 10.0
+Food Type : soup
+
+Food Informations: 
+Food ID : 4
+Food Name : Sehriye Corbasi 
+Food Price : 8.0
+Food Type : soup
+
+Food Informations: 
+Food ID : 5
+Food Name : Mercimek Corbasi 
+Food Price : 7.0
+Food Type : soup
+
+Food Informations: 
+Food ID : 6
+Food Name : Misket Kofte Corbasi 
+Food Price : 10.0
+Food Type : soup
+
+Food Informations: 
+Food ID : 7
+Food Name : Tekirdag Koftesi 
+Food Price : 18.0
+Food Type : mainCourse
+
+Food Informations: 
+Food ID : 8
+Food Name : Yalanci Beyti 
+Food Price : 20.0
+Food Type : mainCourse
+
+Food Informations: 
+Food ID : 9
+Food Name : Citir Tavuk 
+Food Price : 15.0
+Food Type : mainCourse
+
+Food Informations: 
+Food ID : 10
+Food Name : Tavuk Sis 
+Food Price : 20.0
+Food Type : mainCourse
+
+Food Informations: 
+Food ID : 11
+Food Name : Sultan Kebabi 
+Food Price : 22.0
+Food Type : mainCourse
+
+Food Informations: 
+Food ID : 12
+Food Name : Ratatuy 
+Food Price : 22.0
+Food Type : mainCourse
+
+Food Informations: 
+Food ID : 13
+Food Name : Hatay Usulu Doner 
+Food Price : 18.0
+Food Type : mainCourse
+
+Food Informations: 
+Food ID : 14
+Food Name : Mantar Sote 
+Food Price : 15.0
+Food Type : mainCourse
+
+Food Informations: 
+Food ID : 15
+Food Name : Yeni Dunya Kebabi 
+Food Price : 25.0
+Food Type : mainCourse
+
+Food Informations: 
+Food ID : 16
+Food Name : Adana Kebabi 
+Food Price : 25.0
+Food Type : mainCourse
+
+Food Informations: 
+Food ID : 17
+Food Name : Sebzeli Lazanya 
+Food Price : 18.0
+Food Type : mainCourse
+
+Food Informations: 
+Food ID : 18
+Food Name : Magnolya 
+Food Price : 15.0
+Food Type : dessert
+
+Food Informations: 
+Food ID : 19
+Food Name : Karamelli Triliçe 
+Food Price : 12.0
+Food Type : dessert
+
+Food Informations: 
+Food ID : 20
+Food Name : Waffle 
+Food Price : 17.0
+Food Type : dessert
+
+Food Informations: 
+Food ID : 21
+Food Name : Revani 
+Food Price : 10.0
+Food Type : dessert
+
+Food Informations: 
+Food ID : 22
+Food Name : Kibris Tatlisi 
+Food Price : 12.0
+Food Type : dessert
+
+Food Informations: 
+Food ID : 23
+Food Name : Sufle 
+Food Price : 12.0
+Food Type : dessert
+
+Food Informations: 
+Food ID : 24
+Food Name : Izmir Bomba 
+Food Price : 14.0
+Food Type : dessert
+
+Food Informations: 
+Food ID : 25
+Food Name : Limonata 
+Food Price : 4.0
+Food Type : beverage
+
+Food Informations: 
+Food ID : 26
+Food Name : Elma Suyu 
+Food Price : 5.0
+Food Type : beverage
+
+Food Informations: 
+Food ID : 27
+Food Name : Havuc Suyu 
+Food Price : 6.0
+Food Type : beverage
+
+Food Informations: 
+Food ID : 28
+Food Name : Deteoks 
+Food Price : 10.0
+Food Type : beverage
+
+Food Informations: 
+Food ID : 29
+Food Name : Turk Kahvesi 
+Food Price : 10.0
+Food Type : beverage
+
+Food Informations: 
+Food ID : 30
+Food Name : Sicak Cikolata 
+Food Price : 6.0
+Food Type : beverage
+
+Food Informations: 
+Food ID : 31
+Food Name : Soguk Kahve 
+Food Price : 7.0
+Food Type : beverage
+
+Food Informations: 
+Food ID : 32
+Food Name : Coca Cola 
+Food Price : 5.0
+Food Type : beverage
+
+Food Informations: 
+Food ID : 33
+Food Name : Su 
+Food Price : 2.0
+Food Type : beverage
+
+Menu has been shown
+
+
+
+TESTING TO STRING METHOD OF ADMIN CLASS...
+Admin Info: 
+Name: Fatih Erdogan
+Age: 40
+Username: gtu1234
+Password: 1234
+
+
+
+
+TESTING MAIN DATA STRUCTURE METHODS FOR 10 INPUTS
+BST createUser() Method For 10 Inputs Time: 4542
+Customer giveOrder() Method For 10 Inputs Time: 815
+Chef addOrder() Method For 10 Inputs Time: 155
+Chef prepareOrder() Method For 10 Inputs Time: 120
+Courier addOrder() Method For 10 Inputs Time: 249
+Courier deliverOrderToCustomer() Method For 10 Inputs Time: 243
+
+TESTING MAIN DATA STRUCTURE METHODS FOR 100 INPUTS
+BST createUser() Method For 100 Inputs Time: 9386
+Customer giveOrder() Method For 100 Inputs Time: 4134
+Chef addOrder() Method For 100 Inputs Time: 666
+Chef prepareOrder() Method For 100 Inputs Time: 532
+Courier addOrder() Method For 100 Inputs Time: 1118
+Courier deliverOrderToCustomer() Method For 100 Inputs Time: 1980
+
+TESTING MAIN DATA STRUCTURE METHODS FOR 1000 INPUTS
+BST createUser() Method For 1000 Inputs Time: 23734
+Customer giveOrder() Method For 1000 Inputs Time: 5634
+Chef addOrder() Method For 1000 Inputs Time: 1822
+Chef prepareOrder() Method For 1000 Inputs Time: 3188
+Courier addOrder() Method For 1000 Inputs Time: 4823
+Courier deliverOrderToCustomer() Method For 1000 Inputs Time: 8413
