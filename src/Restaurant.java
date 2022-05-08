@@ -4,8 +4,19 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Random;
 
+/**
+ *  This class represents the Restaurant in the system.
+ * @author Group 2
+ * @version 1.0.0
+ * @since 08.04.2022
+ */
+
+/**
+ * This class represents the Restaurant in the system.
+ */
 public class Restaurant {
 
+  // Data Fields
   protected int income;
   protected int outcome;
   protected LinkedList<Order> orders;
@@ -14,6 +25,8 @@ public class Restaurant {
   protected ArrayList<Worker> workers;
   protected ArrayList<Customer> customers;
 
+  // Constructor
+  /* Constructer for the Restaurant class. */
   public Restaurant() {
     workers = Authentication.getWorkersFromDatabase();
     customers = Authentication.getCustomersFromDatabase();
@@ -24,18 +37,39 @@ public class Restaurant {
     outcome = 10000;
   }
 
+  /**
+   * This function returns a random customer from the customers array.
+   *
+   * @param ind the index of the customer in the customers arraylist
+   * @return A customer object
+   */
   public Customer getRandomCustomer(int ind) {
     return customers.get(ind);
   }
 
+  /**
+   * Return the first element of the workers list.
+   *
+   * @return A Chef object.
+   */
   public Chef getRandomChef() {
     return (Chef) workers.get(0);
   }
 
+  /**
+   * Return a random Courier from the workers list.
+   *
+   * @return A random Courier object.
+   */
   public Courier getRandomCourier() {
     return (Courier) workers.get(2);
   }
 
+  /**
+   * It creates a random order of food items from the menu
+   *
+   * @return A LinkedList of Food objects.
+   */
   public LinkedList<Food> createRandomFoods() {
     Random rand = new Random();
     LinkedList<Food> foods = menu.get_foods();
@@ -49,6 +83,11 @@ public class Restaurant {
     return orderFoods;
   }
 
+  /**
+   * For each worker in the workers list, add the worker's score to the score variable.
+   *
+   * @return The average score of all the workers.
+   */
   public double calculateScore() {
     double score = 0;
 
@@ -57,11 +96,22 @@ public class Restaurant {
     return score / workers.size();
   }
 
+  /**
+   * Add an order to the list of orders and update the income.
+   *
+   * @param order the order to be added to the list of orders.
+   */
   public void addOrder(Order order) {
     orders.addLast(order);
     income += order.getAccount();
   }
 
+  /**
+   *  Choose the chef with the least amount of orders and assign the order to him
+   *
+   * @param order the order that needs to be processed
+   * @return A Chef object.
+   */
   public Chef chooseChef(Order order) {
     if (order == null) return null;
 
@@ -81,6 +131,12 @@ public class Restaurant {
     return (Chef) workers.get(workerId);
   }
 
+  /**
+   * Choose a courier and assign the order to him
+   *
+   * @param order the order that needs to be delivered
+   * @return Courier
+   */
   public Courier chooseCourier(Order order) {
     if (order == null) return null;
 
@@ -100,10 +156,18 @@ public class Restaurant {
     return (Courier) workers.get(workerId);
   }
 
+  /**
+   * This function returns the workers
+   *
+   * @return An ArrayList of Worker objects.
+   */
   public ArrayList<Worker> getWorkers() {
     return workers;
   }
 
+  /**
+   * This function prints out all the workers
+   */
   public void showWorkers() {
     for (int i = 0; i < workers.size(); i++) {
       System.out.println(workers.toString());
@@ -111,7 +175,7 @@ public class Restaurant {
   }
 
   /**
-   * `menu()` returns a string representation of the menu
+   * this method returns a string representation of the menu
    *
    * @return The menu is being returned.
    */

@@ -1,9 +1,14 @@
 package src;
 
 /**
+ *  The user class includes all users in the system.
+ * @author Group 2
+ * @version 1.0.0
+ * @since 08.04.2022
+ */
+
+/**
  * The user class includes all users in the system.
- *
- * @since 03-03-2022
  *
  */
 public class User implements Comparable<User> {
