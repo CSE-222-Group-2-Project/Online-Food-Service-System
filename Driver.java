@@ -24,6 +24,7 @@ public class Driver {
     Chef chef = kebelekCafe.getRandomChef();
     Courier courier = kebelekCafe.getRandomCourier();
     ArrayList<Order> orders = new ArrayList<Order>();
+    ArrayList<Boolean> areOrdersSuccessfull = new ArrayList<Boolean>();
 
     for (int i = 0; i < 2; i++) {
       LinkedList<Food> foods = kebelekCafe.createRandomFoods();
@@ -31,15 +32,35 @@ public class Driver {
       orders.add(order);
     }
 
+    for(int i=0; i < 2; i++) 
+      areOrdersSuccessfull.add(customer.giveOrder(kebelekCafe,orders.get(i)));
+    
+
+
     for(int i = 0; i < 2 ; i++){
-      boolean isOrderSuccessfull = customer.giveOrder(kebelekCafe, orders.get(i));
-      if (isOrderSuccessfull) {
+      if (areOrdersSuccessfull.get(i)) {
         orders.get(i).setWhoCooked(chef);
         chef.addOrder(orders.get(i));
+      }
+    }
+
+    for(int i= 0;i < areOrdersSuccessfull.size() ; i++){
+      chef.prepareOrder();
+    }
+
+    for(int i=0;i < 2 ; i++){
+      if(areOrdersSuccessfull.get(i)) {
         orders.get(i).setWhoDelivered(courier);
         courier.addOrder(orders.get(i));
-        System.out.println(i + "th.order" + orders.get(i).toString());
       }
+    }
+
+    for(int i=0;i < areOrdersSuccessfull.size() ; i++){
+      courier.deliverOrderToCustomer();
+    }
+
+    for(int i=0 ; i < customer.getOrderNumber() ; i++){
+      customer.giveVote(_scoreChef, _scoreCourier,);
     }
 
   }
