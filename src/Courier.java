@@ -83,7 +83,6 @@ public class Courier extends Worker {
   /**
    * Deliver the order to the customer.
    *
-   * @param order The order that is to be delivered to the customer.
    */
   public void deliverOrderToCustomer() {
     Order order = orderQueue.poll();

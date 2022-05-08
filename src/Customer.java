@@ -92,16 +92,17 @@ public class Customer extends User {
   }
 
   /**
-   * It asks the customer for points for the chef and the courier and transfers
-   * these points to the chef and the courier via order.
+   * Transferring the points given in the parameters to the chef and the courier
    *
+   * @param _scoreChef Points to be given to the chef by the customer
+   * @param _scoreCourier Points to be given to the chef by the courier 
    * @param anOrder Order delivered to the user and which needs to be voted on
    */
   public void giveVote(int _scoreChef,int _scoreCourier,Order anOrder) {
     anOrder.getWhoCooked().calculateAverageScore(_scoreChef);
     anOrder.getWhoDelivered().calculateAverageScore(_scoreCourier);
   }
-  
+
   /**
    * It allows the customer to place the order by looking at the money situation
    * and transfer the order information to the restaurant.

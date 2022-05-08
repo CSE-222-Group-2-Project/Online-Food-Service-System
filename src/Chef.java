@@ -55,7 +55,6 @@ public class Chef extends Worker {
   /**
    * Prepare the order in the order queue.
    *
-   * @param courier the courier who is going to deliver the order
    */
   public void prepareOrder() {
     if (newOrders.peek() != null) {
