@@ -30,13 +30,12 @@ public class Driver {
     //Danilo.prepareOrder();
     //Danilo.prepareOrder();
     Courier Azizcan = null;
+  
     for(int i=0;i<4;i++) {
       LinkedList<Food> testFoods = kebelekCafe.createRandomFoods();
       Order anOrder = new Order(i,Mehmet_Burak,testFoods);;
       Order testOrder = Mehmet_Burak.giveOrder(kebelekCafe, anOrder);
       Chef Danilo = kebelekCafe.chooseChef(testOrder);
-      if(testOrder!= null)
-        Danilo.prepareOrder();
 
       System.out.println("i: "+i);
       Azizcan = kebelekCafe.chooseCourier(testOrder);
@@ -45,6 +44,8 @@ public class Driver {
     for(int i=0;i<2;i++) {
       LinkedList<Food> testFoods = kebelekCafe.createRandomFoods();
       Order anOrder = new Order(i,Cem_Yılmaz,testFoods);
+      Order testOrder = Mehmet_Burak.giveOrder(kebelekCafe, anOrder);
+      Chef Danilo = kebelekCafe.chooseChef(testOrder);
     }
   
     System.out.println(Azizcan.toString());
