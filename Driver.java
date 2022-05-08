@@ -14,9 +14,9 @@ public class Driver {
   public static void testFor10Inputs() {
     Restaurant kebelekCafe = new Restaurant();
 
-    Customer customer = kebelekCafe.getRandomCustomer(1);
-    Chef chef = kebelekCafe.getRandomChef();
-    Courier courier = kebelekCafe.getRandomCourier();
+    Customer customer = kebelekCafe.getCustomer(1);
+    Chef chef = kebelekCafe.getTestChef();
+    Courier courier = kebelekCafe.getTestCourier();
     Authentication auth = new Authentication();
     ArrayList<Order> orders = new ArrayList<Order>();
     long startTime, endTime, totalTime;
@@ -85,9 +85,9 @@ public class Driver {
   public static void testFor100Inputs() {
     Restaurant kebelekCafe = new Restaurant();
 
-    Customer customer = kebelekCafe.getRandomCustomer(1);
-    Chef chef = kebelekCafe.getRandomChef();
-    Courier courier = kebelekCafe.getRandomCourier();
+    Customer customer = kebelekCafe.getCustomer(1);
+    Chef chef = kebelekCafe.getTestChef();
+    Courier courier = kebelekCafe.getTestCourier();
     Authentication auth = new Authentication();
     ArrayList<Order> orders = new ArrayList<Order>();
     long startTime, endTime, totalTime;
@@ -158,9 +158,9 @@ public class Driver {
   public static void testFor1000Inputs() {
     Restaurant kebelekCafe = new Restaurant();
 
-    Customer customer = kebelekCafe.getRandomCustomer(1);
-    Chef chef = kebelekCafe.getRandomChef();
-    Courier courier = kebelekCafe.getRandomCourier();
+    Customer customer = kebelekCafe.getCustomer(1);
+    Chef chef = kebelekCafe.getTestChef();
+    Courier courier = kebelekCafe.getTestCourier();
     Authentication auth = new Authentication();
     ArrayList<Order> orders = new ArrayList<Order>();
     long startTime, endTime, totalTime;

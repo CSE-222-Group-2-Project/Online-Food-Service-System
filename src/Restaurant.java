@@ -48,7 +48,7 @@ public class Restaurant {
    * @param ind the index of the customer in the customers arraylist
    * @return A customer object
    */
-  public Customer getRandomCustomer(int ind) {
+  public Customer getCustomer(int ind) {
     return customers.get(ind);
   }
 
@@ -57,7 +57,7 @@ public class Restaurant {
    *
    * @return A Chef object.
    */
-  public Chef getRandomChef() {
+  public Chef getTestChef() {
     return (Chef) workers.get(0);
   }
 
@@ -66,7 +66,7 @@ public class Restaurant {
    *
    * @return A random Courier object.
    */
-  public Courier getRandomCourier() {
+  public Courier getTestCourier() {
     return (Courier) workers.get(2);
   }
 
