@@ -6,7 +6,7 @@ public class Driver {
 
   public static void main(String[] args) {
     testProgram();
-    testAdmin();
+    //  testAdmin();
     testAuthentication();
   }
 
@@ -131,7 +131,7 @@ public class Driver {
   public static void testAuthentication() {
     System.out.println("TESTING AUTHENTICATION CLASS...");
     System.out.println("TESTING LOGIN METHOD OF AUTHENTICATION CLASS...");
-    User loginedUser = Authentication.logIn("erencour", "mikasa123");
+    User loginedUser = Authentication.logIn("erencour", "mikasa123", "courier");
     System.out.println(loginedUser);
   }
 }

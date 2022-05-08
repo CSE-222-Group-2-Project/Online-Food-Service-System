@@ -28,6 +28,8 @@ public class Authentication {
    * @return A User object.
    */
   public static User logIn() {
+    String userType = "";
+
     String username = getUsernameFromUserForLogIn();
 
     if (username.equals("login-failed")) {
@@ -40,11 +42,11 @@ public class Authentication {
       return null;
     }
 
-    return getUserFromUsername(username);
+    return getUserFromUsername(username, userType);
   }
 
-  public static User logIn(String username, String password) {
-    return getUserFromUsername(username);
+  public static User logIn(String username, String password, String userType) {
+    return getUserFromUsername(username, userType);
   }
 
   /**
@@ -177,9 +179,10 @@ public class Authentication {
     return user.getPassword();
   }
 
-  private static User getUserFromUsername(String username) {
+  private static User getUserFromUsername(String username, String userType) {
     BinarySearchTree<User> allUsers = getAllUsersFromDatabase();
     return allUsers.find(new User(username, 0, "", ""));
+    if (userType.equals("courier")) {} else if (userType.equals("worker")) {}
   }
 
   private static Food parseFoodLine(String lineText) {
