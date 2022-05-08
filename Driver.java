@@ -4,11 +4,11 @@ import src.*;
 public class Driver {
 
   public static void main(String[] args) {
-    testCustomer();
+    testProgram();
     testAdmin();
   }
 
-  public static void testCustomer() {
+  public static void testProgram() {
     Restaurant kebelekCafe = new Restaurant();
     Admin administrator = new Admin(
       kebelekCafe,
