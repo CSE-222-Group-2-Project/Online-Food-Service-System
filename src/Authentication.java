@@ -51,6 +51,15 @@ public class Authentication {
     return getUserFromUsername(name, age, username, password);
   }
 
+  /**
+   * This function takes in a name, age, username, and password, and returns a User object.
+   *
+   * @param name The name of the user.
+   * @param age The age of the user
+   * @param username The username of the user you want to log in.
+   * @param password The password of the user.
+   * @return The user object
+   */
   public static User logIn(
     String name,
     int age,

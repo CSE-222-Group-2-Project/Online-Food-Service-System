@@ -27,7 +27,15 @@ public class Courier extends Worker {
   private final double INITIAL_SALARY = 3000.0;
 
   // Constructors
-  /* Default Constructer of Courier Class */
+  /**
+   * Constructor of the Courier class
+   * @param _name the name of the courier
+   * @param _age the age of the courier
+   * @param _username the username of the courier
+   * @param _password the password of the courier
+   * @param _phoneNumber the phone number of the courier
+   * @param experienceYear the experience year of the courier
+   */
   public Courier(
     String _name,
     int _age,

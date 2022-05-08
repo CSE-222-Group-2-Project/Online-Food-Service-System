@@ -22,7 +22,16 @@ public class Customer extends User {
   private LinkedList<Order> myOrders = new LinkedList<>();
 
   // Constructors
-  /*Constructer of Customer Class */
+  /**
+   * Constructor of the Customer class
+   * @param _name the name of the customer
+   * @param _age the age of the customer
+   * @param _job the job of the customer
+   * @param _username the username of the customer
+   * @param _password the password of the customer
+   * @param _phoneNumber the phone number of the customer
+   * @param _budget the budget of the customer
+   */
   public Customer(
     String _name,
     int _age,
@@ -94,7 +103,7 @@ public class Customer extends User {
    * Transferring the points given in the parameters to the chef and the courier
    *
    * @param _scoreChef Points to be given to the chef by the customer
-   * @param _scoreCourier Points to be given to the chef by the courier 
+   * @param _scoreCourier Points to be given to the chef by the courier
    * @param anOrder Order delivered to the user and which needs to be voted on
    */
   public void giveVote(int _scoreChef, int _scoreCourier, Order anOrder) {
@@ -106,7 +115,7 @@ public class Customer extends User {
    * It allows the customer to place the order by looking at the money situation
    * and transfer the order information to the restaurant.
    *
-   * @param restaurantOrders Restaurant's order list
+   * @param restaurant restaurant object
    * @param wantedOrder      Order requested by the customer
    * @return Order requested by the customer if customer has enough money
    */

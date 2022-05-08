@@ -17,7 +17,13 @@ public class Food {
   private double foodPrice;
   private String foodType;
 
-  /* Constructer of the Food class */
+  /**
+   * Constructor of the Food class
+   * @param _food_id the food id
+   * @param _food_name the food name
+   * @param _food_price the food price
+   * @param _food_type the food type
+   */
   public Food(
     int _food_id,
     String _food_name,
@@ -30,7 +36,7 @@ public class Food {
     foodType = _food_type;
   }
 
-  /* Default Constructer of the Food class */
+  /** Default Constructer of the Food class */
   public Food() {
     // Intentionally empty
   }

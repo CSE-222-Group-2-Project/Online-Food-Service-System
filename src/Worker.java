@@ -9,9 +9,13 @@ public class Worker extends User {
    Status of the worker will be change according to it's experience year, certificate number etc. 
   */
   public enum WorkerStatus {
+    /** beginner level */
     BEGINNER,
+    /** junior level */
     JUNIOR,
+    /** mid level */
     MID_LEVEL,
+    /** senior level */
     SENIOR,
   }
 
@@ -20,9 +24,18 @@ public class Worker extends User {
   private double score = 4.0;
   private int experienceYear;
   private int voteAmount = 1;
+  /** statu of the worker */
   protected WorkerStatus workerStat;
 
-  /* Constructer of the Worker class */
+  /**
+   * Constructor of the Worker class
+   * @param _name the name of the worker
+   * @param _age the age of the worker
+   * @param _username the username of the worker
+   * @param _password the password of the worker
+   * @param _job the job of the worker
+   * @param _experienceYear the experience year of the worker
+   */
   public Worker(
     String _name,
     int _age,
@@ -102,6 +115,7 @@ public class Worker extends User {
   /**
    * Salary of the worker will be calculated according to that worker's WorkerStatus.
    * An initial amount will be assigned to beginner status, and it will increase with increment of status.
+   * @param initialSalary The initial salary of the worker.
    */
   protected void calculateSalary(double initialSalary) {
     switch (workerStat) {

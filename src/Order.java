@@ -14,10 +14,13 @@ import java.util.LinkedList;
  */
 public class Order implements Comparable<Order> {
 
-  // An enum class. It is used to represent the status of the order.
+  /**  An enum class. It is used to represent the status of the order. */
   public enum OrderStatus {
+    /** Order is taken by the restaurant statu */
     ORDER_TAKEN,
+    /** Order is prepared by the chef statu*/
     ORDER_PREPARED,
+    /** Order is delivered by the chef statu*/
     ORDER_DELIVERED,
   }
 
@@ -32,7 +35,12 @@ public class Order implements Comparable<Order> {
   private LinkedList<Food> foods = new LinkedList<Food>();
 
   // Constructers
-  /* Constructer of Order Class */
+  /**
+   * Constructor of the Order class
+   * @param orderID the ID of the order
+   * @param customer owner of the order
+   * @param _foods the foods in the order
+   */
   public Order(int orderID, Customer customer, LinkedList<Food> _foods) {
     this.orderID = orderID;
     orderOwner = customer;

@@ -18,7 +18,14 @@ public class Admin extends User {
   private Restaurant restaurant;
 
   // Constructors
-  /* Constructor Of Admin Class*/
+
+  /** Constructor of the Admin class
+   * @param restaurant the restaurant object
+   * @param username the username of the admin
+   * @param password the password of the admin
+   * @param name the name of the admin
+   * @param age the age of the admin
+   */
   public Admin(
     Restaurant restaurant,
     String name,

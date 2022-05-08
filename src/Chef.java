@@ -26,7 +26,15 @@ public class Chef extends Worker {
   private final double INITIAL_SALARY = 4000.0;
 
   // Constructors
-  /* Default Constructer of Chef Class */
+  /**
+   * Constructor of the Chef class
+   * @param _name the name of the chef
+   * @param _age the age of the chef
+   * @param _username the username of the chef
+   * @param _password the password of the chef
+   * @param _certificateNumber the certificate number of the chef
+   * @param experienceYear the experience year of the chef
+   */
   public Chef(
     String _name,
     int _age,

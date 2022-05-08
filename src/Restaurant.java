@@ -17,16 +17,21 @@ import java.util.Random;
 public class Restaurant {
 
   // Data Fields
+  /** income of the restaurant */
   protected int income;
+  /** outcome of the restaurant */
   protected int outcome;
+  /** the list of the orders in the restaurant */
   protected LinkedList<Order> orders;
   private double score;
   private static Menu menu;
+  /** the list of workers in the restaurant */
   protected ArrayList<Worker> workers;
+  /** the list of past customers in the restaurant */
   protected ArrayList<Customer> customers;
 
   // Constructor
-  /* Constructer for the Restaurant class. */
+  /**  Constructer for the Restaurant class. */
   public Restaurant() {
     workers = Authentication.getWorkersFromDatabase();
     customers = Authentication.getCustomersFromDatabase();

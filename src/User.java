@@ -18,7 +18,13 @@ public class User implements Comparable<User> {
   private String username;
   private String password;
 
-  /*  Constructer of the User class */
+  /**
+   * Constructor of the User class
+   * @param _name the name of the user
+   * @param _age the age of the user
+   * @param _username the username of the user
+   * @param _password the password of the user
+   */
   public User(String _name, int _age, String _username, String _password) {
     name = _name;
     age = _age;

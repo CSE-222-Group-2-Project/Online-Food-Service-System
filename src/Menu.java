@@ -10,7 +10,7 @@ import java.util.LinkedList;
  */
 
 /**
- * The Menu class is a class that contains Food objects.
+ * The Menu class is a class that contains  Food objects.
  */
 public class Menu {
 
@@ -18,12 +18,17 @@ public class Menu {
   private static LinkedList<Food> menu = new LinkedList<Food>();
   int id;
 
-  /* Getting the menu from the database. */
+  /**
+   * Default Constructor of the Menu class
+   */
   public Menu() {
     menu = Authentication.getMenuFromDatabase();
   }
 
-  /* A constructor that takes a LinkedList of Food objects as a parameter. */
+  /**
+   * A constructor that takes a LinkedList of Food objects as a parameter.
+   * @param otherMenu The LinkedList of Food objects.
+   */
   public Menu(LinkedList<Food> otherMenu) {
     this.menu = otherMenu;
   }
