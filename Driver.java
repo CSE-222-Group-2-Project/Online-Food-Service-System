@@ -25,6 +25,8 @@ public class Driver {
     Courier courier = kebelekCafe.getRandomCourier();
     ArrayList<Order> orders = new ArrayList<Order>();
     ArrayList<Boolean> areOrdersSuccessfull = new ArrayList<Boolean>();
+    
+    customer.seeMenu();
 
     for (int i = 0; i < 2; i++) {
       LinkedList<Food> foods = kebelekCafe.createRandomFoods();
@@ -60,8 +62,10 @@ public class Driver {
     }
 
     for(int i=0 ; i < customer.getOrderNumber() ; i++){
-      customer.giveVote(_scoreChef, _scoreCourier,);
+      customer.giveVote(7, 7,orders.get(i));
     }
+
+    customer.myOrders();
 
   }
 
