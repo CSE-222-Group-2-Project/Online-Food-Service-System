@@ -56,6 +56,9 @@ public class Restaurant {
   }
 
   public Chef chooseChef(Order order) {
+    if(order == null) 
+      return null;
+    
     int workerId = 0, minOrder = 0;
 
     for (int i = 0; i < workers.size(); i++) {
@@ -73,14 +76,19 @@ public class Restaurant {
   }
 
   public Courier chooseCourier(Order order) {
+    if(order == null)
+      return null;
+
     int workerId = 0,minOrder = 0;
 
     for (int i = 0; i < workers.size(); i++) {
       if (workers.get(i) instanceof Courier) {
-        if (minOrder >= ((Courier) workers.get(i)).getSizeOfOrders()) {
-          minOrder = ((Courier) workers.get(i)).getSizeOfOrders();
+        //if (minOrder >= ((Courier) workers.get(i)).getSizeOfOrders()) {
+         // minOrder = ((Courier) workers.get(i)).getSizeOfOrders();
+         // workerId = i;
+       // }
           workerId = i;
-        }
+          break;
       }
     }
     ((Courier) workers.get(workerId)).addOrder(order);
