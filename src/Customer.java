@@ -97,18 +97,11 @@ public class Customer extends User {
    *
    * @param anOrder Order delivered to the user and which needs to be voted on
    */
-  public void giveVote(Order anOrder) {
-    Scanner myInput = new Scanner(System.in);
-    System.out.println("Enter vote for chef: ");
-    int pointofChef = 5; //myInput.nextInt();
-
-    System.out.println("Enter vote for courier: ");
-    int pointofCourier = 5; //myInput.nextInt();
-
-    anOrder.getWhoCooked().calculateAverageScore(pointofChef);
-    anOrder.getWhoDelivered().calculateAverageScore(pointofCourier);
+  public void giveVote(int _scoreChef,int _scoreCourier,Order anOrder) {
+    anOrder.getWhoCooked().calculateAverageScore(_scoreChef);
+    anOrder.getWhoDelivered().calculateAverageScore(_scoreCourier);
   }
-
+  
   /**
    * It allows the customer to place the order by looking at the money situation
    * and transfer the order information to the restaurant.
