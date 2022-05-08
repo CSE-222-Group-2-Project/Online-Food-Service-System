@@ -9,15 +9,15 @@ public class Food {
 
   /* Constructer of the Food class */
   public Food(
-    int food_id,
-    String food_name,
-    double food_price,
-    String food_type
+    int _food_id,
+    String _food_name,
+    double _food_price,
+    String _food_type
   ) { // type is added for extra
-    foodID = food_id;
-    foodName = food_name;
-    foodPrice = food_price;
-    foodType = food_type;
+    foodID = _food_id;
+    foodName = _food_name;
+    foodPrice = _food_price;
+    foodType = _food_type;
   }
 
   /* Default Constructer of the Food class */

@@ -75,11 +75,13 @@ public class Order implements Comparable<Order> {
   }
 
   public double calculateAccount() {
+    double orderAccount = 0.0;
     coefCalc();
-    for (Food afood : foods) account += afood.getFoodPrice();
+    for (Food afood : foods) orderAccount += afood.getFoodPrice();
 
-    account *= coefficient;
-    return account;
+    orderAccount *= coefficient;
+    account = orderAccount;
+    return orderAccount;
   }
 
   /* Orderlerin önceliği için Comparator class*/
