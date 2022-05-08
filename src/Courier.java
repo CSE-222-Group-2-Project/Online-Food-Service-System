@@ -3,9 +3,10 @@ package src;
 import java.util.PriorityQueue;
 
 /**
- * Courier class is a subclass of Worker class which represents the Courier of the restaurant.
- * @since  03-03-2022
- *
+ *Courier class is a subclass of Worker class which represents the Courier of the restaurant.
+ * @author Group 2
+ * @version 1.0.0
+ * @since 08.04.2022
  */
 
 /**
@@ -13,6 +14,7 @@ import java.util.PriorityQueue;
  */
 public class Courier extends Worker {
 
+  // Data Fields
   // phone number of the couriers
   private String phoneNumber;
 
@@ -24,6 +26,7 @@ public class Courier extends Worker {
   // initial salary of the Couriers
   private final double INITIAL_SALARY = 3000.0;
 
+  // Constructors
   /* Default Constructer of Courier Class */
   public Courier(
     String _name,
@@ -39,6 +42,7 @@ public class Courier extends Worker {
     calculateSalary(INITIAL_SALARY);
   }
 
+  // Methods
   /**
    * This function sets the phone number of the courier to the new phone number.
    *
