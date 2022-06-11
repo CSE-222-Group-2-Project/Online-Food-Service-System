@@ -5,6 +5,8 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Scanner;
+
+import src.list.SkipList;
 import src.tree.BinarySearchTree;
 
 /**
@@ -135,9 +137,9 @@ public class Authentication {
    *
    * @return An ArrayList of all the customers in the database.
    */
-  public static ArrayList<Customer> getCustomersFromDatabase() {
+  public static SkipList<Customer> getCustomersFromDatabase() {
     try {
-      ArrayList<Customer> allCustomers = new ArrayList<>();
+      SkipList<Customer> allCustomers = new SkipList<>();
       File file = new File(USER_DATABASE_PATH);
       Scanner myReader = new Scanner(file);
       while (myReader.hasNextLine()) {

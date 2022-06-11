@@ -1,5 +1,7 @@
 package src;
 
+import src.list.SkipList;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Random;
@@ -28,7 +30,7 @@ public class Restaurant {
   /** the list of workers in the restaurant */
   protected ArrayList<Worker> workers;
   /** the list of past customers in the restaurant */
-  protected ArrayList<Customer> customers;
+  protected SkipList<Customer> customers;
 
   // Constructor
   /**  Constructer for the Restaurant class. */
@@ -42,15 +44,7 @@ public class Restaurant {
     outcome = 10000;
   }
 
-  /**
-   * This function returns a random customer from the customers array.
-   *
-   * @param ind the index of the customer in the customers arraylist
-   * @return A customer object
-   */
-  public Customer getCustomer(int ind) {
-    return customers.get(ind);
-  }
+
 
   /**
    * Return the first element of the workers list.
@@ -158,6 +152,10 @@ public class Restaurant {
     }
     ((Courier) workers.get(workerId)).addOrder(order);
     return (Courier) workers.get(workerId);
+  }
+
+  public SkipList<Customer> getCustomers(){
+    return  customers;
   }
 
   /**

@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.LinkedList;
 import src.*;
 
@@ -14,7 +15,9 @@ public class Driver {
   public static void testFor10Inputs() {
     Restaurant kebelekCafe = new Restaurant();
 
-    Customer customer = kebelekCafe.getCustomer(1);
+    Iterator<Customer> customerIterator = kebelekCafe.getCustomers().iterator();
+    Customer customer = customerIterator.next();
+
     Chef chef = kebelekCafe.getTestChef();
     Courier courier = kebelekCafe.getTestCourier();
     Authentication auth = new Authentication();
@@ -91,7 +94,9 @@ public class Driver {
   public static void testFor100Inputs() {
     Restaurant kebelekCafe = new Restaurant();
 
-    Customer customer = kebelekCafe.getCustomer(1);
+    Iterator<Customer> customerIterator = kebelekCafe.getCustomers().iterator();
+    Customer customer = customerIterator.next();
+
     Chef chef = kebelekCafe.getTestChef();
     Courier courier = kebelekCafe.getTestCourier();
     Authentication auth = new Authentication();
@@ -170,7 +175,9 @@ public class Driver {
   public static void testFor1000Inputs() {
     Restaurant kebelekCafe = new Restaurant();
 
-    Customer customer = kebelekCafe.getCustomer(1);
+    Iterator<Customer> customerIterator = kebelekCafe.getCustomers().iterator();
+    Customer customer = customerIterator.next();
+
     Chef chef = kebelekCafe.getTestChef();
     Courier courier = kebelekCafe.getTestCourier();
     Authentication auth = new Authentication();
