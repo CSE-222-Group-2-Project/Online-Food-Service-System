@@ -1,10 +1,9 @@
 package src;
 
-import src.list.SkipList;
-
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Random;
+import src.skiplist.SkipList;
 
 /**
  *  This class represents the Restaurant in the system.
@@ -43,8 +42,6 @@ public class Restaurant {
     income = 0;
     outcome = 10000;
   }
-
-
 
   /**
    * Return the first element of the workers list.
@@ -144,18 +141,17 @@ public class Restaurant {
     for (int i = 0; i < workers.size(); i++) {
       if (workers.get(i) instanceof Courier) {
         if (minOrder >= ((Courier) workers.get(i)).getSizeOfOrders()) {
-         minOrder = ((Courier) workers.get(i)).getSizeOfOrders();
-         workerId = i;
-         }
-
+          minOrder = ((Courier) workers.get(i)).getSizeOfOrders();
+          workerId = i;
+        }
       }
     }
     ((Courier) workers.get(workerId)).addOrder(order);
     return (Courier) workers.get(workerId);
   }
 
-  public SkipList<Customer> getCustomers(){
-    return  customers;
+  public SkipList<Customer> getCustomers() {
+    return customers;
   }
 
   /**

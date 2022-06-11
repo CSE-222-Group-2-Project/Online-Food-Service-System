@@ -5,8 +5,7 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Scanner;
-
-import src.list.SkipList;
+import src.skiplist.SkipList;
 import src.tree.BinarySearchTree;
 
 /**

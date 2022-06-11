@@ -167,19 +167,15 @@ public class Customer extends User {
     Menu.seeMenu();
   }
 
-
-
   @Override
   public int compareTo(User other) {
     int res;
     Customer otherCustomer = (Customer) other;
-    if(this.getOrderNumber() >otherCustomer.getOrderNumber()){
+    if (this.getOrderNumber() > otherCustomer.getOrderNumber()) {
       res = 1;
-    }
-    else if(this.getOrderNumber() <otherCustomer.getOrderNumber()){
+    } else if (this.getOrderNumber() < otherCustomer.getOrderNumber()) {
       res = -1;
-    }
-    else res = 0;
+    } else res = 0;
     return res;
   }
 
