@@ -66,6 +66,15 @@ public class Order implements Comparable<Order> {
     ordeCourier = _whoDelivered;
   }
 
+/**
+ * This function returns the foods linked list
+ * 
+ * @return The foods linked list.
+ */
+  public KWLinkedList<Food> getFoods() {
+    return foods;
+  }
+
   /**
    * This function returns the customer who owns this order.
    *

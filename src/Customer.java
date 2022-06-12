@@ -91,7 +91,10 @@ public class Customer extends User {
   public String myOrders() {
     int order_sequence = 0;
     StringBuilder stb = new StringBuilder();
-    stb.append("\n---Latest to oldest---");
+
+    myOrders = myOrders.mergeSort(); // Sort the old orders by price
+
+    stb.append("\n---Cheapest to Most Expensive---");
     for (Order order : myOrders) {
       order_sequence++;
       stb.append("\n" + order_sequence + "th Order:\n" + order.toString());
@@ -133,12 +136,18 @@ public class Customer extends User {
 
   /**
    * Indicates that the customer has received the order and makes the necessary
-   * adjustments to the customer information
+   * adjustments to the customer information also print the ordered foods with prices
    *
    * @param anOrder Order brought to the customer by the courier
    */
   public void takeOrder(Order anOrder) {
     myOrders.addFirst(anOrder);
+    KWLinkedList<Food> orderFoods = anOrder.getFoods();
+    orderFoods = orderFoods.mergeSort();
+    System.out.println("Order Foods -> Cheapest to Most Expensive");
+    for(Food aFood : orderFoods) {
+      System.out.println(aFood.getFoodType() + "   " + aFood.getFoodPrice());
+    }
   }
 
   /**
