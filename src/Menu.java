@@ -1,6 +1,6 @@
 package src;
 
-import java.util.LinkedList;
+import src.LinkedList_with_mergeSort.KWLinkedList;
 
 /**
  *The Menu class is a class that contains  Food objects.
@@ -15,7 +15,7 @@ import java.util.LinkedList;
 public class Menu {
 
   // Creating a new LinkedList of Food objects.
-  private static LinkedList<Food> menu = new LinkedList<Food>();
+  private static KWLinkedList<Food> menu = new KWLinkedList<Food>();
   int id;
 
   /**
@@ -29,7 +29,7 @@ public class Menu {
    * A constructor that takes a LinkedList of Food objects as a parameter.
    * @param otherMenu The LinkedList of Food objects.
    */
-  public Menu(LinkedList<Food> otherMenu) {
+  public Menu(KWLinkedList<Food> otherMenu) {
     this.menu = otherMenu;
   }
 
@@ -38,7 +38,7 @@ public class Menu {
    *
    * @return The menu list is being returned.
    */
-  public LinkedList<Food> get_foods() {
+  public KWLinkedList<Food> get_foods() {
     return menu;
   }
 

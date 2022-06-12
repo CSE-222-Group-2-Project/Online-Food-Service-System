@@ -10,7 +10,7 @@ package src;
 /**
  * It's a class that represents a food item
  */
-public class Food {
+public class Food implements Comparable<Food> {
 
   private int foodID;
   private String foodName;
@@ -19,17 +19,17 @@ public class Food {
 
   /**
    * Constructor of the Food class
-   * @param _food_id the food id
-   * @param _food_name the food name
+   * 
+   * @param _food_id    the food id
+   * @param _food_name  the food name
    * @param _food_price the food price
-   * @param _food_type the food type
+   * @param _food_type  the food type
    */
   public Food(
-    int _food_id,
-    String _food_name,
-    double _food_price,
-    String _food_type
-  ) { // type is added for extra
+      int _food_id,
+      String _food_name,
+      double _food_price,
+      String _food_type) { // type is added for extra
     foodID = _food_id;
     foodName = _food_name;
     foodPrice = _food_price;
@@ -69,7 +69,8 @@ public class Food {
   }
 
   /**
-   * This function takes a string as an argument and sets the foodType variable to that string
+   * This function takes a string as an argument and sets the foodType variable to
+   * that string
    *
    * @param type The type of food.
    */
@@ -87,7 +88,7 @@ public class Food {
   }
 
   /**
-   * It returns the value of the  price of the food
+   * It returns the value of the price of the food
    *
    * @return The price of the food is being returned.
    */
@@ -118,5 +119,24 @@ public class Food {
     foodInfo.append("Food Price : " + foodPrice + "\n");
     foodInfo.append("Food Type : " + foodType + "\n");
     return foodInfo.toString();
+  }
+
+  /**
+   * If the account number of the current object is greater than the account
+   * number of the object passed
+   * in, return 1. If the account number of the current object is less than the
+   * account number of the
+   * object passed in, return -1. Otherwise, return 0
+   *
+   * @param o The object to be compared.
+   */
+  @Override
+  public int compareTo(Food o) {
+    if(getFoodPrice() > o.getFoodPrice())
+      return 1;
+    else if(getFoodPrice() < o.getFoodPrice())
+      return -1;
+    else
+      return 0;
   }
 }

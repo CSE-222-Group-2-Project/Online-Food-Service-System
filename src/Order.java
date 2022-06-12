@@ -1,7 +1,7 @@
 package src;
 
 import java.util.Comparator;
-import java.util.LinkedList;
+import src.LinkedList_with_mergeSort.KWLinkedList;
 
 /**
  *  Order class is used to represent the order of the Customer
@@ -32,7 +32,7 @@ public class Order implements Comparable<Order> {
   private Customer orderOwner;
   private double coefficient = 1.0;
   private double account = 0.0;
-  private LinkedList<Food> foods = new LinkedList<Food>();
+  private KWLinkedList<Food> foods = new KWLinkedList<Food>();
 
   // Constructers
   /**
@@ -41,7 +41,7 @@ public class Order implements Comparable<Order> {
    * @param customer owner of the order
    * @param _foods the foods in the order
    */
-  public Order(int orderID, Customer customer, LinkedList<Food> _foods) {
+  public Order(int orderID, Customer customer, KWLinkedList<Food> _foods) {
     this.orderID = orderID;
     orderOwner = customer;
     foods = _foods;

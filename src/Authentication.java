@@ -3,10 +3,10 @@ package src;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.Scanner;
 import src.skiplist.SkipList;
 import src.tree.BinarySearchTree;
+import src.LinkedList_with_mergeSort.KWLinkedList;
 
 /**
  *Authentication methods of the program
@@ -85,9 +85,9 @@ public class Authentication {
    *
    * @return A LinkedList of Food objects.
    */
-  public static LinkedList<Food> getMenuFromDatabase() {
+  public static KWLinkedList<Food> getMenuFromDatabase() {
     try {
-      LinkedList<Food> menu = new LinkedList<>();
+      KWLinkedList<Food> menu = new KWLinkedList<>();
       File file = new File(MENU_DATABASE_PATH);
       Scanner myReader = new Scanner(file);
       while (myReader.hasNextLine()) {

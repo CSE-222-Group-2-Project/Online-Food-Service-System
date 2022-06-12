@@ -2,12 +2,13 @@ package src.LinkedList_with_mergeSort;
 
 import java.util.*;
 
+
 /**
  * Class KWLinkedList implements a double linked list and
  * a ListIterator.
  */
 
-public class KWLinkedList<E extends Comparable<E>> {
+public class KWLinkedList<E extends Comparable<E> > implements Iterable<E> {
 
   private Node<E> head = null;
 
@@ -15,7 +16,13 @@ public class KWLinkedList<E extends Comparable<E>> {
 
   private int size = 0;
 
-  public Node<E> mergeSort(Node<E> aNode) {
+  public KWLinkedList<E> mergeSort() {
+    this.head = this.mergeSort(this.head);
+    
+    return this;
+  }
+
+  private Node<E> mergeSort(Node<E> aNode) {
     // Base case : if head is null
     if (aNode == null || aNode.next == null) {
       return aNode;
@@ -72,6 +79,30 @@ public class KWLinkedList<E extends Comparable<E>> {
           result.next = sortedMerge(a, b.next);
       }
       return result;
+  }
+
+  public int size() {
+    return size;
+  }
+
+  public E remove(E item) {
+    Iterator<E> iter = iterator();
+    E removedItem = null;
+    while(iter.hasNext()) {
+      removedItem = iter.next();
+
+      if(removedItem.compareTo(item) == 0) {
+        iter.remove();
+        break;
+      }
+
+    }
+    return removedItem;
+
+  }
+
+  public void add(E item) {
+    add(size,item);
   }
 
   /**

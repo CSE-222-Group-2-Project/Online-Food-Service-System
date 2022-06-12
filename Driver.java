@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.LinkedList;
 import src.*;
+import src.LinkedList_with_mergeSort.KWLinkedList;
 
 public class Driver {
 
@@ -24,7 +24,7 @@ public class Driver {
     ArrayList<Order> orders = new ArrayList<Order>();
     long startTime, endTime, totalTime;
     for (int i = 0; i < 10; i++) {
-      LinkedList<Food> foods = kebelekCafe.createRandomFoods();
+      KWLinkedList<Food> foods = kebelekCafe.createRandomFoods();
       Order order = new Order(i, customer, foods);
       orders.add(order);
     }
@@ -103,7 +103,7 @@ public class Driver {
     ArrayList<Order> orders = new ArrayList<Order>();
     long startTime, endTime, totalTime;
     for (int i = 0; i < 100; i++) {
-      LinkedList<Food> foods = kebelekCafe.createRandomFoods();
+      KWLinkedList<Food> foods = kebelekCafe.createRandomFoods();
       Order order = new Order(i, customer, foods);
       orders.add(order);
     }
@@ -184,7 +184,7 @@ public class Driver {
     ArrayList<Order> orders = new ArrayList<Order>();
     long startTime, endTime, totalTime;
     for (int i = 0; i < 1000; i++) {
-      LinkedList<Food> foods = kebelekCafe.createRandomFoods();
+      KWLinkedList<Food> foods = kebelekCafe.createRandomFoods();
       Order order = new Order(i, customer, foods);
       orders.add(order);
     }

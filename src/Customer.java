@@ -1,6 +1,6 @@
 package src;
 
-import java.util.LinkedList;
+import src.LinkedList_with_mergeSort.KWLinkedList;
 
 /**
  * Customer class is a user type that expresses the target audience of the
@@ -19,7 +19,7 @@ public class Customer extends User {
   private String phoneNumber;
   private double budget;
   private int orderNumber = 0;
-  private LinkedList<Order> myOrders = new LinkedList<>();
+  private KWLinkedList<Order> myOrders = new KWLinkedList<>();
 
   // Constructors
   /**
