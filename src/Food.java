@@ -105,6 +105,16 @@ public class Food implements Comparable<Food> {
     return foodType;
   }
 
+
+  /**
+   * This function returns the food name
+   *
+   * @return The name of the food is being returned.
+   */
+  public String getFoodName() {
+      return foodName;
+  }
+
   /**
    * The toString() method returns a string representation of the Food
    *

@@ -1,6 +1,12 @@
 package src;
 
+import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.Scanner;
+import java.util.TreeMap;
+
 import src.linkedlistwithmergesort.CustomLinkedList;
+import src.tree.AVLTree;
 
 /**
  * Customer class is a user type that expresses the target audience of the
@@ -20,6 +26,7 @@ public class Customer extends User {
   private double budget;
   private int orderNumber = 0;
   private CustomLinkedList<Order> myOrders = new CustomLinkedList<>();
+  private ArrayList<String> allergies = new ArrayList<>();
 
   // Constructors
   /**
@@ -39,12 +46,14 @@ public class Customer extends User {
     String _username,
     String _password,
     String _phoneNumber,
-    double _budget
+    double _budget,
+    ArrayList<String> _allergies
   ) {
     super(_name, _age, _username, _password);
     job = _job;
     phoneNumber = _phoneNumber;
     budget = _budget;
+    allergies = _allergies;
   }
 
   /**
@@ -123,7 +132,11 @@ public class Customer extends User {
    * @return Order requested by the customer if customer has enough money
    */
   public Boolean giveOrder(Restaurant restaurant, Order wantedOrder) {
-    if (getBudget() >= wantedOrder.calculateAccount()) {
+
+    if (!checkAllergy(restaurant, wantedOrder)) 
+      return false;
+
+    else if(getBudget() >= wantedOrder.calculateAccount()) {
       budget -= wantedOrder.calculateAccount();
       orderNumber++;
       restaurant.addOrder(wantedOrder);
@@ -132,6 +145,40 @@ public class Customer extends User {
       System.out.println("\nNot enough money,order can not be applied");
       return false;
     }
+  }
+
+
+  /**
+   * Checks whether customer is allergic to food which is in order list. 
+   * and despite this, asks whether customer want to contiune.
+   * @param restaurant restaurant object
+   * @param wantedOrder Order requested by the customer
+   * @return Order requested by the customer if customer hasn't allergy to foods of order
+   */
+  public boolean checkAllergy(Restaurant restaurant, Order wantedOrder){
+
+    Scanner sc = new Scanner(System.in);  
+    TreeMap<String, AVLTree<String>> ingredients = restaurant.getIngredients();
+    boolean check = false;
+
+    //Search TreeMap and AVLTree
+    for (Food food: wantedOrder.getFoods()) {
+      AVLTree<String> avlTree = ingredients.get(food.getFoodName());
+      for (String allergy : allergies) {
+        if(avlTree.contains(allergy)){
+          System.out.println("\nYou are allergic to " + allergy + ". And " + food.getFoodName() + " has " + allergy);
+          check = true;
+        }
+      }
+    }
+
+    if(check)
+    {
+      System.out.print("Do you still want to order (Press 1 to continue): " );
+      if(sc.nextInt() == 1)
+        return true;
+    }
+    return false;
   }
 
   /**

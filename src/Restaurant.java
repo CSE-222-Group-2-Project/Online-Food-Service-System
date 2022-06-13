@@ -170,6 +170,15 @@ public class Restaurant {
     return workers;
   }
 
+
+  /**
+   * This function returns the ingredients
+   * @return An TreeMap of ingredients of foods
+   */
+  public TreeMap<String, AVLTree<String>> getIngredients() {
+      return ingredients;
+  }
+
   /**
    * This function prints out all the workers
    */
