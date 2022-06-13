@@ -3,14 +3,13 @@ package src.graph;
 import java.io.*;
 
 /** Abstract base class for graphs. A graph is a set
-*   of vertices and a set of edges. Vertices are
-*   represented by integers from 0 to n - 1. Edges
-*   are ordered pairs of vertices.
-*   @author Group 2
-*/
+ *   of vertices and a set of edges. Vertices are
+ *   represented by integers from 0 to n - 1. Edges
+ *   are ordered pairs of vertices.
+ *   @author Group 2
+ */
 
-public abstract class AbstractGraph
-    implements Graph {
+public abstract class AbstractGraph implements Graph {
 
   // Data Fields
   /** The number of vertices */
@@ -74,18 +73,23 @@ public abstract class AbstractGraph
       @throws IllegalArgumentException if type is neither "Matrix"
                                        nor "List"
    */
-  public static Graph createGraph(BufferedReader bR,
-                                  boolean isDirected,
-                                  String type) throws IOException {
+  public static Graph createGraph(
+    BufferedReader bR,
+    boolean isDirected,
+    String type
+  )
+    throws IOException {
     String line = bR.readLine();
     int numV = Integer.parseInt(line);
     AbstractGraph returnValue = null;
-    if (type.equalsIgnoreCase("Matrix"))
-      returnValue = new MatrixGraph(numV, isDirected);
-    else if (type.equalsIgnoreCase("List"))
-      returnValue = new ListGraph(numV, isDirected);
-    else
-      throw new IllegalArgumentException();
+    if (type.equalsIgnoreCase("Matrix")) returnValue =
+      new MatrixGraph(numV, isDirected); else if (
+      type.equalsIgnoreCase("List")
+    ) returnValue =
+      new ListGraph(
+        numV,
+        isDirected
+      ); else throw new IllegalArgumentException();
     returnValue.loadEdgesFromFile(bR);
     return returnValue;
   }

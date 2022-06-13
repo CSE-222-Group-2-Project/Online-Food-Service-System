@@ -1,4 +1,4 @@
-package src.LinkedListWithMergeSort;
+package src.linkedlistwithmergesort;
 
 import java.util.*;
 
@@ -7,7 +7,7 @@ import java.util.*;
  * a ListIterator.
  */
 
-public class KWLinkedList<E extends Comparable<E>> implements Iterable<E> {
+public class CustomLinkedList<E extends Comparable<E>> implements Iterable<E> {
 
   private Node<E> head = null;
 
@@ -15,7 +15,7 @@ public class KWLinkedList<E extends Comparable<E>> implements Iterable<E> {
 
   private int size = 0;
 
-  public KWLinkedList<E> mergeSort() {
+  public CustomLinkedList<E> mergeSort() {
     this.head = this.mergeSort(this.head);
 
     return this;

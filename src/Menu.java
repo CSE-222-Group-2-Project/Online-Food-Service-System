@@ -1,6 +1,6 @@
 package src;
 
-import src.LinkedList_with_mergeSort.KWLinkedList;
+import src.linkedlistwithmergesort.CustomLinkedList;
 
 /**
  *The Menu class is a class that contains  Food objects.
@@ -15,7 +15,7 @@ import src.LinkedList_with_mergeSort.KWLinkedList;
 public class Menu {
 
   // Creating a new LinkedList of Food objects.
-  private static KWLinkedList<Food> menu = new KWLinkedList<Food>();
+  private static CustomLinkedList<Food> menu = new CustomLinkedList<Food>();
   int id;
 
   /**
@@ -29,7 +29,7 @@ public class Menu {
    * A constructor that takes a LinkedList of Food objects as a parameter.
    * @param otherMenu The LinkedList of Food objects.
    */
-  public Menu(KWLinkedList<Food> otherMenu) {
+  public Menu(CustomLinkedList<Food> otherMenu) {
     this.menu = otherMenu;
   }
 
@@ -38,7 +38,7 @@ public class Menu {
    *
    * @return The menu list is being returned.
    */
-  public KWLinkedList<Food> get_foods() {
+  public CustomLinkedList<Food> get_foods() {
     return menu;
   }
 

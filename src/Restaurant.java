@@ -2,8 +2,7 @@ package src;
 
 import java.util.ArrayList;
 import java.util.Random;
-
-import src.LinkedList_with_mergeSort.KWLinkedList;
+import src.linkedlistwithmergesort.CustomLinkedList;
 import src.skiplist.SkipList;
 
 /**
@@ -24,7 +23,7 @@ public class Restaurant {
   /** outcome of the restaurant */
   protected int outcome;
   /** the list of the orders in the restaurant */
-  protected KWLinkedList<Order> orders;
+  protected CustomLinkedList<Order> orders;
   private double score;
   private static Menu menu;
   /** the list of workers in the restaurant */
@@ -38,7 +37,7 @@ public class Restaurant {
     workers = Authentication.getWorkersFromDatabase();
     customers = Authentication.getCustomersFromDatabase();
     menu = new Menu(Authentication.getMenuFromDatabase());
-    orders = new KWLinkedList<>();
+    orders = new CustomLinkedList<>();
     score = calculateScore();
     income = 0;
     outcome = 10000;
@@ -67,10 +66,10 @@ public class Restaurant {
    *
    * @return A LinkedList of Food objects.
    */
-  public KWLinkedList<Food> createRandomFoods() {
+  public CustomLinkedList<Food> createRandomFoods() {
     Random rand = new Random();
-    KWLinkedList<Food> foods = menu.get_foods();
-    KWLinkedList<Food> orderFoods = new KWLinkedList<>();
+    CustomLinkedList<Food> foods = menu.get_foods();
+    CustomLinkedList<Food> orderFoods = new CustomLinkedList<>();
 
     for (int i = 0; i < 4; i++) {
       int randomNumber = rand.nextInt(foods.size());
@@ -189,7 +188,7 @@ public class Restaurant {
    * @return A boolean value.
    */
   public boolean deleteFoodFromMenu(int id) {
-    KWLinkedList<Food> temp = this.menu.get_foods();
+    CustomLinkedList<Food> temp = this.menu.get_foods();
     for (Food food : temp) {
       if (food.getFoodID() == id) {
         temp.remove(food);
@@ -207,12 +206,8 @@ public class Restaurant {
    */
   public boolean deleteFoodFromMenu(Food food) {
     Food removed = this.menu.get_foods().remove(food);
-    
-    if(removed!= null)
-      return true;
-    
-    else
-      return false;
+
+    if (removed != null) return true; else return false;
   }
 
   /**

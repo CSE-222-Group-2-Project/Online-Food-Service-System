@@ -1,6 +1,6 @@
 package src;
 
-import src.LinkedList_with_mergeSort.KWLinkedList;
+import src.linkedlistwithmergesort.CustomLinkedList;
 
 /**
  * Customer class is a user type that expresses the target audience of the
@@ -19,7 +19,7 @@ public class Customer extends User {
   private String phoneNumber;
   private double budget;
   private int orderNumber = 0;
-  private KWLinkedList<Order> myOrders = new KWLinkedList<>();
+  private CustomLinkedList<Order> myOrders = new CustomLinkedList<>();
 
   // Constructors
   /**
@@ -142,10 +142,10 @@ public class Customer extends User {
    */
   public void takeOrder(Order anOrder) {
     myOrders.addFirst(anOrder);
-    KWLinkedList<Food> orderFoods = anOrder.getFoods();
+    CustomLinkedList<Food> orderFoods = anOrder.getFoods();
     orderFoods = orderFoods.mergeSort();
     System.out.println("Order Foods -> Cheapest to Most Expensive");
-    for(Food aFood : orderFoods) {
+    for (Food aFood : orderFoods) {
       System.out.println(aFood.getFoodType() + "   " + aFood.getFoodPrice());
     }
   }
