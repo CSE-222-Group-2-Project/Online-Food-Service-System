@@ -2,8 +2,12 @@ package src;
 
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.TreeMap;
+import java.util.TreeSet;
+
 import src.linkedlistwithmergesort.CustomLinkedList;
 import src.skiplist.SkipList;
+import src.tree.AVLTree;
 
 /**
  *  This class represents the Restaurant in the system.
@@ -31,12 +35,15 @@ public class Restaurant {
   /** the list of past customers in the restaurant */
   protected SkipList<Customer> customers;
 
+  private TreeMap<String, AVLTree<String>> ingredients;
+
   // Constructor
   /**  Constructer for the Restaurant class. */
   public Restaurant() {
     workers = Authentication.getWorkersFromDatabase();
     customers = Authentication.getCustomersFromDatabase();
     menu = new Menu(Authentication.getMenuFromDatabase());
+    ingredients = Authentication.getIngredientsFromDatabase();
     orders = new CustomLinkedList<>();
     score = calculateScore();
     income = 0;

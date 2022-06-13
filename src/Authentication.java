@@ -4,8 +4,11 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.TreeMap;
+
 import src.linkedlistwithmergesort.CustomLinkedList;
 import src.skiplist.SkipList;
+import src.tree.AVLTree;
 import src.tree.BinarySearchTree;
 
 /**
@@ -24,6 +27,11 @@ public class Authentication {
     "../src/database/user_database/users.txt";
   private static final String MENU_DATABASE_PATH =
     "../src/database/restaurant_database/menu.txt";
+
+  private static final String INGREDIENT_DATABASE_PATH =
+    "../src/database/ingredients_database/ingredients.txt";
+
+
   private BinarySearchTree<User> allUsers = new BinarySearchTree<>();
 
   /**
@@ -52,6 +60,34 @@ public class Authentication {
 
     return getUserFromUsername(name, age, username, password);
   }
+
+
+  //USES OF TreeMap and AVL
+  public static TreeMap<String, AVLTree<String>> getIngredientsFromDatabase()
+  {
+    try {
+      TreeMap<String, AVLTree<String>> ingredients = new TreeMap<>();
+      File file = new File(INGREDIENT_DATABASE_PATH);
+      Scanner myReader = new Scanner(file);
+      while (myReader.hasNextLine()) {
+        String lineText = myReader.nextLine();
+        String[] tokens = lineText.split(" ");
+        AVLTree<String> avl_tree = new AVLTree<>();
+
+        for (int i = 1; i < tokens.length; i++) 
+          avl_tree.add(tokens[i]);
+
+        ingredients.put(tokens[0], avl_tree);
+      }
+      myReader.close();
+      return ingredients;
+    } catch (FileNotFoundException e) {
+      System.out.println("An error occurred.");
+      e.printStackTrace();
+    }
+    return null;
+  }
+
 
   /**
    * This function takes in a name, age, username, and password, and returns a User object.
