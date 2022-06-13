@@ -1,14 +1,13 @@
-package src.LinkedList_with_mergeSort;
+package src.LinkedListWithMergeSort;
 
 import java.util.*;
-
 
 /**
  * Class KWLinkedList implements a double linked list and
  * a ListIterator.
  */
 
-public class KWLinkedList<E extends Comparable<E> > implements Iterable<E> {
+public class KWLinkedList<E extends Comparable<E>> implements Iterable<E> {
 
   private Node<E> head = null;
 
@@ -18,7 +17,7 @@ public class KWLinkedList<E extends Comparable<E> > implements Iterable<E> {
 
   public KWLinkedList<E> mergeSort() {
     this.head = this.mergeSort(this.head);
-    
+
     return this;
   }
 
@@ -48,8 +47,7 @@ public class KWLinkedList<E extends Comparable<E> > implements Iterable<E> {
 
   // Utility function to get the middle of the linked list
   public Node<E> getMiddle(Node<E> head) {
-    if (head == null)
-      return head;
+    if (head == null) return head;
 
     Node<E> slow = head, fast = head;
 
@@ -60,25 +58,21 @@ public class KWLinkedList<E extends Comparable<E> > implements Iterable<E> {
     return slow;
   }
 
-  Node<E> sortedMerge(Node<E> a, Node<E> b)
-  {
+  Node<E> sortedMerge(Node<E> a, Node<E> b) {
     Node<E> result = null;
-      /* Base cases */
-      if (a == null)
-          return b;
-      if (b == null)
-          return a;
+    /* Base cases */
+    if (a == null) return b;
+    if (b == null) return a;
 
-      /* Pick either a or b, and recur */
-      if (a.data.compareTo(b.data) <= 0) {
-          result = a;
-          result.next = sortedMerge(a.next, b);
-      }
-      else {
-          result = b;
-          result.next = sortedMerge(a, b.next);
-      }
-      return result;
+    /* Pick either a or b, and recur */
+    if (a.data.compareTo(b.data) <= 0) {
+      result = a;
+      result.next = sortedMerge(a.next, b);
+    } else {
+      result = b;
+      result.next = sortedMerge(a, b.next);
+    }
+    return result;
   }
 
   public int size() {
@@ -88,26 +82,24 @@ public class KWLinkedList<E extends Comparable<E> > implements Iterable<E> {
   public E remove(E item) {
     Iterator<E> iter = iterator();
     E removedItem = null;
-    while(iter.hasNext()) {
+    while (iter.hasNext()) {
       removedItem = iter.next();
 
-      if(removedItem.compareTo(item) == 0) {
+      if (removedItem.compareTo(item) == 0) {
         iter.remove();
         break;
       }
-
     }
     return removedItem;
-
   }
 
   public void add(E item) {
-    add(size,item);
+    add(size, item);
   }
 
   /**
    * Insert an object at the beginning of the list.
-   * 
+   *
    * @param item - the item to be added
    */
   public void addFirst(E item) {
@@ -116,7 +108,7 @@ public class KWLinkedList<E extends Comparable<E> > implements Iterable<E> {
 
   /**
    * Insert an object at the end of the list.
-   * 
+   *
    * @param item - the item to be added
    */
   public void addLast(E item) {
@@ -125,7 +117,7 @@ public class KWLinkedList<E extends Comparable<E> > implements Iterable<E> {
 
   /**
    * Get the first element in the list.
-   * 
+   *
    * @return The first element in the list.
    */
   public E getFirst() {
@@ -134,7 +126,7 @@ public class KWLinkedList<E extends Comparable<E> > implements Iterable<E> {
 
   /**
    * Get the last element in the list.
-   * 
+   *
    * @return The last element in the list.
    */
   public E getLast() {
@@ -143,7 +135,7 @@ public class KWLinkedList<E extends Comparable<E> > implements Iterable<E> {
 
   /**
    * Return an Iterator to the list
-   * 
+   *
    * @return an Itertor tot the list
    */
   public Iterator<E> iterator() {
@@ -152,7 +144,7 @@ public class KWLinkedList<E extends Comparable<E> > implements Iterable<E> {
 
   /**
    * Return a ListIterator to the list
-   * 
+   *
    * @return a ListItertor to the list
    */
   public ListIterator<E> listIterator() {
@@ -161,7 +153,7 @@ public class KWLinkedList<E extends Comparable<E> > implements Iterable<E> {
 
   /**
    * Return a ListIterator that begins at index
-   * 
+   *
    * @param index - The position the iteration is to begin
    * @return a ListIterator that begins at index
    */
@@ -171,7 +163,7 @@ public class KWLinkedList<E extends Comparable<E> > implements Iterable<E> {
 
   /**
    * Add an item at the specified index.
-   * 
+   *
    * @param index The index at which the object is to be
    *              inserted
    * @param obj   The object to be inserted
@@ -184,7 +176,7 @@ public class KWLinkedList<E extends Comparable<E> > implements Iterable<E> {
 
   /**
    * Get the element at position index.
-   * 
+   *
    * @param index Position of item to be retrieved
    * @return The item at index
    */
@@ -193,6 +185,7 @@ public class KWLinkedList<E extends Comparable<E> > implements Iterable<E> {
   }
 
   private static class Node<E> {
+
     /** The data value. */
     private E data;
 
@@ -204,7 +197,7 @@ public class KWLinkedList<E extends Comparable<E> > implements Iterable<E> {
 
     /**
      * Construct a node with the given data value.
-     * 
+     *
      * @param dataItem The data value
      */
     private Node(E dataItem) {
@@ -214,6 +207,7 @@ public class KWLinkedList<E extends Comparable<E> > implements Iterable<E> {
 
   /** Inner class to implement the ListIterator interface. */
   private class KWListIter implements ListIterator<E> {
+
     /** A reference to the next item. */
     private Node<E> nextItem;
 
@@ -225,14 +219,13 @@ public class KWLinkedList<E extends Comparable<E> > implements Iterable<E> {
 
     /**
      * Construct a KWListIter that will reference the ith item.
-     * 
+     *
      * @param i The index of the item to be referenced
      */
     public KWListIter(int i) {
       // Validate i parameter.
       if (i < 0 || i > size) {
-        throw new IndexOutOfBoundsException(
-            "Invalid index " + i);
+        throw new IndexOutOfBoundsException("Invalid index " + i);
       }
       lastItemReturned = null; // No item returned yet.
       // Special case of last item.
@@ -249,7 +242,7 @@ public class KWLinkedList<E extends Comparable<E> > implements Iterable<E> {
 
     /**
      * Indicate whether movement forward is defined.
-     * 
+     *
      * @return true if call to next will not throw an exception
      */
     public boolean hasNext() {
@@ -258,7 +251,7 @@ public class KWLinkedList<E extends Comparable<E> > implements Iterable<E> {
 
     /**
      * Move the iterator forward and return the next item.
-     * 
+     *
      * @return The next item in the list
      * @throws NoSuchElementException if there is no such object
      */
@@ -274,17 +267,16 @@ public class KWLinkedList<E extends Comparable<E> > implements Iterable<E> {
 
     /**
      * Indicate whether movement backward is defined.
-     * 
+     *
      * @return true if call to previous will not throw an exception
      */
     public boolean hasPrevious() {
-      return (nextItem == null && size != 0)
-          || nextItem.prev != null;
+      return (nextItem == null && size != 0) || nextItem.prev != null;
     }
 
     /**
      * Return the index of the next item to be returned by next
-     * 
+     *
      * @return the index of the next item to be returned by next
      */
     public int nextIndex() {
@@ -293,7 +285,7 @@ public class KWLinkedList<E extends Comparable<E> > implements Iterable<E> {
 
     /**
      * Return the index of the next item to be returned by previous
-     * 
+     *
      * @return the index of the next item to be returned by previous
      */
     public int previousIndex() {
@@ -302,7 +294,7 @@ public class KWLinkedList<E extends Comparable<E> > implements Iterable<E> {
 
     /**
      * Move the iterator backward and return the previous item.
-     * 
+     *
      * @return The previous item in the list
      * @throws NoSuchElementException if there is no such object
      */
@@ -325,7 +317,7 @@ public class KWLinkedList<E extends Comparable<E> > implements Iterable<E> {
      * by next and the item that will be returned by previous.
      * If previous is called after add, the element added is
      * returned.
-     * 
+     *
      * @param obj The item to be inserted
      */
     public void add(E obj) {
@@ -369,7 +361,7 @@ public class KWLinkedList<E extends Comparable<E> > implements Iterable<E> {
     /**
      * Remove the last item returned. This can only be
      * done once per call to next or previous.
-     * 
+     *
      * @throws IllegalStateException if next or previous
      *                               was not called prior to calling this method
      */
@@ -409,7 +401,7 @@ public class KWLinkedList<E extends Comparable<E> > implements Iterable<E> {
 
     /**
      * Replace the last item returned with a new value
-     * 
+     *
      * @param item The new value
      * @throws IllegalStateException if next or previous
      *                               was not called prior to calling this method
@@ -420,7 +412,6 @@ public class KWLinkedList<E extends Comparable<E> > implements Iterable<E> {
       }
       lastItemReturned.data = item;
     }
-
     /**** END EXERCISE ****/
 
   } // end class KWListIter
