@@ -11,6 +11,11 @@ import java.util.Scanner;
 
 public class DemoAdmin {
 
+
+    
+    /** 
+     * @param restaurant
+     */
     public static void adminDemo(Restaurant restaurant){
         Scanner scan = new Scanner(System.in);
         int operation;
@@ -48,6 +53,11 @@ public class DemoAdmin {
 
     }
 
+    
+    /** 
+     * @param admin
+     * @param restaurant
+     */
     private static void adminAuthority(Admin admin,Restaurant restaurant) {
         int operation;
         Scanner scan = new Scanner(System.in);

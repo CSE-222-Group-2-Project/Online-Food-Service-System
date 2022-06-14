@@ -7,6 +7,10 @@ import src.test.TestCustomer;
 
 public class Driver {
 
+  
+  /** 
+   * @param args
+   */
   public static void main(String[] args) {
     /*Restaurant restaurant = new Restaurant();
     DemoAdmin.adminDemo(restaurant);
