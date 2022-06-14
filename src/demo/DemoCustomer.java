@@ -7,6 +7,8 @@ import src.restaurant.Food;
 import src.restaurant.Menu;
 import src.restaurant.Order;
 import src.restaurant.Restaurant;
+import src.user.Chef;
+import src.user.Courier;
 import src.user.Customer;
 
 public class DemoCustomer {
@@ -17,9 +19,10 @@ public class DemoCustomer {
     int choice = 0;
     Scanner sc = new Scanner(System.in);
     CustomLinkedList<Food> foods = new CustomLinkedList<>();
+
     System.out.println("\nWelcome to the HoldON " + customer.getName() + " !");
 
-    while (choice != 5) {
+    while (choice != 7) {
       printProgramMenu();
       choice = sc.nextInt();
 
@@ -28,16 +31,26 @@ public class DemoCustomer {
           customer.seeMenu();
           break;
         case 2:
-          foods = getFoodsFromCustomer();
-          Order order = new Order(1, customer, foods, "AKSE");
-          customer.giveOrder(restaurant, order);
-          System.out.println("Order has been given");
+          giveAndTakeOrder(restaurant, customer);
           break;
         case 3:
           System.out.println(customer.orderHistory());
           break;
         case 4:
           System.out.println(customer);
+          break;
+        case 5:
+          editProfile(customer);
+          break;
+        case 6:
+          changePassword(customer);
+          break;
+        case 7:
+          System.out.println("Thank you for using HoldON. Have a good day!");
+          break;
+        default:
+          System.out.println("Please enter an integer between 1-7!");
+
       }
     }
     sc.close();
@@ -53,6 +66,38 @@ public class DemoCustomer {
     System.out.println("6: Change your password");
     System.out.println("7: Exit");
     System.out.println("\nPlease enter your choice: ");
+  }
+
+  public static void giveAndTakeOrder(Restaurant restaurant, Customer customer ){
+    int chefScore = -1;
+    int courierScore = -1;
+    Scanner sc = new Scanner(System.in);
+    Chef chef = restaurant.getTestChef();
+    Courier courier = restaurant.getTestCourier();
+    Order order = new Order(1, customer, getFoodsFromCustomer(), "AKSE");
+    customer.giveOrder(restaurant, order);
+    System.out.println("Order has been given. \n");
+    chef.addOrder(order);
+    chef.prepareOrder();
+    System.out.println("Your order has been prepared.\n");
+    courier.addOrder(order);
+    System.out.println("Your order has been delivered to you. Enjoy!");
+    courier.deliverOrderToCustomer();
+    System.out.println("\nRate our chef and courier please!");
+    System.out.print("What is your rate about our chef? (1-10): ");
+    chefScore = sc.nextInt();
+    System.out.print("What is your rate about our courier? (1-10) ");
+    courierScore = sc.nextInt();
+    System.out.print("Thank you! Have a good day.\n\n");
+    customer.giveVote(chefScore, courierScore, order);
+  }
+
+  public static void editProfile(Customer customer) {
+
+  }
+
+  public static void changePassword(Customer customer) {
+
   }
 
   public static CustomLinkedList<Food> getFoodsFromCustomer() {
