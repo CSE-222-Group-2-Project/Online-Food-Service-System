@@ -116,7 +116,7 @@ public class Utility {
    */
   public static SkipList<Customer> getCustomersFromDatabase() {
     try {
-      SkipList<Customer> allCustomers = new SkipList<>();
+      SkipList<Customer> allCustomers = new SkipList<>(new Customer.SortByOrderNum());
       File file = new File(USER_DATABASE_PATH);
       Scanner myReader = new Scanner(file);
       while (myReader.hasNextLine()) {
