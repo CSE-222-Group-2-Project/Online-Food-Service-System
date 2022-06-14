@@ -6,10 +6,27 @@ import src.linkedlistwithmergesort.CustomLinkedList;
 public class Driver {
 
   public static void main(String[] args) {
-    testAdminMethods();
-    testFor10Inputs();
-    testFor100Inputs();
-    testFor1000Inputs();
+    User user = Authentication.login();
+    if (user == null) {
+      System.out.println("Login failed");
+      return;
+    } else if (user instanceof Admin) {
+      Admin admin = (Admin) user;
+      System.out.println("Welcome " + admin.getName());
+      admin.printMenu();
+    } else if (user instanceof Chef) {
+      Chef chef = (Chef) user;
+      System.out.println("Welcome " + chef.getName());
+      chef.printMenu();
+    } else if (user instanceof Customer) {
+      Customer customer = (Customer) user;
+      System.out.println("Welcome " + customer.getName());
+      customer.printMenu();
+    } else if (user instanceof Courier) {
+      Courier courier = (Courier) user;
+      System.out.println("Welcome " + courier.getName());
+      courier.printMenu();
+    }
   }
 
   public static void testFor10Inputs() {

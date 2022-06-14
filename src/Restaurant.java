@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.TreeMap;
 import java.util.TreeSet;
-
 import src.linkedlistwithmergesort.CustomLinkedList;
 import src.skiplist.SkipList;
 import src.tree.AVLTree;
@@ -170,13 +169,12 @@ public class Restaurant {
     return workers;
   }
 
-
   /**
    * This function returns the ingredients
    * @return An TreeMap of ingredients of foods
    */
   public TreeMap<String, AVLTree<String>> getIngredients() {
-      return ingredients;
+    return ingredients;
   }
 
   /**
