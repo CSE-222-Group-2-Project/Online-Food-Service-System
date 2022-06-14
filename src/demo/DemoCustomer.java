@@ -34,8 +34,10 @@ public class DemoCustomer {
           System.out.println("Order has been given");
           break;
         case 3:
-         System.out.println(customer.orderHistory());
+          System.out.println(customer.orderHistory());
           break;
+        case 4:
+          System.out.println(customer);
       }
     }
     sc.close();
@@ -43,11 +45,13 @@ public class DemoCustomer {
 
   public static void printProgramMenu() {
     System.out.println("\nHere is what you can do: ");
-    System.out.println("1. See the menu");
-    System.out.println("2. Give an order");
-    System.out.println("3. See your order history");
-    System.out.println("4. Edit your profile");
-    System.out.println("5. Exit");
+    System.out.println("1: See the menu");
+    System.out.println("2: Give an order");
+    System.out.println("3: See your order history");
+    System.out.println("4: Show profile info");
+    System.out.println("5: Edit profile info");
+    System.out.println("6: Change your password");
+    System.out.println("7: Exit");
     System.out.println("\nPlease enter your choice: ");
   }
 
@@ -56,8 +60,7 @@ public class DemoCustomer {
     Menu menu = new Menu();
     System.out.println("Create order according to food ID's");
     System.out.println(
-      "Enter the ID's of the foods you want to order (exp: 1 3 5 ): "
-    );
+        "Enter the ID's of the foods you want to order (exp: 1 3 5 ): ");
     Scanner sc = new Scanner(System.in);
     String foodID = sc.nextLine();
     String[] foodIDs = foodID.split(" ");
