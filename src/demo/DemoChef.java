@@ -6,7 +6,6 @@ import src.auth.Authentication;
 import src.restaurant.Restaurant;
 import src.user.Chef;
 
-import java.util.NoSuchElementException;
 
 public class DemoChef {
     public static void demoChef() {
@@ -34,8 +33,10 @@ public class DemoChef {
                     System.out.println(chef);
                     break;
                 case 4:
+                updateProfile(chef);
                     break;
                 case 5:
+                changePassword(chef);
                     break;
                 case 6:
                     sc.close();
@@ -63,14 +64,17 @@ public class DemoChef {
         Scanner sc = new Scanner(System.in);
         System.out.println("What do you want to update:");
         System.out.println("1: USERNAME");
+        System.out.print("2: EXIT");
         choice = sc.nextInt();
 
         switch (choice) {
             case 1:
                 updateUsername(chef);
                 break;
+                case 2:
+                break;
             default:
-                System.out.println("Invalid input. You should have entered an integer between 1-2!");
+                System.out.println("Invalid input!");
         }
     }
 

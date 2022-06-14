@@ -112,6 +112,10 @@ public class Customer extends User {
     budget = newBudget;
   }
 
+  public void addAllergy(String newAllergy){
+    allergies.add(newAllergy);
+  }
+
   /**
    * Puts the orders given by the customer in a specified format in a string
    *
