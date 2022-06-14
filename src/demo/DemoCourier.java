@@ -67,10 +67,10 @@ public class DemoCourier {
                     changePassword(courier);
                     break;
                 case 6:
-                    System.out.println("Thank you for working with us!\n\n");
+                    System.out.println("\n\nThank you for working with us!\n\n");
                     break;
                 default:
-                    System.out.println("Please enter an integer between 1-6!");
+                    System.out.println("\n\nPlease enter an integer between 1-6!\n\n");
             }
         }
     }
@@ -82,7 +82,7 @@ public class DemoCourier {
         System.out.println("3-> Show profile info");
         System.out.println("4-> Update profile info");
         System.out.println("5-> Change your password");
-        System.out.println("6-> Exit");
+        System.out.println("6-> Logout");
         System.out.print("\nPlease enter your choice: ");
     }
 
@@ -103,7 +103,7 @@ public class DemoCourier {
                 updateCourierPhoneNumber(courier);
                 break;
             default:
-                System.out.println("Invalid input. You should have entered an integer between 1-2!");
+                System.out.println("\n\nInvalid input. You should have entered an integer between 1-2!\n\n");
         }
     }
 
@@ -113,7 +113,7 @@ public class DemoCourier {
         System.out.print("Enter your new username please: ");
         newUsername = sc.next();
         courier.setUsername(newUsername);
-        System.out.println("Your username has been updated!\n");
+        System.out.println("\n\nYour username has been updated!\n");
     }
 
     public static void updateCourierPhoneNumber(Courier courier) {
@@ -122,7 +122,7 @@ public class DemoCourier {
         System.out.print("Enter your new phone number please: ");
         newNumber = sc.next();
         courier.setPhoneNumber(newNumber);
-        System.out.println("Your phone number has been updated!\n");
+        System.out.println("\n\nYour phone number has been updated!\n");
 
     }
 
@@ -132,7 +132,7 @@ public class DemoCourier {
         System.out.print("Enter your new password please: ");
         newPassword = sc.next();
         courier.setPassword(newPassword);
-        System.out.println("Your password has been updated!\n");
+        System.out.println("\n\nYour password has been updated!\n");
 
     }
 

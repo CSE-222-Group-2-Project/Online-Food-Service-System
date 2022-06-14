@@ -8,7 +8,10 @@ import src.user.Worker;
 
 public class TestAdmin {
 
-  public static void testAdmin(Restaurant kebelekCafe) {
+  public static void testAdmin() {
+        
+ Restaurant kebelekCafe = new Restaurant();
+    
     Admin admin = new Admin(
             kebelekCafe,
             "Fatih Erdogan",

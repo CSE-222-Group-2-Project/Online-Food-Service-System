@@ -1,4 +1,9 @@
 cd bin ; java Driver
+
+
+
+THIS IS TEST PART
+
 TESTING ADMIN METHODS...
 
 
@@ -38,13 +43,6 @@ Age: 32
 
 
 TESTING SHOW CUSTOMERS INFO METHOD OF ADMIN CLASS...
-Name: Cemal
-Job: Student
-Age: 15
-Balance: 500000.0
-Last Order number: 0
-Phone Number: +905055355576
----------------
 Name: Mustafa
 Job: Teacher
 Age: 30
@@ -145,209 +143,214 @@ New menu has been created.
 TESTING SEE MENU METHOD OF ADMIN CLASS...
 Food Informations: 
 Food ID : 0
-Food Name : Ezogelin Corbasi 
+Food Name : Ezogelin Corbasi
 Food Price : 8.0
 Food Type : soup
 
 Food Informations: 
 Food ID : 1
-Food Name : Domates Corbasi 
+Food Name : Domates Corbasi
 Food Price : 8.0
 Food Type : soup
 
 Food Informations: 
 Food ID : 2
-Food Name : Yayla Corbasi 
+Food Name : Yayla Corbasi
 Food Price : 8.0
 Food Type : soup
 
 Food Informations: 
 Food ID : 3
-Food Name : Tavuk Corbasi 
+Food Name : Tavuk Corbasi
 Food Price : 10.0
 Food Type : soup
 
 Food Informations: 
 Food ID : 4
-Food Name : Sehriye Corbasi 
+Food Name : Sehriye Corbasi
 Food Price : 8.0
 Food Type : soup
 
 Food Informations: 
 Food ID : 5
-Food Name : Mercimek Corbasi 
+Food Name : Mercimek Corbasi
 Food Price : 7.0
 Food Type : soup
 
 Food Informations: 
 Food ID : 6
-Food Name : Misket Kofte Corbasi 
+Food Name : Misket Kofte
 Food Price : 10.0
 Food Type : soup
 
 Food Informations: 
 Food ID : 7
-Food Name : Tekirdag Koftesi 
+Food Name : Tekirdag Koftesi
 Food Price : 18.0
 Food Type : mainCourse
 
 Food Informations: 
 Food ID : 8
-Food Name : Yalanci Beyti 
+Food Name : Yalanci Beyti
 Food Price : 20.0
 Food Type : mainCourse
 
 Food Informations: 
 Food ID : 9
-Food Name : Citir Tavuk 
+Food Name : Citir Tavuk
 Food Price : 15.0
 Food Type : mainCourse
 
 Food Informations: 
 Food ID : 10
-Food Name : Tavuk Sis 
+Food Name : Tavuk Sis
 Food Price : 20.0
 Food Type : mainCourse
 
 Food Informations: 
 Food ID : 11
-Food Name : Sultan Kebabi 
+Food Name : Sultan Kebabi
 Food Price : 22.0
 Food Type : mainCourse
 
 Food Informations: 
 Food ID : 12
-Food Name : Ratatuy 
+Food Name : Ratatuy
 Food Price : 22.0
 Food Type : mainCourse
 
 Food Informations: 
 Food ID : 13
-Food Name : Hatay Usulu Doner 
+Food Name : Hatay Usulu
 Food Price : 18.0
 Food Type : mainCourse
 
 Food Informations: 
 Food ID : 14
-Food Name : Mantar Sote 
+Food Name : Mantar Sote
 Food Price : 15.0
 Food Type : mainCourse
 
 Food Informations: 
 Food ID : 15
-Food Name : Yeni Dunya Kebabi 
+Food Name : Yeni Dunya
 Food Price : 25.0
 Food Type : mainCourse
 
 Food Informations: 
 Food ID : 16
-Food Name : Adana Kebabi 
+Food Name : Adana Kebabi
 Food Price : 25.0
 Food Type : mainCourse
 
 Food Informations: 
 Food ID : 17
-Food Name : Sebzeli Lazanya 
+Food Name : Sebzeli Lazanya
 Food Price : 18.0
 Food Type : mainCourse
 
 Food Informations: 
 Food ID : 18
-Food Name : Magnolya 
+Food Name : Magnolya
 Food Price : 15.0
 Food Type : dessert
 
 Food Informations: 
 Food ID : 19
-Food Name : Karamelli Triliçe 
+Food Name : Karamelli Triliçe
 Food Price : 12.0
 Food Type : dessert
 
 Food Informations: 
 Food ID : 20
-Food Name : Waffle 
+Food Name : Waffle
 Food Price : 17.0
 Food Type : dessert
 
 Food Informations: 
 Food ID : 21
-Food Name : Revani 
+Food Name : Revani
 Food Price : 10.0
 Food Type : dessert
 
 Food Informations: 
 Food ID : 22
-Food Name : Kibris Tatlisi 
+Food Name : Kibris Tatlisi
 Food Price : 12.0
 Food Type : dessert
 
 Food Informations: 
 Food ID : 23
-Food Name : Sufle 
+Food Name : Sufle
 Food Price : 12.0
 Food Type : dessert
 
 Food Informations: 
 Food ID : 24
-Food Name : Izmir Bomba 
+Food Name : Izmir Bomba
 Food Price : 14.0
 Food Type : dessert
 
 Food Informations: 
 Food ID : 25
-Food Name : Limonata 
+Food Name : Limonata
 Food Price : 4.0
 Food Type : beverage
 
 Food Informations: 
 Food ID : 26
-Food Name : Elma Suyu 
+Food Name : Elma Suyu
 Food Price : 5.0
 Food Type : beverage
 
 Food Informations: 
 Food ID : 27
-Food Name : Havuc Suyu 
+Food Name : Havuc Suyu
 Food Price : 6.0
 Food Type : beverage
 
 Food Informations: 
 Food ID : 28
-Food Name : Deteoks 
+Food Name : Deteoks
 Food Price : 10.0
 Food Type : beverage
 
 Food Informations: 
 Food ID : 29
-Food Name : Turk Kahvesi 
+Food Name : Turk Kahvesi
 Food Price : 10.0
 Food Type : beverage
 
 Food Informations: 
 Food ID : 30
-Food Name : Sicak Cikolata 
+Food Name : Sicak Cikolata
 Food Price : 6.0
 Food Type : beverage
 
 Food Informations: 
 Food ID : 31
-Food Name : Soguk Kahve 
+Food Name : Soguk Kahve
 Food Price : 7.0
 Food Type : beverage
 
 Food Informations: 
 Food ID : 32
-Food Name : Coca Cola 
+Food Name : Coca Cola
 Food Price : 5.0
 Food Type : beverage
 
 Food Informations: 
 Food ID : 33
-Food Name : Su 
+Food Name : Su
 Food Price : 2.0
 Food Type : beverage
 
 Menu has been shown
+
+
+
+TESTING SHOW CUSTOMER OF THE MONTH...
+Best Of the Month is : 
 
 
 
@@ -359,28 +362,473 @@ Username: gtu1234
 Password: 1234
 
 
+5 25 29 10 TESTING CHEF METHODS...
 
 
-TESTING MAIN DATA STRUCTURE METHODS FOR 10 INPUTS
-BST createUser() Method For 10 Inputs Time: 4542
-Customer giveOrder() Method For 10 Inputs Time: 815
-Chef addOrder() Method For 10 Inputs Time: 155
-Chef prepareOrder() Method For 10 Inputs Time: 120
-Courier addOrder() Method For 10 Inputs Time: 249
-Courier deliverOrderToCustomer() Method For 10 Inputs Time: 243
 
-TESTING MAIN DATA STRUCTURE METHODS FOR 100 INPUTS
-BST createUser() Method For 100 Inputs Time: 9386
-Customer giveOrder() Method For 100 Inputs Time: 4134
-Chef addOrder() Method For 100 Inputs Time: 666
-Chef prepareOrder() Method For 100 Inputs Time: 532
-Courier addOrder() Method For 100 Inputs Time: 1118
-Courier deliverOrderToCustomer() Method For 100 Inputs Time: 1980
+TESTING ADD ORDER METHOD OF CHEF CLASS...
 
-TESTING MAIN DATA STRUCTURE METHODS FOR 1000 INPUTS
-BST createUser() Method For 1000 Inputs Time: 23734
-Customer giveOrder() Method For 1000 Inputs Time: 5634
-Chef addOrder() Method For 1000 Inputs Time: 1822
-Chef prepareOrder() Method For 1000 Inputs Time: 3188
-Courier addOrder() Method For 1000 Inputs Time: 4823
-Courier deliverOrderToCustomer() Method For 1000 Inputs Time: 8413
+
+
+TESTING PREPARE ORDER METHOD OF CHEF CLASS...
+
+
+
+TESTING GET CERTIFICATE NUMBER METHOD OF CHEF CLASS...
+
+
+
+TESTING INCREMENT CERTIFICATE NUMBER METHOD OF CHEF CLASS...
+
+
+
+TESTING CALCULATE STATUS METHOD OF CHEF CLASS
+
+
+
+TESTING GET SIZE OF ORDERS METHOD OF CHEF CLASS...
+
+
+
+TESTING COMPARE TO METHOD...
+
+
+
+TESTING TO STRING METHOD OF CHEF CLASS...
+Chef: Name: Somer Chef
+Age: 50
+Username: smr1234
+Password: 1335
+
+Job: Chef
+Salary: 12000.0
+Score: 4.0
+Experience Year: 15
+Vote Amount: 1
+Worker Status: SENIOR
+
+Certificate Number: 6
+Status: SENIORChef Order Queue: []
+
+4 24 9 4 TESTING COURIER METHODS...
+
+
+
+TESTING SET PHONE NUMBER METHOD OF COURIER CLASS...
+
+
+
+TESTING GET PHONE NUMBER METHOD OF COURIER CLASS...
+
+
+
+TESTING GET SIZE OF ORDERS METHOD OF COURIER CLASS...
+
+
+
+TESTING ADD ORDER METHOD OF COURIER CLASS...
+
+
+
+TESTING DELIVER ORDER TO CUSTOMER METHOD OF COURIER CLASS...
+Destination to the CUMHURIYET ->> 4.9
+AKSE ->> RESTAURANT ->> CUMHURIYET
+
+Order Foods -> Cheapest to Most Expensive
+soup   8.0
+soup   8.0
+dessert   14.0
+mainCourse   15.0
+
+
+
+TESTING SHOW SHORTEST ROUTE METHOD OF COURIER CLASS
+Destination to the RESTAURANT ->> 4.9
+AKSE ->> CUMHURIYET ->> RESTAURANT
+
+
+
+
+TESTING COMPARE TO METHOD...
+
+
+
+TESTING TO STRING METHOD OF COURIER CLASS...
+Courier: Name: Tolstoy
+Age: 50
+Username: tlsty
+Password: 5652
+
+Job: Courier
+Salary: 10200.0
+Score: 4.0
+Experience Year: 11
+Vote Amount: 1
+Worker Status: SENIOR
+Phone Number: +905155942876
+Courier Order Queue: null
+
+Customer: 
+Name: Mustafa
+Age: 30
+Username: mustateach
+Password: mstf
+Job: Teacher
+Phone number: +905051234566
+Budget: 500000.0
+Order number: 0
+Given Orders: 
+---Cheapest to Most Expensive---
+
+TESTING CUSTOMER METHODS...
+
+
+
+TESTING GET JOB METHOD OF CUSTOMER CLASS...
+Teacher
+
+
+TESTING GET PHONE NUMBER METHOD OF CUSTOMER CLASS...
++905051234566
+
+
+TESTING GET BUDGET METHOD OF CUSTOMER CLASS...
+500000.0
+
+
+TESTING GIVE ORDER METHOD OF CUSTOMER CLASS...
+
+You are allergic to soğan. And Tavuk Sis has soğan
+
+
+
+TESTING TAKE ORDER METHOD OF CUSTOMER CLASS...
+Order Foods -> Cheapest to Most Expensive
+beverage   4.0
+beverage   5.0
+soup   8.0
+dessert   14.0
+mainCourse   20.0
+mainCourse   25.0
+
+
+
+TESTING TO STRING METHOD OF CUSTOMER CLASS...
+Customer: 
+Name: Mustafa
+Age: 30
+Username: mustateach
+Password: mstf
+Job: Teacher
+Phone number: +905051234566
+Budget: 500000.0
+Order number: 0
+Given Orders: 
+---Cheapest to Most Expensive---
+1th Order:
+Order Info: 
+Order ID: 1
+Order Price: 0.0
+Order Foods: 
+
+Food Informations: 
+Food ID : 25
+Food Name : Limonata
+Food Price : 4.0
+Food Type : beverage
+
+Food Informations: 
+Food ID : 32
+Food Name : Coca Cola
+Food Price : 5.0
+Food Type : beverage
+
+Food Informations: 
+Food ID : 1
+Food Name : Domates Corbasi
+Food Price : 8.0
+Food Type : soup
+
+Food Informations: 
+Food ID : 24
+Food Name : Izmir Bomba
+Food Price : 14.0
+Food Type : dessert
+
+Food Informations: 
+Food ID : 10
+Food Name : Tavuk Sis
+Food Price : 20.0
+Food Type : mainCourse
+
+Food Informations: 
+Food ID : 15
+Food Name : Yeni Dunya
+Food Price : 25.0
+Food Type : mainCourse
+
+
+
+TESTING ORDER HISTORY METHOD OF CUSTOMER CLASS...
+
+---Cheapest to Most Expensive---
+1th Order:
+Order Info: 
+Order ID: 1
+Order Price: 0.0
+Order Foods: 
+
+Food Informations: 
+Food ID : 25
+Food Name : Limonata
+Food Price : 4.0
+Food Type : beverage
+
+Food Informations: 
+Food ID : 32
+Food Name : Coca Cola
+Food Price : 5.0
+Food Type : beverage
+
+Food Informations: 
+Food ID : 1
+Food Name : Domates Corbasi
+Food Price : 8.0
+Food Type : soup
+
+Food Informations: 
+Food ID : 24
+Food Name : Izmir Bomba
+Food Price : 14.0
+Food Type : dessert
+
+Food Informations: 
+Food ID : 10
+Food Name : Tavuk Sis
+Food Price : 20.0
+Food Type : mainCourse
+
+Food Informations: 
+Food ID : 15
+Food Name : Yeni Dunya
+Food Price : 25.0
+Food Type : mainCourse
+
+
+TESTING SEE MENU METHOD OF CUSTOMER CLASS...
+Food Informations: 
+Food ID : 0
+Food Name : Ezogelin Corbasi
+Food Price : 8.0
+Food Type : soup
+
+Food Informations: 
+Food ID : 1
+Food Name : Domates Corbasi
+Food Price : 8.0
+Food Type : soup
+
+Food Informations: 
+Food ID : 2
+Food Name : Yayla Corbasi
+Food Price : 8.0
+Food Type : soup
+
+Food Informations: 
+Food ID : 3
+Food Name : Tavuk Corbasi
+Food Price : 10.0
+Food Type : soup
+
+Food Informations: 
+Food ID : 4
+Food Name : Sehriye Corbasi
+Food Price : 8.0
+Food Type : soup
+
+Food Informations: 
+Food ID : 5
+Food Name : Mercimek Corbasi
+Food Price : 7.0
+Food Type : soup
+
+Food Informations: 
+Food ID : 6
+Food Name : Misket Kofte
+Food Price : 10.0
+Food Type : soup
+
+Food Informations: 
+Food ID : 7
+Food Name : Tekirdag Koftesi
+Food Price : 18.0
+Food Type : mainCourse
+
+Food Informations: 
+Food ID : 8
+Food Name : Yalanci Beyti
+Food Price : 20.0
+Food Type : mainCourse
+
+Food Informations: 
+Food ID : 9
+Food Name : Citir Tavuk
+Food Price : 15.0
+Food Type : mainCourse
+
+Food Informations: 
+Food ID : 10
+Food Name : Tavuk Sis
+Food Price : 20.0
+Food Type : mainCourse
+
+Food Informations: 
+Food ID : 11
+Food Name : Sultan Kebabi
+Food Price : 22.0
+Food Type : mainCourse
+
+Food Informations: 
+Food ID : 12
+Food Name : Ratatuy
+Food Price : 22.0
+Food Type : mainCourse
+
+Food Informations: 
+Food ID : 13
+Food Name : Hatay Usulu
+Food Price : 18.0
+Food Type : mainCourse
+
+Food Informations: 
+Food ID : 14
+Food Name : Mantar Sote
+Food Price : 15.0
+Food Type : mainCourse
+
+Food Informations: 
+Food ID : 15
+Food Name : Yeni Dunya
+Food Price : 25.0
+Food Type : mainCourse
+
+Food Informations: 
+Food ID : 16
+Food Name : Adana Kebabi
+Food Price : 25.0
+Food Type : mainCourse
+
+Food Informations: 
+Food ID : 17
+Food Name : Sebzeli Lazanya
+Food Price : 18.0
+Food Type : mainCourse
+
+Food Informations: 
+Food ID : 18
+Food Name : Magnolya
+Food Price : 15.0
+Food Type : dessert
+
+Food Informations: 
+Food ID : 19
+Food Name : Karamelli Triliçe
+Food Price : 12.0
+Food Type : dessert
+
+Food Informations: 
+Food ID : 20
+Food Name : Waffle
+Food Price : 17.0
+Food Type : dessert
+
+Food Informations: 
+Food ID : 21
+Food Name : Revani
+Food Price : 10.0
+Food Type : dessert
+
+Food Informations: 
+Food ID : 22
+Food Name : Kibris Tatlisi
+Food Price : 12.0
+Food Type : dessert
+
+Food Informations: 
+Food ID : 23
+Food Name : Sufle
+Food Price : 12.0
+Food Type : dessert
+
+Food Informations: 
+Food ID : 24
+Food Name : Izmir Bomba
+Food Price : 14.0
+Food Type : dessert
+
+Food Informations: 
+Food ID : 25
+Food Name : Limonata
+Food Price : 4.0
+Food Type : beverage
+
+Food Informations: 
+Food ID : 26
+Food Name : Elma Suyu
+Food Price : 5.0
+Food Type : beverage
+
+Food Informations: 
+Food ID : 27
+Food Name : Havuc Suyu
+Food Price : 6.0
+Food Type : beverage
+
+Food Informations: 
+Food ID : 28
+Food Name : Deteoks
+Food Price : 10.0
+Food Type : beverage
+
+Food Informations: 
+Food ID : 29
+Food Name : Turk Kahvesi
+Food Price : 10.0
+Food Type : beverage
+
+Food Informations: 
+Food ID : 30
+Food Name : Sicak Cikolata
+Food Price : 6.0
+Food Type : beverage
+
+Food Informations: 
+Food ID : 31
+Food Name : Soguk Kahve
+Food Price : 7.0
+Food Type : beverage
+
+Food Informations: 
+Food ID : 32
+Food Name : Coca Cola
+Food Price : 5.0
+Food Type : beverage
+
+Food Informations: 
+Food ID : 33
+Food Name : Su
+Food Price : 2.0
+Food Type : beverage
+
+
+
+
+THIS IS DEMO PART
+
+Which one are you going to login as?
+1-> Admin 
+2-> Chef 
+3-> Courier
+4-> Customer
+5-> Exit
+Enter your input: Thank you for using HoldON!

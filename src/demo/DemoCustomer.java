@@ -63,7 +63,7 @@ public class DemoCustomer {
     System.out.println("4-> Show profile info");
     System.out.println("5-> Update profile info");
     System.out.println("6-> Change your password");
-    System.out.println("7-> Exit");
+    System.out.println("7-> Logout");
     System.out.print("\nPlease enter your choice: ");
   }
 
