@@ -97,6 +97,7 @@ public class Courier extends Worker {
   public void addOrder(Order order) {
     orderQueue.add(order);
     order.setOrderCourier(this);
+
   }
 
   /**
@@ -104,11 +105,18 @@ public class Courier extends Worker {
    *
    */
   public void deliverOrderToCustomer() {
-    Order order = orderQueue.poll();
-    this.source = order.getDestination();
-    Customer orderOwner = order.getCustomer();
-    order.setStatus(OrderStatus.ORDER_DELIVERED);
-    orderOwner.takeOrder(order);
+    if(orderQueue.size() != 0) {
+      Order order = orderQueue.poll();
+      showShortestRoute(order.getDestination().toString());
+      this.source = order.getDestination();
+      Customer orderOwner = order.getCustomer();
+      order.setStatus(OrderStatus.ORDER_DELIVERED);
+      orderOwner.takeOrder(order);
+    }
+    else {
+      this.source = District.RESTAURANT;
+      System.out.println("There is no order currently");
+    }
   }
 
   /**
@@ -211,6 +219,10 @@ public class Courier extends Worker {
     return getName().compareTo(other.getName());
   }
 
+  public void showOrders(){
+    System.out.println(orderQueue);
+  }
+
 
   /**
    * The toString() function returns a string representation of the Courier object
@@ -223,7 +235,6 @@ public class Courier extends Worker {
     courierInfo.append("Courier: ");
     courierInfo.append(super.toString());
     courierInfo.append("Phone Number: " + phoneNumber + "\n");
-    courierInfo.append("Courier Order Queue: " + orderQueue.peek() + "\n");
     return courierInfo.toString();
   }
 }

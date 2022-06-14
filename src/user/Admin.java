@@ -241,7 +241,18 @@ public class Admin extends User {
     // System.out.println(restaurant.monthOfTheCustomer());
   }
 
-/**
+  /**
+   * The setRestaurant function takes in a Restaurant object and sets the restaurant instance variable to the Restaurant
+   * object that was passed in
+   *
+   * @param restaurant The restaurant object that is being passed in.
+   */
+  public void setRestaurant(Restaurant restaurant){
+    this.restaurant = restaurant;
+  }
+
+
+  /**
  * If the other object is an instance of the User class, then return true if the username is the same,
  * otherwise return false
  * 

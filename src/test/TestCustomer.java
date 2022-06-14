@@ -9,33 +9,11 @@ import src.datastructures.linkedlistwithmergesort.CustomLinkedList;
 public class TestCustomer {
     public static void testCustomer() {
         Restaurant kebelekCafe = new Restaurant();
-        ArrayList<String> allergies = new ArrayList<>();
-        Customer customer1 = new Customer(
-            "Gojou",
-            22,
-            "Student",
-            "gjj",
-            "123",
-            "+50112345678",
-            500.12,
-            allergies
-        );
+        Menu menu = new Menu();
+        Customer customer1 = kebelekCafe.getTestCustomer();
+        System.out.println(customer1);
+        CustomLinkedList<Food> foods = new CustomLinkedList<>();  
 
-
-        CustomLinkedList<Food> foods = kebelekCafe.createRandomFoods();  
-        allergies.add("nane");
-
-        Customer customer2 = new Customer(
-            "Zweig",
-            62,
-            "Author",
-            "zwg",
-            "123",
-            "+5013232323",
-            500.12,
-            allergies
-        );
-        
         System.out.println("TESTING CUSTOMER METHODS...");
         System.out.println("\n\n");
 
@@ -47,7 +25,16 @@ public class TestCustomer {
 
         System.out.println("TESTING GET BUDGET NUMBER METHOD OF CUSTOMER CLASS...");
         System.out.println(customer1.getBudget() + "\n\n");
-    
+        
+        String IDs = "1 10 15 24";
+        String[] foodIDs = IDs.split(" ");
+        for (String id : foodIDs) {
+            Food food = menu.getFood(Integer.parseInt(id));
+            if (food != null) {
+              foods.add(food);
+            }
+          }
+
         System.out.println("TESTING GIVE ORDER NUMBER METHOD OF CUSTOMER CLASS...");
         customer1.giveOrder(kebelekCafe, new Order(1, customer1, foods, "CUMHURIYET"));
 

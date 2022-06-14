@@ -6,10 +6,10 @@ import src.user.User;
 import src.util.Utility;
 
 /**
- *Authentication methods of the program
+ *This class contains the login methods of the program
  * @author Group 2
- * @version 1.0.0
- * @since 08.04.2022
+ * @version 2.0.0
+ * @since 14.06.2022
  */
 
 /**
@@ -20,161 +20,128 @@ public class Authentication {
   private BinarySearchTree<User> allUsers = new BinarySearchTree<>();
 
   private static Scanner scanObj = new Scanner(System.in);
-
+  
   /**
-   * If the user enters a valid username and password, return the User object associated with that
-   * username and password, otherwise return null.
-   *
-   * @return A User object.
+   * user can login to the app within this method
+   * 
+   * @return User object
    */
   public static User login() {
-    String name = "";
-    int age = 0;
+
     String username = "";
     String password = "";
 
     System.out.println("\n** WELCOME TO THE HoldON **\n\n");
 
-    username = getUsername(name, age, username, password);
+    username = getUsername();
 
     if (username == null) {
       System.err.println("User does not exist!");
       return null;
     }
-    password = getPassword(name, age, username, password);
+    password = getPassword(username);
 
     if (password == null) {
-      System.out.println("Password is not correct! Could not login.");
+      System.err.println("Password is not correct! Could not login.");
       return null;
     }
 
-    return getUser(name, age, username, password);
+    return getUser(username, password);
   }
 
-  /**
-   * It takes in the user's name, age, username, and password, and returns the username if the user
-   * exists, and returns "login-failed" if the user does not exist
-   *
-   * @param name The name of the user.
-   * @param age The age of the user.
-   * @param username The username of the user.
-   * @param password The password of the user.
-   * @return The username is being returned.
-   */
-  private static String getUsername(
-    String name,
-    int age,
-    String username,
-    String password
-  ) {
+/**
+ * It asks the user to enter a username, and if the username exists in the database, it returns the
+ * username, otherwise it returns null
+ * 
+ * @return The username is being returned.
+ */
+  private static String getUsername() {
     System.out.print("Enter your username please: ");
-    username = scanObj.next();
-    if (!isUserExist(name, age, username, password)) {
+    String username = scanObj.next();
+
+    if (!isUserExist(username, "")) {
       return null;
     }
     return username;
   }
 
-  /**
-   * It asks the user to enter their password, and if the password is correct, it returns the password,
-   * otherwise it returns "login-failed"
-   *
-   * @param name The name of the user
-   * @param age The age of the user
-   * @param username The username of the user
-   * @param password The password that the user entered.
-   * @return A string
-   */
-  private static String getPassword(
-    String name,
-    int age,
-    String username,
-    String password
-  ) {
-    Scanner scanObj = new Scanner(System.in);
-    System.out.print("\nEnter your password please: ");
-    password = scanObj.next();
+/**
+ * It asks the user to enter their password, and if the password is correct, it returns the password
+ * 
+ * @param username The username of the user who is trying to log in.
+ * @return The password is being returned.
+ */
+  private static String getPassword(String username) {
 
-    if (!isPasswordTrue(name, age, username, password)) {
+    System.out.print("\nEnter your password please: ");
+    String password = scanObj.next();
+
+    if (!isPasswordTrue(username, password)) {
       return null;
     }
     return password;
   }
 
   /**
-   * Get all users from the database, and then find the user with the given username.
+   * Get all users from the database, and then find the user with the given
+   * username.
    *
-   * @param name The name of the user.
-   * @param age The age of the user
    * @param username The username of the user you want to get.
    * @param password The password of the user.
    * @return A User object.
    */
   private static User getUser(
-    String name,
-    int age,
-    String username,
-    String password
-  ) {
+      String username,
+      String password) {
     BinarySearchTree<User> allUsers = Utility.getAllUsersFromDatabase();
-    return allUsers.find(new User(name, age, username, password));
+    return allUsers.find(new User(" ", -1, username, password));
   }
 
   /**
    * If the user exists in the database, return true, otherwise return false.
    *
-   * @param name The name of the user.
-   * @param age The age of the user.
+   * @param name     The name of the user.
+   * @param age      The age of the user.
    * @param username The username of the user.
    * @param password The password of the user.
    * @return A boolean value.
    */
   private static boolean isUserExist(
-    String name,
-    int age,
-    String username,
-    String password
-  ) {
+      String username,
+      String password) {
     BinarySearchTree<User> allUsers = Utility.getAllUsersFromDatabase();
-    return allUsers.contains(new User(name, age, username, password));
+    return allUsers.contains(new User(" ", 10, username, password));
   }
 
   /**
    * If the password is correct, return true, otherwise return false.
    *
-   * @param name The name of the user
-   * @param age The age of the user
+
    * @param username The username of the user
    * @param password The password the user entered
    * @return The method is returning a boolean value.
    */
   private static boolean isPasswordTrue(
-    String name,
-    int age,
-    String username,
-    String password
-  ) {
+      String username,
+      String password) {
     String correctPassword = "";
-    correctPassword = getUserPassword(name, age, username, password);
+    correctPassword = getUserPassword(username, password);
     return correctPassword.equals(password);
   }
 
   /**
    * Get the user's password from the username.
    *
-   * @param name The name of the user
-   * @param age The age of the user
+   * @param name     The name of the user
+   * @param age      The age of the user
    * @param username The username of the user you want to get the password of.
    * @param password The password of the user.
    * @return The password of the user.
    */
   private static String getUserPassword(
-    String name,
-    int age,
-    String username,
-    String password
-  ) {
-    User user = getUser(name, age, username, password);
+      String username,
+      String password) {
+    User user = getUser(username, password);
     return user.getPassword();
   }
 

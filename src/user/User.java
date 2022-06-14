@@ -15,7 +15,7 @@ public class User implements Comparable<User> {
 
   private String name;
   private int age;
-  private String username;
+  protected String username;
   private String password;
 
   /**
@@ -66,6 +66,14 @@ public class User implements Comparable<User> {
    */
   public String getPassword() {
     return password;
+  }
+
+  public void setUsername(String newUsername){
+    username = newUsername;
+  }
+
+  public void setPassword(String newPassword){
+    password = newPassword;
   }
 
   /**

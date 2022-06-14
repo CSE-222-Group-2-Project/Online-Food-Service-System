@@ -11,7 +11,11 @@ import src.user.User;
 import src.user.Worker;
 
 public class TestChef {
-	public static void testChef(Restaurant kebelekCafe) {
+	
+  /** 
+   * @param kebelekCafe
+   */
+  public static void testChef(Restaurant kebelekCafe) {
     Chef chef1 = new Chef(
       "Somer Chef",
       50,

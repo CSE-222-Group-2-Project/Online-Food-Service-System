@@ -1,7 +1,7 @@
 admin Fatih 40 fatihsevilgen fatih123
 chef Mehmet 35 mehmetchef mehmetchef123 15 17
 chef Esra 27 esrachef esrachef123 5 5
-courier Arda 26 ardacour arda123 +905055555555 3
+courier Arda 26 arda arda123 +905055555555 3
 courier Cem 29 cemcour cem123 +905055555553 6
 courier Eren 24 erencour mikasa123 +905055555523 1 
 courier Kerem 30 keremcour kerem123 +905055555532 7 
