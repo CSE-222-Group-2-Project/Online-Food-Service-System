@@ -4,7 +4,7 @@ import java.util.*;
 
 /**
  * Implementation of a Skip-List data structure
- * @author Jacob / Koffman & Wolfgang
+ * @author Group  2
  *
  *@param <E> The type of data stored. Must be a Comparable
  */
@@ -136,6 +136,13 @@ public class SkipList<E extends Comparable<? super E>> implements Iterable<E> {
       return true;
     }
   }
+
+  /**
+   * Adds the given element
+   * 
+   * @param element to be added
+   * @return true if successful and vice versa
+   */
   public boolean update(E element){
     if(this.remove(element)){
       this.add(element);
@@ -145,7 +152,11 @@ public class SkipList<E extends Comparable<? super E>> implements Iterable<E> {
 
   }
 
-
+  /**
+   * Returns the last element of the list
+   * 
+   * @return generic type element located at the last element
+   */
   public E getLast(){
     if(head.links[maxLevel-1] == null){
       return null;
@@ -199,6 +210,11 @@ public class SkipList<E extends Comparable<? super E>> implements Iterable<E> {
     return sc.toString();
   }
 
+  /**
+   * Iterator class representation for skip list
+   * 
+   * Returns in decreased order
+   */
   class DescendingSkipListIterator<E extends Comparable<E>>
           implements Iterator<E> {
 
@@ -220,6 +236,11 @@ public class SkipList<E extends Comparable<? super E>> implements Iterable<E> {
       entries = list.toArray();
     }
 
+    /**
+     * Checks if the next connection exists
+     * 
+     * @return true if successful and vice versa
+     */
     public boolean hasNext() {
       return cursor <= size - 1;
     }
@@ -235,13 +256,14 @@ public class SkipList<E extends Comparable<? super E>> implements Iterable<E> {
 
   /**
    * Static class to contain data and links
-   * @author Jacob / Koffman & Wolfgang
+   * @author Group 2
    *
    * @param <E> The type of data stored. Must be a Comparable
    */
   static class SLNode<E> {
-
+    /** layered links of skiplist */
     SLNode<E>[] links;
+    /** data of the node */
     E data;
 
     /**
@@ -255,6 +277,11 @@ public class SkipList<E extends Comparable<? super E>> implements Iterable<E> {
       this.data = data;
     }
 
+    /**
+     * to string method
+     * 
+     * @return stringed list representation
+     */
     public String toString() {
       return (data.toString() + " |" + links.length + "|");
     }

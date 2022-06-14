@@ -1,6 +1,8 @@
 package src.constants;
 
-/* Districts where customers live */
+/**
+ * Graph district's index numbers
+ */
 public enum District {
     RESTAURANT,
     AKSE,

@@ -5,19 +5,21 @@ import java.util.*;
 /**
  * Class KWLinkedList implements a double linked list and
  * a ListIterator.
+ * 
+ * @author Group 2
  */
-
 public class CustomLinkedList<E extends Comparable<E>> implements Iterable<E> {
-
+  /** Starting point of the linked list */
   private Node<E> head = null;
-
+  /** Ending point of the linked list */
   private Node<E> tail = null;
-
+  /** Size of the linked list */
   private int size = 0;
 
   
   /** 
-   * @return CustomLinkedList<E>
+   * Wrapper for sorting the nodes in an increasing order
+   * @return CustomLinkedList<E> ordered linkedlist
    */
   public CustomLinkedList<E> mergeSort() {
     this.head = this.mergeSort(this.head);
@@ -27,8 +29,9 @@ public class CustomLinkedList<E extends Comparable<E>> implements Iterable<E> {
 
   
   /** 
-   * @param aNode
-   * @return Node<E>
+   * Merge sort algorithm for the given linkedlist
+   * @param aNode middle index node for dicing
+   * @return Node<E> sorted lists head
    */
   private Node<E> mergeSort(Node<E> aNode) {
     // Base case : if head is null
@@ -56,8 +59,9 @@ public class CustomLinkedList<E extends Comparable<E>> implements Iterable<E> {
 
   
   /** 
-   * @param head
-   * @return Node<E>
+   * Returns the middle of the between given head and last node
+   * @param head head node of the sub linked list
+   * @return Node<E> next head of the sub linked list
    */
   // Utility function to get the middle of the linked list
   public Node<E> getMiddle(Node<E> head) {
@@ -74,9 +78,10 @@ public class CustomLinkedList<E extends Comparable<E>> implements Iterable<E> {
 
   
   /** 
-   * @param a
-   * @param b
-   * @return Node<E>
+   * Merging two nodes in a increased order
+   * @param a merge element
+   * @param b merge element
+   * @return Node<E> returns the sorted sub linked list
    */
   Node<E> sortedMerge(Node<E> a, Node<E> b) {
     Node<E> result = null;
@@ -97,16 +102,18 @@ public class CustomLinkedList<E extends Comparable<E>> implements Iterable<E> {
 
   
   /** 
-   * @return int
+   * Getter for the size
+   * @return int returns the of linked list
    */
   public int size() {
     return size;
   }
 
   
-  /** 
-   * @param item
-   * @return E
+  /**
+   * Remove method for the given item 
+   * @param item item to be deleted
+   * @return E returns item if successful, other wise returns tail
    */
   public E remove(E item) {
     Iterator<E> iter = iterator();
@@ -124,7 +131,8 @@ public class CustomLinkedList<E extends Comparable<E>> implements Iterable<E> {
 
   
   /** 
-   * @param item
+   * Adding the given item to the linked list
+   * @param item item to be added
    */
   public void add(E item) {
     add(size, item);
@@ -217,6 +225,9 @@ public class CustomLinkedList<E extends Comparable<E>> implements Iterable<E> {
     return listIterator(index).next();
   }
 
+  /**
+   * Node representation class of the linked list
+   */
   private static class Node<E> {
 
     /** The data value. */

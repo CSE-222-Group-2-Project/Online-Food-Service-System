@@ -22,11 +22,20 @@ public class BinarySearchTree<E extends Comparable<E>>
   protected E deleteReturn;
 
   //Methods
-
+    /**
+     * to string method
+     * 
+     * @return stringed tree
+     */
   public String toString() {
     return inorder();
   }
 
+  /**
+   * stringed inorder traversal
+   * 
+   * @return stringed inorder traversal
+   */
   public String inorder() {
     StringBuilder sb = new StringBuilder();
     inOrderTraverse(root, sb);
@@ -90,6 +99,11 @@ public class BinarySearchTree<E extends Comparable<E>>
     }
   }
 
+  /**
+   * checks if the item is contained
+   * 
+   * @return true if successful and vice versa
+   */
   public boolean contains(E target) {
     return find(target) != null;
   }

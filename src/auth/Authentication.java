@@ -16,9 +16,14 @@ import src.util.Utility;
  * Authentication methods of the program
  */
 public class Authentication {
-
+  /**
+   * Binary Tree of users
+   */
   private BinarySearchTree<User> allUsers = new BinarySearchTree<>();
 
+  /*
+   * Scanner object for to detect user actions
+   */
   private static Scanner scanObj = new Scanner(System.in);
   
   /**

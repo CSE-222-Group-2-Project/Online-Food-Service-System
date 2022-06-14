@@ -4,7 +4,7 @@ import java.util.*;
 
 /** A ListGraph is an extension of the AbstractGraph abstract class
  *   that uses an array of lists to represent the edges.
- *   @author Koffman and Wolfgang
+ *   @author Group 2
  */
 
 public class ListGraph extends AbstractGraph {

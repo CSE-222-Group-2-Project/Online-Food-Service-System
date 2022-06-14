@@ -2,7 +2,7 @@ package src.datastructures.tree;
 
 /** Self-balancing binary search tree using the algorithm defined
  *  by Adelson-Velskii and Landis.
- *  @author Koffman and Wolfgang
+ *  @author Group 2
  */
 
 public class AVLTree<E extends Comparable<E>>

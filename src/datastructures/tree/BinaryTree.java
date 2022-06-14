@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 /**
  * Class for a binary tree that stores type E objects
- * @author Jacob / Koffman & Wolfgang
+ * @author Group 2
  *
  * @param <E> The type of data to be stored
  */
