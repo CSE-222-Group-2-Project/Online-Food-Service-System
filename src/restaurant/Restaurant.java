@@ -41,10 +41,9 @@ public class Restaurant {
   protected SkipList<Customer> customers;
 
   private TreeMap<String, AVLTree<String>> ingredients;
-  public static Graph districtsGraph = new ListGraph(
-    District.values().length,
-    false
-  );
+  
+  public static Graph districtsGraph = new Graph(
+    8);
 
   // Constructor
   /**  Constructer for the Restaurant class. */
@@ -85,7 +84,7 @@ public class Restaurant {
    */
   public CustomLinkedList<Food> createRandomFoods() {
     Random rand = new Random();
-    CustomLinkedList<Food> foods = menu.getFoods();
+    CustomLinkedList<Food> foods = menu.getMenu();
     CustomLinkedList<Food> orderFoods = new CustomLinkedList<>();
 
     for (int i = 0; i < 4; i++) {
@@ -233,7 +232,7 @@ public class Restaurant {
    * @return A boolean value.
    */
   public boolean deleteFoodFromMenu(int id) {
-    CustomLinkedList<Food> temp = this.menu.getFoods();
+    CustomLinkedList<Food> temp = this.menu.getMenu();
     for (Food food : temp) {
       if (food.getFoodID() == id) {
         temp.remove(food);
@@ -250,7 +249,7 @@ public class Restaurant {
    * @return A boolean value.
    */
   public boolean deleteFoodFromMenu(Food food) {
-    Food removed = this.menu.getFoods().remove(food);
+    Food removed = this.menu.getMenu().remove(food);
 
     if (removed != null) return true; else return false;
   }
@@ -261,7 +260,7 @@ public class Restaurant {
    * @param food The food object to be added to the menu
    */
   public void addFoodtoMenu(Food food) {
-    this.menu.getFoods().add(food);
+    this.menu.getMenu().add(food);
   }
 
   /**
@@ -277,6 +276,20 @@ public class Restaurant {
    * It creates a graph of the districts and the distances between them.
    */
   private void createGraph() {
+<<<<<<< HEAD
+    districtsGraph.addEdge(0,7,1.5);
+    districtsGraph.addEdge(0,4,3.1);
+    districtsGraph.addEdge(0,1,2.9);
+    districtsGraph.addEdge(1,2,1.4);
+    districtsGraph.addEdge(1,3,2.0);
+    districtsGraph.addEdge(1,7,2.2);
+    districtsGraph.addEdge(1,6,3.6);
+    districtsGraph.addEdge(2,4,3.0);
+    districtsGraph.addEdge(2,6,2.4);
+    districtsGraph.addEdge(2,7,1.7);
+    districtsGraph.addEdge(3,6,3.2);
+    districtsGraph.addEdge(5,6,2.2);
+=======
     districtsGraph.insert(new Edge(0, 7, 1.5));
     districtsGraph.insert(new Edge(0, 4, 3.1));
     districtsGraph.insert(new Edge(0, 1, 2.9));
@@ -289,6 +302,7 @@ public class Restaurant {
     districtsGraph.insert(new Edge(2, 7, 1.7));
     districtsGraph.insert(new Edge(3, 6, 3.2));
     districtsGraph.insert(new Edge(5, 6, 2.2));
+>>>>>>> 8f023161f559e07c66b7ed7320778e8737489e63
   }
 
   /**
@@ -308,5 +322,15 @@ public class Restaurant {
     restaurantInfo.append("Workers: " + this.workers.toString() + "\n");
     restaurantInfo.append("Customers: " + this.customers.toString() + "\n");
     return restaurantInfo.toString();
+  }
+
+  public double findRoot(int destination) {
+    DijkstraAlgorithm root = new DijkstraAlgorithm(
+      districtsGraph
+    );
+
+    double[] res = root.DijkstrasAlgorithm(0);
+
+    return res[destination];
   }
 }

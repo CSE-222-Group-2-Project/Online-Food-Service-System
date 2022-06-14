@@ -68,7 +68,7 @@ public class Admin extends User {
       System.out.println("Age: " + customer.getAge());
       System.out.println("Balance: " + customer.getBudget());
       System.out.println("Last Order number: " + customer.getOrderNumber());
-      System.out.println("Phone Number: " + customer.getPhone());
+      System.out.println("Phone Number: " + customer.getPhoneNumber());
       System.out.println("---------------");
     }
   }
@@ -160,7 +160,7 @@ public class Admin extends User {
     foodPrice = Double.parseDouble(scanner.nextLine());
     System.out.println("Enter food ID  :");
     foodId = Integer.parseInt(scanner.nextLine());
-    return new Food(foodId, foodName, foodPrice, foodType);
+    return createFood(foodId,foodName,foodPrice,foodType);
   }
 
   /**
@@ -188,6 +188,7 @@ public class Admin extends User {
    * @param food The food object that you want to add to the menu.
    */
   public void addFoodToMenu(Food food) {
+    createFood();
     System.out.println("Food added to Menu.");
     restaurant.addFoodtoMenu(food);
   }

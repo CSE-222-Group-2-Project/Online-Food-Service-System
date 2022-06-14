@@ -20,15 +20,15 @@ import src.user.Customer;
 public class Order implements Comparable<Order> {
 
   // Data Fields
-  OrderStatus status = OrderStatus.ORDER_TAKEN;
+  OrderStatus orderStatus = OrderStatus.ORDER_TAKEN;
   private Chef orderChef;
-  private Courier ordeCourier;
+  private Courier orderCourier;
   private int orderID;
   private Customer orderOwner;
-  private double coefficient = 1.0;
-  private double account = 0.0;
-  private CustomLinkedList<Food> foods = new CustomLinkedList<Food>();
-  private District destination;
+  private double orderCoefficient = 1.0;
+  private double orderAccount = 0.0;
+  private CustomLinkedList<Food> foods = new CustomLinkedList<>();
+  private District orderDestination;
 
   // Constructers
   /**
@@ -41,12 +41,12 @@ public class Order implements Comparable<Order> {
     int orderID,
     Customer orderOwner,
     CustomLinkedList<Food> foods,
-    String destination
+    String orderDestination
   ) {
     this.orderID = orderID;
     this.orderOwner = orderOwner;
     this.foods = foods;
-    this.destination = District.valueOf(destination);
+    this.orderDestination = District.valueOf(orderDestination);
     calculateAccount();
   }
 
@@ -55,17 +55,17 @@ public class Order implements Comparable<Order> {
    *
    * @param orderChef The chef who cooked the order.
    */
-  public void setWhoCooked(Chef orderChef) {
+  public void setOrderChef(Chef orderChef) {
     this.orderChef = orderChef;
   }
 
   /**
    * This function sets the courier who delivered the order
    *
-   * @param ordeCourier Courier
+   * @param orderCourier Courier
    */
-  public void setWhoDelivered(Courier ordeCourier) {
-    this.ordeCourier = ordeCourier;
+  public void setOrderCourier(Courier orderCourier) {
+    this.orderCourier = orderCourier;
   }
 
   /**
@@ -91,7 +91,7 @@ public class Order implements Comparable<Order> {
    *
    * @return The chef who cooked the order.
    */
-  public Chef getWhoCooked() {
+  public Chef getOrderChef() {
     return orderChef;
   }
 
@@ -100,8 +100,8 @@ public class Order implements Comparable<Order> {
    *
    * @return The courier who delivered the order.
    */
-  public Courier getWhoDelivered() {
-    return ordeCourier;
+  public Courier getOrderCourier() {
+    return orderCourier;
   }
 
   /**
@@ -119,16 +119,16 @@ public class Order implements Comparable<Order> {
    * @return The account balance of the order.
    */
   public double getAccount() {
-    return account;
+    return orderAccount;
   }
 
   /**
    * This function sets the status of the order to the status passed in
    *
-   * @param stat The status of the order.
+   * @param orderStatus The status of the order.
    */
-  public void setStatus(OrderStatus stat) {
-    status = stat;
+  public void setStatus(OrderStatus orderStatus) {
+    this.orderStatus = orderStatus;
   }
 
   /**
@@ -137,7 +137,7 @@ public class Order implements Comparable<Order> {
    * @return The destination of the edge.
    */
   public District getDestination() {
-    return this.destination;
+    return orderDestination;
   }
 
   /**
@@ -145,13 +145,13 @@ public class Order implements Comparable<Order> {
    * coefficient to 0.75."
    *
    */
-  public void coefCalc() {
+  public void calculateCoefficient() {
     if (orderOwner.isVIP()) {
-      coefficient = 0.85;
+      orderCoefficient = 0.85;
     }
 
     if (orderOwner.isStudent()) {
-      coefficient = 0.75;
+      orderCoefficient = 0.75;
     }
   }
 
@@ -161,12 +161,12 @@ public class Order implements Comparable<Order> {
    * @return The orderAccount is being returned.
    */
   public double calculateAccount() {
-    double orderAccount = 0.0;
-    coefCalc();
-    for (Food afood : foods) orderAccount += afood.getFoodPrice();
+    double account = 0.0;
+    calculateCoefficient();
+    for (Food afood : foods) account += afood.getFoodPrice();
 
-    orderAccount *= coefficient;
-    account = orderAccount;
+    account *= orderCoefficient;
+    orderAccount = account;
     return orderAccount;
   }
 
@@ -217,10 +217,10 @@ public class Order implements Comparable<Order> {
     StringBuilder orderInfo = new StringBuilder();
     orderInfo.append("Order Info: \n");
     orderInfo.append("Order ID: " + orderID + "\n");
-    orderInfo.append("Order Price: " + account + "\n");
-    orderInfo.append("Order Chef: " + getWhoCooked().getName() + "\n");
-    orderInfo.append("Order Courier: " + getWhoDelivered().getName() + "\n");
-    orderInfo.append("Order Status: " + status + "\n");
+    orderInfo.append("Order Price: " + orderAccount + "\n");
+    orderInfo.append("Order Chef: " + getOrderChef().getName() + "\n");
+    orderInfo.append("Order Courier: " + getOrderCourier().getName() + "\n");
+    orderInfo.append("Order Status: " + orderStatus + "\n");
     orderInfo.append("Order Foods: \n");
     for (Food afood : foods) orderInfo.append("\n" + afood.toString());
 

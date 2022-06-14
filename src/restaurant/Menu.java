@@ -38,8 +38,17 @@ public class Menu {
    *
    * @return The menu list is being returned.
    */
-  public CustomLinkedList<Food> getFoods() {
+  public CustomLinkedList<Food> getMenu() {
     return menu;
+  }
+
+  public Food getFood(int foodID) {
+    for (Food food : menu) {
+      if (food.getFoodID() == foodID) {
+        return food;
+      }
+    }
+    return null;
   }
 
   /**
