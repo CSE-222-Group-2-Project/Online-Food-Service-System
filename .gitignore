@@ -13,4 +13,4 @@
 # project file
 *.project
 # classpath file
-.classpath
+*.classpath
