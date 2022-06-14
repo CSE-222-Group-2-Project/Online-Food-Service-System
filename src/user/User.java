@@ -96,6 +96,12 @@ public class User implements Comparable<User> {
     return username.compareTo(other.username);
   }
 
+/**
+ * If the object is a User, then compare the usernames. Otherwise, return false
+ * 
+ * @param other The object to compare to.
+ */
+  @Override
   public boolean equals(Object other) {
     if (other instanceof User) {
       User otherUser = (User) other;

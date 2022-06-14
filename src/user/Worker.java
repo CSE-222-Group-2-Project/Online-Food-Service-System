@@ -154,6 +154,15 @@ public class Worker extends User {
   }
 
 
+/**
+ * If the name of this user is less than the name of the other user, return a negative number; if the
+ * name of this user is greater than the name of the other user, return a positive number; if the names
+ * are equal, return 0.
+ * 
+ * @param other The other user to compare to.
+ * @return The name of the user.
+ */
+  @Override
   public int compareTo(User other) {
     return getName().compareTo(other.getName());
   }

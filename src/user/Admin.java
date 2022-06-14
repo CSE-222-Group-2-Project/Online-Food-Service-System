@@ -233,6 +233,14 @@ public class Admin extends User {
     System.out.println("Menu has been shown");
   }
 
+/**
+ * If the other object is an instance of the User class, then return true if the username is the same,
+ * otherwise return false
+ * 
+ * @param other The object to compare this Admin against
+ * @return The hashcode of the username.
+ */
+  @Override
   public boolean equals(Object other) {
     if (other instanceof Admin) {
       User otherUser = (User) other;
@@ -241,6 +249,15 @@ public class Admin extends User {
     return false;
   }
 
+/**
+ * If the name of this user is less than the name of the other user, return a negative number; if the
+ * name of this user is greater than the name of the other user, return a positive number; if the names
+ * are equal, return 0.
+ * 
+ * @param other The other user to compare to.
+ * @return The name of the user.
+ */
+  @Override
   public int compareTo(User other) {
     return getName().compareTo(other.getName());
   }

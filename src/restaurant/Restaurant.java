@@ -290,7 +290,7 @@ public class Restaurant {
    * @param food The food object to be added to the menu
    */
   public void addFoodtoMenu(Food food) {
-    this.menu.getMenu().add(food);
+    Restaurant.menu.getMenu().add(food);
   }
 
   /**
@@ -299,7 +299,7 @@ public class Restaurant {
    * @param menu The menu object that you want to create.
    */
   public void createNewMenu(Menu menu) {
-    this.menu = menu;
+    Restaurant.menu = menu;
   }
 
   /**
@@ -335,7 +335,7 @@ public class Restaurant {
     restaurantInfo.append("Income: " + this.income + "\n");
     restaurantInfo.append("Outcome: " + this.outcome + "\n");
     restaurantInfo.append("Score: " + this.score + "\n");
-    restaurantInfo.append("Menu: " + this.menu.toString() + "\n");
+    restaurantInfo.append("Menu: " + Restaurant.menu.toString() + "\n");
     restaurantInfo.append("Workers: " + this.workers.toString() + "\n");
     restaurantInfo.append("Customers: " + this.customers.toString() + "\n");
     return restaurantInfo.toString();
