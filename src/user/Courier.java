@@ -30,7 +30,7 @@ public class Courier extends Worker {
   private District source;
   // To determine which order is more "important", priority queue is used.
   private PriorityQueue<Order> orderQueue = new PriorityQueue<>(
-    new Order.ComparatorbyOrderNumber()
+          new Order.ComparatorbyOrderNumber()
   );
 
   // initial salary of the Couriers
@@ -47,12 +47,12 @@ public class Courier extends Worker {
    * @param experienceYear the experience year of the courier
    */
   public Courier(
-    String _name,
-    int _age,
-    String _username,
-    String _password,
-    String _phoneNumber,
-    int experienceYear
+          String _name,
+          int _age,
+          String _username,
+          String _password,
+          String _phoneNumber,
+          int experienceYear
   ) {
     super(_name, _age, _username, _password, "Courier", experienceYear);
     this.phoneNumber = _phoneNumber;
@@ -167,20 +167,30 @@ public class Courier extends Worker {
             distances
     );
     District dest = District.valueOf(destination);
+
     ArrayList<Integer> shortestRoute = new ArrayList<>();
+    shortestRoute.add(source.ordinal());
+    shortestRoute.add(source.ordinal());
+
     getShortestRoute(
             pred,
             shortestRoute,
             dest.ordinal(),
             this.source.ordinal()
     );
+
+
+
+
     System.out.println("Destination to the "+ destination + " ->> "+ distances[dest.ordinal()]);
+
     ListIterator<Integer> iterator = shortestRoute.listIterator(shortestRoute.size()-1);
     District[] values = District.values();
     while (iterator.hasPrevious()) {
       Integer district = iterator.previous();
       System.out.print(values[district].name() + " ->> ");
     }
+
     System.out.println();
 
   }
@@ -203,10 +213,10 @@ public class Courier extends Worker {
    * @return The shortest route from the source to the destination.
    */
   private int getShortestRoute(
-    int[] pred,
-    ArrayList<Integer> route,
-    int i,
-    int des
+          int[] pred,
+          ArrayList<Integer> route,
+          int i,
+          int des
   ) {
     if (des == pred[i]) {
       route.add(pred[i]);
@@ -217,10 +227,6 @@ public class Courier extends Worker {
   }
   public int compareTo(User other) {
     return getName().compareTo(other.getName());
-  }
-
-  public void showOrders(){
-    System.out.println(orderQueue);
   }
 
 
@@ -235,6 +241,7 @@ public class Courier extends Worker {
     courierInfo.append("Courier: ");
     courierInfo.append(super.toString());
     courierInfo.append("Phone Number: " + phoneNumber + "\n");
+    courierInfo.append("Courier Order Queue: " + orderQueue.peek() + "\n");
     return courierInfo.toString();
   }
 }
