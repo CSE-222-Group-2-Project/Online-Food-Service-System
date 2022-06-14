@@ -42,7 +42,7 @@ public class DemoChef {
         }
 
         Order order = new Order(1, restaurant.getTestCustomer(), foods, "ATATURK");
-        Order order1 = new Order(2,restaurant.getTestCustomer(), foods1, "ATATURK");
+        Order order1 = new Order(2, restaurant.getTestCustomer(), foods1, "ATATURK");
         chef.addOrder(order);
         chef.addOrder(order1);
 
@@ -56,7 +56,7 @@ public class DemoChef {
                     break;
                 case 2:
                     chef.prepareOrder();
-                    System.out.println("\n\nLast existing has been prepared and given to the Courier.\n\n");
+                    System.out.println("\n\nOrder has been prepared and given to the Courier. (If exists) \n\n");
                     break;
                 case 3:
                     System.out.println("Certificate number is " + chef.incrementCertificateNumber());
@@ -72,6 +72,7 @@ public class DemoChef {
                     changePassword(chef);
                     break;
                 case 7:
+                    System.out.println("Thank you for working with us!");
                     return;
                 default:
 
