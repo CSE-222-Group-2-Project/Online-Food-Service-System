@@ -18,7 +18,6 @@ public class DemoCustomer {
     Customer customer = (Customer) Authentication.login();
     int choice = 0;
     Scanner sc = new Scanner(System.in);
-    CustomLinkedList<Food> foods = new CustomLinkedList<>();
 
     System.out.println("\nWelcome to the HoldON " + customer.getName() + " !");
 
@@ -62,19 +61,19 @@ public class DemoCustomer {
     System.out.println("2: Give an order");
     System.out.println("3: See your order history");
     System.out.println("4: Show profile info");
-    System.out.println("5: Edit profile info");
+    System.out.println("5: Update profile info");
     System.out.println("6: Change your password");
     System.out.println("7: Exit");
     System.out.println("\nPlease enter your choice: ");
   }
 
-  public static void giveAndTakeOrder(Restaurant restaurant, Customer customer ){
+  public static void giveAndTakeOrder(Restaurant restaurant, Customer customer) {
     int chefScore = -1;
     int courierScore = -1;
     Scanner sc = new Scanner(System.in);
     Chef chef = restaurant.getTestChef();
     Courier courier = restaurant.getTestCourier();
-  
+
     Order order = new Order(1, customer, getFoodsFromCustomer(), "AKSE");
     customer.giveOrder(restaurant, order);
 
@@ -87,22 +86,89 @@ public class DemoCustomer {
     System.out.println("Your order has been delivered to you. Enjoy!");
     courier.deliverOrderToCustomer();
     System.out.println("\nRate our chef and courier please!");
-   
+
     System.out.print("What is your rate about our chef? (1-10): ");
     chefScore = sc.nextInt();
     System.out.print("What is your rate about our courier? (1-10) ");
     courierScore = sc.nextInt();
-   
+
     System.out.print("Thank you! Have a good day.\n\n");
     customer.giveVote(chefScore, courierScore, order);
+
+    sc.close();
   }
 
   public static void editProfile(Customer customer) {
+    int choice = -1;
+    Scanner sc = new Scanner(System.in);
+    System.out.println("What do you want to update:");
+    System.out.println("1: USERNAME");
+    System.out.println("2: JOB");
+    System.out.println("3: PHONE NUMBER");
+    System.out.println("4: BUDGET");
+    choice = sc.nextInt();
 
+    switch (choice) {
+      case 1:
+        updateCustomerUsername(customer);
+        break;
+      case 2:
+      updateCustomerJob(customer);
+        break;
+      case 3:
+      updateCustomerPhoneNumber(customer);
+        break;
+      case 4:
+      updateCustomerBudget(customer);
+        break;
+      default:
+      System.out.println("Invalid input. You should have entered an integer between 1-4!");
+    }
+  }
+
+  public static void updateCustomerUsername(Customer customer) {
+    String newUsername = "";
+    Scanner sc = new Scanner(System.in);
+    System.out.println("Enter your new username please: ");
+    newUsername = sc.next();
+    customer.setUsername(newUsername);
+    sc.close();
+  }
+
+  public static void updateCustomerJob(Customer customer) {
+    String newJob = "";
+    Scanner sc = new Scanner(System.in);
+    System.out.println("Enter your new job please: ");
+    newJob = sc.nextLine();
+    customer.setJob(newJob);
+    sc.close();
+  }
+  
+  public static void updateCustomerPhoneNumber(Customer customer) {
+    String newNumber = "";
+    Scanner sc = new Scanner(System.in);
+    System.out.println("Enter your new phone number please: ");
+    newNumber = sc.next();
+    customer.setPhoneNumber(newNumber);
+    sc.close();
+  }
+  
+  public static void updateCustomerBudget(Customer customer) {
+    Double newBudget;
+    Scanner sc = new Scanner(System.in);
+    System.out.println("Enter your new budget please: ");
+    newBudget = sc.nextDouble();
+    customer.setBudget(newBudget);
+    sc.close();
   }
 
   public static void changePassword(Customer customer) {
-
+    String newPassword = "";
+    Scanner sc = new Scanner(System.in);
+    System.out.println("Enter your new password please: ");
+    newPassword = sc.next();
+    customer.setPassword(newPassword);
+    sc.close();
   }
 
   public static CustomLinkedList<Food> getFoodsFromCustomer() {
