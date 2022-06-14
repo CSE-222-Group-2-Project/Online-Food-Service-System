@@ -13,8 +13,11 @@ public class DemoAdmin {
 
 
     
-    /** 
-     * @param restaurant
+
+    /**
+     * This function is used to login system as admin
+     *
+     * @param restaurant The restaurant object that is created in the main method.
      */
     public static void adminDemo(Restaurant restaurant){
         Scanner scan = new Scanner(System.in);
@@ -40,12 +43,9 @@ public class DemoAdmin {
                     default:
                         System.out.println(operation +" is not a valid value");
                 }
-            }catch(NumberFormatException e) {
+            }catch(NumberFormatException | NoSuchElementException e) {
                 System.out.println("\nThe enterd type is wrong,\nPlease enter the valid type");
-            }catch(NoSuchElementException e) {
-                System.out.println("\nThe enterd type is wrong,\nPlease enter the valid type");
-            }
-            catch(NullPointerException e) {
+            } catch(NullPointerException e) {
                 System.out.println("\n\n" + "There is no such user. \nPlease enter the valid Information");
             }
 
@@ -54,10 +54,8 @@ public class DemoAdmin {
     }
 
     
-    /** 
-     * @param admin
-     * @param restaurant
-     */
+
+    // The above code is the admin authority. Admin can do all the operations in the restaurant.
     private static void adminAuthority(Admin admin,Restaurant restaurant) {
         int operation;
         Scanner scan = new Scanner(System.in);
@@ -146,14 +144,12 @@ public class DemoAdmin {
                             System.out.print("Enter Food Id : ");
                             foodID = Integer.parseInt(scan.nextLine());
                             admin.addFoodToMenu(new Food(foodID, foodName, foodPrice, foodType));
-                        } catch (NumberFormatException e) {
-                            System.out.println("\nThe enterd type is wrong,\nPlease enter the valid type");
-                        } catch (NoSuchElementException e) {
+                        } catch (NumberFormatException | NoSuchElementException e) {
                             System.out.println("\nThe enterd type is wrong,\nPlease enter the valid type");
                         }
                         break;
                     case 9:
-                        Integer foodId;
+                        int foodId;
                         System.out.print("Enter Food Id : ");
                         foodId = Integer.parseInt(scan.nextLine());
                         if (admin.deleteFoodFromMenu(foodId)) {
