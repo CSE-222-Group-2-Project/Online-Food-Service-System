@@ -1,6 +1,7 @@
 package src;
 
 import src.linkedlistwithmergesort.CustomLinkedList;
+import src.utility.Utility;
 
 /**
  *The Menu class is a class that contains  Food objects.
@@ -22,7 +23,7 @@ public class Menu {
    * Default Constructor of the Menu class
    */
   public Menu() {
-    menu = Authentication.getMenuFromDatabase();
+    menu = Utility.getMenuFromDatabase();
   }
 
   /**

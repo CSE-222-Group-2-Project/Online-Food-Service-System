@@ -7,7 +7,7 @@ import src.Customer;
 import src.Food;
 import src.User;
 
-public class LineParsers {
+class LineParsers {
 
   /**
    * It takes a line of text from the food.txt file, splits it into tokens, and then creates a Food

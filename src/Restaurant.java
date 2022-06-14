@@ -3,10 +3,10 @@ package src;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.TreeMap;
-import java.util.TreeSet;
 import src.linkedlistwithmergesort.CustomLinkedList;
 import src.skiplist.SkipList;
 import src.tree.AVLTree;
+import src.utility.Utility;
 
 /**
  *  This class represents the Restaurant in the system.
@@ -39,10 +39,10 @@ public class Restaurant {
   // Constructor
   /**  Constructer for the Restaurant class. */
   public Restaurant() {
-    workers = Authentication.getWorkersFromDatabase();
-    customers = Authentication.getCustomersFromDatabase();
-    menu = new Menu(Authentication.getMenuFromDatabase());
-    ingredients = Authentication.getIngredientsFromDatabase();
+    workers = Utility.getWorkersFromDatabase();
+    customers = Utility.getCustomersFromDatabase();
+    menu = new Menu(Utility.getMenuFromDatabase());
+    ingredients = Utility.getIngredientsFromDatabase();
     orders = new CustomLinkedList<>();
     score = calculateScore();
     income = 0;
