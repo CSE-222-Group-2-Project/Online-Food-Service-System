@@ -93,7 +93,7 @@ public class Courier extends Worker {
    */
   public void addOrder(Order order) {
     orderQueue.add(order);
-    order.setWhoDelivered(this);
+    order.setOrderCourier(this);
   }
 
   /**
@@ -133,9 +133,42 @@ public class Courier extends Worker {
     return district.ordinal();
   }
 
+<<<<<<< HEAD
   public int compareTo(Admin other) {
     return getName().compareTo(other.getName());
   }
+=======
+  /**
+   * It takes a destination as a parameter, and returns an ArrayList of Integers that represent the shortest route from the
+   * source to the destination
+   *
+   * @param destination The destination district
+   * @return The shortest route from the source to the destination.
+   */
+  public ArrayList<Integer> showShortestRoute(String destination) {
+    int numV = Restaurant.districtsGraph.getNumV();
+    int[] pred = new int[numV];
+    double[] distances = new double[numV];
+    DijkstrasAlgorithm.dijkstrasAlgorithm(
+      Restaurant.districtsGraph,
+      findValueOfDistrict(source),
+      pred,
+      distances
+    );
+    District dest = District.valueOf(destination);
+    ArrayList<Integer> shortestRoute = new ArrayList<>();
+    shortestRoute.add(this.source.ordinal());
+    getShortestRoute(
+      pred,
+      shortestRoute,
+      this.source.ordinal(),
+      dest.ordinal()
+    );
+    return shortestRoute;
+  }
+
+
+>>>>>>> 8f023161f559e07c66b7ed7320778e8737489e63
 
   /**
    * It takes in the predecessor array, the route array, the current node, and the destination node. It then checks if the
@@ -162,6 +195,10 @@ public class Courier extends Worker {
     route.add(pred[i]);
     return getShortestRoute(pred, route, pred[i], des);
   }
+  public int compareTo(User other) {
+    return getName().compareTo(other.getName());
+  }
+
 
   /**
    * The toString() function returns a string representation of the Courier object

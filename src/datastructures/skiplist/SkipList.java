@@ -39,6 +39,7 @@ public class SkipList<E extends Comparable<? super E>> implements Iterable<E> {
    */
   private Random rand = new Random();
 
+  private Comparator<E> comparator;
   //Constructor
 
   @SuppressWarnings({ "unchecked", "rawtypes" })
@@ -47,6 +48,13 @@ public class SkipList<E extends Comparable<? super E>> implements Iterable<E> {
     maxLevel = 0;
     maxCap = computeMaxCap(maxLevel);
     head = new SLNode(maxLevel, MIN);
+  }
+  public SkipList(Comparator<E> comparator) {
+    size = 0;
+    maxLevel = 0;
+    maxCap = computeMaxCap(maxLevel);
+    head = new SLNode(maxLevel, MIN);
+    this.comparator = comparator;
   }
 
   /**
@@ -60,7 +68,7 @@ public class SkipList<E extends Comparable<? super E>> implements Iterable<E> {
     SLNode<E> current = head;
     for (int i = current.links.length - 1; i >= 0; i--) {
       while (
-        current.links[i] != null && current.links[i].data.compareTo(target) < 0
+              current.links[i] != null && comparator.compare(current.links[i].data,target) < 0
       ) {
         current = current.links[i];
       }
@@ -77,7 +85,8 @@ public class SkipList<E extends Comparable<? super E>> implements Iterable<E> {
    */
   public E find(E target) {
     SLNode<E>[] pred = search(target);
-    if (pred[0].links != null && pred[0].links[0].data.compareTo(target) == 0) {
+
+    if (pred[0].links != null  && comparator.compare(pred[0].links[0].data,target) == 0) {
       return pred[0].links[0].data;
     } else {
       return null;
@@ -90,6 +99,7 @@ public class SkipList<E extends Comparable<? super E>> implements Iterable<E> {
    * @return true as the item is added
    */
   public boolean add(E item) {
+
     size++;
     SLNode<E>[] pred = search(item);
     if (size > maxCap) {
@@ -114,26 +124,26 @@ public class SkipList<E extends Comparable<? super E>> implements Iterable<E> {
    */
   public boolean remove(E item) {
     SLNode<E>[] pred = search(item);
-    if (pred[0].links != null && pred[0].links[0].data.compareTo(item) != 0) {
+    if (pred[0].links != null && comparator.compare(pred[0].links[0].data,item) != 0) {
       return false; //item is not in the list
     } else {
       size--; //don't re-adjust maxCap and level, as we may have nodes at these levels
       SLNode<E> deleteNode = pred[0];
       for (int i = 0; i < deleteNode.links.length; i++) {
         if (pred[i].links[i] != null) pred[i].links[i] =
-          pred[i].links[i].links[i];
+                pred[i].links[i].links[i];
       }
       return true;
     }
   }
-   public boolean update(E element){
-      if(this.remove(element)){
-        this.add(element);
-        return true;
-      }
-      return false;
+  public boolean update(E element){
+    if(this.remove(element)){
+      this.add(element);
+      return true;
+    }
+    return false;
 
-   }
+  }
   /**
    * Method to generate a logarithmic distributed integer between 1 and maxLevel.
    *  I.E. 1/2 of the values are 1, 1/4 are 2, etc.
@@ -175,7 +185,7 @@ public class SkipList<E extends Comparable<? super E>> implements Iterable<E> {
   }
 
   class DescendingSkipListIterator<E extends Comparable<E>>
-    implements Iterator<E> {
+          implements Iterator<E> {
 
     private Object[] entries;
     private int cursor;
@@ -202,7 +212,7 @@ public class SkipList<E extends Comparable<? super E>> implements Iterable<E> {
     @SuppressWarnings("unchecked")
     public E next() throws NoSuchElementException {
       if (cursor > size - 1) throw new NoSuchElementException(
-        "Cursor is out of bounds..."
+              "Cursor is out of bounds..."
       );
       return (E) this.entries[this.cursor++];
     }
