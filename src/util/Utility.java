@@ -94,7 +94,7 @@ public class Utility {
       Scanner myReader = new Scanner(file);
       while (myReader.hasNextLine()) {
         String lineText = myReader.nextLine();
-        User user = LineParsers.parseAndConvertUserLine(lineText);
+        User user = LineParsers.parseUserLine(lineText);
         if (user instanceof Worker) {
           allWorkers.add((Worker) user);
         }
@@ -116,12 +116,14 @@ public class Utility {
    */
   public static SkipList<Customer> getCustomersFromDatabase() {
     try {
-      SkipList<Customer> allCustomers = new SkipList<>(new Customer.SortByOrderNum());
+      SkipList<Customer> allCustomers = new SkipList<>(
+        new Customer.SortByOrderNum()
+      );
       File file = new File(USER_DATABASE_PATH);
       Scanner myReader = new Scanner(file);
       while (myReader.hasNextLine()) {
         String lineText = myReader.nextLine();
-        User user = LineParsers.parseAndConvertUserLine(lineText);
+        User user = LineParsers.parseUserLine(lineText);
         if (user instanceof Customer) {
           allCustomers.add((Customer) user);
         }
@@ -148,7 +150,7 @@ public class Utility {
       Scanner myReader = new Scanner(file);
       while (myReader.hasNextLine()) {
         String lineText = myReader.nextLine();
-        allUsers.add((User) LineParsers.parseAndConvertUserLine(lineText));
+        allUsers.add((User) LineParsers.parseUserLine(lineText));
       }
       myReader.close();
       return allUsers;
