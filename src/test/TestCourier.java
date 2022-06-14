@@ -2,19 +2,19 @@ package src.test;
 
 import src.datastructures.linkedlistwithmergesort.CustomLinkedList;
 import src.restaurant.Food;
-import src.restaurant.Menu;
 import src.restaurant.Order;
 import src.restaurant.Restaurant;
 import src.user.Courier;
-import src.user.Customer;
-import src.user.Worker;
+
 
 public class TestCourier {
 
   /**
    * @param kebelekCafe
    */
-  public static void testCourier(Restaurant kebelekCafe) {
+  public static void testCourier() {
+    Restaurant kebelekCafe = new Restaurant();
+
     Courier courier1 = new Courier(
             "Tolstoy",
             50,
