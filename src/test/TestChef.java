@@ -1,13 +1,15 @@
 package src.test;
 
+import src.datastructures.linkedlistwithmergesort.CustomLinkedList;
 import src.restaurant.Food;
 import src.restaurant.Menu;
+import src.restaurant.Order;
 import src.restaurant.Restaurant;
 import src.user.Chef;
 import src.user.Worker;
 
 public class TestChef {
-	public static void testChef() {
+	public static void testChef(Restaurant kebelekCafe) {
     Chef chef1 = new Chef(
       "Somer Chef",
       50,
