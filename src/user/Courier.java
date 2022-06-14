@@ -5,7 +5,6 @@ import java.util.PriorityQueue;
 import src.constants.District;
 import src.constants.OrderStatus;
 import src.constants.WorkerStatus;
-import src.datastructures.graph.DijkstrasAlgorithm;
 import src.restaurant.Order;
 import src.restaurant.Restaurant;
 
@@ -94,7 +93,7 @@ public class Courier extends Worker {
    */
   public void addOrder(Order order) {
     orderQueue.add(order);
-    order.setWhoDelivered(this);
+    order.setOrderCourier(this);
   }
 
   /**
@@ -134,6 +133,11 @@ public class Courier extends Worker {
     return district.ordinal();
   }
 
+<<<<<<< HEAD
+  public int compareTo(Admin other) {
+    return getName().compareTo(other.getName());
+  }
+=======
   /**
    * It takes a destination as a parameter, and returns an ArrayList of Integers that represent the shortest route from the
    * source to the destination
@@ -163,9 +167,8 @@ public class Courier extends Worker {
     return shortestRoute;
   }
 
-  public int compareTo(Admin other) {
-    return getName().compareTo(other.getName());
-  }
+
+>>>>>>> 8f023161f559e07c66b7ed7320778e8737489e63
 
   /**
    * It takes in the predecessor array, the route array, the current node, and the destination node. It then checks if the
@@ -192,6 +195,10 @@ public class Courier extends Worker {
     route.add(pred[i]);
     return getShortestRoute(pred, route, pred[i], des);
   }
+  public int compareTo(User other) {
+    return getName().compareTo(other.getName());
+  }
+
 
   /**
    * The toString() function returns a string representation of the Courier object

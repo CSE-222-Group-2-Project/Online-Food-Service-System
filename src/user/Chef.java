@@ -60,7 +60,7 @@ public class Chef extends Worker {
    */
   public void addOrder(Order order) {
     newOrders.add(order);
-    order.setWhoCooked(this);
+    order.setOrderChef(this);
   }
 
   /**
@@ -120,7 +120,7 @@ public class Chef extends Worker {
     return newOrders.size();
   }
 
-  public int compareTo(Admin other) {
+  public int compareTo(User other) {
     return getName().compareTo(other.getName());
   }
 

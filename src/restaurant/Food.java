@@ -3,8 +3,8 @@ package src.restaurant;
 /**
  * It's a class that represents a food item
  * @author Group 2
- * @version 1.0.0
- * @since 08.04.2022
+ * @version 2.0.0
+ * @since 14.06.2022
  */
 
 /**
@@ -20,21 +20,16 @@ public class Food implements Comparable<Food> {
   /**
    * Constructor of the Food class
    *
-   * @param _food_id    the food id
-   * @param _food_name  the food name
-   * @param _food_price the food price
-   * @param _food_type  the food type
+   * @param foodID    the food id
+   * @param foodName  the food name
+   * @param foodPrice the food price
+   * @param foodType  the food type
    */
-  public Food(
-    int _food_id,
-    String _food_name,
-    double _food_price,
-    String _food_type
-  ) { // type is added for extra
-    foodID = _food_id;
-    foodName = _food_name;
-    foodPrice = _food_price;
-    foodType = _food_type;
+  public Food(int foodID, String foodName, double foodPrice, String foodType) { // type is added for extra
+    this.foodID = foodID;
+    this.foodName = foodName;
+    this.foodPrice = foodPrice;
+    this.foodType = foodType;
   }
 
   /** Default Constructer of the Food class */
@@ -45,38 +40,38 @@ public class Food implements Comparable<Food> {
   /**
    * This function sets the foodID variable to the value of the id parameter.
    *
-   * @param id The ID of the food item.
+   * @param foodID The ID of the food item.
    */
-  public void setFoodID(int id) {
-    foodID = id;
+  public void setFoodID(int foodID) {
+    this.foodID = foodID;
   }
 
   /**
    * It sets the foodName variable to the value of the food_name parameter.
    *
-   * @param food_name The name of the food.
+   * @param foodName The name of the food.
    */
-  public void setFoodName(String food_name) {
-    foodName = food_name;
+  public void setFoodName(String foodName) {
+    this.foodName = foodName;
   }
 
   /**
    * It sets the price of the food.
    *
-   * @param price The price of the food item
+   * @param foodPrice The price of the food item
    */
-  public void setFoodPrice(double price) {
-    foodPrice = price;
+  public void setFoodPrice(double foodPrice) {
+    this.foodPrice = foodPrice;
   }
 
   /**
    * This function takes a string as an argument and sets the foodType variable to
    * that string
    *
-   * @param type The type of food.
+   * @param foodType The type of food.
    */
-  public void setFoodType(String type) {
-    foodType = type;
+  public void setFoodType(String foodType) {
+    this.foodType = foodType;
   }
 
   /**
@@ -116,6 +111,44 @@ public class Food implements Comparable<Food> {
   }
 
   /**
+   * If the account number of the current object is greater than the account
+   * number of the object passed
+   * in, return 1. If the account number of the current object is less than the
+   * account number of the
+   * object passed in, return -1. Otherwise, return 0
+   *
+   * @param o The object to be compared.
+   */
+  @Override
+  public int compareTo(Food o) {
+    if (getFoodPrice() > o.getFoodPrice()) {
+      return 1;
+    } else if (getFoodPrice() < o.getFoodPrice()) {
+      return -1;
+    } else return 0;
+  }
+
+  /**
+   * If the object is the same as this, return true. If the object is not an instance of Food, return
+   * false. Otherwise, return true if the foodID, foodName, foodPrice, and foodType are the same
+   *
+   * @param obj The object to compare this Food to.
+   * @return The hashcode of the object.
+   */
+  @Override
+  public boolean equals(Object obj) {
+    if (obj == this) return true;
+    if (!(obj instanceof Food)) return false;
+    Food other = (Food) obj;
+    return (
+      foodID == other.foodID &&
+      foodName.equals(other.foodName) &&
+      foodPrice == other.foodPrice &&
+      foodType.equals(other.foodType)
+    );
+  }
+
+  /**
    * The toString() method returns a string representation of the Food
    *
    * @return The string representation of the Food is being returned.
@@ -129,21 +162,5 @@ public class Food implements Comparable<Food> {
     foodInfo.append("Food Price : " + foodPrice + "\n");
     foodInfo.append("Food Type : " + foodType + "\n");
     return foodInfo.toString();
-  }
-
-  /**
-   * If the account number of the current object is greater than the account
-   * number of the object passed
-   * in, return 1. If the account number of the current object is less than the
-   * account number of the
-   * object passed in, return -1. Otherwise, return 0
-   *
-   * @param o The object to be compared.
-   */
-  @Override
-  public int compareTo(Food o) {
-    if (getFoodPrice() > o.getFoodPrice()) return 1; else if (
-      getFoodPrice() < o.getFoodPrice()
-    ) return -1; else return 0;
   }
 }
