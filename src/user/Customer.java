@@ -24,7 +24,7 @@ import src.restaurant.Restaurant;
 public class Customer extends User {
 
   // Data Fields
-  private String job;
+  private String customerJob;
   private String phoneNumber;
   private double budget;
   private int orderNumber = 0;
@@ -34,29 +34,30 @@ public class Customer extends User {
   // Constructors
   /**
    * Constructor of the Customer class
-   * @param _name the name of the customer
-   * @param _age the age of the customer
-   * @param _job the job of the customer
-   * @param _username the username of the customer
-   * @param _password the password of the customer
-   * @param _phoneNumber the phone number of the customer
-   * @param _budget the budget of the customer
+   * @param name the name of the customer
+   * @param age the age of the customer
+   * @param customerJob the job of the customer
+   * @param username the username of the customer
+   * @param password the password of the customer
+   * @param phoneNumber the phone number of the customer
+   * @param budget the budget of the customer
+   * @param allergies the allergies of the customer
    */
   public Customer(
-    String _name,
-    int _age,
-    String _job,
-    String _username,
-    String _password,
-    String _phoneNumber,
-    double _budget,
-    ArrayList<String> _allergies
+    String name,
+    int age,
+    String customerJob,
+    String username,
+    String password,
+    String phoneNumber,
+    double budget,
+    ArrayList<String> allergies
   ) {
-    super(_name, _age, _username, _password);
-    job = _job;
-    phoneNumber = _phoneNumber;
-    budget = _budget;
-    allergies = _allergies;
+    super(name, age, username, password);
+    this.customerJob = customerJob;
+    this.phoneNumber = phoneNumber;
+    this.budget = budget;
+    this.allergies = allergies;
   }
 
   /**
@@ -65,7 +66,7 @@ public class Customer extends User {
    * @return The job of the customer is being returned.
    */
   public String getJob() {
-    return job;
+    return customerJob;
   }
 
   /**
@@ -73,7 +74,7 @@ public class Customer extends User {
    *
    * @return The phone number of the customer.
    */
-  public String getPhone() {
+  public String getPhoneNumber() {
     return phoneNumber;
   }
 
@@ -100,16 +101,16 @@ public class Customer extends User {
    *
    * @return String versions of old olders
    */
-  public String myOrders() {
-    int order_sequence = 0;
+  public String customerOrders() {
+    int orderSequence = 0;
     StringBuilder stb = new StringBuilder();
 
     myOrders = myOrders.mergeSort(); // Sort the old orders by price
 
     stb.append("\n---Cheapest to Most Expensive---");
     for (Order order : myOrders) {
-      order_sequence++;
-      stb.append("\n" + order_sequence + "th Order:\n" + order.toString());
+      orderSequence++;
+      stb.append("\n" + orderSequence + "th Order:\n" + order.toString());
     }
     return stb.toString();
   }
@@ -117,13 +118,13 @@ public class Customer extends User {
   /**
    * Transferring the points given in the parameters to the chef and the courier
    *
-   * @param _scoreChef Points to be given to the chef by the customer
-   * @param _scoreCourier Points to be given to the chef by the courier
+   * @param chefScore Points to be given to the chef by the customer
+   * @param courierScore Points to be given to the chef by the courier
    * @param anOrder Order delivered to the user and which needs to be voted on
    */
-  public void giveVote(int _scoreChef, int _scoreCourier, Order anOrder) {
-    anOrder.getOrderChef().calculateAverageScore(_scoreChef);
-    anOrder.getOrderCourier().calculateAverageScore(_scoreCourier);
+  public void giveVote(int chefScore, int courierScore, Order order) {
+    order.getOrderChef().calculateAverageScore(chefScore);
+    order.getOrderCourier().calculateAverageScore(courierScore);
   }
 
   /**
@@ -247,13 +248,11 @@ public class Customer extends User {
     @Override
     public int compare(Customer o1, Customer o2) {
       int res;
-      if(o1.getOrderNumber() > o2.getOrderNumber()){
+      if (o1.getOrderNumber() > o2.getOrderNumber()) {
         res = 1;
-      }
-      else if(o1.getOrderNumber() < o2.getOrderNumber()){
+      } else if (o1.getOrderNumber() < o2.getOrderNumber()) {
         res = -1;
-      }
-      else res = 0;
+      } else res = 0;
       return res;
     }
   }
@@ -269,10 +268,10 @@ public class Customer extends User {
     customerInfo.append("Customer: " + "\n");
     customerInfo.append(super.toString());
     customerInfo.append("Job: " + getJob() + "\n");
-    customerInfo.append("Phone number: " + getPhone() + "\n");
+    customerInfo.append("Phone number: " + getPhoneNumber() + "\n");
     customerInfo.append("Budget: " + getBudget() + "\n");
     customerInfo.append("Order number: " + getOrderNumber() + "\n");
-    customerInfo.append("Given Orders: " + myOrders() + "\n");
+    customerInfo.append("Given Orders: " + customerOrders() + "\n");
     return customerInfo.toString();
   }
 }
