@@ -1,3 +1,11 @@
 package src.demo;
 
-public class DemoCustomer {}
+import src.auth.Authentication;
+import src.user.Customer;
+
+public class DemoCustomer {
+
+  public static void demoCustomer() {
+    Customer customer = (Customer) Authentication.login();
+  }
+}

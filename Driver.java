@@ -1,10 +1,14 @@
-import src.auth.Authentication;
-import src.user.Chef;
-import src.user.User;
+import src.demo.DemoCustomer;
 
 public class Driver {
 
   public static void main(String[] args) {
-    User user = Authentication.login();
+    testDemos();
+  }
+
+  public static void testUsers() {}
+
+  public static void testDemos() {
+    DemoCustomer.demoCustomer();
   }
 }

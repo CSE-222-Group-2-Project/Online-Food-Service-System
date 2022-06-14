@@ -181,8 +181,12 @@ public class Customer extends User {
 
     if (check) {
       System.out.print("Do you still want to order (Press 1 to continue): ");
-      if (sc.nextInt() == 1) return true;
+      if (sc.nextInt() == 1) {
+        sc.close();
+        return true;
+      }
     }
+    sc.close();
     return false;
   }
 
