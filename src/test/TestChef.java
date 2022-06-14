@@ -6,6 +6,8 @@ import src.restaurant.Menu;
 import src.restaurant.Order;
 import src.restaurant.Restaurant;
 import src.user.Chef;
+import src.user.Customer;
+import src.user.User;
 import src.user.Worker;
 
 public class TestChef {
@@ -36,7 +38,9 @@ public class TestChef {
 
     System.out.println("TESTING ADD ORDER METHOD OF CHEF CLASS...");
     // !!! owner of the order should be change according to customer name
-    chef1.addOrder(new Order(1, "Buse", foods, "dest1"));
+
+
+    chef1.addOrder(new Order(1, kebelekCafe.getTestCustomer() , foods, "dest1"));
     System.out.println("\n\n");
 
     System.out.println("TESTING PREPARE ORDER METHOD OF CHEF CLASS...");

@@ -1,6 +1,7 @@
 package src.restaurant;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Random;
 import java.util.TreeMap;
 import src.constants.District;
@@ -75,6 +76,12 @@ public class Restaurant {
   public Courier getTestCourier() {
     return (Courier) workers.get(2);
   }
+
+  public Customer getTestCustomer() {
+    Iterator<Customer> iterator = customers.iterator();
+    return  iterator.next();
+  }
+
 
   /**
    * It creates a random order of food items from the menu
