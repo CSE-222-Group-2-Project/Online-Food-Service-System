@@ -141,6 +141,7 @@ public class Customer extends User {
       budget -= wantedOrder.calculateAccount();
       orderNumber++;
       restaurant.addOrder(wantedOrder);
+      myOrders.add(wantedOrder);
       return true;
     } else {
       System.out.println("\nNot enough money,order can not be applied");

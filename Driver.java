@@ -6,7 +6,7 @@ import src.test.TestCustomer;
 public class Driver {
 
   public static void main(String[] args) {
-    testUsers();
+    testDemos();
   }
 
   public static void testUsers() {

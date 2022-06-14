@@ -32,6 +32,10 @@ public class DemoCustomer {
           Order order = new Order(1, customer, foods, "AKSE");
           customer.giveOrder(restaurant, order);
           System.out.println("Order has been given");
+          break;
+        case 3:
+         System.out.println(customer.orderHistory());
+          break;
       }
     }
     sc.close();

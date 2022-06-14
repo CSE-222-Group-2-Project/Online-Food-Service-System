@@ -218,9 +218,6 @@ public class Order implements Comparable<Order> {
     orderInfo.append("Order Info: \n");
     orderInfo.append("Order ID: " + orderID + "\n");
     orderInfo.append("Order Price: " + orderAccount + "\n");
-    orderInfo.append("Order Chef: " + getOrderChef().getName() + "\n");
-    orderInfo.append("Order Courier: " + getOrderCourier().getName() + "\n");
-    orderInfo.append("Order Status: " + orderStatus + "\n");
     orderInfo.append("Order Foods: \n");
     for (Food afood : foods) orderInfo.append("\n" + afood.toString());
 
