@@ -219,6 +219,10 @@ public class Courier extends Worker {
     return getName().compareTo(other.getName());
   }
 
+  public void showOrders(){
+    System.out.println(orderQueue);
+  }
+
 
   /**
    * The toString() function returns a string representation of the Courier object
@@ -231,7 +235,6 @@ public class Courier extends Worker {
     courierInfo.append("Courier: ");
     courierInfo.append(super.toString());
     courierInfo.append("Phone Number: " + phoneNumber + "\n");
-    courierInfo.append("Courier Order Queue: " + orderQueue.peek() + "\n");
     return courierInfo.toString();
   }
 }

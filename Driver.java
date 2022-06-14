@@ -1,7 +1,7 @@
 import src.demo.DemoAdmin;
+import src.demo.DemoCourier;
 import src.demo.DemoCustomer;
 import src.restaurant.Restaurant;
-import src.test.TestAdmin;
 import src.test.TestCustomer;
 
 
@@ -9,15 +9,14 @@ import src.test.TestCustomer;
 public class Driver {
 
   
-  /**
+  /** 
    * @param args
    */
   public static void main(String[] args) {
     /*Restaurant restaurant = new Restaurant();
     DemoAdmin.adminDemo(restaurant);
     */
-    //testUsers();
-    TestAdmin.testAdmin();
+    testDemos();
   }
 
   public static void testUsers() {
@@ -25,9 +24,9 @@ public class Driver {
 
   }
 
-
   public static void testDemos() {
-    DemoCustomer.demoCustomer();
+   DemoCourier.demoCourier();
+
   }
 
 }

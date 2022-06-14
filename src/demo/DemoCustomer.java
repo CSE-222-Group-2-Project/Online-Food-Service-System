@@ -166,7 +166,7 @@ public class DemoCustomer {
   public static void changePassword(Customer customer) {
     String newPassword = "";
     Scanner sc = new Scanner(System.in);
-    System.out.println("Enter your new password please: ");
+    System.out.print("Enter your new password please: ");
     newPassword = sc.next();
     customer.setPassword(newPassword);
     System.out.println("Your password has been updated!\n");
