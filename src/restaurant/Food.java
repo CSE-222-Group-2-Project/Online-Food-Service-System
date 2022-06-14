@@ -3,7 +3,7 @@ package src.restaurant;
 /**
  * It's a class that represents a food item
  * @author Group 2
- * @version 1.0.0
+ * @version 2.0.0
  * @since 14.06.2022
  */
 

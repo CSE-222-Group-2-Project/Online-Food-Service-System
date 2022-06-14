@@ -85,7 +85,7 @@ public class Restaurant {
    */
   public CustomLinkedList<Food> createRandomFoods() {
     Random rand = new Random();
-    CustomLinkedList<Food> foods = menu.get_foods();
+    CustomLinkedList<Food> foods = menu.getFoods();
     CustomLinkedList<Food> orderFoods = new CustomLinkedList<>();
 
     for (int i = 0; i < 4; i++) {
@@ -233,7 +233,7 @@ public class Restaurant {
    * @return A boolean value.
    */
   public boolean deleteFoodFromMenu(int id) {
-    CustomLinkedList<Food> temp = this.menu.get_foods();
+    CustomLinkedList<Food> temp = this.menu.getFoods();
     for (Food food : temp) {
       if (food.getFoodID() == id) {
         temp.remove(food);
@@ -250,7 +250,7 @@ public class Restaurant {
    * @return A boolean value.
    */
   public boolean deleteFoodFromMenu(Food food) {
-    Food removed = this.menu.get_foods().remove(food);
+    Food removed = this.menu.getFoods().remove(food);
 
     if (removed != null) return true; else return false;
   }
@@ -261,7 +261,7 @@ public class Restaurant {
    * @param food The food object to be added to the menu
    */
   public void addFoodtoMenu(Food food) {
-    this.menu.get_foods().add(food);
+    this.menu.getFoods().add(food);
   }
 
   /**
@@ -273,26 +273,23 @@ public class Restaurant {
     this.menu = menu;
   }
 
-
-
   /**
    * It creates a graph of the districts and the distances between them.
    */
   private void createGraph() {
-    districtsGraph.insert(new Edge(0,7,1.5));
-    districtsGraph.insert(new Edge(0,4,3.1));
-    districtsGraph.insert(new Edge(0,1,2.9));
-    districtsGraph.insert(new Edge(1,2,1.4));
-    districtsGraph.insert(new Edge(1,3,2.0));
-    districtsGraph.insert(new Edge(1,7,2.2));
-    districtsGraph.insert(new Edge(1,6,3.6));
-    districtsGraph.insert(new Edge(2,4,3.0));
-    districtsGraph.insert(new Edge(2,6,2.4));
-    districtsGraph.insert(new Edge(2,7,1.7));
-    districtsGraph.insert(new Edge(3,6,3.2));
-    districtsGraph.insert(new Edge(5,6,2.2));
+    districtsGraph.insert(new Edge(0, 7, 1.5));
+    districtsGraph.insert(new Edge(0, 4, 3.1));
+    districtsGraph.insert(new Edge(0, 1, 2.9));
+    districtsGraph.insert(new Edge(1, 2, 1.4));
+    districtsGraph.insert(new Edge(1, 3, 2.0));
+    districtsGraph.insert(new Edge(1, 7, 2.2));
+    districtsGraph.insert(new Edge(1, 6, 3.6));
+    districtsGraph.insert(new Edge(2, 4, 3.0));
+    districtsGraph.insert(new Edge(2, 6, 2.4));
+    districtsGraph.insert(new Edge(2, 7, 1.7));
+    districtsGraph.insert(new Edge(3, 6, 3.2));
+    districtsGraph.insert(new Edge(5, 6, 2.2));
   }
-
 
   /**
    * The function returns a string that contains the restaurant's income, outcome, score, menu, workers, and customers
