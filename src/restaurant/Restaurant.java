@@ -270,15 +270,18 @@ public class Restaurant {
     this.menu = menu;
   }
 
+
+  private void createGraph(){
+    /* Graph Edgeleri eklenecek*/
+
+
+  }
+
   /**
    * The function returns a string that contains the restaurant's income, outcome, score, menu, workers, and customers
    *
    * @return The restaurant's information.
    */
-
-  public void createGraph(){
-    /* Graph Edgeleri eklenecek*/
-  }
   @Override
   public String toString() {
     StringBuilder restaurantInfo = new StringBuilder();
