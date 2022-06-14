@@ -30,7 +30,7 @@ public class Menu {
    * @param otherMenu The LinkedList of Food objects.
    */
   public Menu(CustomLinkedList<Food> otherMenu) {
-    Menu.menu = otherMenu;
+    menu = otherMenu;
   }
 
   /**

@@ -193,22 +193,46 @@ public class Restaurant {
     return ingredients;
   }
 
+/**
+ * This function returns the income of the restaurant.
+ * 
+ * @return The income variable is being returned.
+ */
   public int getIncome() {
     return income;
   }
-
+/**
+ * This function returns the outcome of the restaurant.
+ * 
+ * @return The outcome variable is being returned.
+ */
   public int getOutcome() {
     return outcome;
   }
 
+/**
+ * Returns the orders of the restaurant.
+ * 
+ * @return The orders linked list.
+ */
   public CustomLinkedList<Order> getOrders() {
     return orders;
   }
 
+/**
+ * This function returns the score of the restaurant
+ * 
+ * @return The score of the restaurant.
+ */
   public double getScore() {
     return score;
   }
 
+/**
+ * Returns the menu of the restaurant
+ * 
+ * @return the menu of the restaurant
+ */
   public Menu getMenu() {
     return menu;
   }
@@ -238,7 +262,7 @@ public class Restaurant {
    * @return A boolean value.
    */
   public boolean deleteFoodFromMenu(int id) {
-    CustomLinkedList<Food> temp = this.menu.getMenu();
+    CustomLinkedList<Food> temp = Restaurant.menu.getMenu();
     for (Food food : temp) {
       if (food.getFoodID() == id) {
         temp.remove(food);
@@ -255,7 +279,7 @@ public class Restaurant {
    * @return A boolean value.
    */
   public boolean deleteFoodFromMenu(Food food) {
-    Food removed = this.menu.getMenu().remove(food);
+    Food removed = Restaurant.menu.getMenu().remove(food);
 
     if (removed != null) return true; else return false;
   }
