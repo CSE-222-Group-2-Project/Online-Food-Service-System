@@ -103,7 +103,7 @@ public class Courier extends Worker {
    */
   public void deliverOrderToCustomer() {
     Order order = orderQueue.poll();
-    this.source = order.getDestination();
+    this.source = 0;
     Customer orderOwner = order.getCustomer();
     order.setStatus(OrderStatus.ORDER_DELIVERED);
     orderOwner.takeOrder(order);
@@ -195,6 +195,7 @@ public class Courier extends Worker {
     route.add(pred[i]);
     return getShortestRoute(pred, route, pred[i], des);
   }
+
   public int compareTo(User other) {
     return getName().compareTo(other.getName());
   }
@@ -214,4 +215,5 @@ public class Courier extends Worker {
     courierInfo.append("Courier Order Queue: " + orderQueue.peek() + "\n");
     return courierInfo.toString();
   }
+
 }
