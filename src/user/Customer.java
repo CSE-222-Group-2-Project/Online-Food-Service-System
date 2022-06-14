@@ -1,6 +1,7 @@
 package src.user;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Scanner;
 import java.util.TreeMap;
 import src.datastructures.linkedlistwithmergesort.CustomLinkedList;
@@ -239,6 +240,22 @@ public class Customer extends User {
 
   public int compareTo(User other) {
     return getName().compareTo(other.getName());
+  }
+
+  public static class SortByOrderNum implements Comparator<Customer> {
+
+    @Override
+    public int compare(Customer o1, Customer o2) {
+      int res;
+      if(o1.getOrderNumber() > o2.getOrderNumber()){
+        res = 1;
+      }
+      else if(o1.getOrderNumber() < o2.getOrderNumber()){
+        res = -1;
+      }
+      else res = 0;
+      return res;
+    }
   }
 
   /**
