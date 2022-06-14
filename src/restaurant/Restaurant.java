@@ -3,6 +3,8 @@ package src.restaurant;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.TreeMap;
+import src.District;
+import src.datastructures.graph.*;
 import src.datastructures.linkedlistwithmergesort.CustomLinkedList;
 import src.datastructures.skiplist.SkipList;
 import src.datastructures.tree.AVLTree;
@@ -39,6 +41,10 @@ public class Restaurant {
   protected SkipList<Customer> customers;
 
   private TreeMap<String, AVLTree<String>> ingredients;
+  public static Graph districtsGraph = new ListGraph(
+    District.values().length,
+    false
+  );
 
   // Constructor
   /**  Constructer for the Restaurant class. */
@@ -271,6 +277,11 @@ public class Restaurant {
    *
    * @return The restaurant's information.
    */
+
+  public void createGraph() {
+    /* Graph Edgeleri eklenecek*/
+  }
+
   @Override
   public String toString() {
     StringBuilder restaurantInfo = new StringBuilder();

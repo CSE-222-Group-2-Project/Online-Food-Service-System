@@ -1,9 +1,14 @@
 package src.user;
 
 import java.util.PriorityQueue;
+import src.District;
+import src.datastructures.graph.DijkstrasAlgorithm;
+import src.datastructures.graph.Graph;
+import src.datastructures.graph.ListGraph;
 import src.restaurant.Order;
 import src.restaurant.Order.ComparatorbyOrderNumber;
 import src.restaurant.Order.OrderStatus;
+import src.restaurant.Restaurant;
 import src.user.Worker.WorkerStatus;
 
 /**
@@ -116,6 +121,24 @@ public class Courier extends Worker {
     } else {
       workerStat = WorkerStatus.SENIOR;
     }
+  }
+
+  private int findValueOfDistrict(String district) {
+    District dayEnum = District.valueOf(district);
+    return dayEnum.ordinal();
+  }
+
+  public int[] showShortestRoute(String district) {
+    int numV = Restaurant.districtsGraph.getNumV();
+    int[] pred = new int[numV];
+    double[] distances = new double[numV];
+    DijkstrasAlgorithm.dijkstrasAlgorithm(
+      Restaurant.districtsGraph,
+      findValueOfDistrict(district),
+      pred,
+      distances
+    );
+    return pred;
   }
 
   /**

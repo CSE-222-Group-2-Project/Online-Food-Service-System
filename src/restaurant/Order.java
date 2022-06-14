@@ -37,6 +37,7 @@ public class Order implements Comparable<Order> {
   private double account = 0.0;
   private CustomLinkedList<Food> foods = new CustomLinkedList<Food>();
 
+  private String destination;
   // Constructers
   /**
    * Constructor of the Order class
@@ -44,10 +45,11 @@ public class Order implements Comparable<Order> {
    * @param customer owner of the order
    * @param _foods the foods in the order
    */
-  public Order(int orderID, Customer customer, CustomLinkedList<Food> _foods) {
+  public Order(int orderID, Customer customer, CustomLinkedList<Food> _foods,String destination) {
     this.orderID = orderID;
     orderOwner = customer;
     foods = _foods;
+    this.destination = destination;
     calculateAccount();
   }
 

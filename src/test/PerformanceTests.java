@@ -27,7 +27,7 @@ public class PerformanceTests {
     long startTime, endTime, totalTime;
     for (int i = 0; i < 10; i++) {
       CustomLinkedList<Food> foods = kebelekCafe.createRandomFoods();
-      Order order = new Order(i, customer, foods);
+      Order order = new Order(i, customer, foods, "test");
       orders.add(order);
     }
     System.out.println("\nTESTING MAIN DATA STRUCTURE METHODS FOR 10 INPUTS");
@@ -106,7 +106,7 @@ public class PerformanceTests {
     long startTime, endTime, totalTime;
     for (int i = 0; i < 100; i++) {
       CustomLinkedList<Food> foods = kebelekCafe.createRandomFoods();
-      Order order = new Order(i, customer, foods);
+      Order order = new Order(i, customer, foods, "test");
       orders.add(order);
     }
 
@@ -187,7 +187,7 @@ public class PerformanceTests {
     long startTime, endTime, totalTime;
     for (int i = 0; i < 1000; i++) {
       CustomLinkedList<Food> foods = kebelekCafe.createRandomFoods();
-      Order order = new Order(i, customer, foods);
+      Order order = new Order(i, customer, foods, "test");
       orders.add(order);
     }
 
