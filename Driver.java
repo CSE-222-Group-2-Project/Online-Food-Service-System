@@ -13,7 +13,8 @@ public class Driver {
   }
 
   public static void testUsers() {
-    TestCustomer.testCustomer();
+    Restaurant kebelekCafe = new Restaurant();
+    TestCustomer.testCustomer(kebelekCafe);
   }
 
   public static void testDemos() {

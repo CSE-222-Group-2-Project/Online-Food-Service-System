@@ -3,12 +3,12 @@ package src.test;
 import src.user.*;
 import src.restaurant.*;
 import java.util.ArrayList;
+import src.datastructures.linkedlistwithmergesort.CustomLinkedList;
 
 public class TestCustomer {
-    public static void testCustomer() {
+    public static void testCustomer(Restaurant kebelekCafe) {
 
-        Restaurant kebelekCafe = new Restaurant();
-        CustomLinkedList<Food> foods = kebelekCafe.createRandomFoods();
+        ArrayList<String> allergies = new ArrayList<String>();
 
         Customer customer1 = new Customer(
             "Gojou",
@@ -18,12 +18,11 @@ public class TestCustomer {
             "123",
             "+50112345678",
             500.12,
-            null
+            allergies
         );
 
-        Order testOrder = new Order(19,customer1,foods,"CUMHURİYET");
 
-        ArrayList<String> allergies = new ArrayList<String>();
+        CustomLinkedList<Food> foods = kebelekCafe.createRandomFoods();        
         allergies.add("nane");
 
         Customer customer2 = new Customer(
@@ -50,7 +49,7 @@ public class TestCustomer {
         System.out.println(customer1.getBudget() + "\n\n");
     
         System.out.println("TESTING GIVE ORDER NUMBER METHOD OF CUSTOMER CLASS...");
-        //customer1.giveOrder(kebelekCafe,testOrder);
+        customer1.giveOrder(kebelekCafe, new Order(1, customer1, foods, "CUMHURIYET"));
 
         System.out.println("TESTING SEE MENU NUMBER METHOD OF CUSTOMER CLASS...");
         //customer1.seeMenu();
