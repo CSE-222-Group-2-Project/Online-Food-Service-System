@@ -153,12 +153,11 @@ public class Courier extends Worker {
     );
     District dest = District.valueOf(destination);
     ArrayList<Integer> shortestRoute = new ArrayList<>();
-    shortestRoute.add(this.source.ordinal());
     getShortestRoute(
       pred,
       shortestRoute,
-      this.source.ordinal(),
-      dest.ordinal()
+      dest.ordinal(),
+            this.source.ordinal()
     );
     return shortestRoute;
   }

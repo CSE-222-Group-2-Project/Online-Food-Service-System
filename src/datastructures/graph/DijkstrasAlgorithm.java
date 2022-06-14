@@ -41,7 +41,7 @@ public class DijkstrasAlgorithm {
       double minDist = Double.POSITIVE_INFINITY;
       int u = -1;
       for (int v : vMinusS) {
-        if (dist[v] < minDist) {
+        if (dist[v] <= minDist) {
           minDist = dist[v];
           u = v;
         }
