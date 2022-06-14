@@ -153,7 +153,7 @@ public class Worker extends User {
     }
   }
 
-  public int compareTo(Admin other) {
+  public int compareTo(User other) {
     return getName().compareTo(other.getName());
   }
 

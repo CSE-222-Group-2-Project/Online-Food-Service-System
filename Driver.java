@@ -1,4 +1,5 @@
 import src.auth.Authentication;
+import src.user.Chef;
 import src.user.User;
 
 public class Driver {
