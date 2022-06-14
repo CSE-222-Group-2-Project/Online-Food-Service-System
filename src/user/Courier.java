@@ -153,24 +153,25 @@ public class Courier extends Worker {
     int[] pred = new int[numV];
     double[] distances = new double[numV];
     DijkstrasAlgorithm.dijkstrasAlgorithm(
-      Restaurant.districtsGraph,
-      findValueOfDistrict(source),
-      pred,
-      distances
+            Restaurant.districtsGraph,
+            findValueOfDistrict(source),
+            pred,
+            distances
     );
     District dest = District.valueOf(destination);
     ArrayList<Integer> shortestRoute = new ArrayList<>();
     getShortestRoute(
-      pred,
-      shortestRoute,
-      dest.ordinal(),
-      this.source.ordinal()
+            pred,
+            shortestRoute,
+            dest.ordinal(),
+            this.source.ordinal()
     );
     System.out.println("Destination to the "+ destination + " ->> "+ distances[dest.ordinal()]);
     ListIterator<Integer> iterator = shortestRoute.listIterator(shortestRoute.size()-1);
+    District[] values = District.values();
     while (iterator.hasPrevious()) {
       Integer district = iterator.previous();
-      System.out.print(District.valueOf(district.toString()) + " ->> ");
+      System.out.print(values[district].name() + " ->> ");
     }
     System.out.println();
 
