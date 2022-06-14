@@ -98,6 +98,20 @@ public class Customer extends User {
     return orderNumber;
   }
 
+
+
+  public void setJob(String newJob){
+    customerJob = newJob;
+  }
+
+  public void setPhoneNumber(String newNumber){
+    phoneNumber = newNumber;
+  }
+
+  public void setBudget(Double newBudget){
+    budget = newBudget;
+  }
+
   /**
    * Puts the orders given by the customer in a specified format in a string
    *
