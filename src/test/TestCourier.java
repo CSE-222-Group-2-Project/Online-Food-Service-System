@@ -52,7 +52,7 @@ public class TestCourier {
     System.out.println("\n\n");
 
     System.out.println("TESTING ADD ORDER METHOD OF COURIER CLASS...");
-    courier1.addOrder(new Order(1, kebelekCafe.getTestCustomer(), foods, "CAYIROVA"));
+    courier1.addOrder(new Order(1, kebelekCafe.getTestCustomer(), foods, "CUMHURIYET"));
     System.out.println("\n\n");
 
     System.out.println("TESTING DELIVER ORDER TO CUSTOMER METHOD OF COURIER CLASS...");
@@ -61,7 +61,7 @@ public class TestCourier {
 
 
     System.out.println("TESTING SHOW SHORTEST ROUTE METHOD OF COURIER CLASS");
-    courier1.showShortestRoute("CUMHURIYET");
+    courier1.showShortestRoute("RESTAURANT");
     System.out.println("\n\n");
 
     System.out.println("TESTING COMPARE TO METHOD...");
