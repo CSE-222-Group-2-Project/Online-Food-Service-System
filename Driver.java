@@ -8,6 +8,10 @@ import src.test.TestCustomer;
 
 public class Driver {
 
+  
+  /** 
+   * @param args
+   */
   public static void main(String[] args) {
     /*Restaurant restaurant = new Restaurant();
     DemoAdmin.adminDemo(restaurant);
@@ -16,7 +20,8 @@ public class Driver {
   }
 
   public static void testUsers() {
-    TestCustomer.testCustomer();
+    //TestCustomer.testCustomer();
+
   }
 
   public static void testDemos() {

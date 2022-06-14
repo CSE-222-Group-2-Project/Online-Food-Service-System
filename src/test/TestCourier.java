@@ -10,7 +10,11 @@ import src.user.Customer;
 import src.user.Worker;
 
 public class TestCourier {
-	public static void testCourier(Restaurant kebelekCafe) {
+	
+  /** 
+   * @param kebelekCafe
+   */
+  public static void testCourier(Restaurant kebelekCafe) {
     Courier courier1 = new Courier(
       "Tolstoy",
       50,

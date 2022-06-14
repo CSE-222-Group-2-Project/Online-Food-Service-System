@@ -4,12 +4,12 @@ import src.auth.Authentication;
 import src.restaurant.Food;
 import src.restaurant.Restaurant;
 import src.user.Admin;
+import src.user.Worker;
 
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public class DemoAdmin {
-
     public static void adminDemo() {
         Restaurant restaurant = new Restaurant();
         Admin admin = (Admin) Authentication.login();
@@ -72,13 +72,13 @@ public class DemoAdmin {
                 case 13:
                     return;
                 default:
-                    System.out.println("\nPlease, Enter a valid authority number");
-            }
+                    System.out.println("\nPlease, Enter a valid authority number");           }
 
         }
         sc.close();
 
     }
+
 
     public static void printProgramMenu() {
         System.out.println("\nPlease select one of the following operations");

@@ -21,26 +21,25 @@ public class DemoCourier {
 
             switch (choice) {
                 case 1:
-                courier.showOrders();
+                    courier.showOrders();
                     break;
                 case 2:
-                deliverOrder(courier);
+                    deliverOrder(courier);
                     break;
                 case 3:
-                System.out.print(courier);
+                    System.out.print(courier);
                     break;
                 case 4:
-                updateProfile(courier);
+                    updateProfile(courier);
                     break;
                 case 5:
-                changePassword(courier);
+                    changePassword(courier);
                     break;
                 case 6:
-                System.out.println("Thank you for working with us!");
+                    System.out.println("Thank you for working with us!");
                     break;
                 default:
-                System.out.println("Please enter an integer between 1-6!");
-
+                    System.out.println("Please enter an integer between 1-6!");
             }
         }
         sc.close();
@@ -58,7 +57,7 @@ public class DemoCourier {
         System.out.print("\nPlease enter your choice: ");
     }
 
-    public static void deliverOrder(Courier courier){
+    public static void deliverOrder(Courier courier) {
 
     }
 
