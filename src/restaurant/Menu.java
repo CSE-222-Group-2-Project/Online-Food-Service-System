@@ -1,6 +1,6 @@
 package src.restaurant;
 
-import src.linkedlistwithmergesort.CustomLinkedList;
+import src.datastructures.linkedlistwithmergesort.CustomLinkedList;
 import src.util.Utility;
 
 /**

@@ -1,4 +1,4 @@
-package src.linkedlistwithmergesort;
+package src.datastructures.linkedlistwithmergesort;
 
 import java.util.*;
 

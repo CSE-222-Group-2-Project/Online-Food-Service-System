@@ -1,4 +1,4 @@
-package src.tree;
+package src.datastructures.tree;
 
 /**
  * Searchable tree interface

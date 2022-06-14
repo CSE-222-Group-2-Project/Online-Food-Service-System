@@ -4,12 +4,12 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.TreeMap;
-import src.linkedlistwithmergesort.CustomLinkedList;
+import src.datastructures.linkedlistwithmergesort.CustomLinkedList;
+import src.datastructures.tree.AVLTree;
 import src.restaurant.Food;
 import src.restaurant.Menu;
 import src.restaurant.Order;
 import src.restaurant.Restaurant;
-import src.tree.AVLTree;
 
 /**
  * Customer class is a user type that expresses the target audience of the

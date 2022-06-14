@@ -1,4 +1,4 @@
-package src.graph;
+package src.datastructures.graph;
 
 import java.util.*;
 
@@ -16,12 +16,14 @@ public class DijkstrasAlgorithm {
       @param dist Output array to contain the distance
                   in the shortest path
    */
-  public static void dijkstrasAlgorithm(Graph graph,
-                                        int start,
-                                        int[] pred,
-                                        double[] dist) {
+  public static void dijkstrasAlgorithm(
+    Graph graph,
+    int start,
+    int[] pred,
+    double[] dist
+  ) {
     int numV = graph.getNumV();
-    HashSet < Integer > vMinusS = new HashSet < Integer > (numV);
+    HashSet<Integer> vMinusS = new HashSet<Integer>(numV);
     // Initialize V-S.
     for (int i = 0; i < numV; i++) {
       if (i != start) {

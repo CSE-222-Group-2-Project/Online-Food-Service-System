@@ -1,20 +1,19 @@
-package src.graph;
+package src.datastructures.graph;
 
-import java.util.*;
 import java.io.*;
+import java.util.*;
 
 /** A ListGraph is an extension of the AbstractGraph abstract class
-*   that uses an array of lists to represent the edges.
-*   @author Group 2
-*/
+ *   that uses an array of lists to represent the edges.
+ *   @author Group 2
+ */
 
-public class ListGraph
-    extends AbstractGraph {
+public class ListGraph extends AbstractGraph {
 
   // Data Field
   /** An array of Lists to contain the edges that
       originate with each vertex. */
-  private List < Edge > [] edges;
+  private List<Edge>[] edges;
 
   /** Construct a graph with the specified number of
       vertices and directionality.
@@ -25,7 +24,7 @@ public class ListGraph
     super(numV, directed);
     edges = new List[numV];
     for (int i = 0; i < numV; i++) {
-      edges[i] = new LinkedList < Edge > ();
+      edges[i] = new LinkedList<Edge>();
     }
   }
 
@@ -44,13 +43,13 @@ public class ListGraph
   public void insert(Edge edge) {
     edges[edge.getSource()].add(edge);
     if (!isDirected()) {
-      edges[edge.getDest()].add(new Edge(edge.getDest(),
-                                         edge.getSource(),
-                                         edge.getWeight()));
+      edges[edge.getDest()].add(
+          new Edge(edge.getDest(), edge.getSource(), edge.getWeight())
+        );
     }
   }
 
-  public Iterator < Edge > edgeIterator(int source) {
+  public Iterator<Edge> edgeIterator(int source) {
     return edges[source].iterator();
   }
 
@@ -62,11 +61,9 @@ public class ListGraph
       @return the edge between these two vertices
    */
   public Edge getEdge(int source, int dest) {
-    Edge target =
-        new Edge(source, dest, Double.POSITIVE_INFINITY);
+    Edge target = new Edge(source, dest, Double.POSITIVE_INFINITY);
     for (Edge edge : edges[source]) {
-      if (edge.equals(target))
-        return edge; // Desired edge found, return it.
+      if (edge.equals(target)) return edge; // Desired edge found, return it.
     }
     // Assert: All edges for source checked.
     return target; // Desired edge not found.
@@ -81,21 +78,18 @@ public class ListGraph
                               to the file that contains the data
         @throws IOException - If an I/O error occurs
    */
-  public void loadEdgesFromFile(BufferedReader bufferedReader) throws
-      IOException {
+  public void loadEdgesFromFile(BufferedReader bufferedReader)
+    throws IOException {
     /**** BEGIN EXERCISE ****/
     String line;
-    while ( (line = bufferedReader.readLine()) != null
-           && line.length() != 0) {
+    while ((line = bufferedReader.readLine()) != null && line.length() != 0) {
       Scanner sc = new Scanner(line);
       int source = sc.nextInt();
       int dest = sc.nextInt();
       double weight = 1.0;
-      if (sc.hasNextDouble())
-        weight = sc.nextDouble();
+      if (sc.hasNextDouble()) weight = sc.nextDouble();
       insert(new Edge(source, dest, weight));
     }
     /**** END EXERCISE ****/
   }
-
 }

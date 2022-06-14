@@ -1,11 +1,10 @@
 package src.user;
 
-import src.District;
-import src.graph.DijkstrasAlgorithm;
-import src.graph.Graph;
-import src.graph.ListGraph;
-
 import java.util.PriorityQueue;
+import src.District;
+import src.datastructures.graph.DijkstrasAlgorithm;
+import src.datastructures.graph.Graph;
+import src.datastructures.graph.ListGraph;
 import src.restaurant.Order;
 import src.restaurant.Order.ComparatorbyOrderNumber;
 import src.restaurant.Order.OrderStatus;
@@ -124,19 +123,24 @@ public class Courier extends Worker {
     }
   }
 
-  private int findValueOfDistrict(String district){
-
+  private int findValueOfDistrict(String district) {
     District dayEnum = District.valueOf(district);
     return dayEnum.ordinal();
-
   }
-  public int[] showShortestRoute(String district){
+
+  public int[] showShortestRoute(String district) {
     int numV = Restaurant.districtsGraph.getNumV();
-    int [] pred = new int[numV];
-    double [] distances = new double[numV];
-    DijkstrasAlgorithm.dijkstrasAlgorithm(Restaurant.districtsGraph,findValueOfDistrict(district),pred,distances);
+    int[] pred = new int[numV];
+    double[] distances = new double[numV];
+    DijkstrasAlgorithm.dijkstrasAlgorithm(
+      Restaurant.districtsGraph,
+      findValueOfDistrict(district),
+      pred,
+      distances
+    );
     return pred;
   }
+
   /**
    * The toString() function returns a string representation of the Courier object
    *

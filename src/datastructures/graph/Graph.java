@@ -1,19 +1,18 @@
-package src.graph;
+package src.datastructures.graph;
 
 import java.util.*;
 
 /** Interface to specify a Graph ADT. A graph is a set
-*   of vertices and a set of edges. Vertices are
-*   represented by integers from 0 to n - 1. Edges
-*   are ordered pairs of vertices. Each implementation
-*   of the Graph interface should provide a constructor
-*   that specifies the number of vertices and whether
-*   or not the graph is directed.
-*   @author Group 2
-*/
+ *   of vertices and a set of edges. Vertices are
+ *   represented by integers from 0 to n - 1. Edges
+ *   are ordered pairs of vertices. Each implementation
+ *   of the Graph interface should provide a constructor
+ *   that specifies the number of vertices and whether
+ *   or not the graph is directed.
+ *   @author Group 2
+ */
 
 public interface Graph {
-
   // Accessor Methods
   /** Return the number of vertices.
       @return The number of vertices
@@ -52,6 +51,5 @@ public interface Graph {
       @return An Iterator<Edge> to the vertices
               connected to source
    */
-  Iterator < Edge > edgeIterator(int source);
-
+  Iterator<Edge> edgeIterator(int source);
 }
