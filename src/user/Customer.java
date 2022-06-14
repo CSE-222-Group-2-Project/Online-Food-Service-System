@@ -2,7 +2,6 @@ package src.user;
 
 import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.Scanner;
 import java.util.TreeMap;
 import src.datastructures.linkedlistwithmergesort.CustomLinkedList;
 import src.datastructures.tree.AVLTree;
