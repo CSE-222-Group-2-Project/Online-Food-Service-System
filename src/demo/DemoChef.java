@@ -26,7 +26,7 @@ public class DemoChef {
                     	chef = (Chef) Authentication.login();
                         break;
                     case 0:
-                        //return;
+                        return;
                     default:
                         System.out.println(operation +" is not a valid value");
                 }
@@ -41,5 +41,7 @@ public class DemoChef {
 
         }
     }
+
+
 }
 
