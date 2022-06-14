@@ -14,21 +14,21 @@ Ratatuy : patlıcan kabak patates domates zeytinyagi tuz kekik domates
 Hatay Usulu Doner : tavuk patates kıvırcıkmarul domates soğan tuz kekik pulbiber karabiber iskendersos
 Mantar Sote : mantar soğan domates biber salça yağ maydanoz
 Yeni Dunya Kebabi : maltaerigi kiyma soğan biber domates karabiber
-16 Adana Kebabi 25 mainCourse
-17 Sebzeli Lazanya 18 mainCourse
-18 Magnolya 15 dessert
-19 Karamelli Triliçe 12 dessert
-20 Waffle 17 dessert
-21 Revani 10 dessert
-22 Kibris Tatlisi 12 dessert
-23 Sufle 12 dessert
-24 Izmir Bomba 14 dessert
-25 Limonata 4 beverage
-26 Elma Suyu 5 beverage
-27 Havuc Suyu 6 beverage
-28 Deteoks 10 beverage
-29 Turk Kahvesi 10 beverage
-30 Sicak Cikolata 6 beverage
-31 Soguk Kahve 7 beverage
-32 Coca Cola 5 beverage
-33 Su 2 beverage
+Adana Kebabi : kıyma soğan sarımsak kapyabiber bibersalca tuz karabiber pulbiber
+Sebzeli Lazanya : lazanya kabak havuç soğan bezelye zeytinyağı mısır kaşarpeyniri
+Magnolya : süt un nişasta yumurta vanilya krema bisküvi
+Karamelli Triliçe : yumurta şeker su yağ kabartmatozu vanilin
+Waffle : yumurta tozseker kabartmatozu vanilya tuz un süt yağ
+Revani : yumurta şeker aycicekyagi irmik yogurt vanilin
+Kibris Tatlisi : yumurta şeker yağ ceviz un kabartmatozu
+Sufle : nisasta cikolata süt seker tereyagi
+Izmir Bomba : cikolata un süt 
+Limonata : limon su
+Elma Suyu : elma su
+Havuc Suyu : havuc su
+Deteoks : maydonoz dereotu keciboynuzu limon
+Turk Kahvesi : kafein
+Sicak Cikolata : cikolata su
+Soguk Kahve : kafein
+Coca Cola : kola
+Su : su

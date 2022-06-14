@@ -7,10 +7,9 @@ import java.util.ArrayList;
 import src.datastructures.linkedlistwithmergesort.CustomLinkedList;
 
 public class TestCustomer {
-    public static void testCustomer(Restaurant kebelekCafe) {
-
-        ArrayList<String> allergies = new ArrayList<String>();
-
+    public static void testCustomer() {
+        Restaurant kebelekCafe = new Restaurant();
+        ArrayList<String> allergies = new ArrayList<>();
         Customer customer1 = new Customer(
             "Gojou",
             22,
@@ -23,7 +22,7 @@ public class TestCustomer {
         );
 
 
-        CustomLinkedList<Food> foods = kebelekCafe.createRandomFoods();        
+        CustomLinkedList<Food> foods = kebelekCafe.createRandomFoods();  
         allergies.add("nane");
 
         Customer customer2 = new Customer(
