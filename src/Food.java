@@ -19,17 +19,18 @@ public class Food implements Comparable<Food> {
 
   /**
    * Constructor of the Food class
-   * 
+   *
    * @param _food_id    the food id
    * @param _food_name  the food name
    * @param _food_price the food price
    * @param _food_type  the food type
    */
   public Food(
-      int _food_id,
-      String _food_name,
-      double _food_price,
-      String _food_type) { // type is added for extra
+    int _food_id,
+    String _food_name,
+    double _food_price,
+    String _food_type
+  ) { // type is added for extra
     foodID = _food_id;
     foodName = _food_name;
     foodPrice = _food_price;
@@ -64,7 +65,7 @@ public class Food implements Comparable<Food> {
    *
    * @param price The price of the food item
    */
-  void setFoodPrice(double price) {
+  public void setFoodPrice(double price) {
     foodPrice = price;
   }
 
@@ -105,14 +106,13 @@ public class Food implements Comparable<Food> {
     return foodType;
   }
 
-
   /**
    * This function returns the food name
    *
    * @return The name of the food is being returned.
    */
   public String getFoodName() {
-      return foodName;
+    return foodName;
   }
 
   /**
@@ -142,11 +142,8 @@ public class Food implements Comparable<Food> {
    */
   @Override
   public int compareTo(Food o) {
-    if(getFoodPrice() > o.getFoodPrice())
-      return 1;
-    else if(getFoodPrice() < o.getFoodPrice())
-      return -1;
-    else
-      return 0;
+    if (getFoodPrice() > o.getFoodPrice()) return 1; else if (
+      getFoodPrice() < o.getFoodPrice()
+    ) return -1; else return 0;
   }
 }
