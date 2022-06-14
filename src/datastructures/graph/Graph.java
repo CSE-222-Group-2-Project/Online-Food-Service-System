@@ -1,5 +1,3 @@
-package src.datastructures.graph;
-
 import java.util.*;
 
 /** Interface to specify a Graph ADT. A graph is a set
@@ -9,7 +7,7 @@ import java.util.*;
  *   of the Graph interface should provide a constructor
  *   that specifies the number of vertices and whether
  *   or not the graph is directed.
- *   @author Group 2
+ *   @author Koffman and Wolfgang
  */
 
 public interface Graph {

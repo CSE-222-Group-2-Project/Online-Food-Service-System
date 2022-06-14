@@ -1,11 +1,9 @@
-package src.datastructures.graph;
-
 import java.io.*;
 import java.util.*;
 
 /** A ListGraph is an extension of the AbstractGraph abstract class
  *   that uses an array of lists to represent the edges.
- *   @author Group 2
+ *   @author Koffman and Wolfgang
  */
 
 public class ListGraph extends AbstractGraph {
