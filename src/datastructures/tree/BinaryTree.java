@@ -18,11 +18,12 @@ public class BinaryTree<E> implements Serializable {
    */
   protected Node<E> root;
 
-  //Constructors
+  /** Constructor */
   public BinaryTree() {
     root = null;
   }
 
+  /** Constructor with parameters */
   protected BinaryTree(Node<E> root) {
     this.root = root;
   }
@@ -80,6 +81,11 @@ public class BinaryTree<E> implements Serializable {
     return root == null || (root.left == null && root.right == null);
   }
 
+  /**
+   * stringed preorder traversel tree
+   * 
+   * @return stringed preorder traversel tree
+   */
   public String toString() {
     StringBuilder sb = new StringBuilder();
     preOrderTraverse(root, 1, sb);
@@ -106,6 +112,11 @@ public class BinaryTree<E> implements Serializable {
     }
   }
 
+  /**
+   * stringed single preorder traversel tree
+   * 
+   * @return stringed single preorder traversel tree
+   */
   public String oneLinePreorder() {
     StringBuilder sb = new StringBuilder();
     preOrderTraverseOneLine(root, sb);
@@ -128,6 +139,11 @@ public class BinaryTree<E> implements Serializable {
     }
   }
 
+  /**
+   * stringed single postorder traversel tree
+   * 
+   * @return stringed single postorder traversel tree
+   */
   public String oneLinePostorder() {
     StringBuilder sb = new StringBuilder();
     postOrderTraverse(root, sb);
@@ -150,6 +166,11 @@ public class BinaryTree<E> implements Serializable {
     }
   }
 
+  /**
+   * stringed single inorder traversel tree
+   * 
+   * @return stringed single inorder traversel tree
+   */
   public String oneLineInorder() {
     StringBuilder sb = new StringBuilder();
     inOrderTraverse(root, sb);

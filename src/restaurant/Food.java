@@ -11,8 +11,9 @@ package src.restaurant;
  * It's a class that represents a food item
  */
 public class Food implements Comparable<Food> {
-
+  /** Id of the food */
   private int foodID;
+  /** Name of the food */
   private String foodName;
   private double foodPrice;
   private String foodType;
