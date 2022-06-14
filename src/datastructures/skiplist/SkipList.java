@@ -147,9 +147,13 @@ public class SkipList<E extends Comparable<? super E>> implements Iterable<E> {
 
 
   public E getLast(){
-    SLNode<E> current = head.links[maxLevel];
-    while (current.links[maxLevel] != null){
-      current = current.links[maxLevel];
+    if(head.links[maxLevel-1] == null){
+      return null;
+    }
+    SLNode<E> current = head.links[maxLevel-1];
+
+    while (current.links[maxLevel-1] != null){
+      current = current.links[maxLevel-1];
     }
     return current.data;
   }
