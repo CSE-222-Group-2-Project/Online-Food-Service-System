@@ -46,7 +46,7 @@ public class DemoAdmin {
     }
 
     private static void adminAuthority(Admin admin){
-       /* int operation,index;
+        int operation,index;
         Scanner scan = new Scanner(System.in);
         while(true) {
             try {
@@ -80,9 +80,6 @@ public class DemoAdmin {
                         admin.printIncomeAndOutcome();
                         break;
                     case 4:
-
-
-                        System.out.print("Enter the Worker Name : ");
 
                         admin.hiringWorker();
 
@@ -121,7 +118,7 @@ public class DemoAdmin {
             }catch(NullPointerException e) {
                 System.out.println("Be sure that enter valid index for branch");
             }
-        }*/
+        }
     }
 
 
