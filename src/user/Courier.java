@@ -5,7 +5,6 @@ import java.util.PriorityQueue;
 import src.constants.District;
 import src.constants.OrderStatus;
 import src.constants.WorkerStatus;
-import src.datastructures.graph.DijkstrasAlgorithm;
 import src.restaurant.Order;
 import src.restaurant.Restaurant;
 
@@ -132,35 +131,6 @@ public class Courier extends Worker {
    */
   private int findValueOfDistrict(District district) {
     return district.ordinal();
-  }
-
-  /**
-   * It takes a destination as a parameter, and returns an ArrayList of Integers that represent the shortest route from the
-   * source to the destination
-   *
-   * @param destination The destination district
-   * @return The shortest route from the source to the destination.
-   */
-  public ArrayList<Integer> showShortestRoute(String destination) {
-    int numV = Restaurant.districtsGraph.getNumV();
-    int[] pred = new int[numV];
-    double[] distances = new double[numV];
-    DijkstrasAlgorithm.dijkstrasAlgorithm(
-      Restaurant.districtsGraph,
-      findValueOfDistrict(source),
-      pred,
-      distances
-    );
-    District dest = District.valueOf(destination);
-    ArrayList<Integer> shortestRoute = new ArrayList<>();
-    shortestRoute.add(this.source.ordinal());
-    getShortestRoute(
-      pred,
-      shortestRoute,
-      this.source.ordinal(),
-      dest.ordinal()
-    );
-    return shortestRoute;
   }
 
   public int compareTo(Admin other) {
