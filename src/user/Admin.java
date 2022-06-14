@@ -1,6 +1,10 @@
-package src;
+package src.user;
 
 import java.util.Scanner;
+import src.restaurant.Food;
+import src.restaurant.Menu;
+import src.restaurant.Order;
+import src.restaurant.Restaurant;
 
 /**
  * Admin class is a subclass of User class and it has some methods to control the restaurant
@@ -42,7 +46,7 @@ public class Admin extends User {
    * Shows the informations which are about workers are Job, Name, Age and Certificate number if it exists
    */
   public void showWorkersInfo() {
-    for (Worker worker : restaurant.workers) {
+    for (Worker worker : restaurant.getWorkers()) {
       System.out.println("Job: " + worker.getJob());
       System.out.println("Name: " + worker.getName());
       System.out.println("Age: " + worker.getAge());
@@ -58,7 +62,7 @@ public class Admin extends User {
    * Shows the informations which are about customers are Job, Name, Age, Balance, Order number and Phone number
    */
   public void showCustomersInfo() {
-    for (Customer customer : restaurant.customers) {
+    for (Customer customer : restaurant.getCustomers()) {
       System.out.println("Name: " + customer.getName());
       System.out.println("Job: " + customer.getJob());
       System.out.println("Age: " + customer.getAge());
@@ -73,10 +77,10 @@ public class Admin extends User {
    * Shows the incomes and outcomes and the total profit
    */
   public void printIncomeAndOutcome() {
-    System.out.println("The total income is " + restaurant.income);
-    System.out.println("The total outcome is " + restaurant.outcome);
+    System.out.println("The total income is " + restaurant.getIncome());
+    System.out.println("The total outcome is " + restaurant.getOutcome());
     System.out.println(
-      "The profit is " + (restaurant.income - restaurant.outcome)
+      "The profit is " + (restaurant.getIncome() - restaurant.getOutcome())
     );
   }
 
@@ -84,7 +88,7 @@ public class Admin extends User {
    * Prints all restaurant's order
    */
   public void printAllOrders() {
-    for (Order anOrder : restaurant.orders) System.out.println(
+    for (Order anOrder : restaurant.getOrders()) System.out.println(
       anOrder.toString()
     );
     System.out.println("Orders have been printed.");
@@ -94,7 +98,7 @@ public class Admin extends User {
    * Removes workers which have score that is less than 4.0 from ArrayList
    */
   public void fireWorker() {
-    for (Worker worker : restaurant.workers) {
+    for (Worker worker : restaurant.getWorkers()) {
       if (
         worker.getVoteAmount() > 10 &&
         worker.getScore() / worker.getVoteAmount() < 4 //workers with more than 10 number of orders
@@ -106,7 +110,7 @@ public class Admin extends User {
           worker.getVoteAmount() +
           " score."
         );
-        restaurant.workers.remove(worker); //Remove workers from array list
+        restaurant.getWorkers().remove(worker); //Remove workers from array list
       }
     }
     System.out.println("Worker has been fired.");
@@ -117,7 +121,7 @@ public class Admin extends User {
    * @param newWorker Accepts new worker
    */
   public void hiringWorker(Worker newWorker) {
-    restaurant.workers.add(newWorker);
+    restaurant.getWorkers().add(newWorker);
     System.out.println("New worker has been hired.");
   }
 
@@ -125,7 +129,7 @@ public class Admin extends User {
    * Updates all salaries by controling number of orders and scores
    */
   public void editSalary() {
-    for (Worker worker : restaurant.workers) {
+    for (Worker worker : restaurant.getWorkers()) {
       if (worker.getScore() / worker.getVoteAmount() > 8) { // If score is more than 8
         worker.setSalary(
           worker.getSalary() +

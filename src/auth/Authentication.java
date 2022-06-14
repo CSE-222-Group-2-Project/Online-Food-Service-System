@@ -1,8 +1,9 @@
-package src;
+package src.auth;
 
 import java.util.Scanner;
 import src.tree.BinarySearchTree;
-import src.utility.Utility;
+import src.user.User;
+import src.util.Utility;
 
 /**
  *Authentication methods of the program

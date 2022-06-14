@@ -1,11 +1,11 @@
-package src.utility;
+package src.util;
 
-import src.Admin;
-import src.Chef;
-import src.Courier;
-import src.Customer;
-import src.Food;
-import src.User;
+import src.restaurant.Food;
+import src.user.Admin;
+import src.user.Chef;
+import src.user.Courier;
+import src.user.Customer;
+import src.user.User;
 
 class LineParsers {
 

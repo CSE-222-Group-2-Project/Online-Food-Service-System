@@ -1,6 +1,10 @@
-package src;
+package src.user;
 
 import java.util.PriorityQueue;
+import src.restaurant.Order;
+import src.restaurant.Order.ComparatorbyOrderNumber;
+import src.restaurant.Order.OrderStatus;
+import src.user.Worker.WorkerStatus;
 
 /**
  *Courier class is a subclass of Worker class which represents the Courier of the restaurant.

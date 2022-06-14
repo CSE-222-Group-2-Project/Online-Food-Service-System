@@ -1,11 +1,14 @@
-package src;
+package src.user;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.TreeMap;
-
 import src.linkedlistwithmergesort.CustomLinkedList;
+import src.restaurant.Food;
+import src.restaurant.Menu;
+import src.restaurant.Order;
+import src.restaurant.Restaurant;
 import src.tree.AVLTree;
 
 /**
@@ -132,11 +135,9 @@ public class Customer extends User {
    * @return Order requested by the customer if customer has enough money
    */
   public Boolean giveOrder(Restaurant restaurant, Order wantedOrder) {
-
-    if (!checkAllergy(restaurant, wantedOrder)) 
-      return false;
-
-    else if(getBudget() >= wantedOrder.calculateAccount()) {
+    if (!checkAllergy(restaurant, wantedOrder)) return false; else if (
+      getBudget() >= wantedOrder.calculateAccount()
+    ) {
       budget -= wantedOrder.calculateAccount();
       orderNumber++;
       restaurant.addOrder(wantedOrder);
@@ -147,36 +148,39 @@ public class Customer extends User {
     }
   }
 
-
   /**
-   * Checks whether customer is allergic to food which is in order list. 
+   * Checks whether customer is allergic to food which is in order list.
    * and despite this, asks whether customer want to contiune.
    * @param restaurant restaurant object
    * @param wantedOrder Order requested by the customer
    * @return Order requested by the customer if customer hasn't allergy to foods of order
    */
-  public boolean checkAllergy(Restaurant restaurant, Order wantedOrder){
-
-    Scanner sc = new Scanner(System.in);  
+  public boolean checkAllergy(Restaurant restaurant, Order wantedOrder) {
+    Scanner sc = new Scanner(System.in);
     TreeMap<String, AVLTree<String>> ingredients = restaurant.getIngredients();
     boolean check = false;
 
     //Search TreeMap and AVLTree
-    for (Food food: wantedOrder.getFoods()) {
+    for (Food food : wantedOrder.getFoods()) {
       AVLTree<String> avlTree = ingredients.get(food.getFoodName());
       for (String allergy : allergies) {
-        if(avlTree.contains(allergy)){
-          System.out.println("\nYou are allergic to " + allergy + ". And " + food.getFoodName() + " has " + allergy);
+        if (avlTree.contains(allergy)) {
+          System.out.println(
+            "\nYou are allergic to " +
+            allergy +
+            ". And " +
+            food.getFoodName() +
+            " has " +
+            allergy
+          );
           check = true;
         }
       }
     }
 
-    if(check)
-    {
-      System.out.print("Do you still want to order (Press 1 to continue): " );
-      if(sc.nextInt() == 1)
-        return true;
+    if (check) {
+      System.out.print("Do you still want to order (Press 1 to continue): ");
+      if (sc.nextInt() == 1) return true;
     }
     return false;
   }

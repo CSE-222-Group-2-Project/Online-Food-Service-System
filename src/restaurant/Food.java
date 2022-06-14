@@ -1,4 +1,4 @@
-package src;
+package src.restaurant;
 
 /**
  * It's a class that represents a food item
@@ -84,7 +84,7 @@ public class Food implements Comparable<Food> {
    *
    * @return The foodID
    */
-  int getFoodID() {
+  public int getFoodID() {
     return foodID;
   }
 
@@ -93,7 +93,7 @@ public class Food implements Comparable<Food> {
    *
    * @return The price of the food is being returned.
    */
-  double getFoodPrice() {
+  public double getFoodPrice() {
     return foodPrice;
   }
 
