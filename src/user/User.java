@@ -12,10 +12,13 @@ package src.user;
  *
  */
 public class User implements Comparable<User> {
-
+  /** name of the user */
   private String name;
+  /** age of the user */
   private int age;
+  /** username of the user */
   protected String username;
+  /** password of the user */
   private String password;
 
   /**
@@ -68,10 +71,18 @@ public class User implements Comparable<User> {
     return password;
   }
 
+  /**
+   * Setter for the user name 
+   * @param newUsername data to be set
+   */
   public void setUsername(String newUsername){
     username = newUsername;
   }
 
+  /**
+   * Setter for the password  
+   * @param newPassword data to be set
+   */
   public void setPassword(String newPassword){
     password = newPassword;
   }

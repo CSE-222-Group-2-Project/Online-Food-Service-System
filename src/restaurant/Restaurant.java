@@ -173,6 +173,11 @@ public class Restaurant {
     return (Courier) workers.get(workerId);
   }
 
+  /**
+   * returns the customers
+   * 
+   * @return skiplist of customers
+   */
   public SkipList<Customer> getCustomers() {
     return customers;
   }
@@ -194,22 +199,47 @@ public class Restaurant {
     return ingredients;
   }
 
+  /**
+   * getter for the income of the restaurant
+   * 
+   * @return returns the income data
+   */
   public int getIncome() {
     return income;
   }
 
+  /**
+   * getter for the outcome of the restaurant
+   * 
+   * @return returns the outcome data
+   */
   public int getOutcome() {
     return outcome;
   }
 
+  /**
+   * getter for the orders of the restaurant
+   * 
+   * @return returns the orders data
+   */
   public CustomLinkedList<Order> getOrders() {
     return orders;
   }
 
+  /**
+   * getter for the score of the restaurant
+   * 
+   * @return returns the score data
+   */
   public double getScore() {
     return score;
   }
 
+  /**
+   * getter for the menu of the restaurant
+   * 
+   * @return returns the menu data
+   */
   public Menu getMenu() {
     return menu;
   }

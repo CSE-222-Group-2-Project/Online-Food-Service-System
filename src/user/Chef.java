@@ -19,13 +19,13 @@ import src.restaurant.Order;
 public class Chef extends Worker {
 
   // Data Fields
-  // certificate number of the chef
+  /** certificate number of the chef */
   private int certificateNumber;
 
-  // All orders that chef is going to prepare
+  /** All orders that chef is going to prepare */ 
   private Queue<Order> newOrders = new LinkedList<>();
 
-  // initial salary of the Chefs
+  /** initial salary of the Chefs */ 
   private final double INITIAL_SALARY = 4000.0;
 
   // Constructors
@@ -92,6 +92,9 @@ public class Chef extends Worker {
     return this.certificateNumber++;
   }
 
+  /**
+   * prints order currently available
+   */
   public void showOrders(){
     System.out.println(newOrders);
   }

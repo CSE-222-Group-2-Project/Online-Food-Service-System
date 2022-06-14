@@ -15,7 +15,9 @@ public class Food implements Comparable<Food> {
   private int foodID;
   /** Name of the food */
   private String foodName;
+  /** price of the food */
   private double foodPrice;
+  /** type of the food for where it stands in menu */
   private String foodType;
 
   /**

@@ -97,19 +97,34 @@ public class Customer extends User {
   }
 
 
-
+  /**
+   * Setter for job data 
+   * @param newJob data to be set
+   */
   public void setJob(String newJob){
     customerJob = newJob;
   }
 
+  /**
+   * setter for phone number data
+   * @param newNumber data to be set
+   */
   public void setPhoneNumber(String newNumber){
     phoneNumber = newNumber;
   }
 
+  /**
+   * setter for budget data
+   * @param newBudget data to be set
+   */
   public void setBudget(Double newBudget){
     budget = newBudget;
   }
 
+  /**
+   * setter for alergies data
+   * @param newAllergy data to be set
+   */
   public void addAllergy(String newAllergy){
     allergies.add(newAllergy);
   }
@@ -240,6 +255,12 @@ public class Customer extends User {
     Menu.seeMenu();
   }
 
+  /**
+   * Compare to method for customers
+   * 
+   * @param other data to be compared
+   * @return returns 1 for greater, -1 for lesser and 0 for equal
+   */
   public int compareTo(Customer other) {
     int res;
     Customer otherCustomer = (Customer) other;
@@ -251,10 +272,19 @@ public class Customer extends User {
     return res;
   }
 
+  /**
+   * Compare to method for user
+   * 
+   * @param other data to be compared
+   * @return returns 1 for greater, -1 for lesser and 0 for equal
+   */
   public int compareTo(User other) {
     return getName().compareTo(other.getName());
   }
 
+  /**
+   * Sort class for orders
+   */
   public static class SortByOrderNum implements Comparator<Customer> {
 
     @Override

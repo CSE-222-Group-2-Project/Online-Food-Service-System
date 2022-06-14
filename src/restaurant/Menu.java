@@ -15,7 +15,7 @@ import src.util.Utility;
  */
 public class Menu {
 
-  // Creating a new LinkedList of Food objects.
+  /** Creating a new LinkedList of Food objects.*/ 
   private static CustomLinkedList<Food> menu = new CustomLinkedList<>();
 
   /**

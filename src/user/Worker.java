@@ -11,12 +11,17 @@ public class Worker extends User {
    Status of the worker will be change according to it's experience year, certificate number etc. 
   */
 
+  /** job of the worker */
   private String job;
+  /** salary of the worker */
   private double salary;
+  /** score of the worker */
   private double score = 4.0;
+  /** experience of the worker */
   private int experienceYear;
+  /**  number of votes given to the worker*/
   private int voteAmount = 1;
-  /** statu of the worker */
+  /** status of the worker */
   protected WorkerStatus workerStat;
 
   /**
