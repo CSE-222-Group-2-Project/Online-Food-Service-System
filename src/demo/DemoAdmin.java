@@ -2,10 +2,8 @@ package src.demo;
 
 import src.auth.Authentication;
 import src.restaurant.Food;
-import src.restaurant.Menu;
 import src.restaurant.Restaurant;
 import src.user.Admin;
-import src.user.Worker;
 
 import java.util.NoSuchElementException;
 import java.util.Scanner;
@@ -27,11 +25,11 @@ public class DemoAdmin {
                 switch(operation) {
                     case 1:
                         admin = (Admin)Authentication.login();
+                        admin.setRestaurant(restaurant);
                         adminAuthority(admin,restaurant);
 
                         break;
                     case 0:
-                        scan.close();
                         return;
                     default:
                         System.out.println(operation +" is not a valid value");
@@ -50,7 +48,7 @@ public class DemoAdmin {
     }
 
     private static void adminAuthority(Admin admin,Restaurant restaurant) {
-        int operation, index;
+        int operation;
         Scanner scan = new Scanner(System.in);
         while (true) {
             try {
@@ -72,11 +70,12 @@ public class DemoAdmin {
                 System.out.println("0-> Log out the account");
                 System.out.print("\nEnter the operation :");
                 operation = Integer.parseInt(scan.nextLine());
-                ;
+
 
                 switch (operation) {
 
                     case 1:
+                        System.out.println("gec");
                         admin.showWorkersInfo();
                         System.out.println();
                         break;
@@ -150,7 +149,6 @@ public class DemoAdmin {
                         break;
 
                     case 0:
-                        scan.close();
                         return;
                     default:
                         System.out.println("\nPlease, Enter a valid authority number");
