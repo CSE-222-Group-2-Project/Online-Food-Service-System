@@ -1,4 +1,4 @@
-package src.skiplist;
+package src.datastructures.skiplist;
 
 import java.util.*;
 

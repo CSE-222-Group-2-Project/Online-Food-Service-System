@@ -1,7 +1,7 @@
 package src.auth;
 
 import java.util.Scanner;
-import src.tree.BinarySearchTree;
+import src.datastructures.tree.BinarySearchTree;
 import src.user.User;
 import src.util.Utility;
 

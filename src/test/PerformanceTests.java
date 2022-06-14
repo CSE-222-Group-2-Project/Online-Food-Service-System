@@ -3,7 +3,7 @@ package src.test;
 import java.util.ArrayList;
 import java.util.Iterator;
 import src.auth.Authentication;
-import src.linkedlistwithmergesort.CustomLinkedList;
+import src.datastructures.linkedlistwithmergesort.CustomLinkedList;
 import src.restaurant.Food;
 import src.restaurant.Order;
 import src.restaurant.Restaurant;

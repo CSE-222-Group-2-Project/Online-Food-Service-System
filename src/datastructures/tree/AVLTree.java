@@ -1,13 +1,12 @@
-package src.tree;
+package src.datastructures.tree;
 
 /** Self-balancing binary search tree using the algorithm defined
  *  by Adelson-Velskii and Landis.
  *  @author Koffman and Wolfgang
  */
 
-public class AVLTree < E
-    extends Comparable < E >>
-    extends BinarySearchTreeWithRotate < E > {
+public class AVLTree<E extends Comparable<E>>
+  extends BinarySearchTreeWithRotate<E> {
 
   // Insert nested class AVLNode<E> here.
 
@@ -20,7 +19,8 @@ public class AVLTree < E
 
   /** Class to represent an AVL Node. It extends the
       BinaryTree.Node by adding the balance field. */
-  private static class AVLNode < E > extends Node < E > {
+  private static class AVLNode<E> extends Node<E> {
+
     /** Constant to indicate left-heavy */
     public static final int LEFT_HEAVY = -1;
 
@@ -60,7 +60,7 @@ public class AVLTree < E
    */
   public boolean add(E item) {
     increase = false;
-    root = add( (AVLNode < E > ) root, item);
+    root = add((AVLNode<E>) root, item);
     return addReturn;
   }
 
@@ -72,11 +72,11 @@ public class AVLTree < E
       @return The new local root of the subtree with the item
               inserted
    */
-  private AVLNode < E > add(AVLNode < E > localRoot, E item) {
+  private AVLNode<E> add(AVLNode<E> localRoot, E item) {
     if (localRoot == null) {
       addReturn = true;
       increase = true;
-      return new AVLNode < E > (item);
+      return new AVLNode<E>(item);
     }
 
     if (item.compareTo(localRoot.data) == 0) {
@@ -84,11 +84,9 @@ public class AVLTree < E
       increase = false;
       addReturn = false;
       return localRoot;
-    }
-
-    else if (item.compareTo(localRoot.data) < 0) {
+    } else if (item.compareTo(localRoot.data) < 0) {
       // item < data
-      localRoot.left = add( (AVLNode < E > ) localRoot.left, item);
+      localRoot.left = add((AVLNode<E>) localRoot.left, item);
 
       if (increase) {
         decrementBalance(localRoot);
@@ -98,24 +96,20 @@ public class AVLTree < E
         }
       }
       return localRoot; // Rebalance not needed.
-    }
-    else {
+    } else {
       // item > data
-      localRoot.right = add( (AVLNode < E > ) localRoot.right, item);
+      localRoot.right = add((AVLNode<E>) localRoot.right, item);
       if (increase) {
         incrementBalance(localRoot);
         if (localRoot.balance > AVLNode.RIGHT_HEAVY) {
           return rebalanceRight(localRoot);
-        }
-        else {
+        } else {
           return localRoot;
         }
-      }
-      else {
+      } else {
         return localRoot;
       }
     }
-
   }
 
   /**** BEGIN EXERCISE ****/
@@ -128,7 +122,7 @@ public class AVLTree < E
    */
   public E delete(E item) {
     decrease = false;
-    root = delete( (AVLNode < E > ) root, item);
+    root = delete((AVLNode<E>) root, item);
     return deleteReturn;
   }
 
@@ -142,7 +136,7 @@ public class AVLTree < E
       @return The new root of the local subtree with the item
       removed.
    */
-  private AVLNode < E > delete(AVLNode < E > localRoot, E item) {
+  private AVLNode<E> delete(AVLNode<E> localRoot, E item) {
     if (localRoot == null) { // item is not in tree
       deleteReturn = null;
       return localRoot;
@@ -151,36 +145,30 @@ public class AVLTree < E
       // item is in the tree -- need to remove it
       deleteReturn = localRoot.data;
       return findReplacementNode(localRoot);
-    }
-    else if (item.compareTo(localRoot.data) < 0) {
+    } else if (item.compareTo(localRoot.data) < 0) {
       // item is < localRoot.data
-      localRoot.left = delete( (AVLNode < E > ) localRoot.left, item);
+      localRoot.left = delete((AVLNode<E>) localRoot.left, item);
       if (decrease) {
         incrementBalance(localRoot);
         if (localRoot.balance > AVLNode.RIGHT_HEAVY) {
-          return rebalanceRightL( (AVLNode < E > ) localRoot);
-        }
-        else {
+          return rebalanceRightL((AVLNode<E>) localRoot);
+        } else {
           return localRoot;
         }
-      }
-      else {
+      } else {
         return localRoot;
       }
-    }
-    else {
+    } else {
       // item is > localRoot.data
-      localRoot.right = delete( (AVLNode < E > ) localRoot.right, item);
+      localRoot.right = delete((AVLNode<E>) localRoot.right, item);
       if (decrease) {
         decrementBalance(localRoot);
         if (localRoot.balance < AVLNode.LEFT_HEAVY) {
           return rebalanceLeftR(localRoot);
-        }
-        else {
+        } else {
           return localRoot;
         }
-      }
-      else {
+      } else {
         return localRoot;
       }
     }
@@ -199,26 +187,23 @@ public class AVLTree < E
       node.right if node.left is null
       modified copy of node with its data field changed
    */
-  private AVLNode < E > findReplacementNode(AVLNode < E > node) {
+  private AVLNode<E> findReplacementNode(AVLNode<E> node) {
     if (node.left == null) {
       decrease = true;
-      return (AVLNode < E > ) node.right;
-    }
-    else if (node.right == null) {
+      return (AVLNode<E>) node.right;
+    } else if (node.right == null) {
       decrease = true;
-      return (AVLNode < E > ) node.left;
-    }
-    else {
+      return (AVLNode<E>) node.left;
+    } else {
       if (node.left.right == null) {
         node.data = node.left.data;
         node.left = node.left.left;
         incrementBalance(node);
         return node;
-      }
-      else {
-        node.data = findLargestChild( (AVLNode < E > ) node.left);
-        if ( ( (AVLNode < E > ) node.left).balance < AVLNode.LEFT_HEAVY) {
-          node.left = rebalanceLeft( (AVLNode < E > ) node.left);
+      } else {
+        node.data = findLargestChild((AVLNode<E>) node.left);
+        if (((AVLNode<E>) node.left).balance < AVLNode.LEFT_HEAVY) {
+          node.left = rebalanceLeft((AVLNode<E>) node.left);
         }
         if (decrease) {
           incrementBalance(node);
@@ -234,17 +219,16 @@ public class AVLTree < E
       @param parent - The possible parent
       @return the value of the found node
    */
-  private E findLargestChild(AVLNode < E > parent) {
+  private E findLargestChild(AVLNode<E> parent) {
     if (parent.right.right == null) {
       E returnValue = parent.right.data;
       parent.right = parent.right.left;
       decrementBalance(parent);
       return returnValue;
-    }
-    else {
-      E returnValue = findLargestChild( (AVLNode < E > ) parent.right);
-      if ( ( (AVLNode < E > ) parent.right).balance < AVLNode.LEFT_HEAVY) {
-        parent.right = rebalanceLeft( (AVLNode < E > ) parent.right);
+    } else {
+      E returnValue = findLargestChild((AVLNode<E>) parent.right);
+      if (((AVLNode<E>) parent.right).balance < AVLNode.LEFT_HEAVY) {
+        parent.right = rebalanceLeft((AVLNode<E>) parent.right);
       }
       if (decrease) {
         decrementBalance(parent);
@@ -263,15 +247,14 @@ public class AVLTree < E
       has not changed.
       @param node The AVL node whose balance is to be incremented
    */
-  private void incrementBalance(AVLNode < E > node) {
+  private void incrementBalance(AVLNode<E> node) {
     node.balance++;
     if (node.balance > AVLNode.BALANCED) {
       /* if now right heavy, the overall height has increased, but
          it has not decreased */
       increase = true;
       decrease = false;
-    }
-    else {
+    } else {
       /* if now balanced, the overall height has not increased, but
          it has decreased. */
       increase = false;
@@ -286,13 +269,13 @@ public class AVLTree < E
          @param localRoot Root of the AVL subtree that needs rebalancing
          @return a new localRoot
    */
-  private AVLNode < E > rebalanceRight(AVLNode < E > localRoot) {
+  private AVLNode<E> rebalanceRight(AVLNode<E> localRoot) {
     // Obtain reference to right child
-    AVLNode < E > rightChild = (AVLNode < E > ) localRoot.right;
+    AVLNode<E> rightChild = (AVLNode<E>) localRoot.right;
     // See if right-left heavy
     if (rightChild.balance < AVLNode.BALANCED) {
       // Obtain reference to right-left child
-      AVLNode < E > rightLeftChild = (AVLNode < E > ) rightChild.left;
+      AVLNode<E> rightLeftChild = (AVLNode<E>) rightChild.left;
       /* Adjust the balances to be their new values after
          the rotates are performed.
        */
@@ -300,13 +283,11 @@ public class AVLTree < E
         rightChild.balance = AVLNode.BALANCED;
         rightLeftChild.balance = AVLNode.BALANCED;
         localRoot.balance = AVLNode.LEFT_HEAVY;
-      }
-      else if (rightLeftChild.balance < AVLNode.BALANCED) {
+      } else if (rightLeftChild.balance < AVLNode.BALANCED) {
         rightChild.balance = AVLNode.RIGHT_HEAVY;
         rightLeftChild.balance = AVLNode.BALANCED;
         localRoot.balance = AVLNode.BALANCED;
-      }
-      else {
+      } else {
         rightChild.balance = AVLNode.BALANCED;
         rightLeftChild.balance = AVLNode.BALANCED;
         localRoot.balance = AVLNode.BALANCED;
@@ -319,9 +300,8 @@ public class AVLTree < E
       decrease = true;
       // Perform double rotation
       localRoot.right = rotateRight(rightChild);
-      return (AVLNode < E > ) rotateLeft(localRoot);
-    }
-    else {
+      return (AVLNode<E>) rotateLeft(localRoot);
+    } else {
       /* In this case both the rightChild (the new root)
          and the root (new left child) will both be balanced
          after the rotate. Also the overall height will be
@@ -333,7 +313,7 @@ public class AVLTree < E
       increase = false;
       decrease = true;
       // Now rotate the
-      return (AVLNode < E > ) rotateLeft(localRoot);
+      return (AVLNode<E>) rotateLeft(localRoot);
     }
   }
 
@@ -344,13 +324,13 @@ public class AVLTree < E
       @param localRoot Root of the AVL subtree that needs rebalancing
       @return a new localRoot
    */
-  private AVLNode < E > rebalanceLeftR(AVLNode < E > localRoot) {
+  private AVLNode<E> rebalanceLeftR(AVLNode<E> localRoot) {
     // Obtain reference to left child
-    AVLNode < E > leftChild = (AVLNode < E > ) localRoot.left;
+    AVLNode<E> leftChild = (AVLNode<E>) localRoot.left;
     // See if left-right heavy
     if (leftChild.balance > AVLNode.BALANCED) {
       // Obtain reference to left-right child
-      AVLNode < E > leftRightChild = (AVLNode < E > ) leftChild.right;
+      AVLNode<E> leftRightChild = (AVLNode<E>) leftChild.right;
       /* Adjust the balances to be their new values after
          the rotates are performed.
        */
@@ -358,13 +338,11 @@ public class AVLTree < E
         leftChild.balance = AVLNode.LEFT_HEAVY;
         leftRightChild.balance = AVLNode.BALANCED;
         localRoot.balance = AVLNode.BALANCED;
-      }
-      else if (leftRightChild.balance > AVLNode.BALANCED) {
+      } else if (leftRightChild.balance > AVLNode.BALANCED) {
         leftChild.balance = AVLNode.BALANCED;
         leftRightChild.balance = AVLNode.BALANCED;
         localRoot.balance = AVLNode.RIGHT_HEAVY;
-      }
-      else {
+      } else {
         leftChild.balance = AVLNode.BALANCED;
         localRoot.balance = AVLNode.BALANCED;
       }
@@ -376,7 +354,7 @@ public class AVLTree < E
       decrease = true;
       // Perform double rotation
       localRoot.left = rotateLeft(leftChild);
-      return (AVLNode < E > ) rotateRight(localRoot);
+      return (AVLNode<E>) rotateRight(localRoot);
     }
     if (leftChild.balance < AVLNode.BALANCED) {
       /* In this case both the leftChild (the new root)
@@ -389,8 +367,7 @@ public class AVLTree < E
       localRoot.balance = AVLNode.BALANCED;
       increase = false;
       decrease = true;
-    }
-    else {
+    } else {
       /* After the rotate the leftChild (new root) will
          be right heavy, and the local root (new right child)
          will be left heavy. The overall height of the tree
@@ -401,7 +378,7 @@ public class AVLTree < E
       localRoot.balance = AVLNode.LEFT_HEAVY;
     }
     // Now rotate the
-    return (AVLNode < E > ) rotateRight(localRoot);
+    return (AVLNode<E>) rotateRight(localRoot);
   }
 
   /** rebalanceRightL
@@ -411,13 +388,13 @@ public class AVLTree < E
       @param localRoot Root of the AVL subtree that needs rebalancing
       @return a new localRoot
    */
-  private AVLNode < E > rebalanceRightL(AVLNode < E > localRoot) {
+  private AVLNode<E> rebalanceRightL(AVLNode<E> localRoot) {
     // Obtain reference to right child
-    AVLNode < E > rightChild = (AVLNode < E > ) localRoot.right;
+    AVLNode<E> rightChild = (AVLNode<E>) localRoot.right;
     // See if right-left heavy
     if (rightChild.balance < AVLNode.BALANCED) {
       // Obtain reference to right-left child
-      AVLNode < E > rightLeftChild = (AVLNode < E > ) rightChild.left;
+      AVLNode<E> rightLeftChild = (AVLNode<E>) rightChild.left;
       /* Adjust the balances to be their new values after
          the rotates are performed.
        */
@@ -425,13 +402,11 @@ public class AVLTree < E
         rightChild.balance = AVLNode.RIGHT_HEAVY;
         rightLeftChild.balance = AVLNode.BALANCED;
         localRoot.balance = AVLNode.BALANCED;
-      }
-      else if (rightLeftChild.balance < AVLNode.BALANCED) {
+      } else if (rightLeftChild.balance < AVLNode.BALANCED) {
         rightChild.balance = AVLNode.BALANCED;
         rightLeftChild.balance = AVLNode.BALANCED;
         localRoot.balance = AVLNode.LEFT_HEAVY;
-      }
-      else {
+      } else {
         rightChild.balance = AVLNode.BALANCED;
         localRoot.balance = AVLNode.BALANCED;
       }
@@ -443,7 +418,7 @@ public class AVLTree < E
       decrease = true;
       // Perform double rotation
       localRoot.right = rotateRight(rightChild);
-      return (AVLNode < E > ) rotateLeft(localRoot);
+      return (AVLNode<E>) rotateLeft(localRoot);
     }
     if (rightChild.balance > AVLNode.BALANCED) {
       /* In this case both the rightChild (the new root)
@@ -456,8 +431,7 @@ public class AVLTree < E
       localRoot.balance = AVLNode.BALANCED;
       increase = false;
       decrease = true;
-    }
-    else {
+    } else {
       /* After the rotate the rightChild (new root) will
          be left heavy, and the local root (new left child)
          will be right heavy. The overall height of the tree
@@ -468,7 +442,7 @@ public class AVLTree < E
       localRoot.balance = AVLNode.RIGHT_HEAVY;
     }
     // Now rotate the
-    return (AVLNode < E > ) rotateLeft(localRoot);
+    return (AVLNode<E>) rotateLeft(localRoot);
   }
 
   /**** END EXERCISE ****/
@@ -481,13 +455,13 @@ public class AVLTree < E
            that needs rebalancing
     @return a new localRoot
    */
-  private AVLNode < E > rebalanceLeft(AVLNode < E > localRoot) {
+  private AVLNode<E> rebalanceLeft(AVLNode<E> localRoot) {
     // Obtain reference to left child.
-    AVLNode < E > leftChild = (AVLNode < E > ) localRoot.left;
+    AVLNode<E> leftChild = (AVLNode<E>) localRoot.left;
     // See whether left-right heavy.
     if (leftChild.balance > AVLNode.BALANCED) {
       // Obtain reference to left-right child.
-      AVLNode < E > leftRightChild = (AVLNode < E > ) leftChild.right;
+      AVLNode<E> leftRightChild = (AVLNode<E>) leftChild.right;
       /** Adjust the balances to be their new values after
           the rotations are performed.
        */
@@ -495,16 +469,14 @@ public class AVLTree < E
         leftChild.balance = AVLNode.BALANCED;
         leftRightChild.balance = AVLNode.BALANCED;
         localRoot.balance = AVLNode.RIGHT_HEAVY;
-      }
-      else {
+      } else {
         leftChild.balance = AVLNode.LEFT_HEAVY;
         leftRightChild.balance = AVLNode.BALANCED;
         localRoot.balance = AVLNode.BALANCED;
       }
       // Perform left rotation.
       localRoot.left = rotateLeft(leftChild);
-    }
-    else { //Left-Left case
+    } else { //Left-Left case
       /** In this case the leftChild (the new root)
           and the root (new right child) will both be balanced
           after the rotation.
@@ -513,10 +485,10 @@ public class AVLTree < E
       localRoot.balance = AVLNode.BALANCED;
     }
     // Now rotate the local root right.
-    return (AVLNode < E > ) rotateRight(localRoot);
+    return (AVLNode<E>) rotateRight(localRoot);
   }
 
-  private void decrementBalance(AVLNode < E > node) {
+  private void decrementBalance(AVLNode<E> node) {
     // Decrement the balance.
     node.balance--;
     if (node.balance == AVLNode.BALANCED) {
@@ -524,5 +496,4 @@ public class AVLTree < E
       increase = false;
     }
   }
-
 }
