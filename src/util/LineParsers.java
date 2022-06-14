@@ -24,10 +24,14 @@ class LineParsers {
 
     food.setFoodID(Integer.parseInt(tokens[0]));
 
-    for (int i = 1; i < tokens.length - 2; i++) {
-      foodName.append(tokens[i] + " ");
+    if(tokens.length > 4){
+      foodName.append(tokens[1]);
+      foodName.append(" ");
+      foodName.append(tokens[2]);
+    }else{
+      foodName.append(tokens[1]);
     }
-    food.setFoodName(foodName.toString());
+    food.setFoodName(foodName.toString().trim());
     food.setFoodPrice(Integer.parseInt(tokens[tokens.length - 2]));
     food.setFoodType(tokens[tokens.length - 1]);
 

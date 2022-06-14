@@ -37,13 +37,14 @@ public class Utility {
         AVLTree<String> allIngred = new AVLTree<>();
 
         for (int i = 1; i < tokens.length; i++) {
-          if (tokens[i].equals(":")) {
+          String token = tokens[i].trim();
+          if (token.equals(":")) {
             isFoodName = false;
           }
           if (isFoodName) {
-            sb.append(tokens[i] + " ");
+            sb.append(token + " ");
           } else {
-            allIngred.add(tokens[i]);
+            allIngred.add(token);
           }
         }
         foodName = sb.toString().trim();
