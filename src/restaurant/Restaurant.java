@@ -95,6 +95,7 @@ public class Restaurant {
 
     for (int i = 0; i < 4; i++) {
       int randomNumber = rand.nextInt(foods.size());
+      System.out.print(randomNumber +  " ");
       orderFoods.add(foods.get(randomNumber));
     }
 
