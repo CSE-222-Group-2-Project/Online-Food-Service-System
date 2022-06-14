@@ -123,12 +123,25 @@ public class Courier extends Worker {
     }
   }
 
-  /* FIND THE INDEX OF DISTRICT FROM ENUM*/
+
+  /**
+   * Given a District, return the ordinal value of that District.
+   *
+   * @param district The district to find the value of.
+   * @return The ordinal value of the district.
+   */
   private int findValueOfDistrict(District district) {
     return district.ordinal();
   }
 
-  /*SHOW SHORTEST PARTH*/
+
+  /**
+   * It takes a destination as a parameter, and returns an ArrayList of Integers that represent the shortest route from the
+   * source to the destination
+   *
+   * @param destination The destination district
+   * @return The shortest route from the source to the destination.
+   */
   public ArrayList<Integer> showShortestRoute(String destination) {
     int numV = Restaurant.districtsGraph.getNumV();
     int[] pred = new int[numV];
@@ -146,7 +159,19 @@ public class Courier extends Worker {
     return shortestRoute;
   }
 
-  /* GET SHORTEST ROUTE FROM SOURCE TO THE DES*/
+
+  /**
+   * It takes in the predecessor array, the route array, the current node, and the destination node. It then checks if the
+   * current node is the destination node. If it is, it adds the current node to the route array and returns the current
+   * node. If it isn't, it adds the current node to the route array and calls the function again with the current node's
+   * predecessor as the current node
+   *
+   * @param pred the array that stores the shortest path from the source to the destination
+   * @param route the shortest route from source to destination
+   * @param i the current node
+   * @param des destination node
+   * @return The shortest route from the source to the destination.
+   */
   private int  getShortestRoute(int []pred,ArrayList<Integer> route,int i,int des){
       if(des == pred[i]){
         route.add(pred[i]);
@@ -155,9 +180,6 @@ public class Courier extends Worker {
       route.add(pred[i]);
       return getShortestRoute(pred,route,pred[i],des);
   }
-
-
-
 
 
 

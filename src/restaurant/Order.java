@@ -136,6 +136,11 @@ public class Order implements Comparable<Order> {
     status = stat;
   }
 
+  /**
+   * This function returns the destination of the edge
+   *
+   * @return The destination of the edge.
+   */
   public District getDestination(){
     return this.destination;
   }
