@@ -18,6 +18,7 @@ import src.util.Utility;
 public class Authentication {
 
   private BinarySearchTree<User> allUsers = new BinarySearchTree<>();
+  private static Scanner scanObj = new Scanner(System.in);
 
   /**
    * If the user enters a valid username and password, return the User object associated with that
@@ -31,7 +32,7 @@ public class Authentication {
     String username = "";
     String password = "";
 
-    System.out.println("WELCOME TO THE HoldON");
+    System.out.println("\n** WELCOME TO THE HoldON **\n\n");
 
     username = getUsername(name, age, username, password);
 
@@ -39,7 +40,6 @@ public class Authentication {
       System.err.println("User does not exist!");
       return null;
     }
-
     password = getPassword(name, age, username, password);
 
     if (password == null) {
@@ -66,15 +66,11 @@ public class Authentication {
     String username,
     String password
   ) {
-    Scanner scanObj = new Scanner(System.in);
-
-    System.out.println("Enter your username please: ");
+    System.out.print("Enter your username please: ");
     username = scanObj.next();
     if (!isUserExist(name, age, username, password)) {
-      scanObj.close();
       return null;
     }
-    scanObj.close();
     return username;
   }
 
@@ -95,15 +91,12 @@ public class Authentication {
     String password
   ) {
     Scanner scanObj = new Scanner(System.in);
-
-    System.out.println("Enter your password please");
+    System.out.print("\nEnter your password please: ");
     password = scanObj.next();
 
     if (!isPasswordTrue(name, age, username, password)) {
-      scanObj.close();
       return null;
     }
-    scanObj.close();
     return password;
   }
 
