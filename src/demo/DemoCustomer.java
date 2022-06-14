@@ -57,13 +57,13 @@ public class DemoCustomer {
 
   public static void printProgramMenu() {
     System.out.println("\nHere is what you can do: ");
-    System.out.println("1: See the menu");
-    System.out.println("2: Give an order");
-    System.out.println("3: See your order history");
-    System.out.println("4: Show profile info");
-    System.out.println("5: Update profile info");
-    System.out.println("6: Change your password");
-    System.out.println("7: Exit");
+    System.out.println("1-> See the menu");
+    System.out.println("2-> Give an order");
+    System.out.println("3-> See your order history");
+    System.out.println("4-> Show profile info");
+    System.out.println("5-> Update profile info");
+    System.out.println("6-> Change your password");
+    System.out.println("7-> Exit");
     System.out.print("\nPlease enter your choice: ");
   }
 
@@ -101,10 +101,11 @@ public class DemoCustomer {
     int choice = -1;
     Scanner sc = new Scanner(System.in);
     System.out.println("What do you want to update:");
-    System.out.println("1: USERNAME");
-    System.out.println("2: JOB");
-    System.out.println("3: PHONE NUMBER");
-    System.out.println("4: BUDGET");
+    System.out.println("1-> USERNAME");
+    System.out.println("2-> JOB");
+    System.out.println("3-> PHONE NUMBER");
+    System.out.println("4-> BUDGET");
+    System.out.print("5-> ADD NEW ALLGERGY");
     choice = sc.nextInt();
 
     switch (choice) {
@@ -119,6 +120,9 @@ public class DemoCustomer {
         break;
       case 4:
         updateCustomerBudget(customer);
+        break;
+      case 5:
+        addNewAllergy(customer);
         break;
       default:
         System.out.println("Invalid input. You should have entered an integer between 1-4!");
@@ -161,6 +165,15 @@ public class DemoCustomer {
     customer.setBudget(newBudget);
     System.out.println("Your budget has been updated!\n");
 
+  }
+
+  public static void addNewAllergy(Customer customer) {
+    String newAllergy = "";
+    Scanner sc = new Scanner(System.in);
+    System.out.print("Enter your allergy please: ");
+    newAllergy = sc.next();
+    customer.addAllergy(newAllergy);
+    System.out.println("Your allergy has been added!\n");
   }
 
   public static void changePassword(Customer customer) {

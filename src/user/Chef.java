@@ -92,6 +92,10 @@ public class Chef extends Worker {
     return this.certificateNumber++;
   }
 
+  public void showOrders(){
+    System.out.println(newOrders);
+  }
+
   /**
    * Calculate the status of the chef according to the experience year and certificate number.
    * successWeight = (certificateNumber * 0.3) + (experienceYear * 0.7)

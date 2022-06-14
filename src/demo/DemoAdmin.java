@@ -10,7 +10,7 @@ import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public class DemoAdmin {
-    public static void adminDemo() {
+    public static void demoAdmin() {
         Restaurant restaurant = new Restaurant();
         Admin admin = (Admin) Authentication.login();
         int choice = 0;
@@ -75,7 +75,6 @@ public class DemoAdmin {
                     System.out.println("\nPlease, Enter a valid authority number");           }
 
         }
-        sc.close();
 
     }
 
