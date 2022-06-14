@@ -1,12 +1,11 @@
 import src.demo.DemoCustomer;
 import src.test.TestCustomer;
-
-
+import src.restaurant.*;
 
 public class Driver {
 
   public static void main(String[] args) {
-    testDemos();
+    testUsers();
   }
 
   public static void testUsers() {

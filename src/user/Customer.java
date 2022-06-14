@@ -167,15 +167,15 @@ public class Customer extends User {
     // Search TreeMap and AVLTree
     for (Food food : wantedOrder.getFoods()) {
       AVLTree<String> avlTree = ingredients.get(food.getFoodName());
-      for (String allergy : allergies) {
-        if (avlTree.contains(allergy)) {
+      for (int i = 0; i < allergies.size(); i++) {
+        if (avlTree.contains(allergies.get(i))) {
           System.out.println(
               "\nYou are allergic to " +
-                  allergy +
+                  allergies.get(i) +
                   ". And " +
                   food.getFoodName() +
                   " has " +
-                  allergy);
+                  allergies.get(i));
           return true;
         }
       }
