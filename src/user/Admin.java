@@ -188,9 +188,9 @@ public class Admin extends User {
    * @param food The food object that you want to add to the menu.
    */
   public void addFoodToMenu(Food food) {
-    createFood();
-    System.out.println("Food added to Menu.");
     restaurant.addFoodtoMenu(food);
+    System.out.println("Food added to Menu.");
+
   }
 
   /**
