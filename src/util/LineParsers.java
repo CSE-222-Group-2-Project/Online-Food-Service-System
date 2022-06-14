@@ -40,7 +40,7 @@ class LineParsers {
    * @param lineText The line of text that we're parsing.
    * @return A User object.
    */
-  static User parseAndConvertUserLine(String lineText) {
+  static User parseUserLine(String lineText) {
     String[] tokens = lineText.split(" ");
     String userType = tokens[0];
 
@@ -80,50 +80,6 @@ class LineParsers {
         tokens[6],
         Double.parseDouble(tokens[7]),
         null
-      );
-    } else {
-      return null;
-    }
-  }
-
-  /**
-   * It takes a line of text, splits it into tokens, and then creates a new User object based on the
-   * first token
-   *
-   * @param lineText The line of text that we're parsing.
-   * @return A User object.
-   */
-  static User parseUserLine(String lineText) {
-    String[] tokens = lineText.split(" ");
-    String userType = tokens[0];
-
-    if (userType.equals("admin")) {
-      return new User(
-        tokens[1],
-        Integer.parseInt(tokens[2]),
-        tokens[3],
-        tokens[4]
-      );
-    } else if (userType.equals("chef")) {
-      return new User(
-        tokens[1],
-        Integer.parseInt(tokens[2]),
-        tokens[3],
-        tokens[4]
-      );
-    } else if (userType.equals("courier")) {
-      return new User(
-        tokens[1],
-        Integer.parseInt(tokens[2]),
-        tokens[3],
-        tokens[4]
-      );
-    } else if (userType.equals("customer")) {
-      return new User(
-        tokens[1],
-        Integer.parseInt(tokens[2]),
-        tokens[4],
-        tokens[5]
       );
     } else {
       return null;
