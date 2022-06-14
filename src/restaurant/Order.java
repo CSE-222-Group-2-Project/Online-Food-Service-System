@@ -25,10 +25,10 @@ public class Order implements Comparable<Order> {
   private Courier orderCourier;
   private int orderID;
   private Customer orderOwner;
-  private double coefficient = 1.0;
+  private double orderCoefficient = 1.0;
   private double orderAccount = 0.0;
   private CustomLinkedList<Food> foods = new CustomLinkedList<>();
-  private District destination;
+  private District orderDestination;
 
   // Constructers
   /**
@@ -41,12 +41,12 @@ public class Order implements Comparable<Order> {
     int orderID,
     Customer orderOwner,
     CustomLinkedList<Food> foods,
-    String destination
+    String orderDestination
   ) {
     this.orderID = orderID;
     this.orderOwner = orderOwner;
     this.foods = foods;
-    this.destination = District.valueOf(destination);
+    this.orderDestination = District.valueOf(orderDestination);
     calculateAccount();
   }
 
@@ -137,7 +137,7 @@ public class Order implements Comparable<Order> {
    * @return The destination of the edge.
    */
   public District getDestination() {
-    return this.destination;
+    return orderDestination;
   }
 
   /**
@@ -145,13 +145,13 @@ public class Order implements Comparable<Order> {
    * coefficient to 0.75."
    *
    */
-  public void coefCalc() {
+  public void calculateCoefficient() {
     if (orderOwner.isVIP()) {
-      coefficient = 0.85;
+      orderCoefficient = 0.85;
     }
 
     if (orderOwner.isStudent()) {
-      coefficient = 0.75;
+      orderCoefficient = 0.75;
     }
   }
 
@@ -162,10 +162,10 @@ public class Order implements Comparable<Order> {
    */
   public double calculateAccount() {
     double account = 0.0;
-    coefCalc();
+    calculateCoefficient();
     for (Food afood : foods) account += afood.getFoodPrice();
 
-    account *= coefficient;
+    account *= orderCoefficient;
     orderAccount = account;
     return orderAccount;
   }
