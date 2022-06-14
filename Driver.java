@@ -6,6 +6,7 @@ import src.linkedlistwithmergesort.CustomLinkedList;
 public class Driver {
 
   public static void main(String[] args) {
+
     User user = Authentication.login();
     if (user == null) {
       System.out.println("Login failed");

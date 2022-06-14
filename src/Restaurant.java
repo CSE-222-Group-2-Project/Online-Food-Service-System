@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.TreeMap;
 import java.util.TreeSet;
+
+import src.graph.Graph;
+import src.graph.ListGraph;
 import src.linkedlistwithmergesort.CustomLinkedList;
 import src.skiplist.SkipList;
 import src.tree.AVLTree;
@@ -36,6 +39,7 @@ public class Restaurant {
 
   private TreeMap<String, AVLTree<String>> ingredients;
 
+  public static Graph districtsGraph = new ListGraph(8,false);
   // Constructor
   /**  Constructer for the Restaurant class. */
   public Restaurant() {
@@ -104,6 +108,7 @@ public class Restaurant {
    * @param order the order to be added to the list of orders.
    */
   public void addOrder(Order order) {
+    this.customers.update(order.getCustomer());
     orders.addLast(order);
     income += order.getAccount();
   }
@@ -241,6 +246,8 @@ public class Restaurant {
   public void createNewMenu(Menu menu) {
     this.menu = menu;
   }
+
+
 
   /**
    * The function returns a string that contains the restaurant's income, outcome, score, menu, workers, and customers

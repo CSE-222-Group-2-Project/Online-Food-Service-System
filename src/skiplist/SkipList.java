@@ -126,7 +126,14 @@ public class SkipList<E extends Comparable<? super E>> implements Iterable<E> {
       return true;
     }
   }
+   public boolean update(E element){
+      if(this.remove(element)){
+        this.add(element);
+        return true;
+      }
+      return false;
 
+   }
   /**
    * Method to generate a logarithmic distributed integer between 1 and maxLevel.
    *  I.E. 1/2 of the values are 1, 1/4 are 2, etc.
