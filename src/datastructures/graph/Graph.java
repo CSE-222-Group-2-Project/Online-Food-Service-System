@@ -1,3 +1,4 @@
+package src.datastructures.graph;
 import java.util.*;
 
 /** Interface to specify a Graph ADT. A graph is a set

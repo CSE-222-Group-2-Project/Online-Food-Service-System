@@ -1,12 +1,14 @@
+package src.datastructures.graph;
+
 import java.util.*;
 
 /** A class for calling Dijkstra's algorithm.
- *  @author Koffman and Wolfgang
+ *  @author Group 2
  */
 
 public class DijkstrasAlgorithm {
 
-  /** Dijkstra�s Shortest-Path algorithm.
+  /** Dijkstra's Shortest-Path algorithm.
       @param graph The weighted graph to be searched
       @param start The start vertex
       @param pred Output array to contain the predecessors
@@ -22,7 +24,7 @@ public class DijkstrasAlgorithm {
   ) {
     int numV = graph.getNumV();
     HashSet<Integer> vMinusS = new HashSet<Integer>(numV);
-    // Initialize V�S.
+    // Initialize V-S.
     for (int i = 0; i < numV; i++) {
       if (i != start) {
         vMinusS.add(i);
@@ -39,7 +41,7 @@ public class DijkstrasAlgorithm {
       double minDist = Double.POSITIVE_INFINITY;
       int u = -1;
       for (int v : vMinusS) {
-        if (dist[v] < minDist) {
+        if (dist[v] <= minDist) {
           minDist = dist[v];
           u = v;
         }
