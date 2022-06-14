@@ -1,9 +1,14 @@
 package src.demo;
 
 import src.auth.Authentication;
+import src.datastructures.linkedlistwithmergesort.CustomLinkedList;
 import src.restaurant.Food;
+import src.restaurant.Menu;
+import src.restaurant.Order;
 import src.restaurant.Restaurant;
 import src.user.Admin;
+import src.user.Customer;
+import src.user.Worker;
 
 import java.util.NoSuchElementException;
 import java.util.Scanner;
@@ -12,10 +17,36 @@ public class DemoAdmin {
     public static void demoAdmin() {
         Restaurant restaurant = new Restaurant();
         Admin admin = (Admin) Authentication.login();
+        admin.setRestaurant(restaurant);
         int choice = 0;
         Scanner sc = new Scanner(System.in);
-
+        CustomLinkedList<Food> foods = new CustomLinkedList<>();
+        CustomLinkedList<Food> foods1 = new CustomLinkedList<>();
+        Customer customer = restaurant.getTestCustomer();
+        Menu menu = new Menu();
         System.out.println("\nWelcome to the HoldON " + admin.getName() + " !");
+        String IDs = "1 15";
+        String[] foodIDs = IDs.split(" ");
+        for (String id : foodIDs) {
+            Food food = menu.getFood(Integer.parseInt(id));
+            if (food != null) {
+                foods.add(food);
+            }
+        }
+
+        IDs = "3 12";
+        foodIDs = IDs.split(" ");
+        for (String id : foodIDs) {
+            Food food = menu.getFood(Integer.parseInt(id));
+            if (food != null) {
+                foods1.add(food);
+            }
+        }
+
+        Order order = new Order(1, restaurant.getTestCustomer(), foods, "ATATURK");
+        Order order1 = new Order(2, restaurant.getTestCustomer(), foods1, "ATATURK");
+        restaurant.addOrder(order);
+        restaurant.addOrder(order1);
 
         while (choice != 13) {
             printProgramMenu();
@@ -23,51 +54,56 @@ public class DemoAdmin {
             switch (choice) {
                 case 1:
                     admin.showWorkersInfo();
-                    System.out.println();
+                    System.out.println("\nWorkers has been shown\n\n");
                     break;
                 case 2:
                     admin.showCustomersInfo();
-                    System.out.println();
+                    System.out.println("\nPast customers has been shown\n\n");
                     break;
                 case 3:
                     admin.printIncomeAndOutcome();
-                    System.out.println();
+                    System.out.println("\nIncome and Outcome has been printed\n\n");
                     break;
                 case 4:
-                    // admin.hiringWorker();
-                    System.out.println();
-
+                    getNewWorker(admin);
+                    System.out.println("\n\nNew Worker has been hired!\n\n");
                     break;
                 case 5:
                     admin.fireWorker();
-                    System.out.println();
+                    System.out.println("\n\nWorkers with less than 4.0 score has been fired!\n\n");
 
                     break;
                 case 6:
                     admin.editSalary();
-                    System.out.println();
+                    System.out.println("\n\nWorkers with more than 8.0 has been promoted!\n\n");
 
                     break;
                 case 7:
                     admin.printAllOrders();
-                    System.out.println();
-
+                    System.out.println("\n\nAll past orders has been printed\n\n");
                     break;
                 case 8:
                     addFoodToMenu(admin);
+                    System.out.println("\n\nFood has been added to menu\n\n");
                     break;
                 case 9:
                     deleteFoodFromMenu(admin);
+                    System.out.println("\n\nFood has been deleted from the menu\n\n");
                     break;
                 case 10:
                     admin.seeMenu();
+                    System.out.println("\n\nMenu has been shown\n\n");
                     break;
                 case 11:
                     admin.customerOfTheMonth();
+                    System.out.println("\nCustomer of the month has been printed\n\n");
                     break;
                 case 12:
                     System.out.println(admin);
+                    System.out.println("\n\nAdmin info has been shown\n\n");
+                    break;
                 case 13:
+                    System.out.println("\n\nSee you later boss!\n\n");
                     return;
                 default:
                     System.out.println("\nInvalid input! Enter an integer between 1-13 please!\n");
@@ -75,6 +111,11 @@ public class DemoAdmin {
 
         }
 
+    }
+
+    public static void getNewWorker(Admin admin) {
+        Worker newWorker = new Worker("Serhat", 20, "serosa", "sesesa", "Chef", 2);
+        admin.hiringWorker(newWorker);
     }
 
     public static void printProgramMenu() {

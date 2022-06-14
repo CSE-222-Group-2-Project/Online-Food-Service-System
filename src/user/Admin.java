@@ -14,7 +14,8 @@ import src.restaurant.Restaurant;
  */
 
 /**
- * Admin class is a subclass of User class and it has some methods to control the restaurant
+ * Admin class is a subclass of User class and it has some methods to control
+ * the restaurant
  */
 public class Admin extends User {
 
@@ -23,27 +24,29 @@ public class Admin extends User {
 
   // Constructors
 
-  /** Constructor of the Admin class
+  /**
+   * Constructor of the Admin class
+   * 
    * @param restaurant the restaurant object
-   * @param username the username of the admin
-   * @param password the password of the admin
-   * @param name the name of the admin
-   * @param age the age of the admin
+   * @param username   the username of the admin
+   * @param password   the password of the admin
+   * @param name       the name of the admin
+   * @param age        the age of the admin
    */
   public Admin(
-    Restaurant restaurant,
-    String name,
-    int age,
-    String username,
-    String password
-  ) {
+      Restaurant restaurant,
+      String name,
+      int age,
+      String username,
+      String password) {
     super(name, age, username, password);
     this.restaurant = restaurant;
   }
 
   // Methods
   /**
-   * Shows the informations which are about workers are Job, Name, Age and Certificate number if it exists
+   * Shows the informations which are about workers are Job, Name, Age and
+   * Certificate number if it exists
    */
   public void showWorkersInfo() {
     for (Worker worker : restaurant.getWorkers()) {
@@ -51,15 +54,16 @@ public class Admin extends User {
       System.out.println("Name: " + worker.getName());
       System.out.println("Age: " + worker.getAge());
 
-      if (worker instanceof Chef) System.out.println(
-        "Certification Number: " + ((Chef) worker).getCertificateNumber()
-      );
+      if (worker instanceof Chef)
+        System.out.println(
+            "Certification Number: " + ((Chef) worker).getCertificateNumber());
       System.out.println("---------------");
     }
   }
 
   /**
-   * Shows the informations which are about customers are Job, Name, Age, Balance, Order number and Phone number
+   * Shows the informations which are about customers are Job, Name, Age, Balance,
+   * Order number and Phone number
    */
   public void showCustomersInfo() {
     for (Customer customer : restaurant.getCustomers()) {
@@ -80,17 +84,16 @@ public class Admin extends User {
     System.out.println("The total income is " + restaurant.getIncome());
     System.out.println("The total outcome is " + restaurant.getOutcome());
     System.out.println(
-      "The profit is " + (restaurant.getIncome() - restaurant.getOutcome())
-    );
+        "The profit is " + (restaurant.getIncome() - restaurant.getOutcome()));
   }
 
   /**
    * Prints all restaurant's order
    */
   public void printAllOrders() {
-    for (Order anOrder : restaurant.getOrders()) System.out.println(
-      anOrder.toString()
-    );
+    for (Order anOrder : restaurant.getOrders())
+      System.out.println(
+          anOrder.toString());
     System.out.println("Orders have been printed.");
   }
 
@@ -99,18 +102,17 @@ public class Admin extends User {
    */
   public void fireWorker() {
     for (Worker worker : restaurant.getWorkers()) {
-      if (
-        worker.getVoteAmount() > 10 &&
-        worker.getScore() / worker.getVoteAmount() < 4 //workers with more than 10 number of orders
-      ) { //and workers with less than 4.0 score
+      if (worker.getVoteAmount() > 10 &&
+          worker.getScore() / worker.getVoteAmount() < 4 // workers with more than 10 number of orders
+      ) { // and workers with less than 4.0 score
         System.out.println(
-          worker.getName() +
-          " has been fired with " +
-          worker.getScore() /
-          worker.getVoteAmount() +
-          " score."
-        );
-        restaurant.getWorkers().remove(worker); //Remove workers from array list
+            worker.getName() +
+                " has been fired with " +
+                worker.getScore() /
+                    worker.getVoteAmount()
+                +
+                " score.");
+        restaurant.getWorkers().remove(worker); // Remove workers from array list
       }
     }
     System.out.println("Worker has been fired.");
@@ -118,6 +120,7 @@ public class Admin extends User {
 
   /**
    * Adds new worker to array list
+   * 
    * @param newWorker Accepts new worker
    */
   public void hiringWorker(Worker newWorker) {
@@ -132,19 +135,20 @@ public class Admin extends User {
     for (Worker worker : restaurant.getWorkers()) {
       if (worker.getScore() / worker.getVoteAmount() > 8) { // If score is more than 8
         worker.setSalary(
-          worker.getSalary() +
-          worker.getExperienceYear() *
-          100 *
-          (worker.getScore() / worker.getVoteAmount())
-        );
-        worker.setScore(4); //Reset the score
+            worker.getSalary() +
+                worker.getExperienceYear() *
+                    100 *
+                    (worker.getScore() / worker.getVoteAmount()));
+        worker.setScore(4); // Reset the score
       }
     }
     System.out.println("Salaries have been updated.");
   }
 
+
   /**
    * Creates a new food by taking information from cheif
+   * 
    * @return Returns the new Food object
    */
   public Food createFood() {
@@ -160,24 +164,23 @@ public class Admin extends User {
     foodPrice = Double.parseDouble(scanner.nextLine());
     System.out.println("Enter food ID  :");
     foodId = Integer.parseInt(scanner.nextLine());
-    return createFood(foodId,foodName,foodPrice,foodType);
+    return createFood(foodId, foodName, foodPrice, foodType);
   }
 
   /**
    * This function creates a new Food object and returns it.
    *
-   * @param foodId The id of the food.
-   * @param foodName The name of the food.
+   * @param foodId    The id of the food.
+   * @param foodName  The name of the food.
    * @param foodPrice The price of the food.
-   * @param foodType The type of food.
+   * @param foodType  The type of food.
    * @return A new instance of the Food class.
    */
   public Food createFood(
-    int foodId,
-    String foodName,
-    double foodPrice,
-    String foodType
-  ) {
+      int foodId,
+      String foodName,
+      double foodPrice,
+      String foodType) {
     System.out.println("Food has been created.");
     return new Food(foodId, foodName, foodPrice, foodType);
   }
@@ -236,29 +239,30 @@ public class Admin extends User {
   /**
    * Print the name of the customer of the month.
    */
-  public void customerOfTheMonth(){
-    System.out.println("Best Of the Month is : ");
-    // System.out.println(restaurant.monthOfTheCustomer());
+  public void customerOfTheMonth() {
+    System.out.println("\n\n\nBest Of the Month is : \n");
+   System.out.println(restaurant.getCustomers().getLast());
   }
 
   /**
-   * The setRestaurant function takes in a Restaurant object and sets the restaurant instance variable to the Restaurant
+   * The setRestaurant function takes in a Restaurant object and sets the
+   * restaurant instance variable to the Restaurant
    * object that was passed in
    *
    * @param restaurant The restaurant object that is being passed in.
    */
-  public void setRestaurant(Restaurant restaurant){
+  public void setRestaurant(Restaurant restaurant) {
     this.restaurant = restaurant;
   }
 
-
   /**
- * If the other object is an instance of the User class, then return true if the username is the same,
- * otherwise return false
- * 
- * @param other The object to compare this Admin against
- * @return The hashcode of the username.
- */
+   * If the other object is an instance of the User class, then return true if the
+   * username is the same,
+   * otherwise return false
+   * 
+   * @param other The object to compare this Admin against
+   * @return The hashcode of the username.
+   */
   @Override
   public boolean equals(Object other) {
     if (other instanceof Admin) {
@@ -268,16 +272,16 @@ public class Admin extends User {
     return false;
   }
 
-
-
-/**
- * If the name of this user is less than the name of the other user, return a negative number; if the
- * name of this user is greater than the name of the other user, return a positive number; if the names
- * are equal, return 0.
- * 
- * @param other The other user to compare to.
- * @return The name of the user.
- */
+  /**
+   * If the name of this user is less than the name of the other user, return a
+   * negative number; if the
+   * name of this user is greater than the name of the other user, return a
+   * positive number; if the names
+   * are equal, return 0.
+   * 
+   * @param other The other user to compare to.
+   * @return The name of the user.
+   */
   @Override
   public int compareTo(User other) {
     return getName().compareTo(other.getName());

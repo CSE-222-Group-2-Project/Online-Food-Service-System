@@ -7,10 +7,7 @@ import src.test.TestAdmin;
 import src.test.TestChef;
 import src.test.TestCourier;
 import src.test.TestCustomer;
-
 public class Driver {
-
-
   public static void main(String[] args) {
     testUsers();
     testDemos();
