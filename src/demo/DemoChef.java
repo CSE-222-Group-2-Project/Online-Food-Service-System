@@ -3,6 +3,8 @@ package src.demo;
 import java.util.Scanner;
 
 import src.auth.Authentication;
+import src.restaurant.Food;
+import src.restaurant.Order;
 import src.user.Chef;
 
 import java.util.NoSuchElementException;
@@ -42,6 +44,52 @@ public class DemoChef {
         }
     }
 
+    private static void chefAuthority(Chef chef, Order order){
+        int operation;
+        Scanner scan = new Scanner(System.in);
+        while (true) {
+            try {
+                System.out.println("======================================");
+                System.out.println("\nWelcome Mr/Mrs " + chef.getName());
+                System.out.println("Please select following operation\n");
+                System.out.println("1-> Add Order");
+                System.out.println("2-> Prepare Order");
+                System.out.println("3-> Show My Information");
 
+
+                System.out.println("0-> Log out the account");
+                System.out.print("\nEnter the operation :");
+                operation = Integer.parseInt(scan.nextLine());
+
+
+                switch (operation) {
+
+                    case 1:
+                        chef.addOrder(order);
+                        System.out.println("Order is added");
+
+                        break;
+                    case 2:
+                        chef.prepareOrder();
+                        System.out.println();
+
+                        break;
+                    case 3:
+                        System.out.println(chef);
+                        break;
+                    case 0:
+                        scan.close();
+                        return;
+                    default:
+                        System.out.println("\nPlease, Enter a valid authority number");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("\nThe entered type is wrong,\nPlease enter the valid");
+            } catch (NoSuchElementException e) {
+                System.out.println("\nThe entered type is wrong,\nPlease enter the valid type");
+
+            }
+        }
+    }
 }
 

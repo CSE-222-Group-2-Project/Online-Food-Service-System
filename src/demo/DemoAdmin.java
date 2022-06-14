@@ -66,6 +66,7 @@ public class DemoAdmin {
                 System.out.println("9-> Delete Food from Menu");
                 System.out.println("10-> See the Menu");
                 System.out.println("11-> See the Month of The Customer");
+                System.out.println("12-> Show My Information");
 
                 System.out.println("0-> Log out the account");
                 System.out.print("\nEnter the operation :");
@@ -147,7 +148,8 @@ public class DemoAdmin {
                     case 11:
                         admin.customerOfTheMonth();
                         break;
-
+                    case 12:
+                        System.out.println(admin);
                     case 0:
                         return;
                     default:
