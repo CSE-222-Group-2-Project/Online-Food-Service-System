@@ -119,10 +119,6 @@ public class Courier extends Worker {
     }
   }
 
-  public void showOrders(){
-    System.out.print(orderQueue);
-  }
-
   /**
    * Calculate the status of the courier accordinıg to the experience year.
    */
@@ -173,7 +169,7 @@ public class Courier extends Worker {
     District dest = District.valueOf(destination);
 
     ArrayList<Integer> shortestRoute = new ArrayList<>();
-    shortestRoute.add(source.ordinal());
+
 
 
     getShortestRoute(
@@ -190,6 +186,7 @@ public class Courier extends Worker {
 
     ListIterator<Integer> iterator = shortestRoute.listIterator(shortestRoute.size()-1);
     District[] values = District.values();
+    System.out.print(source+" ->> ");
     while (iterator.hasPrevious()) {
       Integer district = iterator.previous();
       System.out.print(values[district].name() + " ->> ");
