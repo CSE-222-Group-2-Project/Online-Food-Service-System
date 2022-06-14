@@ -121,9 +121,11 @@ public class Food implements Comparable<Food> {
    */
   @Override
   public int compareTo(Food o) {
-    if (getFoodPrice() > o.getFoodPrice()) return 1; else if (
-      getFoodPrice() < o.getFoodPrice()
-    ) return -1; else return 0;
+    if (getFoodPrice() > o.getFoodPrice()) {
+      return 1;
+    } else if (getFoodPrice() < o.getFoodPrice()) {
+      return -1;
+    } else return 0;
   }
 
   /**
