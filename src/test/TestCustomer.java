@@ -9,7 +9,7 @@ public class TestCustomer {
 
         Restaurant kebelekCafe = new Restaurant();
         CustomLinkedList<Food> foods = kebelekCafe.createRandomFoods();
-        
+
         Customer customer1 = new Customer(
             "Gojou",
             22,
@@ -50,7 +50,7 @@ public class TestCustomer {
         System.out.println(customer1.getBudget() + "\n\n");
     
         System.out.println("TESTING GIVE ORDER NUMBER METHOD OF CUSTOMER CLASS...");
-        customer1.giveOrder(kebelekCafe,testOrder);
+        //customer1.giveOrder(kebelekCafe,testOrder);
 
         System.out.println("TESTING SEE MENU NUMBER METHOD OF CUSTOMER CLASS...");
         //customer1.seeMenu();
