@@ -1,5 +1,6 @@
 package src.util;
 
+import java.util.ArrayList;
 import src.restaurant.Food;
 import src.user.Admin;
 import src.user.Chef;
@@ -71,6 +72,10 @@ class LineParsers {
         Integer.parseInt(tokens[6])
       );
     } else if (userType.equals("customer")) {
+      ArrayList<String> allergies = new ArrayList<>();
+      if (tokens.length > 8) {
+        allergies.add(tokens[8]);
+      }
       return new Customer(
         tokens[1],
         Integer.parseInt(tokens[2]),
@@ -79,7 +84,7 @@ class LineParsers {
         tokens[5],
         tokens[6],
         Double.parseDouble(tokens[7]),
-        null
+        allergies
       );
     } else {
       return null;

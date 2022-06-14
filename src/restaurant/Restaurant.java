@@ -84,7 +84,7 @@ public class Restaurant {
    */
   public CustomLinkedList<Food> createRandomFoods() {
     Random rand = new Random();
-    CustomLinkedList<Food> foods = menu.getFoods();
+    CustomLinkedList<Food> foods = menu.getMenu();
     CustomLinkedList<Food> orderFoods = new CustomLinkedList<>();
 
     for (int i = 0; i < 4; i++) {
@@ -232,7 +232,7 @@ public class Restaurant {
    * @return A boolean value.
    */
   public boolean deleteFoodFromMenu(int id) {
-    CustomLinkedList<Food> temp = this.menu.getFoods();
+    CustomLinkedList<Food> temp = this.menu.getMenu();
     for (Food food : temp) {
       if (food.getFoodID() == id) {
         temp.remove(food);
@@ -249,7 +249,7 @@ public class Restaurant {
    * @return A boolean value.
    */
   public boolean deleteFoodFromMenu(Food food) {
-    Food removed = this.menu.getFoods().remove(food);
+    Food removed = this.menu.getMenu().remove(food);
 
     if (removed != null) return true; else return false;
   }
@@ -260,7 +260,7 @@ public class Restaurant {
    * @param food The food object to be added to the menu
    */
   public void addFoodtoMenu(Food food) {
-    this.menu.getFoods().add(food);
+    this.menu.getMenu().add(food);
   }
 
   /**
