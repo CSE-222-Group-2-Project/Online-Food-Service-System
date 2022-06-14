@@ -11,11 +11,11 @@ public class TestAdmin {
   public static void testAdmin() {
     Restaurant kebelekCafe = new Restaurant();
     Admin admin = new Admin(
-      kebelekCafe,
-      "Fatih Erdogan",
-      40,
-      "gtu1234",
-      "1234"
+            kebelekCafe,
+            "Fatih Erdogan",
+            40,
+            "gtu1234",
+            "1234"
     );
     System.out.println("TESTING ADMIN METHODS...");
     System.out.println("\n\n");
@@ -26,7 +26,7 @@ public class TestAdmin {
     admin.showCustomersInfo();
     System.out.println("\n\n");
     System.out.println(
-      "TESTING PRINT INCOME AND OUTCOME METHOD OF ADMIN CLASS..."
+            "TESTING PRINT INCOME AND OUTCOME METHOD OF ADMIN CLASS..."
     );
     admin.printIncomeAndOutcome();
     System.out.println("\n\n");
@@ -38,7 +38,7 @@ public class TestAdmin {
     System.out.println("\n\n");
     System.out.println("TESTING HIRING WORKER METHOD OF ADMIN CLASS...");
     admin.hiringWorker(
-      new Worker("Ahmet", 30, "ahmet", "gtu1234", "student", 3)
+            new Worker("Ahmet", 30, "ahmet", "gtu1234", "student", 3)
     );
     System.out.println("\n\n");
     System.out.println("TESTING EDIT SALARY METHOD...");
@@ -51,7 +51,7 @@ public class TestAdmin {
     admin.addFoodToMenu(new Food(3, "cacık", 15, "corba"));
     System.out.println("\n\n");
     System.out.println(
-      "TESTING DELETE FOOD FROM MENU BY FOOD OBJECT METHOD OF ADMIN CLASS..."
+            "TESTING DELETE FOOD FROM MENU BY FOOD OBJECT METHOD OF ADMIN CLASS..."
     );
     admin.deleteFoodFromMenu(new Food(3, "cacık", 15, "corba"));
     System.out.println("\n\n");
@@ -63,6 +63,9 @@ public class TestAdmin {
     System.out.println("\n\n");
     System.out.println("TESTING SEE MENU METHOD OF ADMIN CLASS...");
     admin.seeMenu();
+    System.out.println("\n\n");
+    System.out.println("TESTING SHOW CUSTOMER OF THE MONTH...");
+    admin.customerOfTheMonth();
     System.out.println("\n\n");
     System.out.println("TESTING TO STRING METHOD OF ADMIN CLASS...");
     System.out.println(admin.toString());
