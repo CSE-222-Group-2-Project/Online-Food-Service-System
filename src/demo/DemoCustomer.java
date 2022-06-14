@@ -2,11 +2,13 @@ package src.demo;
 
 import java.util.Scanner;
 import src.auth.Authentication;
+import src.restaurant.Restaurant;
 import src.user.Customer;
 
 public class DemoCustomer {
 
   public static void demoCustomer() {
+    Restaurant restaurant = new Restaurant();
     Customer customer = (Customer) Authentication.login();
     int choice = 0;
     Scanner sc = new Scanner(System.in);
@@ -18,6 +20,7 @@ public class DemoCustomer {
     System.out.println("4. Edit your profile");
     System.out.println("5. Logout");
     System.out.println("\nPlease enter your choice: ");
-    choice = sc.nextInt();
+    //choice = sc.nextInt();
+    customer.seeMenu();
   }
 }
