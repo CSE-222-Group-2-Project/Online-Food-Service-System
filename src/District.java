@@ -1,6 +1,7 @@
 package src;
 
 public enum District {
+    RESTAURANT,
     AKSE,
     ATATURK,
     CUMHURIYET,

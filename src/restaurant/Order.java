@@ -1,6 +1,8 @@
 package src.restaurant;
 
 import java.util.Comparator;
+
+import src.District;
 import src.datastructures.linkedlistwithmergesort.CustomLinkedList;
 import src.user.Chef;
 import src.user.Courier;
@@ -37,7 +39,7 @@ public class Order implements Comparable<Order> {
   private double account = 0.0;
   private CustomLinkedList<Food> foods = new CustomLinkedList<Food>();
 
-  private String destination;
+  private District destination;
   // Constructers
   /**
    * Constructor of the Order class
@@ -49,7 +51,7 @@ public class Order implements Comparable<Order> {
     this.orderID = orderID;
     orderOwner = customer;
     foods = _foods;
-    this.destination = destination;
+    this.destination = District.valueOf(destination);
     calculateAccount();
   }
 
