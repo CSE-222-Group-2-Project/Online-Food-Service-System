@@ -3,7 +3,7 @@ package src.restaurant;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.TreeMap;
-import src.Constants.District;
+import src.constants.District;
 import src.datastructures.graph.*;
 import src.datastructures.linkedlistwithmergesort.CustomLinkedList;
 import src.datastructures.skiplist.SkipList;

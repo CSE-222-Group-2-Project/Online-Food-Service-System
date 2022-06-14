@@ -1,4 +1,4 @@
-package src.Constants;
+package src.constants;
 
 public enum District {
     RESTAURANT,

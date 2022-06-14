@@ -2,7 +2,7 @@ package src.user;
 
 import java.util.ArrayList;
 import java.util.PriorityQueue;
-import src.Constants.District;
+import src.constants.District;
 import src.datastructures.graph.DijkstrasAlgorithm;
 import src.restaurant.Order;
 import src.restaurant.Restaurant;
