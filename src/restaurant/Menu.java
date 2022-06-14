@@ -6,8 +6,8 @@ import src.util.Utility;
 /**
  *The Menu class is a class that contains  Food objects.
  * @author Group 2
- * @version 1.0.0
- * @since 08.04.2022
+ * @version 2.0.0
+ * @since 14.06.2022
  */
 
 /**
@@ -16,8 +16,7 @@ import src.util.Utility;
 public class Menu {
 
   // Creating a new LinkedList of Food objects.
-  private static CustomLinkedList<Food> menu = new CustomLinkedList<Food>();
-  int id;
+  private static CustomLinkedList<Food> menu = new CustomLinkedList<>();
 
   /**
    * Default Constructor of the Menu class
@@ -31,7 +30,7 @@ public class Menu {
    * @param otherMenu The LinkedList of Food objects.
    */
   public Menu(CustomLinkedList<Food> otherMenu) {
-    this.menu = otherMenu;
+    Menu.menu = otherMenu;
   }
 
   /**
@@ -39,7 +38,7 @@ public class Menu {
    *
    * @return The menu list is being returned.
    */
-  public CustomLinkedList<Food> get_foods() {
+  public CustomLinkedList<Food> getFoods() {
     return menu;
   }
 

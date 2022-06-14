@@ -18,6 +18,7 @@ import src.util.Utility;
 public class Authentication {
 
   private BinarySearchTree<User> allUsers = new BinarySearchTree<>();
+
   private static Scanner scanObj = new Scanner(System.in);
 
   /**
@@ -120,15 +121,6 @@ public class Authentication {
   }
 
   /**
-   * This function adds a new user to the list of all users.
-   *
-   * @param newUser The user object that is being created.
-   */
-  public void createUser(User newUser) {
-    allUsers.add(newUser);
-  }
-
-  /**
    * If the user exists in the database, return true, otherwise return false.
    *
    * @param name The name of the user.
@@ -184,5 +176,14 @@ public class Authentication {
   ) {
     User user = getUser(name, age, username, password);
     return user.getPassword();
+  }
+
+  /**
+   * This function adds a new user to the list of all users.
+   *
+   * @param newUser The user object that is being created.
+   */
+  public void createUser(User newUser) {
+    allUsers.add(newUser);
   }
 }

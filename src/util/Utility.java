@@ -148,7 +148,7 @@ public class Utility {
       Scanner myReader = new Scanner(file);
       while (myReader.hasNextLine()) {
         String lineText = myReader.nextLine();
-        allUsers.add(LineParsers.parseUserLine(lineText));
+        allUsers.add((User) LineParsers.parseAndConvertUserLine(lineText));
       }
       myReader.close();
       return allUsers;

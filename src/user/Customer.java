@@ -227,8 +227,7 @@ public class Customer extends User {
     Menu.seeMenu();
   }
 
-  @Override
-  public int compareTo(User other) {
+  public int compareTo(Customer other) {
     int res;
     Customer otherCustomer = (Customer) other;
     if (this.getOrderNumber() > otherCustomer.getOrderNumber()) {
@@ -239,7 +238,7 @@ public class Customer extends User {
     return res;
   }
 
-  public int compareTo(Admin other) {
+  public int compareTo(User other) {
     return getName().compareTo(other.getName());
   }
 

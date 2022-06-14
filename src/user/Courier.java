@@ -163,7 +163,7 @@ public class Courier extends Worker {
     return shortestRoute;
   }
 
-  public int compareTo(Admin other) {
+  public int compareTo(User other) {
     return getName().compareTo(other.getName());
   }
 
