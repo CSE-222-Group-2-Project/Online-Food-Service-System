@@ -12,20 +12,12 @@ public class Driver {
       return;
     } else if (user instanceof Admin) {
       Admin admin = (Admin) user;
-      System.out.println("Welcome " + admin.getName());
-      admin.printMenu();
     } else if (user instanceof Chef) {
       Chef chef = (Chef) user;
-      System.out.println("Welcome " + chef.getName());
-      chef.printMenu();
     } else if (user instanceof Customer) {
       Customer customer = (Customer) user;
-      System.out.println("Welcome " + customer.getName());
-      customer.printMenu();
     } else if (user instanceof Courier) {
       Courier courier = (Courier) user;
-      System.out.println("Welcome " + courier.getName());
-      courier.printMenu();
     }
   }
 

@@ -27,7 +27,6 @@ public class Authentication {
     "../src/database/user_database/users.txt";
   private static final String MENU_DATABASE_PATH =
     "../src/database/restaurant_database/menu.txt";
-
   private static final String INGREDIENT_DATABASE_PATH =
     "../src/database/ingredients_database/ingredients.txt";
 
@@ -44,45 +43,100 @@ public class Authentication {
     int age = 0;
     String username = "";
     String password = "";
-    Scanner scanner = new Scanner(System.in);
 
     System.out.println("WELCOME TO THE HoldON");
-    System.out.println("Enter your username: ");
-    username = scanner.nextLine();
-    System.out.println("Enter your password: ");
-    password = scanner.nextLine();
 
-    username = getUsernameFromUserForLogIn(name, age, username, password);
+    username = getUsername(name, age, username, password);
 
     if (username.equals("login-failed")) {
       return null;
     }
 
-    password = getPasswordFromUserForLogIn(name, age, username, password);
+    password = getPassword(name, age, username, password);
 
     if (password.equals("login-failed")) {
       return null;
     }
 
-    return getUserFromUsername(name, age, username, password);
+    return getUser(name, age, username, password);
   }
 
   /**
-   * This function takes in a name, age, username, and password, and returns a User object.
+   * It takes in the user's name, age, username, and password, and returns the username if the user
+   * exists, and returns "login-failed" if the user does not exist
    *
    * @param name The name of the user.
-   * @param age The age of the user
-   * @param username The username of the user you want to log in.
+   * @param age The age of the user.
+   * @param username The username of the user.
    * @param password The password of the user.
-   * @return The user object
+   * @return The username is being returned.
    */
-  public static User logIn(
+  private static String getUsername(
     String name,
     int age,
     String username,
     String password
   ) {
-    return getUserFromUsername(name, age, username, password);
+    Scanner scanObj = new Scanner(System.in);
+
+    System.out.println("Enter your username please: ");
+    username = scanObj.next();
+    if (isUserExist(name, age, username, password)) {
+      System.err.println("User does not exist! Please sign up.");
+      scanObj.close();
+      return "login-failed";
+    }
+    scanObj.close();
+    return username;
+  }
+
+  /**
+   * It asks the user to enter their password, and if the password is correct, it returns the password,
+   * otherwise it returns "login-failed"
+   *
+   * @param name The name of the user
+   * @param age The age of the user
+   * @param username The username of the user
+   * @param password The password that the user entered.
+   * @return A string
+   */
+  private static String getPassword(
+    String name,
+    int age,
+    String username,
+    String password
+  ) {
+    Scanner scanObj = new Scanner(System.in);
+
+    System.out.println("Enter your password please");
+    password = scanObj.next();
+
+    if (isPasswordTrue(name, age, username, password)) {
+      System.out.println("Password is not correct! Could not login.");
+      scanObj.close();
+      return "login-failed";
+    }
+    scanObj.close();
+    return password;
+  }
+
+  /**
+   * Get all users from the database, and then find the user with the given username.
+   *
+   * @param name The name of the user.
+   * @param age The age of the user
+   * @param username The username of the user you want to get.
+   * @param password The password of the user.
+   * @return A User object.
+   */
+  private static User getUser(
+    String name,
+    int age,
+    String username,
+    String password
+  ) {
+    BinarySearchTree<User> allUsers = getAllUsersFromDatabase();
+    return allUsers.find(new User(name, age, username, password));
   }
 
   /**
@@ -94,7 +148,6 @@ public class Authentication {
     allUsers.add(newUser);
   }
 
-  //USES OF TreeMap and AVL
   public static TreeMap<String, AVLTree<String>> getIngredientsFromDatabase() {
     try {
       TreeMap<String, AVLTree<String>> ingredients = new TreeMap<>();
@@ -232,65 +285,6 @@ public class Authentication {
   }
 
   /**
-   * It takes in the user's name, age, username, and password, and returns the username if the user
-   * exists, and returns "login-failed" if the user does not exist
-   *
-   * @param name The name of the user.
-   * @param age The age of the user.
-   * @param username The username of the user.
-   * @param password The password of the user.
-   * @return The username is being returned.
-   */
-  private static String getUsernameFromUserForLogIn(
-    String name,
-    int age,
-    String username,
-    String password
-  ) {
-    Scanner scanObj = new Scanner(System.in);
-
-    System.out.println("Enter your username please: ");
-    username = scanObj.next();
-    if (isUserExist(name, age, username, password)) {
-      System.err.println("User does not exist! Please sign up.");
-      scanObj.close();
-      return "login-failed";
-    }
-    scanObj.close();
-    return username;
-  }
-
-  /**
-   * It asks the user to enter their password, and if the password is correct, it returns the password,
-   * otherwise it returns "login-failed"
-   *
-   * @param name The name of the user
-   * @param age The age of the user
-   * @param username The username of the user
-   * @param password The password that the user entered.
-   * @return A string
-   */
-  private static String getPasswordFromUserForLogIn(
-    String name,
-    int age,
-    String username,
-    String password
-  ) {
-    Scanner scanObj = new Scanner(System.in);
-
-    System.out.println("Enter your password please");
-    password = scanObj.next();
-
-    if (isPasswordTrue(name, age, username, password)) {
-      System.out.println("Password is not correct! Could not login.");
-      scanObj.close();
-      return "login-failed";
-    }
-    scanObj.close();
-    return password;
-  }
-
-  /**
    * If the user exists in the database, return true, otherwise return false.
    *
    * @param name The name of the user.
@@ -346,25 +340,6 @@ public class Authentication {
   ) {
     User user = getUserFromUsername(name, age, username, password);
     return user.getPassword();
-  }
-
-  /**
-   * Get all users from the database, and then find the user with the given username.
-   *
-   * @param name The name of the user.
-   * @param age The age of the user
-   * @param username The username of the user you want to get.
-   * @param password The password of the user.
-   * @return A User object.
-   */
-  private static User getUserFromUsername(
-    String name,
-    int age,
-    String username,
-    String password
-  ) {
-    BinarySearchTree<User> allUsers = getAllUsersFromDatabase();
-    return allUsers.find(new User(name, age, username, password));
   }
 
   /**
