@@ -53,7 +53,6 @@ public class Utility {
           }
         }
         foodName = sb.toString().trim();
-        System.out.print(foodName);
         ingredients.put(foodName, allIngred);
       }
       myReader.close();
