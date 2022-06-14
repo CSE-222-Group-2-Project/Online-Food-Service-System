@@ -75,7 +75,6 @@ public class DemoAdmin {
                     System.out.println("\nPlease, Enter a valid authority number");           }
 
         }
-        sc.close();
 
     }
 

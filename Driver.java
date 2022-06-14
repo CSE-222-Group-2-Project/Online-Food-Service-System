@@ -6,7 +6,6 @@ import src.demo.DemoCourier;
 import src.demo.DemoCustomer;
 import src.restaurant.Restaurant;
 import src.test.TestCustomer;
-
 public class Driver {
 
   /**
@@ -30,12 +29,13 @@ public class Driver {
     int choice = -1;
     Scanner sc = new Scanner(System.in);
     while (choice != 5) {
+      System.out.println("Which one are you going to login as?");
       System.out.println("1-> Admin ");
       System.out.println("2-> Chef ");
       System.out.println("3-> Courier");
       System.out.println("4-> Customer");
       System.out.println("5-> Exit");
-      System.out.println("Enter your input: ");
+      System.out.print("Enter your input: ");
       choice = sc.nextInt();
 
       switch (choice) {
