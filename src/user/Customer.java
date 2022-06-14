@@ -121,8 +121,8 @@ public class Customer extends User {
    * @param anOrder Order delivered to the user and which needs to be voted on
    */
   public void giveVote(int _scoreChef, int _scoreCourier, Order anOrder) {
-    anOrder.getWhoCooked().calculateAverageScore(_scoreChef);
-    anOrder.getWhoDelivered().calculateAverageScore(_scoreCourier);
+    anOrder.getOrderChef().calculateAverageScore(_scoreChef);
+    anOrder.getOrderCourier().calculateAverageScore(_scoreCourier);
   }
 
   /**

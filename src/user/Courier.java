@@ -94,7 +94,7 @@ public class Courier extends Worker {
    */
   public void addOrder(Order order) {
     orderQueue.add(order);
-    order.setWhoDelivered(this);
+    order.setOrderCourier(this);
   }
 
   /**
