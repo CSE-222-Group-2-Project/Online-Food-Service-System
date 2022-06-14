@@ -1,7 +1,10 @@
-package src;
+package src.restaurant;
 
 import java.util.Comparator;
 import src.linkedlistwithmergesort.CustomLinkedList;
+import src.user.Chef;
+import src.user.Courier;
+import src.user.Customer;
 
 /**
  *  Order class is used to represent the order of the Customer

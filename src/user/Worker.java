@@ -1,4 +1,4 @@
-package src;
+package src.user;
 
 /**
  * Worker class is a subclass of User class which represents the Workers of the restaurant.

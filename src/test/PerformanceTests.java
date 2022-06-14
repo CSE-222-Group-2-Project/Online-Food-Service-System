@@ -2,15 +2,15 @@ package src.test;
 
 import java.util.ArrayList;
 import java.util.Iterator;
-import src.Authentication;
-import src.Chef;
-import src.Courier;
-import src.Customer;
-import src.Food;
-import src.Order;
-import src.Restaurant;
-import src.User;
+import src.auth.Authentication;
 import src.linkedlistwithmergesort.CustomLinkedList;
+import src.restaurant.Food;
+import src.restaurant.Order;
+import src.restaurant.Restaurant;
+import src.user.Chef;
+import src.user.Courier;
+import src.user.Customer;
+import src.user.User;
 
 public class PerformanceTests {
 

@@ -1,18 +1,18 @@
-package src.utility;
+package src.util;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.TreeMap;
-import src.Customer;
-import src.Food;
-import src.User;
-import src.Worker;
 import src.linkedlistwithmergesort.CustomLinkedList;
+import src.restaurant.Food;
 import src.skiplist.SkipList;
 import src.tree.AVLTree;
 import src.tree.BinarySearchTree;
+import src.user.Customer;
+import src.user.User;
+import src.user.Worker;
 
 public class Utility {
 

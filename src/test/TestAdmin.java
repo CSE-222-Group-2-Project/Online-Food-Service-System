@@ -1,10 +1,10 @@
 package src.test;
 
-import src.Admin;
-import src.Food;
-import src.Menu;
-import src.Restaurant;
-import src.Worker;
+import src.restaurant.Food;
+import src.restaurant.Menu;
+import src.restaurant.Restaurant;
+import src.user.Admin;
+import src.user.Worker;
 
 public class TestAdmin {
 

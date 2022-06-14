@@ -1,7 +1,7 @@
-package src;
+package src.restaurant;
 
 import src.linkedlistwithmergesort.CustomLinkedList;
-import src.utility.Utility;
+import src.util.Utility;
 
 /**
  *The Menu class is a class that contains  Food objects.

@@ -1,4 +1,4 @@
-package src;
+package src.restaurant;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -9,7 +9,11 @@ import src.graph.ListGraph;
 import src.linkedlistwithmergesort.CustomLinkedList;
 import src.skiplist.SkipList;
 import src.tree.AVLTree;
-import src.utility.Utility;
+import src.user.Chef;
+import src.user.Courier;
+import src.user.Customer;
+import src.user.Worker;
+import src.util.Utility;
 
 /**
  *  This class represents the Restaurant in the system.
@@ -178,6 +182,26 @@ public class Restaurant {
    */
   public TreeMap<String, AVLTree<String>> getIngredients() {
     return ingredients;
+  }
+
+  public int getIncome() {
+    return income;
+  }
+
+  public int getOutcome() {
+    return outcome;
+  }
+
+  public CustomLinkedList<Order> getOrders() {
+    return orders;
+  }
+
+  public double getScore() {
+    return score;
+  }
+
+  public Menu getMenu() {
+    return menu;
   }
 
   /**

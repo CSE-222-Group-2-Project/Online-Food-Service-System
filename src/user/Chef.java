@@ -1,7 +1,10 @@
-package src;
+package src.user;
 
 import java.util.LinkedList;
 import java.util.Queue;
+import src.restaurant.Order;
+import src.restaurant.Order.OrderStatus;
+import src.user.Worker.WorkerStatus;
 
 /**
  * Chef class is a subclass of Worker class which represents the Chefs of the restaurant.

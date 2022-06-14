@@ -1,4 +1,4 @@
-package src;
+package src.user;
 
 /**
  *  The user class includes all users in the system.
