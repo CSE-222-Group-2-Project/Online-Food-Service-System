@@ -16,12 +16,9 @@ import src.user.Worker;
 
 public class Utility {
 
-  private static final String USER_DATABASE_PATH =
-    "../database/user_database/users.txt";
-  private static final String MENU_DATABASE_PATH =
-    "../database/restaurant_database/menu.txt";
-  private static final String INGREDIENT_DATABASE_PATH =
-    "../database/ingredients_database/ingredients.txt";
+  private static final String USER_DATABASE_PATH = "../database/user_database/users.txt";
+  private static final String MENU_DATABASE_PATH = "../database/restaurant_database/menu.txt";
+  private static final String INGREDIENT_DATABASE_PATH = "../database/ingredients_database/ingredients.txt";
 
   public static TreeMap<String, AVLTree<String>> getIngredientsFromDatabase() {
     try {
@@ -30,24 +27,33 @@ public class Utility {
       boolean isFoodName = true;
       StringBuffer sb = new StringBuffer();
       String foodName = "";
+      String[] tokens;
+      AVLTree<String> allIngred = new AVLTree<>();
+      String lineText = "";
+
       Scanner myReader = new Scanner(file);
       while (myReader.hasNextLine()) {
-        String lineText = myReader.nextLine();
-        String[] tokens = lineText.split(" ");
-        AVLTree<String> allIngred = new AVLTree<>();
+        lineText = myReader.nextLine();
+        tokens = lineText.split(" ");
+        allIngred = new AVLTree<>();
+        isFoodName = true;
+        foodName = "";
+        sb = new StringBuffer();
 
-        for (int i = 1; i < tokens.length; i++) {
+        for (int i = 0; i < tokens.length; i++) {
           String token = tokens[i].trim();
           if (token.equals(":")) {
             isFoodName = false;
-          }
-          if (isFoodName) {
-            sb.append(token + " ");
           } else {
-            allIngred.add(token);
+            if (isFoodName) {
+              sb.append(token + " ");
+            } else {
+              allIngred.add(token);
+            }
           }
         }
         foodName = sb.toString().trim();
+        System.out.print(foodName);
         ingredients.put(foodName, allIngred);
       }
       myReader.close();
@@ -56,7 +62,7 @@ public class Utility {
       System.out.println("An error occurred.");
       e.printStackTrace();
     }
-    return new TreeMap<>();
+    return null;
   }
 
   /**
@@ -83,7 +89,8 @@ public class Utility {
   }
 
   /**
-   * This function reads the user database file and returns an ArrayList of all the workers in the
+   * This function reads the user database file and returns an ArrayList of all
+   * the workers in the
    * database.
    *
    * @return An ArrayList of all the workers in the database.
@@ -110,7 +117,8 @@ public class Utility {
   }
 
   /**
-   * This function reads the user database file and returns an ArrayList of all the customers in the
+   * This function reads the user database file and returns an ArrayList of all
+   * the customers in the
    * database.
    *
    * @return An ArrayList of all the customers in the database.
@@ -118,8 +126,7 @@ public class Utility {
   public static SkipList<Customer> getCustomersFromDatabase() {
     try {
       SkipList<Customer> allCustomers = new SkipList<>(
-        new Customer.SortByOrderNum()
-      );
+          new Customer.SortByOrderNum());
       File file = new File(USER_DATABASE_PATH);
       Scanner myReader = new Scanner(file);
       while (myReader.hasNextLine()) {
@@ -139,7 +146,8 @@ public class Utility {
   }
 
   /**
-   * This function reads the user database file and returns a binary search tree of all the users in the
+   * This function reads the user database file and returns a binary search tree
+   * of all the users in the
    * database.
    *
    * @return A BinarySearchTree of User objects.

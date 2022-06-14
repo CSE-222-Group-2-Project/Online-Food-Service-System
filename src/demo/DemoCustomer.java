@@ -74,20 +74,25 @@ public class DemoCustomer {
     Scanner sc = new Scanner(System.in);
     Chef chef = restaurant.getTestChef();
     Courier courier = restaurant.getTestCourier();
+  
     Order order = new Order(1, customer, getFoodsFromCustomer(), "AKSE");
     customer.giveOrder(restaurant, order);
+
     System.out.println("Order has been given. \n");
     chef.addOrder(order);
     chef.prepareOrder();
     System.out.println("Your order has been prepared.\n");
+
     courier.addOrder(order);
     System.out.println("Your order has been delivered to you. Enjoy!");
     courier.deliverOrderToCustomer();
     System.out.println("\nRate our chef and courier please!");
+   
     System.out.print("What is your rate about our chef? (1-10): ");
     chefScore = sc.nextInt();
     System.out.print("What is your rate about our courier? (1-10) ");
     courierScore = sc.nextInt();
+   
     System.out.print("Thank you! Have a good day.\n\n");
     customer.giveVote(chefScore, courierScore, order);
   }
