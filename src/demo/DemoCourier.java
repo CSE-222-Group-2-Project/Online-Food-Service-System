@@ -3,6 +3,10 @@ package src.demo;
 import java.util.Scanner;
 
 import src.auth.Authentication;
+import src.datastructures.linkedlistwithmergesort.CustomLinkedList;
+import src.restaurant.Food;
+import src.restaurant.Menu;
+import src.restaurant.Order;
 import src.restaurant.Restaurant;
 import src.user.Courier;
 
@@ -10,10 +14,36 @@ public class DemoCourier {
     public static void demoCourier() {
         Restaurant restaurant = new Restaurant();
         Courier courier = (Courier) Authentication.login();
+        Menu menu = new Menu();
+        CustomLinkedList<Food> foods = new CustomLinkedList<>();
+        CustomLinkedList<Food> foods1 = new CustomLinkedList<>();
         int choice = 0;
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("\nWelcome to the HoldON " + courier.getName() + " !");
+        System.out.println("\n\nWelcome to the HoldON " + courier.getName() + " !");
+
+        String IDs = "1 15";
+        String[] foodIDs = IDs.split(" ");
+        for (String id : foodIDs) {
+            Food food = menu.getFood(Integer.parseInt(id));
+            if (food != null) {
+                foods.add(food);
+            }
+        }
+
+        IDs = "3 12";
+        foodIDs = IDs.split(" ");
+        for (String id : foodIDs) {
+            Food food = menu.getFood(Integer.parseInt(id));
+            if (food != null) {
+                foods1.add(food);
+            }
+        }
+
+        Order order = new Order(1, restaurant.getTestCustomer(), foods, "ATATURK");
+        Order order1 = new Order(2, restaurant.getTestCustomer(), foods1, "ATATURK");
+        courier.addOrder(order);
+        courier.addOrder(order1);
 
         while (choice != 6) {
             printProgramMenu();
@@ -24,7 +54,8 @@ public class DemoCourier {
                     courier.showOrders();
                     break;
                 case 2:
-                    deliverOrder(courier);
+                    courier.deliverOrderToCustomer();
+                    System.out.println("\n\nOrder has been delivered to the customer. (If exists) \n\n");
                     break;
                 case 3:
                     System.out.print(courier);
@@ -36,14 +67,12 @@ public class DemoCourier {
                     changePassword(courier);
                     break;
                 case 6:
-                    System.out.println("Thank you for working with us!");
+                    System.out.println("Thank you for working with us!\n\n");
                     break;
                 default:
                     System.out.println("Please enter an integer between 1-6!");
             }
         }
-        sc.close();
-
     }
 
     public static void printProgramMenu() {
@@ -57,16 +86,13 @@ public class DemoCourier {
         System.out.print("\nPlease enter your choice: ");
     }
 
-    public static void deliverOrder(Courier courier) {
-
-    }
-
     public static void updateProfile(Courier courier) {
         int choice = -1;
         Scanner sc = new Scanner(System.in);
         System.out.println("What do you want to update:");
         System.out.println("1: USERNAME");
         System.out.println("2: PHONE NUMBER");
+        System.out.print("Enter your input: ");
         choice = sc.nextInt();
 
         switch (choice) {
