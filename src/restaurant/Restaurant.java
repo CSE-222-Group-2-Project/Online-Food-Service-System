@@ -323,6 +323,15 @@ public class Restaurant {
   }
 
   /**
+   * Return the last customer in the list.
+   *
+   * @return The last customer in the list.
+   */
+  public Customer monthOfTheCustomer(){
+    return customers.getLast();
+  }
+
+  /**
    * The function returns a string that contains the restaurant's income, outcome, score, menu, workers, and customers
    *
    * @return The restaurant's information.

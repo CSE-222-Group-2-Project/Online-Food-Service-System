@@ -233,6 +233,14 @@ public class Admin extends User {
     System.out.println("Menu has been shown");
   }
 
+  /**
+   * Print the name of the customer of the month.
+   */
+  public void customerOfTheMonth(){
+    System.out.println("Best Of the Month is : ");
+     System.out.println(restaurant.monthOfTheCustomer());
+  }
+
 /**
  * If the other object is an instance of the User class, then return true if the username is the same,
  * otherwise return false
@@ -248,6 +256,8 @@ public class Admin extends User {
     }
     return false;
   }
+
+
 
 /**
  * If the name of this user is less than the name of the other user, return a negative number; if the
