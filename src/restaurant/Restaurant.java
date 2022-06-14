@@ -57,6 +57,7 @@ public class Restaurant {
     score = calculateScore();
     income = 0;
     outcome = 10000;
+    this.createGraph();
   }
 
   /**
