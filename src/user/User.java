@@ -93,7 +93,15 @@ public class User implements Comparable<User> {
    * @return Returns 1 -1 0 based on the status of the comparison
    */
   public int compareTo(User other) {
-    return getUsername().compareTo(other.getUsername());
+    return username.compareTo(other.username);
+  }
+
+  public boolean equals(Object other) {
+    if (other instanceof User) {
+      User otherUser = (User) other;
+      return username.equals(otherUser.username);
+    }
+    return false;
   }
 
   /**

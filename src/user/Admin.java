@@ -232,6 +232,18 @@ public class Admin extends User {
     System.out.println("Menu has been shown");
   }
 
+  public boolean equals(Object other) {
+    if (other instanceof Admin) {
+      User otherUser = (User) other;
+      return getUsername().equals(otherUser.getUsername());
+    }
+    return false;
+  }
+
+  public int compareTo(Admin other) {
+    return getName().compareTo(other.getName());
+  }
+
   /**
    * The toString() method returns a string representation of the Admin object
    *

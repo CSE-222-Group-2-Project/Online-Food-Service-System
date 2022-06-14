@@ -17,11 +17,11 @@ import src.user.Worker;
 public class Utility {
 
   private static final String USER_DATABASE_PATH =
-    "../../database/user_database/users.txt";
+    "../database/user_database/users.txt";
   private static final String MENU_DATABASE_PATH =
-    "../../database/restaurant_database/menu.txt";
+    "../database/restaurant_database/menu.txt";
   private static final String INGREDIENT_DATABASE_PATH =
-    "../../database/ingredients_database/ingredients.txt";
+    "../database/ingredients_database/ingredients.txt";
 
   public static TreeMap<String, AVLTree<String>> getIngredientsFromDatabase() {
     try {

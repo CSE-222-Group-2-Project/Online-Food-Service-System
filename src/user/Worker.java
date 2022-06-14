@@ -161,6 +161,10 @@ public class Worker extends User {
     }
   }
 
+  public int compareTo(Admin other) {
+    return getName().compareTo(other.getName());
+  }
+
   /**
    * The function returns a string that contains the information of the worker
    *

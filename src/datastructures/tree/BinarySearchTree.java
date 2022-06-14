@@ -91,8 +91,7 @@ public class BinarySearchTree<E extends Comparable<E>>
   }
 
   public boolean contains(E target) {
-    E result = find(target);
-    return result == target;
+    return find(target) != null;
   }
 
   /**

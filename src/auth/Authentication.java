@@ -36,12 +36,14 @@ public class Authentication {
     username = getUsername(name, age, username, password);
 
     if (username == null) {
+      System.err.println("User does not exist!");
       return null;
     }
 
     password = getPassword(name, age, username, password);
 
     if (password == null) {
+      System.out.println("Password is not correct! Could not login.");
       return null;
     }
 
@@ -68,9 +70,7 @@ public class Authentication {
 
     System.out.println("Enter your username please: ");
     username = scanObj.next();
-
-    if (isUserExist(name, age, username, password)) {
-      System.err.println("User does not exist!");
+    if (!isUserExist(name, age, username, password)) {
       scanObj.close();
       return null;
     }
@@ -99,8 +99,7 @@ public class Authentication {
     System.out.println("Enter your password please");
     password = scanObj.next();
 
-    if (isPasswordTrue(name, age, username, password)) {
-      System.out.println("Password is not correct! Could not login.");
+    if (!isPasswordTrue(name, age, username, password)) {
       scanObj.close();
       return null;
     }

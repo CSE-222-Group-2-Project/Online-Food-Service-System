@@ -239,12 +239,15 @@ public class Customer extends User {
     return res;
   }
 
+  public int compareTo(Admin other) {
+    return getName().compareTo(other.getName());
+  }
+
   /**
    * The toString() function returns a string representation of the Customer object
    *
    * @return A string representation of the Customer object.
    */
-
   @Override
   public String toString() {
     StringBuilder customerInfo = new StringBuilder();

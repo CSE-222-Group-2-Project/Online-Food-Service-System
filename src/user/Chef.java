@@ -120,6 +120,10 @@ public class Chef extends Worker {
     return newOrders.size();
   }
 
+  public int compareTo(Admin other) {
+    return getName().compareTo(other.getName());
+  }
+
   /**
    * The toString() function returns a string representation of the Chef object
    *
