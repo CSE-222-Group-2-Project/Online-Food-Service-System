@@ -141,10 +141,7 @@ public class Food implements Comparable<Food> {
     if (!(obj instanceof Food)) return false;
     Food other = (Food) obj;
     return (
-      foodID == other.foodID &&
-      foodName.equals(other.foodName) &&
-      foodPrice == other.foodPrice &&
-      foodType.equals(other.foodType)
+      foodName.equals(other.foodName) 
     );
   }
 
