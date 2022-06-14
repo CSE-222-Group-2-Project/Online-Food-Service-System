@@ -5,9 +5,6 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.TreeMap;
-import src.Admin;
-import src.Chef;
-import src.Courier;
 import src.Customer;
 import src.Food;
 import src.User;
@@ -20,11 +17,11 @@ import src.tree.BinarySearchTree;
 public class Utility {
 
   private static final String USER_DATABASE_PATH =
-    "../src/database/user_database/users.txt";
+    "../../database/user_database/users.txt";
   private static final String MENU_DATABASE_PATH =
-    "../src/database/restaurant_database/menu.txt";
+    "../../database/restaurant_database/menu.txt";
   private static final String INGREDIENT_DATABASE_PATH =
-    "../src/database/ingredients_database/ingredients.txt";
+    "../../database/ingredients_database/ingredients.txt";
 
   public static TreeMap<String, AVLTree<String>> getIngredientsFromDatabase() {
     try {
@@ -156,7 +153,7 @@ public class Utility {
       myReader.close();
       return allUsers;
     } catch (FileNotFoundException e) {
-      System.out.println("An error occurred.");
+      System.err.println("An error occurred.");
       e.printStackTrace();
     }
     return null;

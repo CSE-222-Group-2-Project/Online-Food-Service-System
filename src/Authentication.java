@@ -1,14 +1,6 @@
 package src;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.SortedMap;
-import java.util.TreeMap;
-import src.linkedlistwithmergesort.CustomLinkedList;
-import src.skiplist.SkipList;
-import src.tree.AVLTree;
 import src.tree.BinarySearchTree;
 import src.utility.Utility;
 
