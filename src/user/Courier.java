@@ -97,6 +97,7 @@ public class Courier extends Worker {
   public void addOrder(Order order) {
     orderQueue.add(order);
     order.setOrderCourier(this);
+
   }
 
   /**
@@ -104,7 +105,9 @@ public class Courier extends Worker {
    *
    */
   public void deliverOrderToCustomer() {
+
     Order order = orderQueue.poll();
+    showShortestRoute(order.getDestination().toString());
     this.source = order.getDestination();
     Customer orderOwner = order.getCustomer();
     order.setStatus(OrderStatus.ORDER_DELIVERED);
