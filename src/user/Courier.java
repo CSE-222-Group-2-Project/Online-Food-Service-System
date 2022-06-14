@@ -170,7 +170,7 @@ public class Courier extends Worker {
 
     ArrayList<Integer> shortestRoute = new ArrayList<>();
     shortestRoute.add(source.ordinal());
-    shortestRoute.add(source.ordinal());
+
 
     getShortestRoute(
             pred,
@@ -190,7 +190,7 @@ public class Courier extends Worker {
       Integer district = iterator.previous();
       System.out.print(values[district].name() + " ->> ");
     }
-
+    System.out.println(values[dest.ordinal()].name());
     System.out.println();
 
   }
