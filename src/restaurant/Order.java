@@ -1,6 +1,8 @@
 package src.restaurant;
 
 import java.util.Comparator;
+
+import src.constants.District;
 import src.datastructures.linkedlistwithmergesort.CustomLinkedList;
 import src.user.Chef;
 import src.user.Courier;
@@ -37,7 +39,7 @@ public class Order implements Comparable<Order> {
   private double account = 0.0;
   private CustomLinkedList<Food> foods = new CustomLinkedList<Food>();
 
-  private String destination;
+  private District destination;
   // Constructers
   /**
    * Constructor of the Order class
@@ -49,7 +51,7 @@ public class Order implements Comparable<Order> {
     this.orderID = orderID;
     orderOwner = customer;
     foods = _foods;
-    this.destination = destination;
+    this.destination = District.valueOf(destination);
     calculateAccount();
   }
 
@@ -135,6 +137,14 @@ public class Order implements Comparable<Order> {
   }
 
   /**
+   * This function returns the destination of the edge
+   *
+   * @return The destination of the edge.
+   */
+  public District getDestination(){
+    return this.destination;
+  }
+  /**
    * "If the order owner is a VIP, set the coefficient to 0.85. If the order owner is a student, set the
    * coefficient to 0.75."
    *
@@ -163,6 +173,7 @@ public class Order implements Comparable<Order> {
     account = orderAccount;
     return orderAccount;
   }
+
 
   /**
    * This class implements the Comparator interface and overrides the compare method
@@ -199,6 +210,7 @@ public class Order implements Comparable<Order> {
       return 0;
     }
   }
+
 
   /**
    * It returns a string that contains the order ID, the order price, the name of the chef who cooked the

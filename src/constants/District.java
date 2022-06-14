@@ -1,6 +1,7 @@
-package src;
+package src.constants;
 
 public enum District {
+    RESTAURANT,
     AKSE,
     ATATURK,
     CUMHURIYET,
