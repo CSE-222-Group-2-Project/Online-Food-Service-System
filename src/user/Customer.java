@@ -2,7 +2,6 @@ package src.user;
 
 import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.Scanner;
 import java.util.TreeMap;
 import src.datastructures.linkedlistwithmergesort.CustomLinkedList;
 import src.datastructures.tree.AVLTree;
@@ -14,13 +13,16 @@ import src.restaurant.Restaurant;
 /**
  * Customer class is a user type that expresses the target audience of the
  * restaurant derived from the user class.
+ * 
  * @author Group 2
  * @version 1.0.0
  * @since 08.04.2022
  */
 
-/* Customer class is a user type that expresses the target audience of the
- restaurant derived from the user class.*/
+/*
+ * Customer class is a user type that expresses the target audience of the
+ * restaurant derived from the user class.
+ */
 public class Customer extends User {
 
   // Data Fields
@@ -34,25 +36,25 @@ public class Customer extends User {
   // Constructors
   /**
    * Constructor of the Customer class
-   * @param name the name of the customer
-   * @param age the age of the customer
+   * 
+   * @param name        the name of the customer
+   * @param age         the age of the customer
    * @param customerJob the job of the customer
-   * @param username the username of the customer
-   * @param password the password of the customer
+   * @param username    the username of the customer
+   * @param password    the password of the customer
    * @param phoneNumber the phone number of the customer
-   * @param budget the budget of the customer
-   * @param allergies the allergies of the customer
+   * @param budget      the budget of the customer
+   * @param allergies   the allergies of the customer
    */
   public Customer(
-    String name,
-    int age,
-    String customerJob,
-    String username,
-    String password,
-    String phoneNumber,
-    double budget,
-    ArrayList<String> allergies
-  ) {
+      String name,
+      int age,
+      String customerJob,
+      String username,
+      String password,
+      String phoneNumber,
+      double budget,
+      ArrayList<String> allergies) {
     super(name, age, username, password);
     this.customerJob = customerJob;
     this.phoneNumber = phoneNumber;
@@ -118,9 +120,10 @@ public class Customer extends User {
   /**
    * Transferring the points given in the parameters to the chef and the courier
    *
-   * @param chefScore Points to be given to the chef by the customer
+   * @param chefScore    Points to be given to the chef by the customer
    * @param courierScore Points to be given to the chef by the courier
-   * @param anOrder Order delivered to the user and which needs to be voted on
+   * @param anOrder      Order delivered to the user and which needs to be voted
+   *                     on
    */
   public void giveVote(int chefScore, int courierScore, Order order) {
     order.getOrderChef().calculateAverageScore(chefScore);
@@ -131,8 +134,8 @@ public class Customer extends User {
    * It allows the customer to place the order by looking at the money situation
    * and transfer the order information to the restaurant.
    *
-   * @param restaurant restaurant object
-   * @param wantedOrder      Order requested by the customer
+   * @param restaurant  restaurant object
+   * @param wantedOrder Order requested by the customer
    * @return Order requested by the customer if customer has enough money
    */
   public Boolean giveOrder(Restaurant restaurant, Order wantedOrder) {
@@ -152,26 +155,27 @@ public class Customer extends User {
   /**
    * Checks whether customer is allergic to food which is in order list.
    * and despite this, asks whether customer want to contiune.
-   * @param restaurant restaurant object
+   * 
+   * @param restaurant  restaurant object
    * @param wantedOrder Order requested by the customer
-   * @return Order requested by the customer if customer hasn't allergy to foods of order
+   * @return Order requested by the customer if customer hasn't allergy to foods
+   *         of order
    */
   public boolean checkAllergy(Restaurant restaurant, Order wantedOrder) {
     TreeMap<String, AVLTree<String>> ingredients = restaurant.getIngredients();
 
-    //Search TreeMap and AVLTree
+    // Search TreeMap and AVLTree
     for (Food food : wantedOrder.getFoods()) {
       AVLTree<String> avlTree = ingredients.get(food.getFoodName());
       for (String allergy : allergies) {
         if (avlTree.contains(allergy)) {
           System.out.println(
-            "\nYou are allergic to " +
-            allergy +
-            ". And " +
-            food.getFoodName() +
-            " has " +
-            allergy
-          );
+              "\nYou are allergic to " +
+                  allergy +
+                  ". And " +
+                  food.getFoodName() +
+                  " has " +
+                  allergy);
           return true;
         }
       }
@@ -181,7 +185,8 @@ public class Customer extends User {
 
   /**
    * Indicates that the customer has received the order and makes the necessary
-   * adjustments to the customer information also print the ordered foods with prices
+   * adjustments to the customer information also print the ordered foods with
+   * prices
    *
    * @param anOrder Order brought to the customer by the courier
    */
@@ -189,9 +194,11 @@ public class Customer extends User {
     myOrders.addFirst(anOrder);
     CustomLinkedList<Food> orderFoods = anOrder.getFoods();
     orderFoods = orderFoods.mergeSort();
+    System.out.println("\nORDER BILL");
     System.out.println("Order Foods -> Cheapest to Most Expensive");
+    System.out.println("Food Type | Food Name | Food Price");
     for (Food aFood : orderFoods) {
-      System.out.println(aFood.getFoodType() + "   " + aFood.getFoodPrice());
+      System.out.println(aFood.getFoodType() + "    " + aFood.getFoodName() + "    " + aFood.getFoodPrice());
     }
   }
 
@@ -202,7 +209,10 @@ public class Customer extends User {
    * @return Returns true if customer VIP,otherwise return false
    */
   public boolean isVIP() {
-    if (getOrderNumber() > 5) return true; else return false;
+    if (getOrderNumber() > 5)
+      return true;
+    else
+      return false;
   }
 
   /**
@@ -211,7 +221,10 @@ public class Customer extends User {
    * @return Returns true if customer Student,otherwise return false
    */
   public boolean isStudent() {
-    if (getJob().equals("Student")) return true; else return false;
+    if (getJob().equals("Student"))
+      return true;
+    else
+      return false;
   }
 
   /**
@@ -228,7 +241,8 @@ public class Customer extends User {
       res = 1;
     } else if (this.getOrderNumber() < otherCustomer.getOrderNumber()) {
       res = -1;
-    } else res = 0;
+    } else
+      res = 0;
     return res;
   }
 
@@ -245,13 +259,15 @@ public class Customer extends User {
         res = 1;
       } else if (o1.getOrderNumber() < o2.getOrderNumber()) {
         res = -1;
-      } else res = 0;
+      } else
+        res = 0;
       return res;
     }
   }
 
   /**
-   * The toString() function returns a string representation of the Customer object
+   * The toString() function returns a string representation of the Customer
+   * object
    *
    * @return A string representation of the Customer object.
    */
