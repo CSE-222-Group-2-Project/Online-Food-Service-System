@@ -5,13 +5,7 @@ import src.restaurant.Restaurant;
 public class Driver {
 
   public static void main(String[] args) {
-    Restaurant restaurant = new Restaurant();
-    ArrayList<Integer> route = restaurant
-      .getTestCourier()
-      .showShortestRoute("CUMHURIYET");
-    for (int parent : route) {
-      System.out.println(parent);
-    }
+    testDemos();
   }
 
   public static void testUsers() {}

@@ -136,9 +136,9 @@ public class Customer extends User {
    * @return Order requested by the customer if customer has enough money
    */
   public Boolean giveOrder(Restaurant restaurant, Order wantedOrder) {
-    if (!checkAllergy(restaurant, wantedOrder)) return false; else if (
-      getBudget() >= wantedOrder.calculateAccount()
-    ) {
+    if (checkAllergy(restaurant, wantedOrder)) {
+      return false;
+    } else if (getBudget() >= wantedOrder.calculateAccount()) {
       budget -= wantedOrder.calculateAccount();
       orderNumber++;
       restaurant.addOrder(wantedOrder);
@@ -157,9 +157,7 @@ public class Customer extends User {
    * @return Order requested by the customer if customer hasn't allergy to foods of order
    */
   public boolean checkAllergy(Restaurant restaurant, Order wantedOrder) {
-    Scanner sc = new Scanner(System.in);
     TreeMap<String, AVLTree<String>> ingredients = restaurant.getIngredients();
-    boolean check = false;
 
     //Search TreeMap and AVLTree
     for (Food food : wantedOrder.getFoods()) {
@@ -174,19 +172,10 @@ public class Customer extends User {
             " has " +
             allergy
           );
-          check = true;
+          return true;
         }
       }
     }
-
-    if (check) {
-      System.out.print("Do you still want to order (Press 1 to continue): ");
-      if (sc.nextInt() == 1) {
-        sc.close();
-        return true;
-      }
-    }
-    sc.close();
     return false;
   }
 
