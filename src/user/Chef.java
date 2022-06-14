@@ -136,6 +136,8 @@ public class Chef extends Worker {
     chefInfo.append(super.toString());
     chefInfo.append("\nCertificate Number: ");
     chefInfo.append(this.certificateNumber);
+    chefInfo.append("\nStatus: ");
+    chefInfo.append(workerStat);
     chefInfo.append("Chef Order Queue: " + newOrders);
     chefInfo.append("\n");
     return chefInfo.toString();

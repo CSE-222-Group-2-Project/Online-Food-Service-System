@@ -26,7 +26,7 @@ public class DemoCourier {
                     	courier = (Courier) Authentication.login();
                         break;
                     case 0:
-                        //return;
+                        return;
                     default:
                         System.out.println(operation +" is not a valid value");
                 }

@@ -15,7 +15,8 @@ public class Driver {
   }
 
   public static void testUsers() {
-    TestCustomer.testCustomer();
+    //TestCustomer.testCustomer();
+
   }
 
   public static void testDemos() {

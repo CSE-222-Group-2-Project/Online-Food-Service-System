@@ -4,6 +4,7 @@ import src.auth.Authentication;
 import src.restaurant.Food;
 import src.restaurant.Restaurant;
 import src.user.Admin;
+import src.user.Worker;
 
 import java.util.NoSuchElementException;
 import java.util.Scanner;
@@ -76,7 +77,6 @@ public class DemoAdmin {
                 switch (operation) {
 
                     case 1:
-                        System.out.println("gec");
                         admin.showWorkersInfo();
                         System.out.println();
                         break;
@@ -91,10 +91,19 @@ public class DemoAdmin {
 
                         break;
                     case 4:
+                        String workerName,workerJob;
+                        int experience,age;
 
-                        //admin.hiringWorker();
-                        System.out.println();
+                        System.out.println("Enter name: ");
+                        workerName =scan.nextLine();
+                        System.out.println("Enter job: ");
+                        workerJob =scan.nextLine();
+                        System.out.println("Enter age: ");
+                        age = Integer.parseInt(scan.nextLine());
+                        System.out.println("Enter experience: ");
+                        experience = Integer.parseInt(scan.nextLine());
 
+                        admin.hiringWorker(new Worker(workerName,age,"","",workerJob,experience));
                         break;
                     case 5:
                         admin.fireWorker();
