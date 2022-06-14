@@ -10,9 +10,7 @@ import src.test.TestCustomer;
 
 public class Driver {
 
-  /**
-   * @param args
-   */
+
   public static void main(String[] args) {
     testUsers();
     testDemos();
