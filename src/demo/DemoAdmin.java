@@ -31,7 +31,8 @@ public class DemoAdmin {
 
                         break;
                     case 0:
-                        //return;
+                        scan.close();
+                        return;
                     default:
                         System.out.println(operation +" is not a valid value");
                 }
@@ -149,6 +150,7 @@ public class DemoAdmin {
                         break;
 
                     case 0:
+                        scan.close();
                         return;
                     default:
                         System.out.println("\nPlease, Enter a valid authority number");
