@@ -1,6 +1,8 @@
 package src.user;
 
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.ListIterator;
 import java.util.PriorityQueue;
 import src.constants.District;
 import src.constants.OrderStatus;
@@ -146,7 +148,7 @@ public class Courier extends Worker {
    * @param destination The destination district
    * @return The shortest route from the source to the destination.
    */
-  public ArrayList<Integer> showShortestRoute(String destination) {
+  public void showShortestRoute(String destination) {
     int numV = Restaurant.districtsGraph.getNumV();
     int[] pred = new int[numV];
     double[] distances = new double[numV];
@@ -164,8 +166,17 @@ public class Courier extends Worker {
       dest.ordinal(),
       this.source.ordinal()
     );
-    return shortestRoute;
+    System.out.println("Destination to the "+ destination + " ->> "+ distances[dest.ordinal()]);
+    ListIterator<Integer> iterator = shortestRoute.listIterator(shortestRoute.size()-1);
+    while (iterator.hasPrevious()) {
+      Integer district = iterator.previous();
+      System.out.print(District.valueOf(district.toString()) + " ->> ");
+    }
+    System.out.println();
+
   }
+
+
 
 
 

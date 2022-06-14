@@ -1,19 +1,22 @@
 package src.test;
 
+import src.datastructures.linkedlistwithmergesort.CustomLinkedList;
 import src.restaurant.Food;
 import src.restaurant.Menu;
+import src.restaurant.Order;
 import src.restaurant.Restaurant;
 import src.user.Courier;
+import src.user.Customer;
 import src.user.Worker;
 
 public class TestCourier {
-	public static void testCourier() {
+	public static void testCourier(Restaurant kebelekCafe) {
     Courier courier1 = new Courier(
       "Tolstoy",
       50,
       "tlsty",
       "5652",
-      +905055332577,	// phoneNumber
+      "+905055332577",	// phoneNumber
       11    // experienceYear
     );
 
@@ -22,7 +25,7 @@ public class TestCourier {
       45,
       "mhmt1",
       "4565",
-      +905055932576,	// phoneNumber
+      "+905055932576",	// phoneNumber
       17    // experienceYear
     );
 
@@ -45,7 +48,7 @@ public class TestCourier {
     System.out.println("\n\n");
 
     System.out.println("TESTING ADD ORDER METHOD OF COURIER CLASS...");
-    courier1.addOrder(new Order(1, "Buse", foods, "dest1"));
+    courier1.addOrder(new Order(1, kebelekCafe.getTestCustomer(), foods, "dest1"));
     System.out.println("\n\n");
 
     System.out.println("TESTING DELIVER ORDER TO CUSTOMER METHOD OF COURIER CLASS...");
