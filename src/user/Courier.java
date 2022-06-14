@@ -119,6 +119,10 @@ public class Courier extends Worker {
     }
   }
 
+  public void showOrders(){
+    System.out.print(orderQueue);
+  }
+
   /**
    * Calculate the status of the courier accordinıg to the experience year.
    */
