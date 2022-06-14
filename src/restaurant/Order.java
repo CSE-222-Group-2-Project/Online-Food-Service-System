@@ -11,8 +11,8 @@ import src.user.Customer;
 /**
  *  Order class is used to represent the order of the Customer
  * @author Group 2
- * @version 1.0.0
- * @since 08.04.2022
+ * @version 2.0.0
+ * @since 14.06.2022
  */
 /**
  * Order class is used to represent the order of the Customer
@@ -28,25 +28,24 @@ public class Order implements Comparable<Order> {
   private double coefficient = 1.0;
   private double account = 0.0;
   private CustomLinkedList<Food> foods = new CustomLinkedList<Food>();
-
   private District destination;
 
   // Constructers
   /**
    * Constructor of the Order class
    * @param orderID the ID of the order
-   * @param customer owner of the order
-   * @param _foods the foods in the order
+   * @param orderOwner owner of the order
+   * @param foods the foods in the order
    */
   public Order(
     int orderID,
-    Customer customer,
-    CustomLinkedList<Food> _foods,
+    Customer orderOwner,
+    CustomLinkedList<Food> foods,
     String destination
   ) {
     this.orderID = orderID;
-    orderOwner = customer;
-    foods = _foods;
+    this.orderOwner = orderOwner;
+    this.foods = foods;
     this.destination = District.valueOf(destination);
     calculateAccount();
   }
@@ -54,19 +53,19 @@ public class Order implements Comparable<Order> {
   /**
    * This function sets the chef of the order
    *
-   * @param _whoCooked The chef who cooked the order.
+   * @param orderChef The chef who cooked the order.
    */
-  public void setWhoCooked(Chef _whoCooked) {
-    orderChef = _whoCooked;
+  public void setWhoCooked(Chef orderChef) {
+    this.orderChef = orderChef;
   }
 
   /**
    * This function sets the courier who delivered the order
    *
-   * @param _whoDelivered Courier
+   * @param ordeCourier Courier
    */
-  public void setWhoDelivered(Courier _whoDelivered) {
-    ordeCourier = _whoDelivered;
+  public void setWhoDelivered(Courier ordeCourier) {
+    this.ordeCourier = ordeCourier;
   }
 
   /**

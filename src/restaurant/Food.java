@@ -40,38 +40,38 @@ public class Food implements Comparable<Food> {
   /**
    * This function sets the foodID variable to the value of the id parameter.
    *
-   * @param id The ID of the food item.
+   * @param foodID The ID of the food item.
    */
-  public void setFoodID(int id) {
-    foodID = id;
+  public void setFoodID(int foodID) {
+    this.foodID = foodID;
   }
 
   /**
    * It sets the foodName variable to the value of the food_name parameter.
    *
-   * @param food_name The name of the food.
+   * @param foodName The name of the food.
    */
-  public void setFoodName(String food_name) {
-    foodName = food_name;
+  public void setFoodName(String foodName) {
+    this.foodName = foodName;
   }
 
   /**
    * It sets the price of the food.
    *
-   * @param price The price of the food item
+   * @param foodPrice The price of the food item
    */
-  public void setFoodPrice(double price) {
-    foodPrice = price;
+  public void setFoodPrice(double foodPrice) {
+    this.foodPrice = foodPrice;
   }
 
   /**
    * This function takes a string as an argument and sets the foodType variable to
    * that string
    *
-   * @param type The type of food.
+   * @param foodType The type of food.
    */
-  public void setFoodType(String type) {
-    foodType = type;
+  public void setFoodType(String foodType) {
+    this.foodType = foodType;
   }
 
   /**
