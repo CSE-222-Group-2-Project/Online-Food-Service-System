@@ -14,6 +14,14 @@ import src.user.User;
 
 public class PerformanceTests {
 
+
+  /*
+   * The testFor10Inputs() method tests createUser(), 
+   * giveOrder(), addOder(), prepareOrder() and 
+   * deliverOrderToCustomer() methods
+   * for 10 inputs 
+   * 
+   */
   public static void testFor10Inputs() {
     Restaurant kebelekCafe = new Restaurant();
 
@@ -93,6 +101,13 @@ public class PerformanceTests {
     );
   }
 
+  /*
+   * The testFor10Inputs() method tests createUser(), 
+   * giveOrder(), addOder(), prepareOrder() and 
+   * deliverOrderToCustomer() methods
+   * for 100 inputs 
+   * 
+   */
   public static void testFor100Inputs() {
     Restaurant kebelekCafe = new Restaurant();
 
@@ -174,6 +189,14 @@ public class PerformanceTests {
     );
   }
 
+
+  /*
+   * The testFor10Inputs() method tests createUser(), 
+   * giveOrder(), addOder(), prepareOrder() and 
+   * deliverOrderToCustomer() methods
+   * for 1000 inputs 
+   * 
+   */
   public static void testFor1000Inputs() {
     Restaurant kebelekCafe = new Restaurant();
 

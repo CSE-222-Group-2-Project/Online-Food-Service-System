@@ -15,12 +15,21 @@ public class CustomLinkedList<E extends Comparable<E>> implements Iterable<E> {
 
   private int size = 0;
 
+  
+  /** 
+   * @return CustomLinkedList<E>
+   */
   public CustomLinkedList<E> mergeSort() {
     this.head = this.mergeSort(this.head);
 
     return this;
   }
 
+  
+  /** 
+   * @param aNode
+   * @return Node<E>
+   */
   private Node<E> mergeSort(Node<E> aNode) {
     // Base case : if head is null
     if (aNode == null || aNode.next == null) {
@@ -45,6 +54,11 @@ public class CustomLinkedList<E extends Comparable<E>> implements Iterable<E> {
     return sortedlist;
   }
 
+  
+  /** 
+   * @param head
+   * @return Node<E>
+   */
   // Utility function to get the middle of the linked list
   public Node<E> getMiddle(Node<E> head) {
     if (head == null) return head;
@@ -58,6 +72,12 @@ public class CustomLinkedList<E extends Comparable<E>> implements Iterable<E> {
     return slow;
   }
 
+  
+  /** 
+   * @param a
+   * @param b
+   * @return Node<E>
+   */
   Node<E> sortedMerge(Node<E> a, Node<E> b) {
     Node<E> result = null;
     /* Base cases */
@@ -75,10 +95,19 @@ public class CustomLinkedList<E extends Comparable<E>> implements Iterable<E> {
     return result;
   }
 
+  
+  /** 
+   * @return int
+   */
   public int size() {
     return size;
   }
 
+  
+  /** 
+   * @param item
+   * @return E
+   */
   public E remove(E item) {
     Iterator<E> iter = iterator();
     E removedItem = null;
@@ -93,6 +122,10 @@ public class CustomLinkedList<E extends Comparable<E>> implements Iterable<E> {
     return removedItem;
   }
 
+  
+  /** 
+   * @param item
+   */
   public void add(E item) {
     add(size, item);
   }
