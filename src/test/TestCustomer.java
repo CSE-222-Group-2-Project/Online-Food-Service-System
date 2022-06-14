@@ -39,7 +39,7 @@ public class TestCustomer {
         customer1.giveOrder(kebelekCafe, new Order(1, customer1, foods, "CUMHURIYET"));
 
         System.out.println("TESTING SEE MENU NUMBER METHOD OF CUSTOMER CLASS...");
-        //customer1.seeMenu();
+        customer1.seeMenu();
         
     }
 }
