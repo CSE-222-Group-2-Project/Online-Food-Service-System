@@ -2,15 +2,10 @@ package src.user;
 
 import java.util.ArrayList;
 import java.util.PriorityQueue;
-import src.District;
+import src.Constants.District;
 import src.datastructures.graph.DijkstrasAlgorithm;
-import src.datastructures.graph.Graph;
-import src.datastructures.graph.ListGraph;
 import src.restaurant.Order;
-import src.restaurant.Order.ComparatorbyOrderNumber;
-import src.restaurant.Order.OrderStatus;
 import src.restaurant.Restaurant;
-import src.user.Worker.WorkerStatus;
 
 /**
  *Courier class is a subclass of Worker class which represents the Courier of the restaurant.

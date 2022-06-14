@@ -2,7 +2,7 @@ package src.restaurant;
 
 import java.util.Comparator;
 
-import src.District;
+import src.Constants.District;
 import src.datastructures.linkedlistwithmergesort.CustomLinkedList;
 import src.user.Chef;
 import src.user.Courier;
