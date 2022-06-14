@@ -81,9 +81,9 @@ public class DemoAdmin {
                         break;
                     case 4:
 
-                        admin.hiringWorker();
+                        //admin.hiringWorker();
 
-                        break;
+                        break;/*
                     case 5:		admin.displayBranchs();
                         break;
                     case 6:		for(int i = 0; i<admin.getBranchNumber(); ++i) {
@@ -103,7 +103,7 @@ public class DemoAdmin {
                         break;
                     case 9:		Admin.clearMessages();
                         System.out.println("Messages are deleted");
-                        break;
+                        break;*/
                     case 0:
                         return;
                     default:
