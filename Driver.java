@@ -1,4 +1,5 @@
 import src.demo.DemoCustomer;
+import src.restaurant.Restaurant;
 import src.test.TestCustomer;
 
 
@@ -6,12 +7,11 @@ import src.test.TestCustomer;
 public class Driver {
 
   public static void main(String[] args) {
-    testDemos();
+    testUsers();
   }
 
   public static void testUsers() {
-    Restaurant kebelekCafe = new Restaurant();
-    TestCustomer.testCustomer(kebelekCafe);
+    TestCustomer.testCustomer();
   }
 
   public static void testDemos() {
