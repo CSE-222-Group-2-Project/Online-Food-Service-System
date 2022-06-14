@@ -11,7 +11,7 @@ public class Driver {
     /*Restaurant restaurant = new Restaurant();
     DemoAdmin.adminDemo(restaurant);
     */
-    testUsers();
+    testDemos();
   }
 
   public static void testUsers() {

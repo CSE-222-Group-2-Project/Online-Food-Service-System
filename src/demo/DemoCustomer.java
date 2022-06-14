@@ -39,7 +39,7 @@ public class DemoCustomer {
           System.out.println(customer);
           break;
         case 5:
-          editProfile(customer);
+          updateProfile(customer);
           break;
         case 6:
           changePassword(customer);
@@ -64,7 +64,7 @@ public class DemoCustomer {
     System.out.println("5: Update profile info");
     System.out.println("6: Change your password");
     System.out.println("7: Exit");
-    System.out.println("\nPlease enter your choice: ");
+    System.out.print("\nPlease enter your choice: ");
   }
 
   public static void giveAndTakeOrder(Restaurant restaurant, Customer customer) {
@@ -95,10 +95,9 @@ public class DemoCustomer {
     System.out.print("Thank you! Have a good day.\n\n");
     customer.giveVote(chefScore, courierScore, order);
 
-    sc.close();
   }
 
-  public static void editProfile(Customer customer) {
+  public static void updateProfile(Customer customer) {
     int choice = -1;
     Scanner sc = new Scanner(System.in);
     System.out.println("What do you want to update:");
@@ -113,53 +112,55 @@ public class DemoCustomer {
         updateCustomerUsername(customer);
         break;
       case 2:
-      updateCustomerJob(customer);
+        updateCustomerJob(customer);
         break;
       case 3:
-      updateCustomerPhoneNumber(customer);
+        updateCustomerPhoneNumber(customer);
         break;
       case 4:
-      updateCustomerBudget(customer);
+        updateCustomerBudget(customer);
         break;
       default:
-      System.out.println("Invalid input. You should have entered an integer between 1-4!");
+        System.out.println("Invalid input. You should have entered an integer between 1-4!");
     }
   }
 
   public static void updateCustomerUsername(Customer customer) {
     String newUsername = "";
     Scanner sc = new Scanner(System.in);
-    System.out.println("Enter your new username please: ");
+    System.out.print("Enter your new username please: ");
     newUsername = sc.next();
     customer.setUsername(newUsername);
-    sc.close();
+    System.out.println("Your username has been updated!\n");
   }
 
   public static void updateCustomerJob(Customer customer) {
     String newJob = "";
     Scanner sc = new Scanner(System.in);
-    System.out.println("Enter your new job please: ");
+    System.out.print("Enter your new job please: ");
     newJob = sc.nextLine();
     customer.setJob(newJob);
-    sc.close();
+    System.out.println("Your job has been updated!\n");
   }
-  
+
   public static void updateCustomerPhoneNumber(Customer customer) {
     String newNumber = "";
     Scanner sc = new Scanner(System.in);
-    System.out.println("Enter your new phone number please: ");
+    System.out.print("Enter your new phone number please: ");
     newNumber = sc.next();
     customer.setPhoneNumber(newNumber);
-    sc.close();
+    System.out.println("Your phone number has been updated!\n");
+
   }
-  
+
   public static void updateCustomerBudget(Customer customer) {
     Double newBudget;
     Scanner sc = new Scanner(System.in);
-    System.out.println("Enter your new budget please: ");
+    System.out.print("Enter your new budget please: ");
     newBudget = sc.nextDouble();
     customer.setBudget(newBudget);
-    sc.close();
+    System.out.println("Your budget has been updated!\n");
+
   }
 
   public static void changePassword(Customer customer) {
@@ -168,7 +169,8 @@ public class DemoCustomer {
     System.out.println("Enter your new password please: ");
     newPassword = sc.next();
     customer.setPassword(newPassword);
-    sc.close();
+    System.out.println("Your password has been updated!\n");
+
   }
 
   public static CustomLinkedList<Food> getFoodsFromCustomer() {
