@@ -7,6 +7,7 @@ import src.constants.OrderStatus;
 import src.constants.WorkerStatus;
 import src.restaurant.Order;
 import src.restaurant.Restaurant;
+import src.datastructures.graph.DijkstrasAlgorithm;
 
 /**
  *Courier class is a subclass of Worker class which represents the Courier of the restaurant.
@@ -133,11 +134,11 @@ public class Courier extends Worker {
     return district.ordinal();
   }
 
-<<<<<<< HEAD
+
   public int compareTo(Admin other) {
     return getName().compareTo(other.getName());
   }
-=======
+
   /**
    * It takes a destination as a parameter, and returns an ArrayList of Integers that represent the shortest route from the
    * source to the destination
@@ -161,13 +162,13 @@ public class Courier extends Worker {
       pred,
       shortestRoute,
       dest.ordinal(),
-            this.source.ordinal()
+      this.source.ordinal()
     );
     return shortestRoute;
   }
 
 
->>>>>>> 8f023161f559e07c66b7ed7320778e8737489e63
+
 
   /**
    * It takes in the predecessor array, the route array, the current node, and the destination node. It then checks if the
