@@ -12,15 +12,16 @@ public class Driver {
    * @param args
    */
   public static void main(String[] args) {
+    testUsers();
     /*Restaurant restaurant = new Restaurant();
     DemoAdmin.adminDemo(restaurant);
     */
-    testDemos();
+    //testDemos();
+    
   }
 
   public static void testUsers() {
-    //TestCustomer.testCustomer();
-
+    TestCustomer.testCustomer();
   }
 
   public static void testDemos() {

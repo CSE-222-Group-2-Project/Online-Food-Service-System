@@ -173,8 +173,6 @@ public class Customer extends User {
   public boolean checkAllergy(Restaurant restaurant, Order wantedOrder) {
     TreeMap<String, AVLTree<String>> ingredients = restaurant.getIngredients();
 
-    System.out.println(ingredients.toString() + "selam");
-
     //Search TreeMap and AVLTree
     for (Food food : wantedOrder.getFoods()) {
       AVLTree<String> avlTree = ingredients.get(food.getFoodName());
