@@ -68,7 +68,7 @@ public class SkipList<E extends Comparable<? super E>> implements Iterable<E> {
     SLNode<E> current = head;
     for (int i = current.links.length - 1; i >= 0; i--) {
       while (
-        current.links[i] != null && comparator.compare(pred[0].links[0].data,target) < 0
+              current.links[i] != null && comparator.compare(current.links[i].data,target) < 0
       ) {
         current = current.links[i];
       }
@@ -99,6 +99,7 @@ public class SkipList<E extends Comparable<? super E>> implements Iterable<E> {
    * @return true as the item is added
    */
   public boolean add(E item) {
+
     size++;
     SLNode<E>[] pred = search(item);
     if (size > maxCap) {
@@ -130,19 +131,19 @@ public class SkipList<E extends Comparable<? super E>> implements Iterable<E> {
       SLNode<E> deleteNode = pred[0];
       for (int i = 0; i < deleteNode.links.length; i++) {
         if (pred[i].links[i] != null) pred[i].links[i] =
-          pred[i].links[i].links[i];
+                pred[i].links[i].links[i];
       }
       return true;
     }
   }
-   public boolean update(E element){
-      if(this.remove(element)){
-        this.add(element);
-        return true;
-      }
-      return false;
+  public boolean update(E element){
+    if(this.remove(element)){
+      this.add(element);
+      return true;
+    }
+    return false;
 
-   }
+  }
   /**
    * Method to generate a logarithmic distributed integer between 1 and maxLevel.
    *  I.E. 1/2 of the values are 1, 1/4 are 2, etc.
@@ -184,7 +185,7 @@ public class SkipList<E extends Comparable<? super E>> implements Iterable<E> {
   }
 
   class DescendingSkipListIterator<E extends Comparable<E>>
-    implements Iterator<E> {
+          implements Iterator<E> {
 
     private Object[] entries;
     private int cursor;
@@ -211,7 +212,7 @@ public class SkipList<E extends Comparable<? super E>> implements Iterable<E> {
     @SuppressWarnings("unchecked")
     public E next() throws NoSuchElementException {
       if (cursor > size - 1) throw new NoSuchElementException(
-        "Cursor is out of bounds..."
+              "Cursor is out of bounds..."
       );
       return (E) this.entries[this.cursor++];
     }

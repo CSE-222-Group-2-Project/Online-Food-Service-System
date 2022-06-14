@@ -163,9 +163,7 @@ public class Courier extends Worker {
     return shortestRoute;
   }
 
-  public int compareTo(User other) {
-    return getName().compareTo(other.getName());
-  }
+
 
   /**
    * It takes in the predecessor array, the route array, the current node, and the destination node. It then checks if the
@@ -192,6 +190,10 @@ public class Courier extends Worker {
     route.add(pred[i]);
     return getShortestRoute(pred, route, pred[i], des);
   }
+  public int compareTo(User other) {
+    return getName().compareTo(other.getName());
+  }
+
 
   /**
    * The toString() function returns a string representation of the Courier object
