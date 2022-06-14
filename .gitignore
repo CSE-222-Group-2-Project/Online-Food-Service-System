@@ -10,3 +10,7 @@
 *.uml
 # iml files
 *.iml
+# project file
+*.project
+# classpath file
+.classpath
