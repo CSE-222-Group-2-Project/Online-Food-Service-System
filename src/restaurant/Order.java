@@ -1,8 +1,8 @@
 package src.restaurant;
 
 import java.util.Comparator;
-
 import src.constants.District;
+import src.constants.OrderStatus;
 import src.datastructures.linkedlistwithmergesort.CustomLinkedList;
 import src.user.Chef;
 import src.user.Courier;
@@ -19,16 +19,6 @@ import src.user.Customer;
  */
 public class Order implements Comparable<Order> {
 
-  /**  An enum class. It is used to represent the status of the order. */
-  public enum OrderStatus {
-    /** Order is taken by the restaurant statu */
-    ORDER_TAKEN,
-    /** Order is prepared by the chef statu*/
-    ORDER_PREPARED,
-    /** Order is delivered by the chef statu*/
-    ORDER_DELIVERED,
-  }
-
   // Data Fields
   OrderStatus status = OrderStatus.ORDER_TAKEN;
   private Chef orderChef;
@@ -40,6 +30,7 @@ public class Order implements Comparable<Order> {
   private CustomLinkedList<Food> foods = new CustomLinkedList<Food>();
 
   private District destination;
+
   // Constructers
   /**
    * Constructor of the Order class
@@ -47,7 +38,12 @@ public class Order implements Comparable<Order> {
    * @param customer owner of the order
    * @param _foods the foods in the order
    */
-  public Order(int orderID, Customer customer, CustomLinkedList<Food> _foods,String destination) {
+  public Order(
+    int orderID,
+    Customer customer,
+    CustomLinkedList<Food> _foods,
+    String destination
+  ) {
     this.orderID = orderID;
     orderOwner = customer;
     foods = _foods;
@@ -141,9 +137,10 @@ public class Order implements Comparable<Order> {
    *
    * @return The destination of the edge.
    */
-  public District getDestination(){
+  public District getDestination() {
     return this.destination;
   }
+
   /**
    * "If the order owner is a VIP, set the coefficient to 0.85. If the order owner is a student, set the
    * coefficient to 0.75."
@@ -173,7 +170,6 @@ public class Order implements Comparable<Order> {
     account = orderAccount;
     return orderAccount;
   }
-
 
   /**
    * This class implements the Comparator interface and overrides the compare method
@@ -210,7 +206,6 @@ public class Order implements Comparable<Order> {
       return 0;
     }
   }
-
 
   /**
    * It returns a string that contains the order ID, the order price, the name of the chef who cooked the

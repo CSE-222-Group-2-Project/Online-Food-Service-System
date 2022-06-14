@@ -3,6 +3,8 @@ package src.user;
 import java.util.ArrayList;
 import java.util.PriorityQueue;
 import src.constants.District;
+import src.constants.OrderStatus;
+import src.constants.WorkerStatus;
 import src.datastructures.graph.DijkstrasAlgorithm;
 import src.restaurant.Order;
 import src.restaurant.Restaurant;
@@ -103,7 +105,7 @@ public class Courier extends Worker {
     Order order = orderQueue.poll();
     this.source = order.getDestination();
     Customer orderOwner = order.getCustomer();
-    order.setStatus(Order.OrderStatus.ORDER_DELIVERED);
+    order.setStatus(OrderStatus.ORDER_DELIVERED);
     orderOwner.takeOrder(order);
   }
 

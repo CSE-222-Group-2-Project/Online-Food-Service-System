@@ -2,9 +2,9 @@ package src.user;
 
 import java.util.LinkedList;
 import java.util.Queue;
+import src.constants.OrderStatus;
+import src.constants.WorkerStatus;
 import src.restaurant.Order;
-import src.restaurant.Order.OrderStatus;
-import src.user.Worker.WorkerStatus;
 
 /**
  * Chef class is a subclass of Worker class which represents the Chefs of the restaurant.
@@ -70,7 +70,7 @@ public class Chef extends Worker {
   public void prepareOrder() {
     if (newOrders.peek() != null) {
       Order order = newOrders.poll();
-      order.setStatus(Order.OrderStatus.ORDER_PREPARED);
+      order.setStatus(OrderStatus.ORDER_PREPARED);
     }
   }
 

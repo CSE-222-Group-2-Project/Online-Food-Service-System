@@ -1,5 +1,7 @@
 package src.user;
 
+import src.constants.WorkerStatus;
+
 /**
  * Worker class is a subclass of User class which represents the Workers of the restaurant.
  */
@@ -8,16 +10,6 @@ public class Worker extends User {
   /**
    Status of the worker will be change according to it's experience year, certificate number etc. 
   */
-  public enum WorkerStatus {
-    /** beginner level */
-    BEGINNER,
-    /** junior level */
-    JUNIOR,
-    /** mid level */
-    MID_LEVEL,
-    /** senior level */
-    SENIOR,
-  }
 
   private String job;
   private double salary;
