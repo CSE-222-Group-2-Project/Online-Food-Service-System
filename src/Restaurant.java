@@ -3,6 +3,9 @@ package src;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.TreeMap;
+
+import src.graph.Graph;
+import src.graph.ListGraph;
 import src.linkedlistwithmergesort.CustomLinkedList;
 import src.skiplist.SkipList;
 import src.tree.AVLTree;
@@ -35,7 +38,7 @@ public class Restaurant {
   protected SkipList<Customer> customers;
 
   private TreeMap<String, AVLTree<String>> ingredients;
-
+  public static Graph districtsGraph = new ListGraph(District.values().length,false);
   // Constructor
   /**  Constructer for the Restaurant class. */
   public Restaurant() {
