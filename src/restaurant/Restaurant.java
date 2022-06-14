@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.TreeMap;
 
+import src.District;
 import src.graph.Graph;
 import src.graph.ListGraph;
 import src.linkedlistwithmergesort.CustomLinkedList;
@@ -274,6 +275,10 @@ public class Restaurant {
    *
    * @return The restaurant's information.
    */
+
+  public void createGraph(){
+    /* Graph Edgeleri eklenecek*/
+  }
   @Override
   public String toString() {
     StringBuilder restaurantInfo = new StringBuilder();

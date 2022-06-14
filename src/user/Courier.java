@@ -1,5 +1,6 @@
 package src.user;
 
+import src.District;
 import src.graph.DijkstrasAlgorithm;
 import src.graph.Graph;
 import src.graph.ListGraph;
@@ -8,6 +9,7 @@ import java.util.PriorityQueue;
 import src.restaurant.Order;
 import src.restaurant.Order.ComparatorbyOrderNumber;
 import src.restaurant.Order.OrderStatus;
+import src.restaurant.Restaurant;
 import src.user.Worker.WorkerStatus;
 
 /**
@@ -129,7 +131,7 @@ public class Courier extends Worker {
 
   }
   public int[] showShortestRoute(String district){
-    int numV =Restaurant.districtsGraph.getNumV();
+    int numV = Restaurant.districtsGraph.getNumV();
     int [] pred = new int[numV];
     double [] distances = new double[numV];
     DijkstrasAlgorithm.dijkstrasAlgorithm(Restaurant.districtsGraph,findValueOfDistrict(district),pred,distances);
