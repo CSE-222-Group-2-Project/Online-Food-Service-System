@@ -101,7 +101,7 @@ public class Customer extends User {
    *
    * @return String versions of old olders
    */
-  public String customerOrders() {
+  public String orderHistory() {
     int orderSequence = 0;
     StringBuilder stb = new StringBuilder();
 
@@ -275,7 +275,7 @@ public class Customer extends User {
     customerInfo.append("Phone number: " + getPhoneNumber() + "\n");
     customerInfo.append("Budget: " + getBudget() + "\n");
     customerInfo.append("Order number: " + getOrderNumber() + "\n");
-    customerInfo.append("Given Orders: " + customerOrders() + "\n");
+    customerInfo.append("Given Orders: " + orderHistory() + "\n");
     return customerInfo.toString();
   }
 }

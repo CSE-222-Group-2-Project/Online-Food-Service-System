@@ -6,10 +6,9 @@ courier Cem 29 cemcour cem123 +905055555553 6
 courier Eren 24 erencour mikasa123 +905055555523 1 
 courier Kerem 30 keremcour kerem123 +905055555532 7 
 courier Baran 32 barancour baran123 +905055555512 8
-customer Cemal 15 Student cemal cem123 +905055355576 500000
 customer Mustafa 30 Teacher mustafacust mıstık74 +905051234566 500000
-customer Şule 23 Lawyer şuleşul urfa63 +905315355576 500000
-customer Alperen 20 Engineer alpoalpo alp123 +905055332576 500000
+customer Şule 23 Lawyer sulesu urfa63 +905315355576 500000
+customer Alperen 20 Engineer alpo alp123 +905055332576 500000
 customer Omar 19 Student omarbin ebudekartbinomar +905149355576 500000
 customer Can 40 Police ersankuneri goktebulusanlar +905937155576 1000000
 customer Faruk 27 Driver bobmarleyfaruk gora74 +905055743176 600000
