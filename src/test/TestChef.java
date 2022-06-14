@@ -44,7 +44,7 @@ public class TestChef {
     // !!! owner of the order should be change according to customer name
 
 
-    chef1.addOrder(new Order(1, kebelekCafe.getTestCustomer() , foods, "dest1"));
+    chef1.addOrder(new Order(1, kebelekCafe.getTestCustomer() , foods, "CUMHURIYET"));
     System.out.println("\n\n");
 
     System.out.println("TESTING PREPARE ORDER METHOD OF CHEF CLASS...");
