@@ -820,15 +820,3 @@ Food Name : Su
 Food Price : 2.0
 Food Type : beverage
 
-
-
-
-THIS IS DEMO PART
-
-Which one are you going to login as?
-1-> Admin 
-2-> Chef 
-3-> Courier
-4-> Customer
-5-> Exit
-Enter your input: Thank you for using HoldON!
