@@ -59,8 +59,8 @@ public class DemoChef {
                     System.out.println("\n\nOrder has been prepared and given to the Courier. (If exists) \n\n");
                     break;
                 case 3:
-                    System.out.println("Certificate number is " + chef.incrementCertificateNumber());
-                    System.out.println("\n\nCertificate number has been incremented..\n\n");
+                    System.out.println("\n\nCertificate number is " + chef.incrementCertificateNumber());
+                    System.out.println("Certificate number has been incremented..\n\n");
                     break;
                 case 4:
                     System.out.println(chef);
@@ -72,7 +72,7 @@ public class DemoChef {
                     changePassword(chef);
                     break;
                 case 7:
-                    System.out.println("Thank you for working with us!");
+                    System.out.println("\n\nThank you for working with us!\n\n");
                     return;
                 default:
 
@@ -88,7 +88,7 @@ public class DemoChef {
         System.out.println("4-> Show profile info");
         System.out.println("5-> Update profile info");
         System.out.println("6-> Change your password");
-        System.out.println("7-> Exit");
+        System.out.println("7-> Logout");
         System.out.print("\nPlease enter your choice: ");
     }
 
@@ -108,7 +108,7 @@ public class DemoChef {
             case 2:
                 break;
             default:
-                System.out.println("Invalid input!");
+                System.out.println("\n\nInvalid input!\n\n");
         }
     }
 

@@ -4,7 +4,6 @@ import src.auth.Authentication;
 import src.restaurant.Food;
 import src.restaurant.Restaurant;
 import src.user.Admin;
-import src.user.Worker;
 
 import java.util.NoSuchElementException;
 import java.util.Scanner;
@@ -18,12 +17,11 @@ public class DemoAdmin {
 
         System.out.println("\nWelcome to the HoldON " + admin.getName() + " !");
 
-        while (choice != 6) {
+        while (choice != 13) {
             printProgramMenu();
             choice = sc.nextInt();
             switch (choice) {
                 case 1:
-                    System.out.println("gec");
                     admin.showWorkersInfo();
                     System.out.println();
                     break;
@@ -59,7 +57,7 @@ public class DemoAdmin {
                     addFoodToMenu(admin);
                     break;
                 case 9:
-                deleteFoodFromMenu(admin);
+                    deleteFoodFromMenu(admin);
                     break;
                 case 10:
                     admin.seeMenu();
@@ -72,12 +70,12 @@ public class DemoAdmin {
                 case 13:
                     return;
                 default:
-                    System.out.println("\nPlease, Enter a valid authority number");           }
+                    System.out.println("\nInvalid input! Enter an integer between 1-13 please!\n");
+            }
 
         }
 
     }
-
 
     public static void printProgramMenu() {
         System.out.println("\nPlease select one of the following operations");
@@ -93,7 +91,7 @@ public class DemoAdmin {
         System.out.println("10-> See the Menu");
         System.out.println("11-> See the Month of The Customer");
         System.out.println("12-> Show My Information");
-        System.out.println("13-> Log out the account");
+        System.out.println("13-> Logout");
         System.out.print("\nPlease enter your choice: ");
     }
 
@@ -120,7 +118,7 @@ public class DemoAdmin {
         }
     }
 
-    public static void deleteFoodFromMenu(Admin admin){
+    public static void deleteFoodFromMenu(Admin admin) {
         Scanner sc = new Scanner(System.in);
         Integer foodId;
         System.out.print("Enter Food Id : ");
