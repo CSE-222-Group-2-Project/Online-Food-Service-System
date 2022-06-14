@@ -5,3 +5,30 @@ Tavuk Corbasi : tavuk sehriye zeytinyagi un yumurta sarimsak limon
 Sehriye Corbasi  : sogan sarimsak tereyagi  salca domates sehriye
 Mercimek Corbasi : aycicekyagi sogan un havuc patates mercimek
 Misket Kofte Corbasi : et bulgur sogan yumurta sarimsak pulbiber karabiber maydanoz
+Tekirdag Koftesi : kıyma sarımsak irmik soğan ekmek karbonat yumurta kimyon
+Yalanci Beyti : yufka kıyma soğan yumurta kabartmatozu karabiber pulbiber tuz
+Citir Tavuk : tavuk yogurt un mısırgevregi yağ pulbiber kimyon su
+Tavuk Sis : tavuk soğan yogurt zeytinyagi kimyon biber kekik
+Sultan Kebabi : yufka et bezelye patlıcan salça soğan tereyağı tuz
+Ratatuy : patlıcan kabak patates domates zeytinyagi tuz kekik domates
+Hatay Usulu Doner : tavuk patates kıvırcıkmarul domates soğan tuz kekik pulbiber karabiber iskendersos
+Mantar Sote : mantar soğan domates biber salça yağ maydanoz
+Yeni Dunya Kebabi : maltaerigi kiyma soğan biber domates karabiber
+16 Adana Kebabi 25 mainCourse
+17 Sebzeli Lazanya 18 mainCourse
+18 Magnolya 15 dessert
+19 Karamelli Triliçe 12 dessert
+20 Waffle 17 dessert
+21 Revani 10 dessert
+22 Kibris Tatlisi 12 dessert
+23 Sufle 12 dessert
+24 Izmir Bomba 14 dessert
+25 Limonata 4 beverage
+26 Elma Suyu 5 beverage
+27 Havuc Suyu 6 beverage
+28 Deteoks 10 beverage
+29 Turk Kahvesi 10 beverage
+30 Sicak Cikolata 6 beverage
+31 Soguk Kahve 7 beverage
+32 Coca Cola 5 beverage
+33 Su 2 beverage
