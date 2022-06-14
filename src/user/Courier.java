@@ -101,9 +101,11 @@ public class Courier extends Worker {
    */
   public void deliverOrderToCustomer() {
     Order order = orderQueue.poll();
+    this.source = order.getDestination();
     Customer orderOwner = order.getCustomer();
     order.setStatus(Order.OrderStatus.ORDER_DELIVERED);
     orderOwner.takeOrder(order);
+
   }
 
   /**

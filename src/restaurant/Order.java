@@ -136,6 +136,9 @@ public class Order implements Comparable<Order> {
     status = stat;
   }
 
+  public District getDestination(){
+    return this.destination;
+  }
   /**
    * "If the order owner is a VIP, set the coefficient to 0.85. If the order owner is a student, set the
    * coefficient to 0.75."
@@ -165,6 +168,7 @@ public class Order implements Comparable<Order> {
     account = orderAccount;
     return orderAccount;
   }
+
 
   /**
    * This class implements the Comparator interface and overrides the compare method
@@ -201,6 +205,7 @@ public class Order implements Comparable<Order> {
       return 0;
     }
   }
+
 
   /**
    * It returns a string that contains the order ID, the order price, the name of the chef who cooked the
