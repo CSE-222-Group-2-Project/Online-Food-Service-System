@@ -49,10 +49,8 @@ public class DemoCustomer {
           break;
         default:
           System.out.println("Please enter an integer between 1-7!");
-
       }
     }
-    sc.close();
   }
 
   public static void printProgramMenu() {
@@ -67,7 +65,10 @@ public class DemoCustomer {
     System.out.print("\nPlease enter your choice: ");
   }
 
-  public static void giveAndTakeOrder(Restaurant restaurant, Customer customer) {
+  public static void giveAndTakeOrder(
+    Restaurant restaurant,
+    Customer customer
+  ) {
     int chefScore = -1;
     int courierScore = -1;
     Scanner sc = new Scanner(System.in);
@@ -94,7 +95,6 @@ public class DemoCustomer {
 
     System.out.print("Thank you! Have a good day.\n\n");
     customer.giveVote(chefScore, courierScore, order);
-
   }
 
   public static void updateProfile(Customer customer) {
@@ -105,7 +105,8 @@ public class DemoCustomer {
     System.out.println("2-> JOB");
     System.out.println("3-> PHONE NUMBER");
     System.out.println("4-> BUDGET");
-    System.out.print("5-> ADD NEW ALLGERGY");
+    System.out.println("5-> ADD NEW ALLGERGY");
+    System.out.print("Enter your choice: ");
     choice = sc.nextInt();
 
     switch (choice) {
@@ -125,7 +126,9 @@ public class DemoCustomer {
         addNewAllergy(customer);
         break;
       default:
-        System.out.println("Invalid input. You should have entered an integer between 1-4!");
+        System.out.println(
+          "Invalid input. You should have entered an integer between 1-4!"
+        );
     }
   }
 
@@ -154,7 +157,6 @@ public class DemoCustomer {
     newNumber = sc.next();
     customer.setPhoneNumber(newNumber);
     System.out.println("Your phone number has been updated!\n");
-
   }
 
   public static void updateCustomerBudget(Customer customer) {
@@ -164,7 +166,6 @@ public class DemoCustomer {
     newBudget = sc.nextDouble();
     customer.setBudget(newBudget);
     System.out.println("Your budget has been updated!\n");
-
   }
 
   public static void addNewAllergy(Customer customer) {
@@ -183,7 +184,6 @@ public class DemoCustomer {
     newPassword = sc.next();
     customer.setPassword(newPassword);
     System.out.println("Your password has been updated!\n");
-
   }
 
   public static CustomLinkedList<Food> getFoodsFromCustomer() {
@@ -191,7 +191,8 @@ public class DemoCustomer {
     Menu menu = new Menu();
     System.out.println("Create order according to food ID's");
     System.out.println(
-        "Enter the ID's of the foods you want to order (exp: 1 3 5 ): ");
+      "Enter the ID's of the foods you want to order (exp: 1 3 5 ): "
+    );
     Scanner sc = new Scanner(System.in);
     String foodID = sc.nextLine();
     String[] foodIDs = foodID.split(" ");
