@@ -10,6 +10,7 @@ import src.restaurant.Order;
 import src.restaurant.Restaurant;
 import src.user.Admin;
 import src.user.Chef;
+import src.user.Courier;
 import src.user.Customer;
 import src.user.Worker;
 
@@ -142,16 +143,58 @@ public class DemoAdmin {
   }
 
   public static void getNewWorker(Admin admin) {
-    Chef newWorker = new Chef(
-      "Mehmet Burak",
-      24,
-      "bestasistant",
-      "mehbuko12",
-      4,
-      4
-    );
-    System.out.println(newWorker);
-    admin.hiringWorker(newWorker);
+    String name, username, password, phoneNumber;
+    int age, certificateNumber, experienceYear;
+    int department = 0;
+    Scanner sc = new Scanner(System.in);
+    try {
+      System.out.print("What is your name?: ");
+      name = sc.next();
+      System.out.print("What is your username?: ");
+      username = sc.next();
+      System.out.print("What is your password?: ");
+      password = sc.next();
+      System.out.print("What is your age?: ");
+      age = sc.nextInt();
+      System.out.println("1: Chef");
+      System.out.println("2: Courier");
+      System.out.print("What will be your position?:");
+      department = sc.nextInt();
+      if (department == 1) {
+        System.out.print("What is your certificate number?: ");
+        certificateNumber = sc.nextInt();
+        System.out.print("What is your experience year?: ");
+        experienceYear = sc.nextInt();
+        Chef newWorker = new Chef(
+          name,
+          age,
+          username,
+          password,
+          certificateNumber,
+          experienceYear
+        );
+        System.out.println(newWorker);
+        admin.hiringWorker(newWorker);
+      } else if (department == 2) {
+        System.out.print("What is your phone number?: ");
+        phoneNumber = sc.next();
+        System.out.print("What is your experience year?: ");
+        experienceYear = sc.nextInt();
+        Courier courier = new Courier(
+          name,
+          age,
+          username,
+          password,
+          phoneNumber,
+          experienceYear
+        );
+        System.out.println(courier);
+
+        admin.hiringWorker(courier);
+      }
+    } catch (Exception e) {
+      System.out.println("\n\n Hiring worker has failed! \n\n");
+    }
   }
 
   public static void printProgramMenu() {
