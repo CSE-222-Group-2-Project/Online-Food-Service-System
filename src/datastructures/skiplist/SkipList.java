@@ -158,6 +158,7 @@ public class SkipList<E extends Comparable<? super E>> implements Iterable<E> {
    * @return generic type element located at the last element
    */
   public E getLast(){
+  
     
 
     if(head == null){
