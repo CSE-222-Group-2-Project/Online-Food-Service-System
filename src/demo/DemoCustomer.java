@@ -16,6 +16,10 @@ public class DemoCustomer {
   public static void demoCustomer() {
     Restaurant restaurant = new Restaurant();
     Customer customer = (Customer) Authentication.login();
+    if (customer == null) {
+      System.out.println();
+      return;
+    }
     int choice = 0;
     Scanner sc = new Scanner(System.in);
 

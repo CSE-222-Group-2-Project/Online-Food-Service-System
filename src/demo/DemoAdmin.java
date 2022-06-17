@@ -17,7 +17,13 @@ public class DemoAdmin {
 
   public static void demoAdmin() {
     Restaurant restaurant = new Restaurant();
+
     Admin admin = (Admin) Authentication.login();
+    if (admin == null) {
+      System.out.println();
+      return;
+    }
+
     admin.setRestaurant(restaurant);
     int choice = 0;
     Scanner sc = new Scanner(System.in);
