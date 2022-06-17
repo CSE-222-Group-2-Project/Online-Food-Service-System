@@ -1,7 +1,3 @@
-cd bin ; java Driver
-
-
-
 THIS IS TEST PART
 
 TESTING ADMIN METHODS...
