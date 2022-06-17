@@ -99,12 +99,24 @@ public class DemoAdmin {
           System.out.println("\n\nAll past orders has been printed\n\n");
           break;
         case 8:
-          addFoodToMenu(admin);
-          System.out.println("\n\nFood has been added to menu\n\n");
+          if (addFoodToMenu(admin)) {
+            System.out.println(
+              "\n\nFood has been added to menu (If exists)\n\n"
+            );
+          } else {
+            System.out.println("\n\nFood has not been added to menu\n\n");
+          }
           break;
         case 9:
-          deleteFoodFromMenu(admin);
-          System.out.println("\n\nFood has been deleted from the menu\n\n");
+          if (deleteFoodFromMenu(admin)) {
+            System.out.println(
+              "\n\nFood has been deleted from the menu (If exists)\n\n"
+            );
+          } else {
+            System.out.println(
+              "\n\nFood has not been deleted from the menu \n\n"
+            );
+          }
           break;
         case 10:
           admin.seeMenu();
@@ -160,7 +172,7 @@ public class DemoAdmin {
     System.out.print("\nPlease enter your choice: ");
   }
 
-  public static void addFoodToMenu(Admin admin) {
+  public static boolean addFoodToMenu(Admin admin) {
     Scanner sc = new Scanner(System.in);
     try {
       int foodID;
@@ -176,24 +188,30 @@ public class DemoAdmin {
       System.out.print("Enter Food Id : ");
       foodID = Integer.parseInt(sc.nextLine());
       admin.addFoodToMenu(new Food(foodID, foodName, foodPrice, foodType));
-    } catch (NumberFormatException e) {
+    } catch (Exception e) {
       System.out.println(
-        "\nThe enterd type is wrong,\nPlease enter the valid type"
+        "\nThe input is not valid! Please enter the valid type\n\n"
       );
-    } catch (NoSuchElementException e) {
-      System.out.println(
-        "\nThe enterd type is wrong,\nPlease enter the valid type"
-      );
+      return false;
     }
+    return true;
   }
 
-  public static void deleteFoodFromMenu(Admin admin) {
+  public static boolean deleteFoodFromMenu(Admin admin) {
     Scanner sc = new Scanner(System.in);
     Integer foodId;
-    System.out.print("Enter Food Id : ");
-    foodId = Integer.parseInt(sc.nextLine());
-    if (admin.deleteFoodFromMenu(foodId)) {
-      System.out.println("Food is deleted from menu");
-    } else System.out.println("Food is not found in menu");
+    try {
+      System.out.print("Enter Food Id : ");
+      foodId = Integer.parseInt(sc.nextLine());
+      if (admin.deleteFoodFromMenu(foodId)) {
+        System.out.println("Food is deleted from menu");
+      } else System.out.println("Food is not found in menu");
+    } catch (Exception e) {
+      System.out.println(
+        "\nThe input is not valid! Please enter the valid type!\n\n"
+      );
+      return false;
+    }
+    return true;
   }
 }
