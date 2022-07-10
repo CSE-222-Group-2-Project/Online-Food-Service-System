@@ -105,6 +105,7 @@ public class Courier extends Worker {
    *
    */
   public void deliverOrderToCustomer() {
+    
     if(orderQueue.size() != 0) {
       Order order = orderQueue.poll();
       showShortestRoute(order.getDestination().toString());
@@ -112,10 +113,14 @@ public class Courier extends Worker {
       Customer orderOwner = order.getCustomer();
       order.setStatus(OrderStatus.ORDER_DELIVERED);
       orderOwner.takeOrder(order);
+      if(orderQueue.size()==0){
+        System.out.println("\nYou May Back to the Restaurant");
+        showShortestRoute("RESTAURANT");
+        this.source = District.RESTAURANT;
+      }
     }
     else {
-      this.source = District.RESTAURANT;
-      System.out.println("There is no order currently");
+      System.out.println("There is no order currently\n");
     }
   }
 
@@ -161,6 +166,10 @@ public class Courier extends Worker {
    * @return The shortest route from the source to the destination.
    */
   public void showShortestRoute(String destination) {
+    if(destination.equals(this.source.toString())){
+        System.out.println("You are in the Same District Currently\n");
+        return;
+    }
     int numV = Restaurant.districtsGraph.getNumV();
     int[] pred = new int[numV];
     double[] distances = new double[numV];
@@ -173,30 +182,33 @@ public class Courier extends Worker {
     District dest = District.valueOf(destination);
 
     ArrayList<Integer> shortestRoute = new ArrayList<>();
-    shortestRoute.add(source.ordinal());
-    shortestRoute.add(source.ordinal());
+    shortestRoute.add(dest.ordinal());
+    
+    
+      getShortestRoute(
+              pred,
+              shortestRoute,
+              dest.ordinal(),
+              this.source.ordinal()
+      );
+      System.out.println("Destination to the "+ destination + " ->> "+ distances[dest.ordinal()]);
 
-    getShortestRoute(
-            pred,
-            shortestRoute,
-            dest.ordinal(),
-            this.source.ordinal()
-    );
+      ListIterator<Integer> iterator = shortestRoute.listIterator(shortestRoute.size()-1);
+      District[] values = District.values();
+      System.out.print(source+" ->> ");
+      while (iterator.hasPrevious()) {
+        Integer district = iterator.previous();
+        System.out.print(values[district].name() + " ->> ");
+      }
 
-
-
-
-    System.out.println("Destination to the "+ destination + " ->> "+ distances[dest.ordinal()]);
-
-    ListIterator<Integer> iterator = shortestRoute.listIterator(shortestRoute.size()-1);
-    District[] values = District.values();
-    while (iterator.hasPrevious()) {
-      Integer district = iterator.previous();
-      System.out.print(values[district].name() + " ->> ");
-    }
-
+   
+    System.out.println();
     System.out.println();
 
+
+
+
+    
   }
 
 

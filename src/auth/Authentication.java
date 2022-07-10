@@ -16,6 +16,7 @@ import src.util.Utility;
  * Authentication methods of the program
  */
 public class Authentication {
+
   /**
    * Binary Tree of users
    */
@@ -25,14 +26,13 @@ public class Authentication {
    * Scanner object for to detect user actions
    */
   private static Scanner scanObj = new Scanner(System.in);
-  
+
   /**
    * user can login to the app within this method
-   * 
+   *
    * @return User object
    */
   public static User login() {
-
     String username = "";
     String password = "";
 
@@ -54,12 +54,12 @@ public class Authentication {
     return getUser(username, password);
   }
 
-/**
- * It asks the user to enter a username, and if the username exists in the database, it returns the
- * username, otherwise it returns null
- * 
- * @return The username is being returned.
- */
+  /**
+   * It asks the user to enter a username, and if the username exists in the database, it returns the
+   * username, otherwise it returns null
+   *
+   * @return The username is being returned.
+   */
   private static String getUsername() {
     System.out.print("Enter your username please: ");
     String username = scanObj.next();
@@ -70,14 +70,13 @@ public class Authentication {
     return username;
   }
 
-/**
- * It asks the user to enter their password, and if the password is correct, it returns the password
- * 
- * @param username The username of the user who is trying to log in.
- * @return The password is being returned.
- */
+  /**
+   * It asks the user to enter their password, and if the password is correct, it returns the password
+   *
+   * @param username The username of the user who is trying to log in.
+   * @return The password is being returned.
+   */
   private static String getPassword(String username) {
-
     System.out.print("\nEnter your password please: ");
     String password = scanObj.next();
 
@@ -95,9 +94,7 @@ public class Authentication {
    * @param password The password of the user.
    * @return A User object.
    */
-  private static User getUser(
-      String username,
-      String password) {
+  private static User getUser(String username, String password) {
     BinarySearchTree<User> allUsers = Utility.getAllUsersFromDatabase();
     return allUsers.find(new User(" ", -1, username, password));
   }
@@ -111,9 +108,7 @@ public class Authentication {
    * @param password The password of the user.
    * @return A boolean value.
    */
-  private static boolean isUserExist(
-      String username,
-      String password) {
+  private static boolean isUserExist(String username, String password) {
     BinarySearchTree<User> allUsers = Utility.getAllUsersFromDatabase();
     return allUsers.contains(new User(" ", 10, username, password));
   }
@@ -126,9 +121,7 @@ public class Authentication {
    * @param password The password the user entered
    * @return The method is returning a boolean value.
    */
-  private static boolean isPasswordTrue(
-      String username,
-      String password) {
+  private static boolean isPasswordTrue(String username, String password) {
     String correctPassword = "";
     correctPassword = getUserPassword(username, password);
     return correctPassword.equals(password);
@@ -143,9 +136,7 @@ public class Authentication {
    * @param password The password of the user.
    * @return The password of the user.
    */
-  private static String getUserPassword(
-      String username,
-      String password) {
+  private static String getUserPassword(String username, String password) {
     User user = getUser(username, password);
     return user.getPassword();
   }
